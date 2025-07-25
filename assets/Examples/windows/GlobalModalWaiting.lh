@@ -5,6 +5,7 @@
   "name": "Root",
   "width": 300,
   "height": 300,
+  "_mouseState": 2,
   "_$child": [
     {
       "_$id": "gso9bseb",
@@ -38,7 +39,26 @@
             "_$uuid": "6d541d80-d2b0-4c87-a86c-bba626a128f5",
             "_$type": "AnimationController2D"
           },
-          "controllerLayers": []
+          "controllerLayers": [
+            {
+              "_$type": "AnimatorControllerLayer2D",
+              "name": "Base Layer",
+              "states": [
+                {
+                  "_$type": "AnimatorState2D",
+                  "name": "rotate",
+                  "clipStart": 0,
+                  "clip": {
+                    "_$uuid": "7c01be36-a594-46c2-9c52-05d6d9a0dc2e",
+                    "_$type": "AnimationClip2D"
+                  },
+                  "loop": 0,
+                  "soloTransitions": []
+                }
+              ],
+              "defaultStateName": "rotate"
+            }
+          ]
         }
       ]
     }
