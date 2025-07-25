@@ -1,0 +1,130 @@
+{
+  "_$ver": 1,
+  "_$id": "sfdcfph1",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "7608c26e-ad47-4ecb-bd83-8aac7d181b9f",
+      "scriptPath": "Examples/scripts/PlayLoopList.ts",
+      "list": {
+        "_$ref": "vp5jcyqn"
+      },
+      "label": {
+        "_$ref": "2qq3uxjc"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "vp5jcyqn",
+      "_$type": "GList",
+      "name": "list",
+      "x": 174,
+      "y": 26,
+      "width": 784,
+      "height": 450,
+      "layout": {
+        "type": 2,
+        "columnGap": 20,
+        "padding": [
+          36,
+          0,
+          0,
+          0
+        ]
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "direction": 1,
+        "barDisplay": 5,
+        "snapToItem": true,
+        "paddingMaskDisabled": true
+      },
+      "_templateNode": {
+        "_$ref": "9ehxiioe",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 3,
+      "_isDemo": true,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "icon": "res://db9968af-1367-455a-88b9-98e55b44eaea"
+        },
+        {
+          "_$type": "ItemData",
+          "icon": "res://b116b88f-4770-41b5-926f-f0e019f503f3"
+        },
+        {
+          "_$type": "ItemData",
+          "icon": "res://a4cace95-e194-47a5-807f-20f8cfacd887"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "9ehxiioe",
+          "_$type": "GButton",
+          "name": "btn",
+          "x": 124,
+          "y": 189,
+          "width": 248,
+          "height": 378,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "controllers": {
+            "_$type": "Record",
+            "button": {
+              "_$type": "Controller",
+              "pages": [
+                "up",
+                "down",
+                "over",
+                "selectedOver"
+              ]
+            }
+          },
+          "iconWidget": {
+            "_$ref": "c3rws7ar"
+          },
+          "mode": 2,
+          "_$child": [
+            {
+              "_$id": "c3rws7ar",
+              "_$type": "GLoader",
+              "name": "loader",
+              "width": 248,
+              "height": 378
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "7kyce0w2",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 298,
+      "y": 498,
+      "width": 283,
+      "height": 28,
+      "text": "Index of the middle item is:",
+      "fontSize": 22,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "2qq3uxjc",
+      "_$type": "GTextField",
+      "name": "txt_1",
+      "x": 586,
+      "y": 498,
+      "width": 308,
+      "height": 28,
+      "text": "",
+      "fontSize": 22,
+      "color": "#ffffff"
+    }
+  ]
+}

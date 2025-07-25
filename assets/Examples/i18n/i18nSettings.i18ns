@@ -1,0 +1,9 @@
+{
+  "id": "ohr3ew31",
+  "scope": "runtime",
+  "defaultLanguage": "en",
+  "fallbackLanguage": "",
+  "files": {
+    "zh-CN": "res://25bebf35-3601-4c27-9875-91cba87abdde"
+  }
+}

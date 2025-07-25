@@ -1,0 +1,18 @@
+{
+  "_$ver": 1,
+  "_$id": "t51xj0br",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 400,
+  "height": 400,
+  "controllers": {
+    "_$type": "Record",
+    "c1": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        ""
+      ]
+    }
+  }
+}

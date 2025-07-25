@@ -1,0 +1,203 @@
+{
+  "_$ver": 1,
+  "_$id": "yeq8wod7",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 640,
+  "height": 582,
+  "_$comp": [
+    {
+      "_$type": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+      "scriptPath": "Examples/scripts/BagWin.bp",
+      "_bp_data": {
+        "dots": {
+          "_$ref": "q73mds7p"
+        },
+        "list": {
+          "_$ref": "2czv72h8"
+        },
+        "label": {
+          "_$ref": "usgdixdb"
+        },
+        "img": {
+          "_$ref": "3mj6mh0f"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "lh22tyba",
+      "_$prefab": "11551fde-d07b-4b0f-aec1-0c12ec89f150",
+      "name": "frame",
+      "active": true,
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 582,
+      "visible": true,
+      "title": "Bag"
+    },
+    {
+      "_$id": "2czv72h8",
+      "_$type": "GList",
+      "name": "list",
+      "x": 53,
+      "y": 70,
+      "width": 525,
+      "height": 331,
+      "layout": {
+        "type": 3,
+        "pageMode": true,
+        "rowGap": 5,
+        "columnGap": 5
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "direction": 1,
+        "barDisplay": 5,
+        "pageMode": true,
+        "snapToItem": true
+      },
+      "_templateNode": {
+        "_$ref": "s2epr0jd",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 25,
+      "_isDemo": true,
+      "_$child": [
+        {
+          "_$id": "s2epr0jd",
+          "_$prefab": "aa8e56e1-a6b3-4647-9d67-7e021d3f9ff2",
+          "name": "BagGridSub",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "_$id": "q73mds7p",
+      "_$type": "GList",
+      "name": "dots",
+      "x": 120,
+      "y": 398,
+      "width": 400,
+      "height": 17,
+      "layout": {
+        "type": 2,
+        "columnGap": 40,
+        "align": 1
+      },
+      "_templateNode": {
+        "_$ref": "hrkbm8ds",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 3,
+      "_isDemo": true,
+      "_$child": [
+        {
+          "_$id": "hrkbm8ds",
+          "_$type": "GButton",
+          "name": "btn",
+          "width": 15,
+          "height": 15,
+          "background": {
+            "_$type": "DrawCircleCmd",
+            "x": 0.5,
+            "y": 0.5,
+            "radius": 0.5,
+            "percent": true,
+            "lineWidth": 0,
+            "fillColor": "#849da4"
+          },
+          "controllers": {
+            "_$type": "Record",
+            "button": {
+              "_$type": "Controller",
+              "pages": [
+                "up",
+                "down"
+              ],
+              "_editingIndex": 1
+            }
+          },
+          "gears": [
+            {
+              "_$type": "GearStrColor",
+              "controller": {
+                "_$ref": "hrkbm8ds",
+                "_$ctrl": "button"
+              },
+              "propPath": "background.fillColor",
+              "values": {
+                "0": "#3f5b5f",
+                "1": "#849da4",
+                "_$type": "Record"
+              }
+            }
+          ],
+          "mode": 2
+        }
+      ]
+    },
+    {
+      "_$id": "j15vew3o",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 61,
+      "y": 425,
+      "width": 130,
+      "height": 124,
+      "src": "res://da55d350-0816-4ba9-b7af-c4ba92e9b24d",
+      "autoSize": false,
+      "_$child": [
+        {
+          "_$id": "3mj6mh0f",
+          "_$type": "GLoader",
+          "name": "loader",
+          "x": 4,
+          "y": 7,
+          "width": 120,
+          "height": 110
+        }
+      ]
+    },
+    {
+      "_$id": "aot0fxzd",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 213,
+      "y": 467,
+      "width": 108,
+      "height": 28,
+      "text": "Selected:",
+      "fontSize": 24,
+      "color": "#ff0099"
+    },
+    {
+      "_$id": "usgdixdb",
+      "_$type": "GTextField",
+      "name": "txt_1",
+      "x": 335,
+      "y": 466,
+      "width": 228,
+      "height": 28,
+      "text": "",
+      "fontSize": 24,
+      "color": "#ff0099"
+    },
+    {
+      "_$id": "z7z575sf",
+      "_$type": "GImage",
+      "name": "img_1",
+      "x": 44,
+      "y": 413,
+      "width": 551,
+      "height": 2,
+      "src": "res://fb74aba9-c314-400a-a57d-7d302fbcb3bc",
+      "autoSize": false
+    }
+  ]
+}

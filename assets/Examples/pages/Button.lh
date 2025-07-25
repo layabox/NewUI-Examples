@@ -1,0 +1,419 @@
+{
+  "_$ver": 1,
+  "_$id": "evm3zv49",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "controllers": {
+    "_$type": "Record",
+    "RadioGroup": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tab": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "_$comp": [
+    {
+      "_$type": "0c5598bf-90f5-45f1-916f-41fc636d26f9",
+      "scriptPath": "Examples/scripts/PlayButton.bp",
+      "_bp_data": {
+        "button": {
+          "_$ref": "s94rq2tz"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "s94rq2tz",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1",
+      "active": true,
+      "x": 28,
+      "y": 24,
+      "visible": true,
+      "title": "Simple"
+    },
+    {
+      "_$id": "1poybzek",
+      "_$prefab": "b1601ec6-1a2f-4690-8d61-bf4429d3bbd1",
+      "name": "Button5",
+      "active": true,
+      "x": 157,
+      "y": 20,
+      "width": 145,
+      "visible": true,
+      "title": "Click Me",
+      "icon": "res://ff75f9e7-a094-4931-9b58-d734ae0d8d17"
+    },
+    {
+      "_$id": "xvd6i1vj",
+      "_$prefab": "87b3cc9f-328c-44c5-912d-a04e59684daf",
+      "name": "Button5_1",
+      "active": true,
+      "x": 320,
+      "y": 19,
+      "visible": true,
+      "title": "点我",
+      "icon": "res://ff75f9e7-a094-4931-9b58-d734ae0d8d17"
+    },
+    {
+      "_$id": "1jac3yq1",
+      "_$prefab": "543cee4f-dd1d-4cac-b5bf-9957c11f3347",
+      "name": "Button7",
+      "active": true,
+      "x": 550,
+      "y": 48,
+      "visible": true,
+      "icon": "res://2cac2315-3915-4544-b25d-48c8dde366ad"
+    },
+    {
+      "_$id": "k4ca7wt3",
+      "_$prefab": "9e0c62d6-323a-48c1-bb36-d34aae37a2c7",
+      "name": "Button8",
+      "active": true,
+      "x": 690,
+      "y": 18,
+      "visible": true
+    },
+    {
+      "_$id": "jt1rct26",
+      "_$prefab": "d6d8817e-d416-4f17-94fa-76e55bc68234",
+      "name": "Checkbox",
+      "active": true,
+      "x": 36,
+      "y": 109,
+      "width": 96,
+      "visible": true,
+      "title": "CheckBox"
+    },
+    {
+      "_$id": "uljp8a2i",
+      "_$prefab": "122b1c41-0747-4193-8b22-e80cbbd6b2f9",
+      "name": "RadioButton",
+      "active": true,
+      "x": 138,
+      "y": 108,
+      "width": 56,
+      "visible": true,
+      "title": "Radio"
+    },
+    {
+      "_$id": "vkq77jj3",
+      "_$prefab": "17afd0a9-6c5d-4c52-a82b-fcbefae28ae8",
+      "name": "Button9",
+      "active": true,
+      "x": 226,
+      "y": 93,
+      "visible": true,
+      "selected": true
+    },
+    {
+      "_$id": "c7suheve",
+      "_$prefab": "122b1c41-0747-4193-8b22-e80cbbd6b2f9",
+      "name": "RadioButton_1",
+      "active": true,
+      "x": 334,
+      "y": 135,
+      "width": 61,
+      "visible": true,
+      "title": "Radio",
+      "selected": true,
+      "selectedController": {
+        "_$ref": "evm3zv49",
+        "_$ctrl": "RadioGroup"
+      }
+    },
+    {
+      "_$id": "n1xc9w4f",
+      "_$prefab": "122b1c41-0747-4193-8b22-e80cbbd6b2f9",
+      "name": "RadioButton_2",
+      "active": true,
+      "x": 334,
+      "y": 159,
+      "width": 61,
+      "height": 17,
+      "visible": true,
+      "title": "Radio",
+      "selectedController": {
+        "_$ref": "evm3zv49",
+        "_$ctrl": "RadioGroup"
+      },
+      "selectedPage": 1
+    },
+    {
+      "_$id": "drlt3pqf",
+      "_$prefab": "122b1c41-0747-4193-8b22-e80cbbd6b2f9",
+      "name": "RadioButton_2_1",
+      "active": true,
+      "x": 334,
+      "y": 183,
+      "width": 61,
+      "height": 17,
+      "visible": true,
+      "title": "Radio",
+      "selectedController": {
+        "_$ref": "evm3zv49",
+        "_$ctrl": "RadioGroup"
+      },
+      "selectedPage": 2
+    },
+    {
+      "_$id": "a8k0rjhb",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 325,
+      "y": 98,
+      "width": 136,
+      "height": 28,
+      "text": "RadioGroup",
+      "fontSize": 22
+    },
+    {
+      "_$id": "k96wswis",
+      "_$type": "GTextField",
+      "name": "txt_1",
+      "x": 544,
+      "y": 102,
+      "width": 120,
+      "height": 28,
+      "text": "Tabs",
+      "fontSize": 22
+    },
+    {
+      "_$id": "ihgtvw15",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 540,
+      "y": 133,
+      "width": 232,
+      "height": 121,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#333333"
+      }
+    },
+    {
+      "_$id": "w99d9qy3",
+      "_$prefab": "c0e97e67-91d3-464c-b892-f5d53a4815a3",
+      "name": "Button10",
+      "active": true,
+      "x": 548,
+      "y": 136,
+      "visible": true,
+      "title": "Tab1",
+      "selected": true,
+      "selectedController": {
+        "_$ref": "evm3zv49",
+        "_$ctrl": "tab"
+      }
+    },
+    {
+      "_$id": "c8u8dv0t",
+      "_$prefab": "c0e97e67-91d3-464c-b892-f5d53a4815a3",
+      "name": "Button10_1",
+      "active": true,
+      "x": 620,
+      "y": 136,
+      "visible": true,
+      "title": "Tab2",
+      "selectedController": {
+        "_$ref": "evm3zv49",
+        "_$ctrl": "tab"
+      },
+      "selectedPage": 1
+    },
+    {
+      "_$id": "zzw4lozl",
+      "_$prefab": "c0e97e67-91d3-464c-b892-f5d53a4815a3",
+      "name": "Button10_1_1",
+      "active": true,
+      "x": 692,
+      "y": 136,
+      "visible": true,
+      "title": "Tab3",
+      "selectedController": {
+        "_$ref": "evm3zv49",
+        "_$ctrl": "tab"
+      },
+      "selectedPage": 2
+    },
+    {
+      "_$id": "nt9vxdt0",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 647,
+      "y": 197,
+      "width": 32,
+      "height": 32,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "evm3zv49",
+            "_$ctrl": "tab"
+          },
+          "pages": [
+            0
+          ]
+        }
+      ],
+      "src": "res://d1c98d35-30ab-463d-b1f7-022001767ea5"
+    },
+    {
+      "_$id": "mu7sz9es",
+      "_$type": "GImage",
+      "name": "img_1",
+      "x": 647,
+      "y": 197,
+      "width": 32,
+      "height": 32,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "evm3zv49",
+            "_$ctrl": "tab"
+          },
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "src": "res://19e18b62-ee27-46e2-a0e3-811315462027"
+    },
+    {
+      "_$id": "y8l4dmvd",
+      "_$type": "GImage",
+      "name": "img_2",
+      "x": 647,
+      "y": 197,
+      "width": 32,
+      "height": 32,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "evm3zv49",
+            "_$ctrl": "tab"
+          },
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "src": "res://ff75f9e7-a094-4931-9b58-d734ae0d8d17"
+    },
+    {
+      "_$id": "1lsg2nu6",
+      "_$prefab": "49f704a7-38ee-4592-b206-f778c0f1d864",
+      "name": "Button3",
+      "active": true,
+      "x": 43,
+      "y": 167,
+      "visible": true
+    },
+    {
+      "_$id": "ulbn3axv",
+      "_$prefab": "c2368841-8d7e-403e-ab45-6988527c9c5e",
+      "name": "OnOffButton",
+      "active": true,
+      "x": 40,
+      "y": 256,
+      "visible": true
+    },
+    {
+      "_$id": "4gj8mn7k",
+      "_$prefab": "fb03dcc4-c7b7-41c9-ac06-7938ff90c49e",
+      "name": "Button11",
+      "active": true,
+      "x": 196,
+      "y": 245,
+      "visible": true,
+      "title": "Fade In Out"
+    },
+    {
+      "_$id": "9na77111",
+      "_$prefab": "543cee4f-dd1d-4cac-b5bf-9957c11f3347",
+      "name": "Button7_1",
+      "active": true,
+      "x": 128,
+      "y": 481,
+      "anchorX": 0.43714285714285717,
+      "anchorY": 1.1,
+      "visible": true,
+      "_mouseState": 1,
+      "grayed": true,
+      "icon": "res://2cac2315-3915-4544-b25d-48c8dde366ad"
+    },
+    {
+      "_$id": "1tn8481x",
+      "_$type": "GTextField",
+      "name": "txt_2_1",
+      "x": 16,
+      "y": 371,
+      "width": 400,
+      "height": 28,
+      "text": "Disable button: grayed+not touchable",
+      "fontSize": 22
+    },
+    {
+      "_$id": "rk2xnndf",
+      "_$type": "GTextField",
+      "name": "txt_2_1_1",
+      "x": 472,
+      "y": 373,
+      "width": 352,
+      "height": 57,
+      "text": "Custom grayed\n(Use a controller named 'grayed')",
+      "fontSize": 22
+    },
+    {
+      "_$id": "rvm6c54o",
+      "_$prefab": "fdb700a6-f06a-406a-81c4-a2ca8f43a83d",
+      "name": "Button7_1_1",
+      "active": true,
+      "x": 561,
+      "y": 465,
+      "visible": true,
+      "grayed": true,
+      "icon": "res://2cac2315-3915-4544-b25d-48c8dde366ad"
+    },
+    {
+      "_$id": "uw6y8evw",
+      "_$type": "GTextField",
+      "name": "txt_2_1_1_1",
+      "x": 835,
+      "y": 371,
+      "width": 223,
+      "height": 57,
+      "text": "Custom grayed\n(Use disabled page)",
+      "fontSize": 22
+    },
+    {
+      "_$id": "4qb748nt",
+      "_$prefab": "e181c47a-92cd-4f59-9cd4-65e412716c3b",
+      "name": "Button9_1",
+      "active": true,
+      "x": 861,
+      "y": 435,
+      "visible": true,
+      "grayed": true,
+      "selected": true
+    }
+  ]
+}

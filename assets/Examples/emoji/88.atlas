@@ -1,0 +1,41 @@
+{
+  "animation": {
+    "interval": 160
+  },
+  "frames": {
+    "88_0000.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 0,
+        "w": 22,
+        "h": 22
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 24
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    "88_0001.png": {
+      "frame": {
+        "idx": 0,
+        "x": 24,
+        "y": 0,
+        "w": 20,
+        "h": 22
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 24
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_$ver": 1,
+  "_$id": "ikyxruag",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "blendMode": 0,
+  "_$child": [
+    {
+      "_$id": "qpubqtdk",
+      "_$prefab": "66389740-f1c1-4240-a48c-7de42c33c22a",
+      "name": "WindowFrame",
+      "active": true,
+      "x": 58,
+      "y": 71,
+      "width": 310,
+      "height": 312,
+      "visible": true,
+      "title": "Bag"
+    },
+    {
+      "_$id": "55ajdjp8",
+      "_$prefab": "c49b2b08-47bd-4cf7-a219-c2c8347b972b",
+      "name": "Label1",
+      "active": true,
+      "x": 418,
+      "y": 106,
+      "visible": true,
+      "title": "Hello world",
+      "icon": "res://19e18b62-ee27-46e2-a0e3-811315462027"
+    },
+    {
+      "_$id": "6jgdf4rr",
+      "_$prefab": "c49b2b08-47bd-4cf7-a219-c2c8347b972b",
+      "name": "Label1_1",
+      "active": true,
+      "x": 425,
+      "y": 242,
+      "visible": true,
+      "title": "Hello LayaAir",
+      "icon": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2"
+    }
+  ]
+}

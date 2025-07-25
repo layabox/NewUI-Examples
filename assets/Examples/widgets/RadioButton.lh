@@ -1,0 +1,138 @@
+{
+  "_$ver": 1,
+  "_$id": "ezy2fwgb",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 49,
+  "height": 17,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "titleWidget": {
+    "_$ref": "0ncen2y7"
+  },
+  "mode": 2,
+  "_$child": [
+    {
+      "_$id": "jk4k25v0",
+      "_$type": "GImage",
+      "name": "img",
+      "y": 2,
+      "width": 13,
+      "height": 13,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "ezy2fwgb",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            0
+          ]
+        }
+      ],
+      "src": "res://c3ca0c6a-0bb1-44e5-85c2-2ea7d78fb5ca",
+      "autoSize": false
+    },
+    {
+      "_$id": "10noz2h2",
+      "_$type": "GImage",
+      "name": "img",
+      "y": 2,
+      "width": 13,
+      "height": 13,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "ezy2fwgb",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "src": "res://80284630-072b-44a3-9dad-a7027af4e860",
+      "autoSize": false
+    },
+    {
+      "_$id": "org6kmex",
+      "_$type": "GImage",
+      "name": "img",
+      "y": 2,
+      "width": 13,
+      "height": 13,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "ezy2fwgb",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "src": "res://dbd65aa1-ca24-4dd2-be81-b2340e1210f6",
+      "autoSize": false
+    },
+    {
+      "_$id": "6os1u9iz",
+      "_$type": "GImage",
+      "name": "img",
+      "y": 2,
+      "width": 13,
+      "height": 13,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "ezy2fwgb",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "src": "res://a867e38e-0eb6-4ae9-a8ae-0a81997996a1",
+      "autoSize": false
+    },
+    {
+      "_$id": "0ncen2y7",
+      "_$type": "GTextField",
+      "name": "title",
+      "x": 14,
+      "width": 33,
+      "height": 16,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "ezy2fwgb"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ],
+      "text": "Title",
+      "fontSize": 12,
+      "valign": "middle",
+      "overflow": "hidden"
+    }
+  ]
+}

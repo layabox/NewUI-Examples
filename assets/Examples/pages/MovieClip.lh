@@ -1,0 +1,75 @@
+{
+  "_$ver": 1,
+  "_$id": "h3q5lo3r",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$child": [
+    {
+      "_$id": "jetnm8ng",
+      "_$prefab": "b1601ec6-1a2f-4690-8d61-bf4429d3bbd1",
+      "name": "Button2",
+      "active": true,
+      "x": 252,
+      "y": 359,
+      "width": 141,
+      "visible": true,
+      "title": "Click Me",
+      "icon": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2"
+    },
+    {
+      "_$id": "39muvoky",
+      "_$type": "GMovieClip",
+      "name": "smile",
+      "x": 48,
+      "y": 26,
+      "width": 59,
+      "height": 59,
+      "src": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2"
+    },
+    {
+      "_$id": "xo3j4y60",
+      "_$type": "GMovieClip",
+      "name": "pet",
+      "x": 184,
+      "y": 25,
+      "width": 84,
+      "height": 74,
+      "src": "res://e5750b11-7483-4816-bf1a-830285f3e42d"
+    },
+    {
+      "_$id": "o5uc911r",
+      "_$type": "GMovieClip",
+      "name": "smile(1)",
+      "x": 61,
+      "y": 147,
+      "width": 59,
+      "height": 59,
+      "src": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2",
+      "color": "#3cad87"
+    },
+    {
+      "_$id": "wr59xc59",
+      "_$type": "GMovieClip",
+      "name": "smile(2)",
+      "x": 221,
+      "y": 153,
+      "width": 59,
+      "height": 59,
+      "grayed": true,
+      "src": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2"
+    },
+    {
+      "_$id": "pmlkyrob",
+      "_$type": "GMovieClip",
+      "name": "smile(3)",
+      "x": 70,
+      "y": 351,
+      "width": 59,
+      "height": 59,
+      "src": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2",
+      "autoPlay": false
+    }
+  ]
+}

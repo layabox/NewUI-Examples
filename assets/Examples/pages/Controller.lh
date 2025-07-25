@@ -1,0 +1,467 @@
+{
+  "_$ver": 1,
+  "_$id": "s8dvwtzb",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "controllers": {
+    "_$type": "Record",
+    "c1": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        ""
+      ]
+    },
+    "c2": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        ""
+      ],
+      "_editingIndex": 1
+    }
+  },
+  "_$child": [
+    {
+      "_$id": "scexpcyl",
+      "_$prefab": "49f704a7-38ee-4592-b206-f778c0f1d864",
+      "name": "Button3",
+      "active": true,
+      "x": 75,
+      "y": 44,
+      "visible": true,
+      "selectedController": {
+        "_$ref": "s8dvwtzb",
+        "_$ctrl": "c1"
+      },
+      "selectedPage": 1
+    },
+    {
+      "_$id": "nw6zp6x6",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 64,
+      "y": 130,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      },
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "x",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 64,
+            "1": 315,
+            "_$type": "Record"
+          }
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "y",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 130,
+            "1": 29,
+            "_$type": "Record"
+          }
+        }
+      ]
+    },
+    {
+      "_$id": "szp33fs7",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 193,
+      "y": 129,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#666699"
+      },
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "x",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 193,
+            "1": 55,
+            "_$type": "Record"
+          }
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "y",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 129,
+            "1": 191,
+            "_$type": "Record"
+          }
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "width",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 100,
+            "1": 240,
+            "_$type": "Record"
+          }
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "height",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 100,
+            "1": 216,
+            "_$type": "Record"
+          }
+        }
+      ]
+    },
+    {
+      "_$id": "4dj6xvm8",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 202,
+      "y": 202,
+      "width": 71,
+      "height": 20,
+      "gears": [
+        {
+          "_$type": "GearStrColor",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "color",
+          "values": {
+            "0": "#ffffff",
+            "1": "#000000",
+            "_$type": "Record"
+          }
+        }
+      ],
+      "text": "FairyGUI",
+      "fontSize": 16,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "2eb3dapq",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 390,
+      "y": 344,
+      "width": 90,
+      "height": 90,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "rotation",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 0,
+            "1": 180,
+            "_$type": "Record",
+            "-1": 180
+          }
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "alpha",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 1,
+            "1": 0.446,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078"
+    },
+    {
+      "_$id": "4aqig4ts",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 320,
+      "y": 35,
+      "width": 90,
+      "height": 90,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "src": "res://b039888f-f1fb-4947-b30f-251a992e3424"
+    },
+    {
+      "_$id": "bmwopcc8",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 69,
+      "y": 135,
+      "width": 89,
+      "height": 90,
+      "gears": [
+        {
+          "_$type": "GearStrColor",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": ""
+          },
+          "propPath": "color",
+          "values": {
+            "0": "#66ff99",
+            "_$type": "Record",
+            "-1": "#66ff99"
+          }
+        }
+      ],
+      "src": "res://d13510ac-f9b7-406b-b60f-302fb1728711",
+      "color": "#66ff99"
+    },
+    {
+      "_$id": "g74l3814",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 481,
+      "y": 94,
+      "width": 400,
+      "height": 94,
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "fontSize",
+          "values": {
+            "0": 33,
+            "1": 74,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "text": "Demo Text",
+      "fontSize": 33,
+      "color": "#336699"
+    },
+    {
+      "_$id": "gg983m3l",
+      "_$type": "GMovieClip",
+      "name": "smile",
+      "x": 212,
+      "y": 138,
+      "width": 59,
+      "height": 59,
+      "gears": [
+        {
+          "_$type": "GearBool",
+          "controller": {
+            "_$ref": "s8dvwtzb",
+            "_$ctrl": "c1"
+          },
+          "propPath": "autoPlay",
+          "values": {
+            "0": true,
+            "1": false,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "src": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2"
+    },
+    {
+      "_$id": "ehf1k1ki",
+      "_$type": "GWidget",
+      "name": "node_1",
+      "x": 635,
+      "y": 448,
+      "width": 492,
+      "height": 102,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "s8dvwtzb"
+          },
+          "data": [
+            9,
+            0,
+            16,
+            0
+          ]
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "hqc7uk36",
+          "_$type": "GBox",
+          "name": "box",
+          "width": 334,
+          "height": 97,
+          "gears": [
+            {
+              "_$type": "GearNumber",
+              "controller": {
+                "_$ref": "s8dvwtzb",
+                "_$ctrl": "c2"
+              },
+              "propPath": "x",
+              "tween": {
+                "_$type": "GearTweenConfig"
+              },
+              "values": {
+                "0": 518,
+                "1": 0,
+                "_$type": "Record"
+              }
+            },
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "s8dvwtzb",
+                "_$ctrl": "c2"
+              },
+              "pages": [
+                1
+              ]
+            }
+          ],
+          "layout": {
+            "type": 2,
+            "columnGap": 27
+          },
+          "_$child": [
+            {
+              "_$id": "kka7nxyt",
+              "_$type": "GImage",
+              "name": "img",
+              "width": 90,
+              "height": 90,
+              "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078"
+            },
+            {
+              "_$id": "crz9s2a7",
+              "_$type": "GImage",
+              "name": "img",
+              "x": 117,
+              "width": 90,
+              "height": 90,
+              "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078"
+            },
+            {
+              "_$id": "6269ikcq",
+              "_$type": "GImage",
+              "name": "img",
+              "x": 234,
+              "width": 90,
+              "height": 90,
+              "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "yu5wzleb",
+      "_$prefab": "e2c92f0b-cb19-4df6-b6c6-1b2791ef2a41",
+      "name": "Button4",
+      "active": true,
+      "x": 995,
+      "y": 443,
+      "visible": true,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "s8dvwtzb"
+          },
+          "data": [
+            9,
+            0,
+            16,
+            0
+          ]
+        }
+      ],
+      "selected": true,
+      "selectedController": {
+        "_$ref": "s8dvwtzb",
+        "_$ctrl": "c2"
+      },
+      "selectedPage": 1
+    }
+  ]
+}

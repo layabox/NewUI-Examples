@@ -1,0 +1,80 @@
+{
+  "_$ver": 1,
+  "_$id": "ybh8r0v0",
+  "_$type": "GProgressBar",
+  "width": 577,
+  "height": 53,
+  "_hBar": {
+    "_$ref": "rrytc8hy"
+  },
+  "_$child": [
+    {
+      "_$id": "voezyho9",
+      "_$type": "GImage",
+      "name": "bg",
+      "x": 53,
+      "y": 17,
+      "width": 470,
+      "height": 16,
+      "grayed": true,
+      "src": "res://fb136e7f-5209-4288-af89-5f2f9edc4f02",
+      "autoSize": false
+    },
+    {
+      "_$id": "rrytc8hy",
+      "_$type": "GImage",
+      "name": "bar",
+      "x": 53,
+      "y": 17,
+      "width": 470,
+      "height": 16,
+      "src": "res://fb136e7f-5209-4288-af89-5f2f9edc4f02",
+      "autoSize": false
+    },
+    {
+      "_$id": "4i2a2y45",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 3,
+      "y": -4,
+      "width": 85,
+      "height": 59,
+      "src": "res://d26ed109-240d-4c75-b792-aa5164d3a85e"
+    },
+    {
+      "_$id": "mr6z6p0u",
+      "_$type": "GImage",
+      "name": "img_1",
+      "x": 485,
+      "y": -4,
+      "width": 88,
+      "height": 59,
+      "src": "res://f892c8bc-c2d7-45cf-a415-2991cd52717c"
+    },
+    {
+      "_$id": "xqa96hqs",
+      "_$type": "GMovieClip",
+      "name": "ani",
+      "x": 523.1519999999996,
+      "y": 24.644000000000005,
+      "width": 84,
+      "height": 74,
+      "anchorX": 0.728,
+      "anchorY": 0.806,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rrytc8hy"
+          },
+          "data": [
+            5,
+            0
+          ]
+        }
+      ],
+      "src": "res://e5750b11-7483-4816-bf1a-830285f3e42d",
+      "autoSize": false
+    }
+  ]
+}

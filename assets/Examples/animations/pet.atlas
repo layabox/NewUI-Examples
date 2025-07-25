@@ -1,0 +1,143 @@
+{
+  "animation": {
+    "interval": 80
+  },
+  "frames": {
+    "pet_0000.png": {
+      "frame": {
+        "idx": 0,
+        "x": 82,
+        "y": 63,
+        "w": 74,
+        "h": 65
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    "pet_0001.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 134,
+        "w": 73,
+        "h": 63
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 5
+      }
+    },
+    "pet_0002.png": {
+      "frame": {
+        "idx": 0,
+        "x": 158,
+        "y": 126,
+        "w": 72,
+        "h": 62
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 6
+      }
+    },
+    "pet_0003.png": {
+      "frame": {
+        "idx": 0,
+        "x": 82,
+        "y": 130,
+        "w": 74,
+        "h": 63
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    "pet_0004.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 0,
+        "w": 78,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 2
+      }
+    },
+    "pet_0005.png": {
+      "frame": {
+        "idx": 0,
+        "x": 80,
+        "y": 0,
+        "w": 80,
+        "h": 61
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 7
+      }
+    },
+    "pet_0006.png": {
+      "frame": {
+        "idx": 0,
+        "x": 158,
+        "y": 63,
+        "w": 74,
+        "h": 61
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 6
+      }
+    },
+    "pet_0007.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 68,
+        "w": 80,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "_$ver": 1,
+  "_$id": "weu0vljy",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "c4cf0568-d126-495b-b44a-db47da4fcc37",
+      "scriptPath": "Examples/scripts/PlayDualScroll.ts",
+      "list": {
+        "_$ref": "1h0ngssx"
+      },
+      "label": {
+        "_$ref": "yyz97aj2"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "1h0ngssx",
+      "_$type": "GList",
+      "name": "list",
+      "x": 47,
+      "y": 21,
+      "width": 400,
+      "height": 513,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#ffffff"
+      },
+      "layout": {
+        "type": 1,
+        "stretchX": 1
+      },
+      "scroller": {
+        "_$type": "Scroller"
+      },
+      "_templateNode": {
+        "_$ref": "qbgpw6q4",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 5,
+      "_isDemo": true,
+      "_$child": [
+        {
+          "_$id": "qbgpw6q4",
+          "_$type": "GButton",
+          "name": "ListItem",
+          "width": 474,
+          "height": 88,
+          "controllers": {
+            "_$type": "Record",
+            "button": {
+              "_$type": "Controller",
+              "pages": [
+                "up",
+                "down",
+                "over",
+                "selectedOver"
+              ]
+            }
+          },
+          "titleFontSize": 24,
+          "titleWidget": {
+            "_$ref": "kb7df44c"
+          },
+          "iconWidget": {
+            "_$ref": "8bn5x3by"
+          },
+          "mode": 2,
+          "_$child": [
+            {
+              "_$id": "2h9n9cy5",
+              "_$type": "GPanel",
+              "name": "panel",
+              "width": 474,
+              "height": 88,
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "qbgpw6q4"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ],
+              "selection": {
+                "mode": 0
+              },
+              "scroller": {
+                "_$type": "Scroller",
+                "direction": 1,
+                "barDisplay": 5,
+                "bouncebackEffect": 2,
+                "pageMode": true,
+                "paddingMaskDisabled": true
+              },
+              "_$child": [
+                {
+                  "_$id": "8bn5x3by",
+                  "_$type": "GLoader",
+                  "name": "loader",
+                  "x": 7,
+                  "y": 8,
+                  "width": 64,
+                  "height": 64,
+                  "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078"
+                },
+                {
+                  "_$id": "kb7df44c",
+                  "_$type": "GTextField",
+                  "name": "title",
+                  "x": 80,
+                  "y": 7,
+                  "width": 269,
+                  "height": 34,
+                  "relations": [
+                    {
+                      "_$type": "Relation",
+                      "target": {
+                        "_$ref": "qbgpw6q4"
+                      },
+                      "data": [
+                        1,
+                        0
+                      ]
+                    }
+                  ],
+                  "text": "text",
+                  "fontSize": 24
+                },
+                {
+                  "_$id": "d7s8doxr",
+                  "_$type": "GTextField",
+                  "name": "desc",
+                  "x": 81,
+                  "y": 44,
+                  "width": 374,
+                  "height": 34,
+                  "relations": [
+                    {
+                      "_$type": "Relation",
+                      "target": {
+                        "_$ref": "qbgpw6q4"
+                      },
+                      "data": [
+                        1,
+                        0
+                      ]
+                    }
+                  ],
+                  "text": "text",
+                  "fontSize": 24,
+                  "color": "#babcbf"
+                },
+                {
+                  "_$id": "ng8j2v0u",
+                  "_$type": "GTextField",
+                  "name": "time",
+                  "x": 377,
+                  "y": 6,
+                  "width": 90,
+                  "height": 34,
+                  "relations": [
+                    {
+                      "_$type": "Relation",
+                      "target": {
+                        "_$ref": "qbgpw6q4"
+                      },
+                      "data": [
+                        9,
+                        0
+                      ]
+                    }
+                  ],
+                  "text": "21:03",
+                  "fontSize": 24,
+                  "color": "#babcbf",
+                  "align": "right"
+                },
+                {
+                  "_$id": "65oxp5em",
+                  "_$type": "GImage",
+                  "name": "img",
+                  "y": 86,
+                  "width": 757,
+                  "height": 2,
+                  "relations": [
+                    {
+                      "_$type": "Relation",
+                      "target": {
+                        "_$ref": "qbgpw6q4"
+                      },
+                      "data": [
+                        1,
+                        0,
+                        16,
+                        0
+                      ]
+                    }
+                  ],
+                  "src": "res://2b048ca3-7865-4202-a511-f4b1f6042ada",
+                  "autoSize": false
+                },
+                {
+                  "_$id": "im7i1zcp",
+                  "_$type": "GButton",
+                  "name": "b0",
+                  "x": 474,
+                  "width": 140,
+                  "height": 86,
+                  "background": {
+                    "_$type": "DrawRectCmd",
+                    "fillColor": "#666666"
+                  },
+                  "controllers": {
+                    "_$type": "Record",
+                    "button": {
+                      "_$type": "Controller",
+                      "pages": [
+                        "up",
+                        "down",
+                        "over",
+                        "selectedOver"
+                      ]
+                    }
+                  },
+                  "_$child": [
+                    {
+                      "_$id": "q9ymxlvo",
+                      "_$type": "GTextField",
+                      "name": "txt",
+                      "y": 31,
+                      "width": 140,
+                      "height": 28,
+                      "text": "Stick",
+                      "fontSize": 28,
+                      "color": "#ffffff",
+                      "align": "center"
+                    }
+                  ]
+                },
+                {
+                  "_$id": "nliumorg",
+                  "_$type": "GButton",
+                  "name": "b1",
+                  "x": 614,
+                  "width": 140,
+                  "height": 86,
+                  "background": {
+                    "_$type": "DrawRectCmd",
+                    "fillColor": "#ff3300"
+                  },
+                  "controllers": {
+                    "_$type": "Record",
+                    "button": {
+                      "_$type": "Controller",
+                      "pages": [
+                        "up",
+                        "down",
+                        "over",
+                        "selectedOver"
+                      ]
+                    }
+                  },
+                  "_$child": [
+                    {
+                      "_$id": "gf60tewn",
+                      "_$type": "GTextField",
+                      "name": "txt",
+                      "y": 31,
+                      "width": 140,
+                      "height": 33,
+                      "text": "Delete",
+                      "fontSize": 28,
+                      "color": "#ffffff",
+                      "align": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "aknl8pox",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 521,
+      "y": 33,
+      "width": 448,
+      "height": 147,
+      "text": "* Drag vertically to scroll the whole list.\n* Drag horizontally to scroll single item.",
+      "fontSize": 22,
+      "color": "#ffffff",
+      "leading": 12,
+      "stroke": 2
+    },
+    {
+      "_$id": "l6zbuybu",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 587,
+      "y": 271,
+      "width": 368,
+      "height": 202,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#006633"
+      }
+    },
+    {
+      "_$id": "yyz97aj2",
+      "_$type": "GTextField",
+      "name": "txt_1",
+      "x": 619,
+      "y": 352,
+      "width": 315,
+      "height": 28,
+      "text": "text",
+      "fontSize": 24,
+      "color": "#ffffff",
+      "align": "center"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "_$ver": 1,
+  "_$id": "gan6mrtl",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$child": [
+    {
+      "_$id": "loxskgbl",
+      "_$prefab": "907edf83-1d78-4725-8f2c-680434b6968d",
+      "name": "ComboBox",
+      "active": true,
+      "x": 44,
+      "y": 48,
+      "visible": true,
+      "title": "Item1",
+      "items": [
+        "Item1",
+        "Item2",
+        "Item3",
+        "Item4",
+        "Item5",
+        "Item6",
+        "Item7",
+        "Item8"
+      ]
+    },
+    {
+      "_$id": "o2ip07qy",
+      "_$prefab": "907edf83-1d78-4725-8f2c-680434b6968d",
+      "name": "ComboBox_1",
+      "active": true,
+      "x": 189,
+      "y": 47,
+      "visible": true,
+      "title": "Item1",
+      "items": [
+        "Item1",
+        "Item2",
+        "Item3",
+        "Item4",
+        "Item5",
+        "Item6",
+        "Item7",
+        "Item8"
+      ],
+      "visibleItemCount": 5
+    },
+    {
+      "_$id": "y80rwrcq",
+      "_$prefab": "b9df1ee0-ee53-47e9-b4bd-a9ea17ee2523",
+      "name": "ComboBox1",
+      "active": true,
+      "x": 52,
+      "y": 118,
+      "visible": true,
+      "title": "Item1",
+      "items": [
+        "Item1",
+        "Item2",
+        "Item3",
+        "Item4",
+        "Item5",
+        "Item6",
+        "Item7",
+        "Item8"
+      ]
+    },
+    {
+      "_$id": "hhy2hg02",
+      "_$prefab": "b9df1ee0-ee53-47e9-b4bd-a9ea17ee2523",
+      "name": "ComboBox1_1",
+      "active": true,
+      "x": 222,
+      "y": 118,
+      "visible": true,
+      "title": "Item1",
+      "items": [
+        "Item1",
+        "Item2",
+        "Item3",
+        "Item4",
+        "Item5",
+        "Item6",
+        "Item7",
+        "Item8"
+      ],
+      "visibleItemCount": 5
+    }
+  ]
+}

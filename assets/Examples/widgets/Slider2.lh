@@ -1,0 +1,109 @@
+{
+  "_$ver": 1,
+  "_$id": "zk7xu6ff",
+  "_$type": "GSlider",
+  "width": 361,
+  "height": 23,
+  "_hBar": {
+    "_$ref": "zayoy4iw"
+  },
+  "_gripButton": {
+    "_$ref": "56tgtz1u"
+  },
+  "_$child": [
+    {
+      "_$id": "0tyuf6nv",
+      "_$type": "GImage",
+      "name": "bg",
+      "width": 361,
+      "height": 23,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zk7xu6ff"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://a5a721bc-4727-4c21-bb1e-ccc88cd74d45",
+      "autoSize": false
+    },
+    {
+      "_$id": "zayoy4iw",
+      "_$type": "GImage",
+      "name": "bar",
+      "x": -1,
+      "width": 362,
+      "height": 23,
+      "src": "res://9d605f48-2971-468b-901a-2e89d8c9c24b",
+      "autoSize": false
+    },
+    {
+      "_$id": "56tgtz1u",
+      "_$type": "GButton",
+      "name": "grip",
+      "x": 361,
+      "y": 11,
+      "width": 56,
+      "height": 57,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "controllers": {
+        "_$type": "Record",
+        "button": {
+          "_$type": "Controller",
+          "pages": [
+            "up",
+            "down",
+            "over",
+            "selectedOver"
+          ]
+        }
+      },
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zayoy4iw"
+          },
+          "data": [
+            5,
+            0
+          ]
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "ijgwf2k3",
+          "_$type": "GImage",
+          "name": "img",
+          "y": 3,
+          "width": 56,
+          "height": 57,
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "56tgtz1u"
+              },
+              "data": [
+                1,
+                0,
+                2,
+                0
+              ]
+            }
+          ],
+          "src": "res://31365685-7018-4ef2-8e7c-05ee3b689a8a",
+          "autoSize": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "extends": "Script",
+  "autoID": 53,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "variable": [
+    {
+      "id": "var_15",
+      "name": "grid0",
+      "type": "GButton",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_16",
+      "name": "grid1",
+      "type": "GButton",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_17",
+      "name": "grid2",
+      "type": "GButton",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_18",
+      "name": "grid3",
+      "type": "GButton",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_43",
+      "name": "dragArea",
+      "type": "Sprite",
+      "private": false,
+      "limitProperties": {}
+    }
+  ],
+  "functions": [],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "cid": "fun_onStart_",
+          "id": 14,
+          "uiData": {
+            "x": 57.42578125000002,
+            "y": 32.750190548780516
+          },
+          "target": "Script",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 20,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 19,
+          "uiData": {
+            "x": 47.23828125,
+            "y": 214.4375
+          },
+          "target": "714ba844-96ab-4ca2-b252-7434a36effab",
+          "dataId": "var_15",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 20,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 20,
+          "uiData": {
+            "x": 280.89453125,
+            "y": 90.39453125
+          },
+          "target": "GButton",
+          "dataId": "var_draggable",
+          "typeKey": "\"exec\"_\"any\"_\"boolean\"_",
+          "inputValue": {
+            "set": true
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 22,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 21,
+          "uiData": {
+            "x": 72.74888392857142,
+            "y": 372.3160342261905
+          },
+          "target": "714ba844-96ab-4ca2-b252-7434a36effab",
+          "dataId": "var_16",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 22,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 24,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 26,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 29,
+                  "index": 0
+                },
+                {
+                  "id": "source",
+                  "name": "source",
+                  "nodeId": 32,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 22,
+          "uiData": {
+            "x": 395.48046875,
+            "y": 328.3515625
+          },
+          "target": "GButton",
+          "dataId": "var_draggable",
+          "typeKey": "\"exec\"_\"any\"_\"boolean\"_",
+          "inputValue": {
+            "set": true
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 24,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 23,
+          "uiData": {
+            "x": 580.4765625,
+            "y": 530.01171875
+          },
+          "target": "GButton",
+          "dataId": "event_dragstart",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 24,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 26,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_on",
+          "id": 24,
+          "uiData": {
+            "x": 997.3647584033623,
+            "y": 225.33419774159688
+          },
+          "target": "GButton",
+          "dataId": "event_dragstart",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 35,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_stopDrag_",
+          "id": 26,
+          "uiData": {
+            "x": 895.2317708333335,
+            "y": 582.3934151785718
+          },
+          "target": "GButton",
+          "typeKey": "\"exec\"_\"GButton\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 32,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 29,
+          "uiData": {
+            "x": 1001.4043969282665,
+            "y": 504.4084781530027
+          },
+          "target": "GButton",
+          "dataId": "var_icon",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "icon",
+                  "name": "icon",
+                  "nodeId": 32,
+                  "index": 3
+                },
+                {
+                  "id": "data",
+                  "name": "data",
+                  "nodeId": 32,
+                  "index": 4
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "static_get",
+          "id": 31,
+          "uiData": {
+            "x": 1104.9479471842603,
+            "y": 409.73114968886466
+          },
+          "target": "DragDropManager",
+          "dataId": "var_inst_static",
+          "typeKey": "\"class\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 32,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_start__source_icon_data_iconWidth_iconHeight",
+          "id": 32,
+          "uiData": {
+            "x": 1371.7869507674593,
+            "y": 500.53614214069376
+          },
+          "target": "DragDropManager",
+          "isNullValue": {
+            "iconWidth": true,
+            "iconHeight": true
+          },
+          "typeKey": "\"exec\"_\"DragDropManager\"_\"Sprite\"_\"string\"_\"any\"_\"number\"_\"number\"_",
+          "inputValue": {
+            "icon": ""
+          }
+        },
+        {
+          "cid": "get",
+          "id": 33,
+          "uiData": {
+            "x": 64.42249195389594,
+            "y": 677.4318188144308
+          },
+          "target": "714ba844-96ab-4ca2-b252-7434a36effab",
+          "dataId": "var_17",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 35,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 36,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 34,
+          "uiData": {
+            "x": 123.23210680527039,
+            "y": 898.7007048629767
+          },
+          "target": "GButton",
+          "dataId": "event_drop",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 35,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 36,
+                  "index": 0
+                }
+              ]
+            },
+            "data": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 36,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_on",
+          "id": 35,
+          "uiData": {
+            "x": 389.75184604650667,
+            "y": 627.8262731886372
+          },
+          "target": "GButton",
+          "dataId": "event_drop",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 39,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 36,
+          "uiData": {
+            "x": 532.926834152476,
+            "y": 823.6471186173317
+          },
+          "target": "GButton",
+          "dataId": "var_icon",
+          "typeKey": "\"exec\"_\"any\"_\"string\"_",
+          "inputValue": {
+            "set": ""
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 38,
+          "uiData": {
+            "x": 86.4710382173678,
+            "y": 1178.8205225035533
+          },
+          "target": "714ba844-96ab-4ca2-b252-7434a36effab",
+          "dataId": "var_18",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 39,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 40,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 52,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 39,
+          "uiData": {
+            "x": 372.06555293978676,
+            "y": 1214.5436554307907
+          },
+          "target": "GButton",
+          "dataId": "var_draggable",
+          "typeKey": "\"exec\"_\"any\"_\"boolean\"_",
+          "inputValue": {
+            "set": true
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 48,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 40,
+          "uiData": {
+            "x": 598.706792032834,
+            "y": 1051.6076398463633
+          },
+          "target": "GButton",
+          "dataId": "var_dragSupport",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 50,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 44,
+          "uiData": {
+            "x": 558.874912500631,
+            "y": 1532.0915312943512
+          },
+          "target": "714ba844-96ab-4ca2-b252-7434a36effab",
+          "dataId": "var_43",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "sprite",
+                  "name": "sprite",
+                  "nodeId": 48,
+                  "index": 1
+                },
+                {
+                  "id": "sp",
+                  "name": "sp",
+                  "nodeId": 53,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_getRect__sprite_sizeOnly_out_static",
+          "id": 48,
+          "uiData": {
+            "x": 841.2754011170721,
+            "y": 1206.9182520597697
+          },
+          "target": "SpriteUtils",
+          "isNullValue": {
+            "out": true,
+            "sizeOnly": true
+          },
+          "typeKey": "\"exec\"_\"Sprite\"_\"boolean\"_\"Rectangle\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 53,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "rect",
+                  "name": "rect",
+                  "nodeId": 53,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 50,
+          "uiData": {
+            "x": 1581.7852453469377,
+            "y": 1190.7722633099663
+          },
+          "target": "DragSupport",
+          "dataId": "var_area",
+          "typeKey": "\"exec\"_\"any\"_\"Rectangle\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 52,
+          "uiData": {
+            "x": 896.1823760495968,
+            "y": 1144.5704515139992
+          },
+          "target": "GButton",
+          "dataId": "var_parent",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "targetSpace",
+                  "name": "targetSpace",
+                  "nodeId": 53,
+                  "index": 3
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_transformRect__sp_rect_targetSpace_out_static",
+          "id": 53,
+          "uiData": {
+            "x": 1128.7557532789444,
+            "y": 1191.3331003994808
+          },
+          "target": "SpriteUtils",
+          "isNullValue": {
+            "targetSpace": true,
+            "out": true
+          },
+          "typeKey": "\"exec\"_\"Sprite\"_\"Rectangle\"_\"Sprite\"_\"Rectangle\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 50,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 50,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "comments": []
+    }
+  ],
+  "events": [],
+  "tab": {
+    "showTabs": [
+      8
+    ],
+    "id": 8
+  },
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

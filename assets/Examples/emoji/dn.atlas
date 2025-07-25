@@ -1,0 +1,58 @@
+{
+  "animation": {
+    "interval": 210
+  },
+  "frames": {
+    "dn_0000.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 0,
+        "w": 20,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 24
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "dn_0001.png": {
+      "frame": {
+        "idx": 0,
+        "x": 22,
+        "y": 0,
+        "w": 20,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 24
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "dn_0002.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 22,
+        "w": 20,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 24
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    }
+  }
+}

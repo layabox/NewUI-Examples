@@ -1,0 +1,325 @@
+{
+  "_$ver": 1,
+  "_$id": "rdfolwlt",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "blendMode": 0,
+  "_$child": [
+    {
+      "_$id": "qbnok1mw",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 20,
+      "y": 10,
+      "width": 159,
+      "height": 28,
+      "blendMode": 0,
+      "text": "Single Column",
+      "fontSize": 22
+    },
+    {
+      "_$id": "u024n1sc",
+      "_$type": "GList",
+      "name": "list",
+      "x": 23,
+      "y": 54,
+      "width": 163,
+      "height": 422,
+      "blendMode": 0,
+      "layout": {
+        "type": 1,
+        "rowGap": 6
+      },
+      "scroller": {
+        "_$type": "Scroller"
+      },
+      "_templateNode": {
+        "_$ref": "miedyftb",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 6,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "title": "100",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "1",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "2",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "99",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "4",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "5",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "miedyftb",
+          "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+          "name": "BagGridSub",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true,
+          "selected": true
+        }
+      ]
+    },
+    {
+      "_$id": "2ndomcop",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 231,
+      "y": 11,
+      "width": 159,
+      "height": 28,
+      "blendMode": 0,
+      "text": "Flow Vertical\n",
+      "fontSize": 22
+    },
+    {
+      "_$id": "35hxrggo",
+      "_$type": "GList",
+      "name": "list",
+      "x": 229,
+      "y": 53,
+      "width": 306,
+      "height": 454,
+      "blendMode": 0,
+      "layout": {
+        "type": 4,
+        "rowGap": 6,
+        "columnGap": 6
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "direction": 1
+      },
+      "_templateNode": {
+        "_$ref": "kx0riweh",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 6,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "title": "100",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "1",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "2",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "99",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "4",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "5",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "kx0riweh",
+          "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+          "name": "BagGridSub",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "_$id": "hdf0s6bp",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 557,
+      "y": 10,
+      "width": 159,
+      "height": 28,
+      "blendMode": 0,
+      "text": "Single Row\n",
+      "fontSize": 22
+    },
+    {
+      "_$id": "lt1w8ivy",
+      "_$type": "GList",
+      "name": "list",
+      "x": 555,
+      "y": 52,
+      "width": 562,
+      "height": 126,
+      "blendMode": 0,
+      "layout": {
+        "type": 2,
+        "rowGap": 6,
+        "columnGap": 6
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "direction": 1
+      },
+      "_templateNode": {
+        "_$ref": "fmorll67",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 6,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "title": "100",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "1",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "2",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "99",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "4",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "5",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "fmorll67",
+          "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+          "name": "BagGridSub",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "_$id": "8lzpie4p",
+      "_$type": "GList",
+      "name": "list",
+      "x": 556,
+      "y": 250,
+      "width": 405,
+      "height": 178,
+      "blendMode": 0,
+      "layout": {
+        "type": 3,
+        "rowGap": 6,
+        "columnGap": 6
+      },
+      "scroller": {
+        "_$type": "Scroller"
+      },
+      "_templateNode": {
+        "_$ref": "suuggn0w",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 6,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "title": "100",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "1",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "2",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "99",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "4",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "5",
+          "icon": "res://3dbc6437-d5e9-4530-b95a-f1f12c1a41cb"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "suuggn0w",
+          "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+          "name": "BagGridSub",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "_$id": "14wquzy9",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 558,
+      "y": 208,
+      "width": 159,
+      "height": 28,
+      "blendMode": 0,
+      "text": "Flow Horizontal\n",
+      "fontSize": 22
+    }
+  ]
+}

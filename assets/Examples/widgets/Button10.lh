@@ -1,0 +1,234 @@
+{
+  "_$ver": 1,
+  "_$id": "4mmy69x2",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 65,
+  "height": 44,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ],
+      "_editingIndex": 3
+    }
+  },
+  "titleWidget": {
+    "_$ref": "4slsqlvq"
+  },
+  "iconWidget": {
+    "_$ref": "xpqv8eel"
+  },
+  "mode": 2,
+  "_$child": [
+    {
+      "_$id": "ng2a1khj",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 66,
+      "height": 44,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "4mmy69x2",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            0
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4mmy69x2"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://3fad5eed-f64c-497f-bb8e-1a42e0508cc6"
+    },
+    {
+      "_$id": "5j3p3np8",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 66,
+      "height": 44,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "4mmy69x2",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4mmy69x2"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://9bf6a096-4b56-4283-b84c-f38a4e660e62",
+      "autoSize": false
+    },
+    {
+      "_$id": "efvhhiq7",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 62,
+      "height": 34,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "4mmy69x2",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4mmy69x2"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://77e2f713-1abc-4e6e-8859-a9f7b017cdad"
+    },
+    {
+      "_$id": "wi8z4rca",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 66,
+      "height": 44,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "4mmy69x2",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4mmy69x2"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://0857c025-65d8-4a81-ac65-ed5d0634491d",
+      "autoSize": false
+    },
+    {
+      "_$id": "4slsqlvq",
+      "_$type": "GTextField",
+      "name": "title",
+      "width": 66,
+      "height": 25,
+      "gears": [
+        {
+          "_$type": "GearStrColor",
+          "controller": {
+            "_$ref": "4mmy69x2",
+            "_$ctrl": "button"
+          },
+          "propPath": "color",
+          "values": {
+            "0": "#ffffff",
+            "1": "#dfb536",
+            "3": "#dfb536",
+            "_$type": "Record"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4mmy69x2"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "text": "Title",
+      "fontSize": 16,
+      "color": "#dfb536",
+      "align": "center",
+      "overflow": "hidden",
+      "stroke": 2
+    },
+    {
+      "_$id": "xpqv8eel",
+      "_$type": "GLoader",
+      "name": "icon",
+      "width": 66,
+      "height": 30,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4mmy69x2"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "shrinkOnly": true
+    }
+  ]
+}

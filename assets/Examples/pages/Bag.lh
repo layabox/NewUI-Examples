@@ -1,0 +1,53 @@
+{
+  "_$ver": 1,
+  "_$id": "jzbzi5h9",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 640,
+  "_$comp": [
+    {
+      "_$type": "03e41cf9-9976-40d1-900b-84f8a1c17030",
+      "scriptPath": "Examples/scripts/PlayBag.bp",
+      "_bp_data": {
+        "btn": {
+          "_$ref": "umv2sg85"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "zhlz8u3i",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 66,
+      "y": 497,
+      "width": 100,
+      "height": 100,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "jzbzi5h9"
+          },
+          "data": [
+            16,
+            0
+          ]
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "umv2sg85",
+          "_$prefab": "1aba63a8-4b12-4fa9-a191-8f447a97e7bb",
+          "name": "BagButton",
+          "active": true,
+          "x": 7,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

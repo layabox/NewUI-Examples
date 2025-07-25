@@ -1,0 +1,68 @@
+{
+  "_$ver": 1,
+  "_$id": "t49gxyh0",
+  "_$type": "GProgressBar",
+  "width": 277,
+  "height": 32,
+  "_reverse": true,
+  "_hBar": {
+    "_$ref": "d1ji7is7"
+  },
+  "_$child": [
+    {
+      "_$id": "vecu5ncr",
+      "_$type": "GImage",
+      "name": "bg",
+      "width": 277,
+      "height": 32,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "t49gxyh0"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://5d23fb22-418b-4da3-92c0-869cf187ca81",
+      "autoSize": false
+    },
+    {
+      "_$id": "d1ji7is7",
+      "_$type": "GPanel",
+      "name": "bar",
+      "x": 23,
+      "y": -2,
+      "width": 227,
+      "height": 30,
+      "_$child": [
+        {
+          "_$id": "0vuv68yq",
+          "_$type": "GImage",
+          "name": "img",
+          "width": 227,
+          "height": 32,
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "d1ji7is7"
+              },
+              "data": [
+                9,
+                0
+              ]
+            }
+          ],
+          "src": "res://d8b63096-bf5a-4f34-8c31-04b09cc57822",
+          "autoSize": false
+        }
+      ]
+    }
+  ]
+}

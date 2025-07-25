@@ -1,0 +1,236 @@
+{
+  "_$ver": 1,
+  "_$id": "ouuuxi32",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$child": [
+    {
+      "_$id": "6pcnidp5",
+      "_$type": "GPanel",
+      "name": "Panel",
+      "x": 28,
+      "y": 15,
+      "width": 228,
+      "height": 354,
+      "_$child": [
+        {
+          "_$id": "qmf3r9ku",
+          "_$type": "GImage",
+          "name": "change",
+          "x": -2,
+          "y": 1,
+          "width": 320,
+          "height": 480,
+          "src": "res://9f0c01e3-b99d-4fd8-888c-5807507fb2b1"
+        }
+      ]
+    },
+    {
+      "_$id": "bdnbsxsu",
+      "_$type": "GPanel",
+      "name": "Panel(1)",
+      "x": 287,
+      "y": 16,
+      "width": 220,
+      "height": 354,
+      "scroller": {
+        "_$type": "Scroller",
+        "direction": 2
+      },
+      "_$child": [
+        {
+          "_$id": "y5g72q4d",
+          "_$type": "GImage",
+          "name": "change",
+          "x": -2,
+          "y": 1,
+          "width": 320,
+          "height": 480,
+          "src": "res://9f0c01e3-b99d-4fd8-888c-5807507fb2b1"
+        }
+      ]
+    },
+    {
+      "_$id": "kvdle02f",
+      "_$type": "GPanel",
+      "name": "Panel(2)",
+      "x": 534,
+      "y": 14,
+      "width": 222,
+      "height": 354,
+      "layout": {
+        "padding": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "direction": 2
+      },
+      "_$child": [
+        {
+          "_$id": "1pum3x2n",
+          "_$type": "GImage",
+          "name": "change",
+          "x": -2,
+          "y": 1,
+          "width": 320,
+          "height": 480,
+          "src": "res://9f0c01e3-b99d-4fd8-888c-5807507fb2b1"
+        }
+      ]
+    },
+    {
+      "_$id": "3qbaawcu",
+      "_$type": "GWidget",
+      "name": "Widget(3)",
+      "x": 784,
+      "y": 13,
+      "width": 228,
+      "height": 400,
+      "mask": {
+        "_$ref": "2r7hqmua"
+      },
+      "_$child": [
+        {
+          "_$id": "gfrjik20",
+          "_$type": "GImage",
+          "name": "change",
+          "x": -2,
+          "y": 1,
+          "width": 320,
+          "height": 480,
+          "src": "res://9f0c01e3-b99d-4fd8-888c-5807507fb2b1"
+        },
+        {
+          "_$id": "2r7hqmua",
+          "_$type": "Sprite",
+          "name": "Sprite",
+          "x": 86,
+          "y": 164,
+          "width": 148,
+          "height": 147,
+          "_gcmds": [
+            {
+              "_$type": "DrawEllipseCmd",
+              "x": 0.5,
+              "y": 0.5,
+              "width": 0.5,
+              "height": 0.5,
+              "percent": true,
+              "lineWidth": 1,
+              "lineColor": "#000000",
+              "fillColor": "#ffffff"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "wcdmun1v",
+      "_$type": "GPanel",
+      "name": "Panel(3)",
+      "x": 34,
+      "y": 388,
+      "width": 280,
+      "height": 167,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#000000"
+      },
+      "scroller": {
+        "_$type": "Scroller"
+      },
+      "_$child": [
+        {
+          "_$id": "z4999mtf",
+          "_$type": "GTextField",
+          "name": "TextField",
+          "width": 254,
+          "height": 385,
+          "text": "三体人在利用魔法般的科技锁死了地球人的科学之后，庞大的宇宙舰队直扑太阳系，意欲清除地球文明。\n面对前所未有的危局，经历过无数磨难的地球人组建起同样庞大的太空舰队，同时，利用三体人思维透明的致命缺陷，制订了神秘莫测的“面壁计划”，精选出四位“面壁者”。秘密展开对三体人的反击。\n三体人自身虽然无法识破人类的诡谲计谋，却依靠由地球人中的背叛者挑选出的“破壁人”，与“面壁者”展开智慧博弈。[9] ",
+          "fontSize": 16,
+          "color": "#ffffff",
+          "fitContent": 2,
+          "wordWrap": true,
+          "leading": 11
+        }
+      ]
+    },
+    {
+      "_$id": "f5bwrfj2",
+      "_$type": "GPanel",
+      "name": "Panel(4)",
+      "x": 349,
+      "y": 391,
+      "width": 294,
+      "height": 167,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#000000"
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "barOnLeft": true
+      },
+      "_$child": [
+        {
+          "_$id": "zug6kfsi",
+          "_$type": "GTextField",
+          "name": "TextField",
+          "width": 272,
+          "height": 357,
+          "text": "三体人在利用魔法般的科技锁死了地球人的科学之后，庞大的宇宙舰队直扑太阳系，意欲清除地球文明。\n面对前所未有的危局，经历过无数磨难的地球人组建起同样庞大的太空舰队，同时，利用三体人思维透明的致命缺陷，制订了神秘莫测的“面壁计划”，精选出四位“面壁者”。秘密展开对三体人的反击。\n三体人自身虽然无法识破人类的诡谲计谋，却依靠由地球人中的背叛者挑选出的“破壁人”，与“面壁者”展开智慧博弈。[9] ",
+          "fontSize": 16,
+          "color": "#ffffff",
+          "fitContent": 2,
+          "wordWrap": true,
+          "leading": 11
+        }
+      ]
+    },
+    {
+      "_$id": "vfeaiwbm",
+      "_$type": "GPanel",
+      "name": "Panel(5)",
+      "x": 661,
+      "y": 389,
+      "width": 280,
+      "height": 167,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#000000"
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "direction": 1,
+        "barMargin": [
+          0,
+          0,
+          0,
+          99
+        ]
+      },
+      "_$child": [
+        {
+          "_$id": "u0rbn9b4",
+          "_$type": "GTextField",
+          "name": "TextField",
+          "width": 762,
+          "height": 133,
+          "text": "三体人在利用魔法般的科技锁死了地球人的科学之后，庞大的宇宙舰队直扑太阳系，意欲清除地球文明。\n面对前所未有的危局，经历过无数磨难的地球人组建起同样庞大的太空舰队，同时，利用三体人思维透明的致命缺陷，制订了神秘莫测的“面壁计划”，精选出四位“面壁者”。秘密展开对三体人的反击。\n三体人自身虽然无法识破人类的诡谲计谋，却依靠由地球人中的背叛者挑选出的“破壁人”，与“面壁者”展开智慧博弈。[9] ",
+          "fontSize": 16,
+          "color": "#ffffff",
+          "fitContent": 2,
+          "wordWrap": true,
+          "leading": 11
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "_$ver": 1,
+  "_$id": "aub7bm1f",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 640,
+  "_mouseState": 2,
+  "cacheAs": "bitmap",
+  "hitArea": {
+    "_$type": "HitArea",
+    "_hitCmds": [
+      {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#ffffff"
+      }
+    ],
+    "_unHitCmds": [
+      {
+        "_$type": "DrawCircleCmd",
+        "x": 508,
+        "y": 320,
+        "radius": 100,
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      }
+    ]
+  },
+  "background": {
+    "_$type": "DrawRectCmd",
+    "fillColor": "rgba(0,0,0,0.36)"
+  },
+  "_$child": [
+    {
+      "_$id": "wxmpv49c",
+      "_$type": "GWidget",
+      "name": "window",
+      "x": 509,
+      "y": 321,
+      "width": 200,
+      "height": 200,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "blendMode": "destinationOut",
+      "_mouseState": 1,
+      "background": {
+        "_$type": "DrawCircleCmd",
+        "x": 0.5,
+        "y": 0.5,
+        "radius": 0.5,
+        "percent": true,
+        "lineWidth": 0,
+        "fillColor": "#ffffff"
+      }
+    },
+    {
+      "_$id": "83yc5emg",
+      "_$type": "GMovieClip",
+      "name": "ani",
+      "x": 407,
+      "y": 319,
+      "width": 79,
+      "height": 49,
+      "anchorX": 1,
+      "anchorY": 0.4897959183673469,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "wxmpv49c"
+          },
+          "data": [
+            3,
+            0,
+            13,
+            0
+          ]
+        }
+      ],
+      "src": "res://3da760b7-a7fe-468d-86b3-a65baf25393a"
+    }
+  ]
+}

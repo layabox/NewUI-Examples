@@ -1,0 +1,45 @@
+{
+  "_$ver": 1,
+  "_$id": "v8xoix5x",
+  "_$type": "GScrollBar",
+  "width": 2,
+  "height": 300,
+  "_bar": {
+    "_$ref": "zak149l8"
+  },
+  "_gripButton": {
+    "_$ref": "a6x1k0zz"
+  },
+  "_$child": [
+    {
+      "_$id": "zak149l8",
+      "_$type": "GWidget",
+      "name": "bar",
+      "x": -7,
+      "width": 9,
+      "height": 300,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "v8xoix5x"
+          },
+          "data": [
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "a6x1k0zz",
+      "_$type": "GImage",
+      "name": "grip",
+      "x": -7,
+      "width": 9,
+      "height": 206,
+      "alpha": 0.34,
+      "src": "res://983bc2fd-8526-42b5-a09b-4e3bf49aa3f2"
+    }
+  ]
+}

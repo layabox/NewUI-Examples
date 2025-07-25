@@ -1,0 +1,198 @@
+{
+  "_$ver": 1,
+  "_$id": "dtikm0gc",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 240,
+  "height": 48,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    },
+    "expanded": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        ""
+      ],
+      "_editingIndex": 1
+    },
+    "leaf": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        ""
+      ]
+    }
+  },
+  "titleWidget": {
+    "_$ref": "783bxjoj"
+  },
+  "iconWidget": {
+    "_$ref": "246wy3ll"
+  },
+  "mode": 2,
+  "_$child": [
+    {
+      "_$id": "8jmkfkyu",
+      "_$type": "GWidget",
+      "name": "node",
+      "width": 240,
+      "height": 48,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "rgba(0,102,204,0.47843137254901963)"
+      },
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "dtikm0gc",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "dtikm0gc"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "783bxjoj",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 105,
+      "y": 8,
+      "width": 134,
+      "height": 32,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "246wy3ll"
+          },
+          "data": [
+            18,
+            0
+          ]
+        },
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "dtikm0gc"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ],
+      "text": "text",
+      "fontSize": 28
+    },
+    {
+      "_$id": "4e8dt3dq",
+      "_$type": "GWidget",
+      "name": "indent",
+      "width": 16,
+      "height": 48
+    },
+    {
+      "_$id": "246wy3ll",
+      "_$type": "GLoader",
+      "name": "loader",
+      "x": 55,
+      "width": 50,
+      "height": 48,
+      "gears": [
+        {
+          "_$type": "GearString",
+          "controller": {
+            "_$ref": "dtikm0gc",
+            "_$ctrl": "expanded"
+          },
+          "propPath": "src",
+          "values": {
+            "0": "res://1f6b805f-2e63-49e2-b4b0-32af8eea7841",
+            "1": "res://5af929bd-c86c-4dbc-9170-6e374bbfbc8a",
+            "_$type": "Record"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4e8dt3dq"
+          },
+          "data": [
+            5,
+            0
+          ]
+        }
+      ],
+      "src": "res://5af929bd-c86c-4dbc-9170-6e374bbfbc8a",
+      "fitMode": 0
+    },
+    {
+      "_$id": "wuo9ftjt",
+      "_$prefab": "c5bcc643-34ff-4104-ad92-cf9f53f2d084",
+      "name": "expandButton",
+      "active": true,
+      "x": 15,
+      "y": 9,
+      "visible": true,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "dtikm0gc",
+            "_$ctrl": "leaf"
+          },
+          "pages": [
+            0
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4e8dt3dq"
+          },
+          "data": [
+            5,
+            0
+          ]
+        }
+      ],
+      "selected": true,
+      "selectedController": {
+        "_$ref": "dtikm0gc",
+        "_$ctrl": "expanded"
+      },
+      "selectedPage": 1
+    }
+  ]
+}

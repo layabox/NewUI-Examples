@@ -1,0 +1,262 @@
+{
+  "animation": {
+    "interval": 120
+  },
+  "frames": {
+    "nlge1k_0000.png": {
+      "frame": {
+        "idx": 0,
+        "x": 122,
+        "y": 59,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0001.png": {
+      "frame": {
+        "idx": 0,
+        "x": 122,
+        "y": 117,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0002.png": {
+      "frame": {
+        "idx": 0,
+        "x": 122,
+        "y": 175,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0003.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 61,
+        "w": 59,
+        "h": 57
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "nlge1k_0004.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 179,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0005.png": {
+      "frame": {
+        "idx": 0,
+        "x": 61,
+        "y": 61,
+        "w": 59,
+        "h": 57
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "nlge1k_0006.png": {
+      "frame": {
+        "idx": 0,
+        "x": 61,
+        "y": 179,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0007.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 120,
+        "w": 59,
+        "h": 57
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "nlge1k_0008.png": {
+      "frame": {
+        "idx": 0,
+        "x": 183,
+        "y": 0,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0009.png": {
+      "frame": {
+        "idx": 0,
+        "x": 61,
+        "y": 120,
+        "w": 59,
+        "h": 57
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "nlge1k_0010.png": {
+      "frame": {
+        "idx": 0,
+        "x": 183,
+        "y": 58,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0011.png": {
+      "frame": {
+        "idx": 0,
+        "x": 122,
+        "y": 0,
+        "w": 59,
+        "h": 57
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "nlge1k_0012.png": {
+      "frame": {
+        "idx": 0,
+        "x": 183,
+        "y": 116,
+        "w": 59,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0013.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 0,
+        "w": 59,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "nlge1k_0014.png": {
+      "frame": {
+        "idx": 0,
+        "x": 61,
+        "y": 0,
+        "w": 59,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+}

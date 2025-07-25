@@ -1,0 +1,81 @@
+{
+  "_$ver": 1,
+  "_$id": "a17xl2c3",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 388,
+  "height": 272,
+  "background": {
+    "_$type": "DrawRectCmd",
+    "fillColor": "#003300"
+  },
+  "_$child": [
+    {
+      "_$id": "5t0x42ud",
+      "_$type": "GWidget",
+      "name": "dragArea",
+      "x": 4,
+      "y": 7,
+      "width": 379,
+      "height": 256,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "a17xl2c3"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "ocx7rgwb",
+      "_$type": "GButton",
+      "name": "closeButton",
+      "x": 364,
+      "y": -16,
+      "width": 40,
+      "height": 43,
+      "controllers": {
+        "_$type": "Record",
+        "button": {
+          "_$type": "Controller",
+          "pages": [
+            "up",
+            "down",
+            "over",
+            "selectedOver"
+          ]
+        }
+      },
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "a17xl2c3"
+          },
+          "data": [
+            5,
+            0
+          ]
+        }
+      ],
+      "downEffect": 1,
+      "_$child": [
+        {
+          "_$id": "p3my8asy",
+          "_$type": "GImage",
+          "name": "img",
+          "width": 40,
+          "height": 43,
+          "src": "res://d219178f-6009-4024-a565-7ee085ae5ae8"
+        }
+      ]
+    }
+  ]
+}

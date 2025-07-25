@@ -1,0 +1,84 @@
+{
+  "_$ver": 1,
+  "_$id": "oclnvoil",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 100,
+  "height": 100,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "titleWidget": {
+    "_$ref": "inndbvhd"
+  },
+  "iconWidget": {
+    "_$ref": "47riq8qz"
+  },
+  "mode": 2,
+  "_$child": [
+    {
+      "_$id": "qdpreoyh",
+      "_$type": "GImage",
+      "name": "k0",
+      "x": 5,
+      "y": 4,
+      "width": 90,
+      "height": 91,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "oclnvoil"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://53a0167c-264a-4edc-afb4-b44396004173"
+    },
+    {
+      "_$id": "47riq8qz",
+      "_$type": "GLoader",
+      "name": "Loader",
+      "x": 6,
+      "y": 6,
+      "width": 88,
+      "height": 88
+    },
+    {
+      "_$id": "0w9v3fq5",
+      "_$type": "GImage",
+      "name": "k2",
+      "width": 100,
+      "height": 100,
+      "src": "res://4b6e51dd-ba15-4517-8695-33ded558c0a1"
+    },
+    {
+      "_$id": "inndbvhd",
+      "_$type": "GTextField",
+      "name": "title",
+      "x": 9,
+      "y": 66,
+      "width": 84,
+      "height": 30,
+      "text": "",
+      "fontSize": 22,
+      "color": "#ff0000",
+      "align": "right",
+      "valign": "middle"
+    }
+  ]
+}

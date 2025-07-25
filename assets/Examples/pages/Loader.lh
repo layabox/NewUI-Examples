@@ -1,0 +1,81 @@
+{
+  "_$ver": 1,
+  "_$id": "vbbk0jpt",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$child": [
+    {
+      "_$id": "602psrac",
+      "_$type": "GLoader",
+      "name": "Loader",
+      "x": 40,
+      "y": 17,
+      "width": 100,
+      "height": 100,
+      "src": "res://b039888f-f1fb-4947-b30f-251a992e3424",
+      "frame": 0
+    },
+    {
+      "_$id": "81z0drv1",
+      "_$type": "GLoader",
+      "name": "Loader(1)",
+      "x": 188,
+      "y": 13,
+      "width": 146,
+      "height": 162,
+      "src": "res://b039888f-f1fb-4947-b30f-251a992e3424",
+      "frame": 0
+    },
+    {
+      "_$id": "39led9hv",
+      "_$type": "GLoader",
+      "name": "Loader(2)",
+      "x": 407,
+      "y": 67,
+      "width": 146,
+      "height": 72,
+      "src": "res://b039888f-f1fb-4947-b30f-251a992e3424",
+      "fitMode": 3,
+      "frame": 0
+    },
+    {
+      "_$id": "op6y7duo",
+      "_$type": "GLoader",
+      "name": "Loader(3)",
+      "x": 617,
+      "y": 21,
+      "width": 162,
+      "height": 172,
+      "src": "res://d13510ac-f9b7-406b-b60f-302fb1728711",
+      "fitMode": 0,
+      "frame": 0
+    },
+    {
+      "_$id": "wrypb02j",
+      "_$type": "GLoader",
+      "name": "Loader(4)",
+      "x": 325,
+      "y": 224,
+      "width": 202,
+      "height": 153,
+      "src": "res://e5750b11-7483-4816-bf1a-830285f3e42d",
+      "fitMode": 0,
+      "frame": 0
+    },
+    {
+      "_$id": "e4mhklz0",
+      "_$type": "GLoader",
+      "name": "Loader(5)",
+      "x": 90,
+      "y": 203,
+      "width": 100,
+      "height": 100,
+      "src": "res://035cf5ef-91c7-4902-9c48-d1e7fd5333e2",
+      "fitMode": 1,
+      "color": "#209c7d",
+      "frame": 0
+    }
+  ]
+}

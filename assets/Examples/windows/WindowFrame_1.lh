@@ -1,0 +1,151 @@
+{
+  "_$ver": 1,
+  "_$id": "hlq9366q",
+  "_$type": "GLabel",
+  "name": "Root",
+  "width": 615,
+  "height": 387,
+  "titleWidget": {
+    "_$ref": "e60aodop"
+  },
+  "_$child": [
+    {
+      "_$id": "pv3h1lhb",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 615,
+      "height": 387,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "hlq9366q"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://fcfb16de-1eaf-4d62-b912-d66d94b929c6"
+    },
+    {
+      "_$id": "o4xhiqgv",
+      "_$type": "GButton",
+      "name": "closeButton",
+      "x": 537,
+      "y": 29,
+      "width": 60,
+      "height": 74,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "controllers": {
+        "_$type": "Record",
+        "button": {
+          "_$type": "Controller",
+          "pages": [
+            "up",
+            "down",
+            "over",
+            "selectedOver"
+          ]
+        }
+      },
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "hlq9366q"
+          },
+          "data": [
+            9,
+            0
+          ]
+        }
+      ],
+      "downEffect": 2,
+      "_$child": [
+        {
+          "_$id": "8rsmt7hi",
+          "_$type": "GImage",
+          "name": "img_1",
+          "width": 60,
+          "height": 74,
+          "src": "res://15953c51-4aad-41ae-83cb-29e2c5518910"
+        }
+      ]
+    },
+    {
+      "_$id": "fv70v5pr",
+      "_$type": "GWidget",
+      "name": "dragArea",
+      "x": 4,
+      "y": 8,
+      "width": 501,
+      "height": 35,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "hlq9366q"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "14ch761v",
+      "_$type": "GWidget",
+      "name": "contentArea",
+      "x": 45,
+      "y": 45,
+      "width": 510,
+      "height": 315,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "hlq9366q"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "e60aodop",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 43,
+      "y": 11,
+      "width": 466,
+      "height": 28,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "hlq9366q"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ],
+      "text": "text",
+      "fontSize": 22,
+      "color": "#ffffff",
+      "align": "center",
+      "stroke": 2
+    }
+  ]
+}

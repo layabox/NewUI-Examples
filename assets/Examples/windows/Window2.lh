@@ -1,0 +1,98 @@
+{
+  "_$ver": 1,
+  "_$id": "bfe1y46g",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 510,
+  "height": 291,
+  "_$child": [
+    {
+      "_$id": "jocmdj5t",
+      "_$prefab": "688d56b4-6346-43c0-8be3-29393350da91",
+      "name": "frame",
+      "active": true,
+      "x": 133,
+      "y": 54,
+      "visible": true,
+      "width": 343,
+      "height": 208,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "bfe1y46g"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "cdrosnpk",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 34,
+      "y": 17,
+      "width": 209,
+      "height": 256,
+      "src": "res://4258fd62-da5f-41a9-bf76-9ff4d1d0beac",
+      "_$comp": [
+        {
+          "_$type": "Animator2D",
+          "controller": {
+            "_$uuid": "05d2367a-5a59-417c-8902-8950eeaab129",
+            "_$type": "AnimationController2D"
+          },
+          "controllerLayers": [
+            {
+              "_$type": "AnimatorControllerLayer2D",
+              "name": "Base Layer",
+              "states": [
+                {
+                  "_$type": "AnimatorState2D",
+                  "name": "NewAnimation",
+                  "clipStart": 0,
+                  "clip": {
+                    "_$uuid": "db6ee427-22b6-4400-b0d4-79a329d5224e",
+                    "_$type": "AnimationClip2D"
+                  },
+                  "loop": 0,
+                  "yoyo": true,
+                  "soloTransitions": []
+                }
+              ],
+              "defaultStateName": "NewAnimation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "j74iif9t",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 254,
+      "y": 84,
+      "width": 167,
+      "height": 28,
+      "text": "Hello World",
+      "fontSize": 27,
+      "color": "#ff3366"
+    },
+    {
+      "_$id": "0e5xtnet",
+      "_$prefab": "e99b0873-c6c2-40f6-8ea4-6e3e46848d90",
+      "name": "ProgressBar2",
+      "active": true,
+      "x": 248,
+      "y": 194,
+      "scaleX": 0.7,
+      "visible": true,
+      "value": 49
+    }
+  ]
+}

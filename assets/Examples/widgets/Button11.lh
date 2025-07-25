@@ -1,0 +1,193 @@
+{
+  "_$ver": 1,
+  "_$id": "4u145pbq",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 159,
+  "height": 52,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ],
+      "_editingIndex": 3
+    }
+  },
+  "titleWidget": {
+    "_$ref": "takowqhy"
+  },
+  "_$child": [
+    {
+      "_$id": "8fdzrktx",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 159,
+      "height": 52,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "4u145pbq",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            0
+          ]
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "4u145pbq",
+            "_$ctrl": "button"
+          },
+          "propPath": "alpha",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 1,
+            "2": 0,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4u145pbq"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://e2099f8f-63e2-4fe3-acd8-b353c75c85ea"
+    },
+    {
+      "_$id": "0vnjcxuu",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 159,
+      "height": 52,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "4u145pbq",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4u145pbq"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://7cf87108-d4e5-45e9-8611-afd604a9d18d"
+    },
+    {
+      "_$id": "pb2s6fki",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 159,
+      "height": 52,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "4u145pbq",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            2
+          ]
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "4u145pbq",
+            "_$ctrl": "button"
+          },
+          "propPath": "alpha",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 0,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4u145pbq"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://ebe66aea-01b4-4e3d-b7bd-114283545708"
+    },
+    {
+      "_$id": "takowqhy",
+      "_$type": "GTextField",
+      "name": "title",
+      "x": 4,
+      "y": 8,
+      "width": 151,
+      "height": 40,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "4u145pbq"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "text": "Title",
+      "fontSize": 18,
+      "color": "#dfb536",
+      "align": "center",
+      "valign": "middle",
+      "overflow": "hidden",
+      "stroke": 2
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "_$type": "Animator2D",
+  "enabled": true,
+  "controllerLayers": [
+    {
+      "name": "Base Layer",
+      "defaultStateName": "rotate",
+      "playOnWake": true,
+      "blendingMode": 0,
+      "states": [
+        {
+          "name": "rotate",
+          "clip": {
+            "_$uuid": "7c01be36-a594-46c2-9c52-05d6d9a0dc2e"
+          },
+          "loop": 0,
+          "speed": 1,
+          "clipEnd": 1,
+          "x": 588.9010051367281,
+          "y": 370.3755599683495,
+          "id": "0",
+          "loopState": 1,
+          "yoyo": false
+        },
+        {
+          "x": 10,
+          "y": 100,
+          "_isLooping": 0,
+          "id": "-1",
+          "name": "进入",
+          "speed": 1,
+          "clipEnd": 1,
+          "soloTransitions": [
+            {
+              "id": "0"
+            }
+          ]
+        },
+        {
+          "x": 550,
+          "y": 100,
+          "_isLooping": 0,
+          "id": "-2",
+          "name": "任何状态",
+          "speed": 1,
+          "clipEnd": 1
+        }
+      ],
+      "defaultWeight": 1
+    }
+  ],
+  "layerW": 150
+}

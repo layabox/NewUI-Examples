@@ -1,0 +1,447 @@
+{
+  "_$ver": 1,
+  "_$id": "dm4ma2t2",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "blendMode": 0,
+  "_$comp": [
+    {
+      "_$type": "fb9a6f16-ddb7-4e30-a44a-c311ab4313e1",
+      "scriptPath": "Examples/bp/PlayGrid.bp",
+      "_bp_data": {
+        "list1": {
+          "_$ref": "m37iujhp"
+        },
+        "list2": {
+          "_$ref": "9fsgaj5b"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "vjzrr7jn",
+      "_$type": "GBox",
+      "name": "box",
+      "x": 24,
+      "y": 22,
+      "width": 528,
+      "height": 375,
+      "blendMode": 0,
+      "_$child": [
+        {
+          "_$id": "ca8hehws",
+          "_$type": "GWidget",
+          "name": "bg",
+          "y": 38,
+          "width": 528,
+          "height": 337,
+          "blendMode": 0,
+          "background": {
+            "_$type": "DrawRectCmd",
+            "fillColor": "#233e43"
+          }
+        },
+        {
+          "_$id": "ekdomulw",
+          "_$type": "GImage",
+          "name": "grid_header_png",
+          "width": 527,
+          "height": 39,
+          "blendMode": 0,
+          "src": "res://40b51e30-fccb-4848-aeeb-fc88c030893e",
+          "autoSize": false
+        },
+        {
+          "_$id": "m37iujhp",
+          "_$type": "GList",
+          "name": "List",
+          "x": 4,
+          "y": 40,
+          "width": 521,
+          "height": 334,
+          "blendMode": 0,
+          "layout": {
+            "type": 1
+          },
+          "scroller": {
+            "_$type": "Scroller"
+          },
+          "_templateNode": {
+            "_$ref": "y2toj4xl",
+            "_$tmpl": "itemTemplate"
+          },
+          "_initItemNum": 5,
+          "_$child": [
+            {
+              "_$id": "y2toj4xl",
+              "_$type": "GButton",
+              "name": "btn",
+              "width": 525,
+              "height": 35,
+              "blendMode": 0,
+              "controllers": {
+                "_$type": "Record",
+                "button": {
+                  "_$type": "Controller",
+                  "pages": [
+                    "up",
+                    "down",
+                    "over",
+                    "selectedOver"
+                  ]
+                }
+              },
+              "_$child": [
+                {
+                  "_$id": "uzuic4j8",
+                  "_$type": "GTextField",
+                  "name": "t0",
+                  "width": 80,
+                  "height": 28,
+                  "blendMode": 0,
+                  "text": "1",
+                  "fontSize": 22,
+                  "color": "#ffffff",
+                  "align": "center"
+                },
+                {
+                  "_$id": "7x41eq0a",
+                  "_$type": "GTextField",
+                  "name": "t1",
+                  "x": 82,
+                  "y": 2,
+                  "width": 207,
+                  "height": 28,
+                  "blendMode": 0,
+                  "text": "Name",
+                  "fontSize": 22,
+                  "color": "#ffffff",
+                  "align": "center"
+                },
+                {
+                  "_$id": "1w98owk0",
+                  "_$type": "GTextField",
+                  "name": "t2",
+                  "x": 293,
+                  "width": 100,
+                  "height": 28,
+                  "blendMode": 0,
+                  "text": "Fairy",
+                  "fontSize": 22,
+                  "color": "#ffffff",
+                  "align": "center"
+                },
+                {
+                  "_$id": "h9ivqntg",
+                  "_$prefab": "fa526fe6-a0bc-4aa5-a3ab-72482f5578c6",
+                  "name": "star",
+                  "active": true,
+                  "x": 395,
+                  "y": 4,
+                  "visible": true,
+                  "value": 60
+                },
+                {
+                  "_$id": "kg0oz8ja",
+                  "_$type": "GWidget",
+                  "name": "node",
+                  "y": 34,
+                  "width": 525,
+                  "height": 1,
+                  "blendMode": 0,
+                  "background": {
+                    "_$type": "DrawLineCmd",
+                    "fromX": 0,
+                    "fromY": 0,
+                    "toX": 1,
+                    "toY": 1,
+                    "percent": true,
+                    "lineWidth": 1,
+                    "lineColor": "#325b62"
+                  },
+                  "relations": [
+                    {
+                      "_$type": "Relation",
+                      "target": {
+                        "_$ref": "y2toj4xl"
+                      },
+                      "data": [
+                        1,
+                        0,
+                        16,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_$id": "qau9q3c1",
+          "_$type": "GTextField",
+          "name": "txt",
+          "x": 10,
+          "y": 6,
+          "width": 77,
+          "height": 28,
+          "blendMode": 0,
+          "text": "Order",
+          "fontSize": 22,
+          "color": "#ccffff",
+          "align": "center"
+        },
+        {
+          "_$id": "fy4pdwuw",
+          "_$type": "GTextField",
+          "name": "txt_1",
+          "x": 138,
+          "y": 6,
+          "width": 120,
+          "height": 28,
+          "blendMode": 0,
+          "text": "Name",
+          "fontSize": 22,
+          "color": "#ccffff",
+          "align": "center"
+        },
+        {
+          "_$id": "7qvzq2m7",
+          "_$type": "GTextField",
+          "name": "txt_2",
+          "x": 306,
+          "y": 7,
+          "width": 82,
+          "height": 28,
+          "blendMode": 0,
+          "text": "Color",
+          "fontSize": 22,
+          "color": "#ccffff",
+          "align": "center"
+        },
+        {
+          "_$id": "dgros3hq",
+          "_$type": "GTextField",
+          "name": "txt_3",
+          "x": 370,
+          "y": 6,
+          "width": 120,
+          "height": 28,
+          "blendMode": 0,
+          "text": "Stars",
+          "fontSize": 22,
+          "color": "#ccffff",
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "_$id": "h061jjhh",
+      "_$type": "GBox",
+      "name": "box_1",
+      "x": 584,
+      "y": 24,
+      "width": 528,
+      "height": 375,
+      "blendMode": 0,
+      "_$child": [
+        {
+          "_$id": "vud7he2p",
+          "_$type": "GWidget",
+          "name": "bg",
+          "y": 38,
+          "width": 528,
+          "height": 337,
+          "blendMode": 0,
+          "background": {
+            "_$type": "DrawRectCmd",
+            "fillColor": "#233e43"
+          }
+        },
+        {
+          "_$id": "6yfg2efk",
+          "_$type": "GImage",
+          "name": "grid_header_png_1",
+          "width": 527,
+          "height": 39,
+          "blendMode": 0,
+          "src": "res://40b51e30-fccb-4848-aeeb-fc88c030893e",
+          "autoSize": false
+        },
+        {
+          "_$id": "9fsgaj5b",
+          "_$type": "GList",
+          "name": "List_1",
+          "x": 4,
+          "y": 40,
+          "width": 521,
+          "height": 334,
+          "blendMode": 0,
+          "layout": {
+            "type": 1
+          },
+          "scroller": {
+            "_$type": "Scroller"
+          },
+          "_templateNode": {
+            "_$ref": "nllg0s81",
+            "_$tmpl": "itemTemplate"
+          },
+          "_initItemNum": 5,
+          "_$child": [
+            {
+              "_$id": "nllg0s81",
+              "_$type": "GButton",
+              "name": "btn",
+              "width": 525,
+              "height": 50,
+              "blendMode": 0,
+              "controllers": {
+                "_$type": "Record",
+                "button": {
+                  "_$type": "Controller",
+                  "pages": [
+                    "up",
+                    "down",
+                    "over",
+                    "selectedOver"
+                  ]
+                }
+              },
+              "_$child": [
+                {
+                  "_$id": "z02pebhe",
+                  "_$prefab": "17afd0a9-6c5d-4c52-a82b-fcbefae28ae8",
+                  "name": "cb",
+                  "active": true,
+                  "x": 0,
+                  "y": 0,
+                  "visible": true,
+                  "selected": true
+                },
+                {
+                  "_$id": "e9a6ai15",
+                  "_$type": "GTextField",
+                  "name": "t1",
+                  "x": 82,
+                  "y": 12,
+                  "width": 211,
+                  "height": 28,
+                  "blendMode": 0,
+                  "text": "Name",
+                  "fontSize": 22,
+                  "color": "#ffffff",
+                  "align": "center"
+                },
+                {
+                  "_$id": "8bv84xjc",
+                  "_$type": "GMovieClip",
+                  "name": "mc",
+                  "x": 320,
+                  "y": 14,
+                  "width": 24,
+                  "height": 24,
+                  "blendMode": 0,
+                  "src": "res://e1c004d2-6d8c-45b3-b604-a50caa7bd76e"
+                },
+                {
+                  "_$id": "lxnmm2mr",
+                  "_$type": "GTextField",
+                  "name": "t3",
+                  "x": 405,
+                  "y": 12,
+                  "width": 100,
+                  "height": 28,
+                  "blendMode": 0,
+                  "text": "100000",
+                  "fontSize": 22,
+                  "color": "#ffffff",
+                  "align": "center"
+                },
+                {
+                  "_$id": "jdqbc45s",
+                  "_$type": "GWidget",
+                  "name": "node",
+                  "y": 49,
+                  "width": 525,
+                  "height": 1,
+                  "blendMode": 0,
+                  "background": {
+                    "_$type": "DrawLineCmd",
+                    "fromX": 0,
+                    "fromY": 0,
+                    "toX": 1,
+                    "toY": 1,
+                    "percent": true,
+                    "lineWidth": 1,
+                    "lineColor": "#325b62"
+                  },
+                  "relations": [
+                    {
+                      "_$type": "Relation",
+                      "target": {
+                        "_$ref": "nllg0s81"
+                      },
+                      "data": [
+                        1,
+                        0,
+                        16,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_$id": "j0z8u2s6",
+          "_$type": "GTextField",
+          "name": "txt_5",
+          "x": 99,
+          "y": 7,
+          "width": 182,
+          "height": 28,
+          "blendMode": 0,
+          "text": "Name",
+          "fontSize": 22,
+          "color": "#ccffff",
+          "align": "center"
+        },
+        {
+          "_$id": "gtt02kxf",
+          "_$type": "GTextField",
+          "name": "txt_6",
+          "x": 300,
+          "y": 7,
+          "width": 82,
+          "height": 28,
+          "blendMode": 0,
+          "text": "Color",
+          "fontSize": 22,
+          "color": "#ccffff",
+          "align": "center"
+        },
+        {
+          "_$id": "qszfct8d",
+          "_$type": "GTextField",
+          "name": "txt_7",
+          "x": 394,
+          "y": 6,
+          "width": 120,
+          "height": 28,
+          "blendMode": 0,
+          "text": "Power",
+          "fontSize": 22,
+          "color": "#ccffff",
+          "align": "center"
+        }
+      ]
+    }
+  ]
+}

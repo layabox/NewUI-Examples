@@ -1,0 +1,105 @@
+{
+  "_$ver": 1,
+  "_$id": "zmowbxth",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 60,
+  "height": 60,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "iconWidget": {
+    "_$ref": "8afm77gr"
+  },
+  "_$child": [
+    {
+      "_$id": "140mj3c4",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 60,
+      "height": 60,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zmowbxth"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://4a682971-729b-4fa7-970b-19f481e45204",
+      "autoSize": false
+    },
+    {
+      "_$id": "8afm77gr",
+      "_$type": "GLoader",
+      "name": "icon",
+      "x": 4,
+      "y": 4,
+      "width": 52,
+      "height": 52,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zmowbxth"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://249569ac-ff1a-43c0-a1b2-3fc707537dec",
+      "fitMode": 1
+    },
+    {
+      "_$id": "keh52cyl",
+      "_$type": "GProgressBar",
+      "name": "pb",
+      "x": -14,
+      "y": -14,
+      "width": 100,
+      "height": 100,
+      "value": 66,
+      "_hBar": {
+        "_$ref": "rh3qtu5z"
+      },
+      "_$child": [
+        {
+          "_$id": "rh3qtu5z",
+          "_$type": "GImage",
+          "name": "img_1",
+          "x": 17,
+          "y": 17,
+          "width": 54,
+          "height": 54,
+          "alpha": 0.6,
+          "src": "res://061deab1-3c24-433d-845b-0091f8a2ab21",
+          "autoSize": false,
+          "mesh": {
+            "_$type": "ProgressMesh",
+            "clockwise": false,
+            "amount": 0.66
+          }
+        }
+      ]
+    }
+  ]
+}

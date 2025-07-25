@@ -1,0 +1,57 @@
+{
+  "_$ver": 1,
+  "_$id": "7dlit5vt",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 100,
+  "height": 100,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ],
+      "_editingIndex": 1
+    }
+  },
+  "mode": 1,
+  "sound": "res://0519042f-6dd7-455e-bc73-09ad5f4ce824",
+  "_$child": [
+    {
+      "_$id": "k267sfbe",
+      "_$type": "GImage",
+      "name": "22",
+      "x": 48.5,
+      "y": 48.5,
+      "width": 97,
+      "height": 97,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "rotation": 180,
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "7dlit5vt",
+            "_$ctrl": "button"
+          },
+          "propPath": "rotation",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 0,
+            "1": 180,
+            "3": 180,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "src": "res://7585a0c5-9bd1-4780-8505-b3146f2e6144"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "_$ver": 1,
+  "_$id": "rfiiislh",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 40,
+  "height": 40,
+  "anchorX": 0.5,
+  "anchorY": 0.5,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "downEffect": 2,
+  "_$child": [
+    {
+      "_$id": "8aeg01bs",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 40,
+      "height": 40,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rfiiislh"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://2f6d950a-967b-4e42-afa3-4d2e934bb37b",
+      "autoSize": false
+    }
+  ]
+}

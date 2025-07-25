@@ -1,0 +1,138 @@
+{
+  "_$ver": 1,
+  "_$id": "gan6mrtl",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "e8cd5a64-651d-4b5a-9235-128e9565953b",
+      "scriptPath": "Examples/scripts/PlayProgressBar.bp",
+      "_bp_data": {
+        "pbs": [
+          {
+            "_$ref": "8agy2ddl"
+          },
+          {
+            "_$ref": "gmqoglro"
+          },
+          {
+            "_$ref": "sy9r09s2"
+          },
+          {
+            "_$ref": "9sbhtg7u"
+          },
+          {
+            "_$ref": "zvh89mo0"
+          },
+          {
+            "_$ref": "77f5tgku"
+          },
+          {
+            "_$ref": "tm5drqjk"
+          },
+          {
+            "_$ref": [
+              "ka6lhqru",
+              "7vr9cgdu"
+            ]
+          },
+          {
+            "_$ref": [
+              "bv7ukwt8",
+              "keh52cyl"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "8agy2ddl",
+      "_$prefab": "e09e16b2-6fcd-4737-8bea-62a252a5663c",
+      "name": "ProgressBar",
+      "active": true,
+      "x": 45,
+      "y": 49,
+      "visible": true,
+      "value": 59
+    },
+    {
+      "_$id": "gmqoglro",
+      "_$prefab": "be109e1d-d618-4d0a-bef2-2d0b5ce66377",
+      "name": "ProgressBar1",
+      "active": true,
+      "x": 257,
+      "y": 48,
+      "visible": true
+    },
+    {
+      "_$id": "sy9r09s2",
+      "_$prefab": "e99b0873-c6c2-40f6-8ea4-6e3e46848d90",
+      "name": "ProgressBar2",
+      "active": true,
+      "x": 47,
+      "y": 142,
+      "visible": true,
+      "value": 48
+    },
+    {
+      "_$id": "9sbhtg7u",
+      "_$prefab": "59932b18-a02d-41c9-a92d-7fea9d39297b",
+      "name": "ProgressBar2_1",
+      "active": true,
+      "x": 359,
+      "y": 138,
+      "visible": true,
+      "value": 48
+    },
+    {
+      "_$id": "zvh89mo0",
+      "_$prefab": "fcf740d5-d9d4-4b3f-a1e5-7f14ed822202",
+      "name": "ProgressBar3",
+      "active": true,
+      "x": 83,
+      "y": 256,
+      "visible": true
+    },
+    {
+      "_$id": "77f5tgku",
+      "_$prefab": "fa526fe6-a0bc-4aa5-a3ab-72482f5578c6",
+      "name": "ProgressBar4",
+      "active": true,
+      "x": 105,
+      "y": 361,
+      "visible": true
+    },
+    {
+      "_$id": "tm5drqjk",
+      "_$prefab": "0f914c43-3eb0-459b-866e-3551581fc5e3",
+      "name": "ProgressBar5",
+      "active": true,
+      "x": 321,
+      "y": 331,
+      "visible": true,
+      "value": 29
+    },
+    {
+      "_$id": "ka6lhqru",
+      "_$prefab": "4373e38a-4cdc-4ad4-b24a-9b48b45b5431",
+      "name": "Button12",
+      "active": true,
+      "x": 560,
+      "y": 333,
+      "visible": true
+    },
+    {
+      "_$id": "bv7ukwt8",
+      "_$prefab": "e980d687-1e9f-48fd-9160-2b310b28b48b",
+      "name": "Button13",
+      "active": true,
+      "x": 707,
+      "y": 349,
+      "visible": true
+    }
+  ]
+}

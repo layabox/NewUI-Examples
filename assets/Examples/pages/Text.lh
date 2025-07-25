@@ -1,0 +1,272 @@
+{
+  "_$ver": 1,
+  "_$id": "kvyg35lp",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "0fcb860f-79b5-450e-95c6-907a95f82040",
+      "scriptPath": "Examples/scripts/PlayText.bp",
+      "_bp_data": {
+        "RichText": {
+          "_$ref": "x8emhhgy"
+        },
+        "InputText": {
+          "_$ref": "1cz2uagl"
+        },
+        "InputResultText": {
+          "_$ref": "rmach27e"
+        },
+        "GetInputButton": {
+          "_$ref": "rsnd5hof"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "7r2qz4oz",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 27,
+      "y": 16,
+      "width": 465,
+      "height": 27,
+      "text": "The quick brown fox jumps over the lazy dog",
+      "fontSize": 22,
+      "color": "#ccff00",
+      "fitContent": 1
+    },
+    {
+      "_$id": "fx1u7f46",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 37,
+      "y": 65,
+      "width": 135,
+      "height": 25,
+      "text": "Auto Size text",
+      "fontSize": 20,
+      "fitContent": 1
+    },
+    {
+      "_$id": "hy08r8dh",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 204,
+      "y": 65,
+      "width": 109,
+      "height": 27,
+      "text": "Text Style",
+      "fontSize": 22,
+      "color": "#993300",
+      "fitContent": 1,
+      "bold": true,
+      "italic": true,
+      "underline": true
+    },
+    {
+      "_$id": "z0xhya3a",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 349,
+      "y": 67,
+      "width": 159,
+      "height": 25,
+      "text": "Text with outline",
+      "fontSize": 20,
+      "color": "#ffffff",
+      "fitContent": 1,
+      "stroke": 2
+    },
+    {
+      "_$id": "i7b58ubg",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 54,
+      "y": 110,
+      "width": 315,
+      "height": 67,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#ffffff"
+      },
+      "_$child": [
+        {
+          "_$id": "zl1dvune",
+          "_$type": "GTextField",
+          "name": "text",
+          "width": 315,
+          "height": 67,
+          "text": "Text Align",
+          "fontSize": 22,
+          "color": "#cc3300",
+          "align": "center",
+          "valign": "middle"
+        }
+      ]
+    },
+    {
+      "_$id": "d5gdzhpv",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 58,
+      "y": 207,
+      "width": 456,
+      "height": 159,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#000000"
+      },
+      "_$child": [
+        {
+          "_$id": "mkdvfbps",
+          "_$type": "GTextField",
+          "name": "text",
+          "width": 455,
+          "height": 158,
+          "text": "Support UBB grammer：\n[color=#FF3300][b]FairyGUI Editor[/b][/color] is a [i]WYSWYG[/i][size=30] Game UI Editor[/size]，FairyGUI是一个所见即所得的[color=#FFFF00]游戏UI编辑器[/color]。",
+          "fontSize": 22,
+          "color": "#ffffff",
+          "ubb": true,
+          "wordWrap": true,
+          "leading": 12
+        }
+      ]
+    },
+    {
+      "_$id": "mqxyyer9",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 552,
+      "y": 68,
+      "width": 456,
+      "height": 305,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#000000"
+      },
+      "_$child": [
+        {
+          "_$id": "x8emhhgy",
+          "_$type": "GTextField",
+          "name": "text",
+          "x": 4,
+          "y": 4,
+          "width": 446,
+          "height": 296,
+          "text": "RichText support click events, html tags(small set), support links and images. 多媒体文本支持点击/触摸事件，可以直接使用html标签（仅支持部分），可以带链接和图片。\n<img src='Examples/animations/pet.atlas'/>I am image<img src='Examples/images/angry_smile_png.png'/>\n<a href='link href'>I am link, click me</a>",
+          "fontSize": 22,
+          "color": "#ccff00",
+          "ubb": true,
+          "html": true,
+          "wordWrap": true,
+          "leading": 12
+        }
+      ]
+    },
+    {
+      "_$id": "deicy71r",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 35,
+      "y": 400,
+      "width": 120,
+      "height": 28,
+      "text": "Bitmap Font",
+      "fontSize": 20
+    },
+    {
+      "_$id": "7w9jr0sn",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 169,
+      "y": 383,
+      "width": 363,
+      "height": 54,
+      "text": "1234567890",
+      "font": "res://4ecc3635-c786-427d-9732-531f8cd701c2",
+      "fontSize": 20,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "wyihtl5f",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 551,
+      "y": 400,
+      "width": 120,
+      "height": 28,
+      "text": "Input Test",
+      "fontSize": 20
+    },
+    {
+      "_$id": "g9blgp16",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 680,
+      "y": 388,
+      "width": 373,
+      "height": 53,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      }
+    },
+    {
+      "_$id": "1cz2uagl",
+      "_$type": "GTextInput",
+      "name": "TextInput",
+      "x": 681,
+      "y": 392,
+      "width": 367,
+      "height": 44,
+      "text": "",
+      "fontSize": 22,
+      "valign": "middle",
+      "prompt": "Your Name Here"
+    },
+    {
+      "_$id": "rsnd5hof",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1",
+      "active": true,
+      "x": 924,
+      "y": 469,
+      "width": 120,
+      "visible": true,
+      "title": "Get Input"
+    },
+    {
+      "_$id": "rmach27e",
+      "_$type": "GTextField",
+      "name": "text",
+      "x": 560,
+      "y": 474,
+      "width": 356,
+      "height": 28,
+      "text": "",
+      "fontSize": 22,
+      "color": "#ff3300",
+      "align": "right"
+    },
+    {
+      "_$id": "nl3ndwrn",
+      "_$type": "GTextField",
+      "name": "text_1",
+      "x": 532,
+      "y": 17,
+      "width": 441,
+      "height": 27,
+      "text": "The quick brown fox jumps over the lazy dog",
+      "font": "res://2caf0e34-c365-487d-851c-f694b4e9dff8",
+      "fontSize": 22,
+      "color": "#ccff00",
+      "fitContent": 1
+    }
+  ]
+}

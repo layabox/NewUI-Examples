@@ -1,0 +1,80 @@
+{
+  "_$ver": 1,
+  "_$id": "eqxzdumj",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 131,
+  "height": 45,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "mode": 1,
+  "_$child": [
+    {
+      "_$id": "p93xj0we",
+      "_$type": "GImage",
+      "name": "k20",
+      "width": 131,
+      "height": 45,
+      "src": "res://ba1f6f13-b3de-42f3-b344-3974c8f56024"
+    },
+    {
+      "_$id": "oy66halc",
+      "_$type": "GImage",
+      "name": "k26",
+      "x": 79,
+      "y": 12,
+      "width": 37,
+      "height": 24,
+      "src": "res://8a75ff9f-ae68-41d3-94c6-dfa56c2fa75f"
+    },
+    {
+      "_$id": "u38r90p9",
+      "_$type": "GImage",
+      "name": "k25",
+      "x": 14,
+      "y": 13,
+      "width": 36,
+      "height": 24,
+      "src": "res://cd049b86-4506-4540-8ee3-6b2111688a70"
+    },
+    {
+      "_$id": "07vncouk",
+      "_$type": "GImage",
+      "name": "b1",
+      "x": -5,
+      "y": -1,
+      "width": 70,
+      "height": 52,
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "eqxzdumj",
+            "_$ctrl": "button"
+          },
+          "propPath": "x",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": -5,
+            "1": 64,
+            "3": 64,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "src": "res://365df0fb-5de4-4ce0-9756-50c364dfb2dc"
+    }
+  ]
+}

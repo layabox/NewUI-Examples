@@ -1,0 +1,139 @@
+{
+  "_$ver": 1,
+  "_$id": "y9yn3v5j",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 400,
+  "height": 71,
+  "controllers": {
+    "_$type": "Record",
+    "c1": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        ""
+      ]
+    }
+  },
+  "_$child": [
+    {
+      "_$id": "fv2phfa4",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 57,
+      "y": 19,
+      "width": 285,
+      "height": 35,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "y9yn3v5j"
+          },
+          "data": [
+            6,
+            0,
+            16,
+            0
+          ]
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "mnuiori7",
+          "_$type": "GImage",
+          "name": "img",
+          "x": 21,
+          "y": 17,
+          "width": 42,
+          "height": 34,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "y9yn3v5j",
+                "_$ctrl": "c1"
+              },
+              "pages": [
+                1
+              ]
+            }
+          ],
+          "src": "res://57ad3a0e-ab93-4ccb-9e6b-940223852816",
+          "_$comp": [
+            {
+              "_$type": "Animator2D",
+              "controller": {
+                "_$uuid": "cdab6710-a85d-4cab-98e7-6402f6dbc9c9",
+                "_$type": "AnimationController2D"
+              },
+              "controllerLayers": [
+                {
+                  "_$type": "AnimatorControllerLayer2D",
+                  "name": "Base Layer",
+                  "states": [
+                    {
+                      "_$type": "AnimatorState2D",
+                      "name": "HeaderAnimation",
+                      "clipStart": 0,
+                      "clip": {
+                        "_$uuid": "9a6b9024-4265-4c84-b83e-baf19fe894cc",
+                        "_$type": "AnimationClip2D"
+                      },
+                      "loop": 0,
+                      "soloTransitions": []
+                    }
+                  ],
+                  "defaultStateName": "HeaderAnimation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_$id": "qvdusbd7",
+          "_$type": "GTextField",
+          "name": "txt",
+          "x": 1,
+          "y": 3,
+          "width": 282,
+          "height": 32,
+          "gears": [
+            {
+              "_$type": "GearString",
+              "controller": {
+                "_$ref": "y9yn3v5j",
+                "_$ctrl": "c1"
+              },
+              "propPath": "text",
+              "values": {
+                "0": "Pull up to load more",
+                "1": "Loading",
+                "_$type": "Record"
+              }
+            }
+          ],
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "y9yn3v5j"
+              },
+              "data": [
+                6,
+                0
+              ]
+            }
+          ],
+          "text": "Pull up to load more",
+          "fontSize": 22,
+          "color": "#999999",
+          "bold": true,
+          "align": "center"
+        }
+      ]
+    }
+  ]
+}

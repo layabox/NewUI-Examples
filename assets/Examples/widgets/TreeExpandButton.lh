@@ -1,0 +1,73 @@
+{
+  "_$ver": 1,
+  "_$id": "m8z7pmhj",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 38,
+  "height": 31,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ],
+      "_editingIndex": 1
+    }
+  },
+  "titleWidget": {
+    "_$ref": "htelk4qy"
+  },
+  "mode": 1,
+  "_$child": [
+    {
+      "_$id": "0gavtbvy",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 8,
+      "y": 1,
+      "width": 22,
+      "height": 28,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "m8z7pmhj",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            0,
+            2
+          ]
+        }
+      ],
+      "src": "res://1b53e9dc-26ba-45e4-8908-455f70e662ae"
+    },
+    {
+      "_$id": "gk4bmlo2",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 4,
+      "y": 5,
+      "width": 31,
+      "height": 23,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "m8z7pmhj",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "src": "res://e7ac2211-e3d8-46c6-ab58-af254e3f68cc"
+    }
+  ]
+}

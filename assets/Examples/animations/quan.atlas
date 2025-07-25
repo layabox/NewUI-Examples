@@ -1,0 +1,211 @@
+{
+  "animation": {
+    "interval": 166
+  },
+  "frames": {
+    "quan_0000.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 233,
+        "w": 86,
+        "h": 85
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 17,
+        "y": 18
+      }
+    },
+    "quan_0001.png": {
+      "frame": {
+        "idx": 0,
+        "x": 220,
+        "y": 0,
+        "w": 84,
+        "h": 84
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 18
+      }
+    },
+    "quan_0002.png": {
+      "frame": {
+        "idx": 0,
+        "x": 226,
+        "y": 86,
+        "w": 84,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 19
+      }
+    },
+    "quan_0003.png": {
+      "frame": {
+        "idx": 0,
+        "x": 296,
+        "y": 167,
+        "w": 86,
+        "h": 74
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 17,
+        "y": 17
+      }
+    },
+    "quan_0004.png": {
+      "frame": {
+        "idx": 0,
+        "x": 114,
+        "y": 232,
+        "w": 94,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 14
+      }
+    },
+    "quan_0005.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 121,
+        "w": 112,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    "quan_0006.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "quan_0007.png": {
+      "frame": {
+        "idx": 0,
+        "x": 210,
+        "y": 232,
+        "w": 84,
+        "h": 85
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 17
+      }
+    },
+    "quan_0008.png": {
+      "frame": {
+        "idx": 0,
+        "x": 306,
+        "y": 0,
+        "w": 84,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 24
+      }
+    },
+    "quan_0009.png": {
+      "frame": {
+        "idx": 0,
+        "x": 312,
+        "y": 80,
+        "w": 86,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 17,
+        "y": 32
+      }
+    },
+    "quan_0010.png": {
+      "frame": {
+        "idx": 0,
+        "x": 122,
+        "y": 0,
+        "w": 96,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 17
+      }
+    },
+    "quan_0011.png": {
+      "frame": {
+        "idx": 0,
+        "x": 114,
+        "y": 121,
+        "w": 110,
+        "h": 109
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 119
+      },
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 5
+      }
+    }
+  }
+}

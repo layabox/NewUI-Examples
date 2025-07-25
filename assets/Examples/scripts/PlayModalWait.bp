@@ -1,0 +1,811 @@
+{
+  "extends": "Script",
+  "autoID": 61,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "variable": [
+    {
+      "id": "var_12",
+      "name": "testWin",
+      "type": "GWindow",
+      "private": true,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_44",
+      "name": "btnOpenWin",
+      "type": "GWidget",
+      "private": false,
+      "limitProperties": {}
+    }
+  ],
+  "functions": [
+    {
+      "id": 28,
+      "name": "createTestWin",
+      "arr": [
+        {
+          "id": 29,
+          "cid": "custom_fun_start",
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "28",
+          "uiData": {
+            "x": 153.75390625,
+            "y": 174.1484375
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 30,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 30,
+          "uiData": {
+            "x": 547.2256411207622,
+            "y": 182.7311977024808
+          },
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "var_12",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 32,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 33,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "typeKey": "\"exec\"_\"any\"_\"GWindow\"_"
+        },
+        {
+          "cid": "construct_GWindow",
+          "id": 31,
+          "uiData": {
+            "x": 373.97265625,
+            "y": 31.03125
+          },
+          "target": "GWindow",
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 30,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_instantiate__url_classType_static",
+          "id": 32,
+          "uiData": {
+            "x": 794.5817252230856,
+            "y": 166.3285502122863
+          },
+          "target": "Prefab",
+          "isNullValue": {
+            "classType": true
+          },
+          "inputValue": {
+            "url": "Examples/windows/TestWin.lh"
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 33,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 33,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "typeKey": "\"exec\"_\"string\"_\"new()=>T\"_"
+        },
+        {
+          "cid": "set",
+          "id": 33,
+          "uiData": {
+            "x": 1292.8890165171624,
+            "y": 166.59982310974556
+          },
+          "target": "GWindow",
+          "dataId": "var_contentPane",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 34,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 34,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "typeKey": "\"exec\"_\"any\"_\"GWidget\"_"
+        },
+        {
+          "cid": "fun_getChild__name_classType",
+          "id": 34,
+          "uiData": {
+            "x": 1541.6591868985083,
+            "y": 170.20587585205033
+          },
+          "target": "GWidget",
+          "isNullValue": {},
+          "inputValue": {
+            "name": "btnRefresh",
+            "classType": "GWidget"
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 42,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 42,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "typeKey": "\"exec\"_\"GWidget\"_\"string\"_\"new()=>T\"_"
+        },
+        {
+          "cid": "event_event",
+          "id": 35,
+          "uiData": {
+            "x": 1813.1362839035792,
+            "y": 363.5037608245875
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 42,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 40,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_closeModalWait__requestingCmd",
+          "id": 36,
+          "uiData": {
+            "x": 2630.562449236228,
+            "y": 619.9165078166961
+          },
+          "target": "GWindow",
+          "isNullValue": {
+            "requestingCmd": true
+          },
+          "inputValue": {},
+          "typeKey": "\"exec\"_\"GWindow\"_\"number\"_"
+        },
+        {
+          "cid": "fun_once__delay_caller_method_args_coverBefore",
+          "id": 37,
+          "uiData": {
+            "x": 2595.9053284764746,
+            "y": 342.2472514935664
+          },
+          "target": "Timer",
+          "isNullValue": {
+            "args": true,
+            "coverBefore": true
+          },
+          "inputValue": {
+            "delay": 3000
+          },
+          "typeKey": "\"exec\"_\"Timer\"_\"number\"_\"any\"_\"Function\"_\"Array<any>\"_\"boolean\"_"
+        },
+        {
+          "cid": "event_event",
+          "id": 38,
+          "uiData": {
+            "x": 2342.9141714130287,
+            "y": 576.2822533987055
+          },
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "event_25",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "method",
+                  "name": "method",
+                  "nodeId": 37,
+                  "index": 4
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 36,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "static_get",
+          "id": 39,
+          "uiData": {
+            "x": 2360.7409948069794,
+            "y": 241.71383529434115
+          },
+          "target": "Laya",
+          "dataId": "var_timer_static",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 37,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "typeKey": "\"class\"_"
+        },
+        {
+          "cid": "fun_showModalWait__requestingCmd",
+          "id": 40,
+          "uiData": {
+            "x": 2167.617604051932,
+            "y": 357.76373998696795
+          },
+          "target": "GWindow",
+          "isNullValue": {
+            "requestingCmd": true
+          },
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 37,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "typeKey": "\"exec\"_\"GWindow\"_\"number\"_"
+        },
+        {
+          "cid": "get",
+          "id": 41,
+          "uiData": {
+            "x": 1925.115449341317,
+            "y": 533.6824279408459
+          },
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "var_12",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 40,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 36,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "typeKey": "\"any\"_"
+        },
+        {
+          "cid": "event_on",
+          "id": 42,
+          "uiData": {
+            "x": 2045.6124124900416,
+            "y": 171.29456231914105
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "inputValue": {},
+          "isNullValue": {},
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_"
+        }
+      ],
+      "limitProperties": {},
+      "comments": [],
+      "output": []
+    }
+  ],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "cid": "fun_onStart_",
+          "id": 11,
+          "uiData": {
+            "x": -599.2018229166664,
+            "y": -19.246238425925903
+          },
+          "target": "Script",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 50,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "custom_fun",
+          "id": 43,
+          "uiData": {
+            "x": -33.19443595310347,
+            "y": -65.48177174016693
+          },
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "28",
+          "typeKey": "\"exec\"_\"object\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 45,
+          "uiData": {
+            "x": -51.31506514224543,
+            "y": 197.03994691850738
+          },
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "var_44",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 46,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_on",
+          "id": 46,
+          "uiData": {
+            "x": 295.6684309053645,
+            "y": 208.21616222108153
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 47,
+          "uiData": {
+            "x": 3.1337050350966833,
+            "y": 296.1588736614196
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 46,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 49,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 48,
+          "uiData": {
+            "x": 71.56688553163474,
+            "y": 591.401931310628
+          },
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "var_12",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 49,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 58,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_show_",
+          "id": 49,
+          "uiData": {
+            "x": 287.88202025497276,
+            "y": 434.3576586756897
+          },
+          "target": "GWindow",
+          "typeKey": "\"exec\"_\"GWindow\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 58,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "sequence",
+          "id": 50,
+          "uiData": {
+            "x": -418.3594244658999,
+            "y": 10.555562799171772
+          },
+          "target": "system",
+          "typeKey": "\"exec\"_",
+          "inputValue": {},
+          "output": {
+            "then0": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 43,
+                  "index": 0
+                }
+              ]
+            },
+            "then1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 46,
+                  "index": 0
+                }
+              ]
+            },
+            "then2": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 52,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "static_get",
+          "id": 51,
+          "uiData": {
+            "x": -404.8871852057758,
+            "y": 801.4713921125144
+          },
+          "target": "GRoot",
+          "dataId": "var_inst_static",
+          "typeKey": "\"class\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 52,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 57,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_showModalWait__msg",
+          "id": 52,
+          "uiData": {
+            "x": -123.93230671680472,
+            "y": 652.6476111260265
+          },
+          "target": "GRoot",
+          "isNullValue": {
+            "msg": true
+          },
+          "typeKey": "\"exec\"_\"GRoot\"_\"string\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 54,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "static_get",
+          "id": 53,
+          "uiData": {
+            "x": -56.51039663620268,
+            "y": 819.0061253113319
+          },
+          "target": "Laya",
+          "dataId": "var_timer_static",
+          "typeKey": "\"class\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 54,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_once__delay_caller_method_args_coverBefore",
+          "id": 54,
+          "uiData": {
+            "x": 255.39065760681316,
+            "y": 643.1814735419465
+          },
+          "target": "Timer",
+          "isNullValue": {
+            "args": true,
+            "coverBefore": true
+          },
+          "typeKey": "\"exec\"_\"Timer\"_\"number\"_\"any\"_\"Function\"_\"Array<any>\"_\"boolean\"_",
+          "inputValue": {
+            "delay": 3000
+          }
+        },
+        {
+          "cid": "event_event",
+          "id": 56,
+          "uiData": {
+            "x": -135.39063003594575,
+            "y": 974.7830473436514
+          },
+          "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+          "dataId": "event_55",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "method",
+                  "name": "method",
+                  "nodeId": 54,
+                  "index": 4
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 57,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_closeModalWait_",
+          "id": 57,
+          "uiData": {
+            "x": 281.90540653470566,
+            "y": 961.1111744499789
+          },
+          "target": "GRoot",
+          "typeKey": "\"exec\"_\"GRoot\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_center__target",
+          "id": 58,
+          "uiData": {
+            "x": 560.2344378489981,
+            "y": 430.2257281084832
+          },
+          "target": "GWindow",
+          "isNullValue": {
+            "target": true
+          },
+          "typeKey": "\"exec\"_\"GWindow\"_\"GWidget\"_",
+          "inputValue": {}
+        }
+      ],
+      "comments": []
+    }
+  ],
+  "events": [
+    {
+      "id": "event_25",
+      "name": "onTimer",
+      "type": null,
+      "properties": [],
+      "bpType": "event",
+      "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+      "limitProperties": {}
+    },
+    {
+      "id": "event_55",
+      "name": "onTimer2",
+      "type": null,
+      "properties": [],
+      "bpType": "event",
+      "target": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+      "limitProperties": {}
+    }
+  ],
+  "tab": {
+    "showTabs": [
+      8,
+      28
+    ],
+    "id": 28
+  },
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

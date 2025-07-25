@@ -1,0 +1,56 @@
+{
+  "_$ver": 1,
+  "_$id": "ce3mg3ym",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 100,
+  "height": 100,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "downEffect": 1,
+  "_$child": [
+    {
+      "_$id": "7dw51q6g",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 7,
+      "width": 86,
+      "height": 99,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "ce3mg3ym"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://cb563cc8-70b8-4154-9e21-52adb996c2f4"
+    },
+    {
+      "_$id": "5su12n5h",
+      "_$type": "GMovieClip",
+      "name": "ani",
+      "x": -10,
+      "y": -9,
+      "width": 120,
+      "height": 119,
+      "src": "res://3b058f6a-933d-4c7e-8081-371f63445c78"
+    }
+  ]
+}

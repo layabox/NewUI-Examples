@@ -1,0 +1,46 @@
+{
+  "_$ver": 1,
+  "_$id": "84eeyqes",
+  "_$type": "GProgressBar",
+  "width": 145,
+  "height": 12,
+  "_hBar": {
+    "_$ref": "9prut8u9"
+  },
+  "_$child": [
+    {
+      "_$id": "hgkn5ed5",
+      "_$type": "GImage",
+      "name": "bg",
+      "width": 145,
+      "height": 12,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "84eeyqes"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://05b9aee7-058f-4c83-a6d4-7c85c3c0d292",
+      "autoSize": false
+    },
+    {
+      "_$id": "9prut8u9",
+      "_$type": "GImage",
+      "name": "bar",
+      "x": 2,
+      "y": 3,
+      "width": 140,
+      "height": 6,
+      "src": "res://4f98027f-26bc-41be-9ad9-88fd5bdcd57a",
+      "autoSize": false
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "_$ver": 1,
+  "_$id": "mqddv1bt",
+  "_$type": "GWidget",
+  "width": 400,
+  "height": 400,
+  "_$child": [
+    {
+      "_$id": "0iulfdx3",
+      "_$type": "GImage",
+      "name": "bg",
+      "width": 400,
+      "height": 400,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "mqddv1bt"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://fa8ffc16-e9f9-4933-9b30-55c0ed882bca",
+      "autoSize": false
+    },
+    {
+      "_$id": "htty75jt",
+      "_$type": "GList",
+      "name": "list",
+      "x": 4,
+      "y": 4,
+      "width": 392,
+      "height": 392,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "mqddv1bt"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "layout": {
+        "type": 1,
+        "stretchX": 1
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "barDisplay": 2
+      },
+      "_templateNode": {
+        "_$ref": "xiesk4p7",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 4,
+      "_isDemo": true,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "title": "Title1"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "Title2"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "Title3"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "Title4"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "xiesk4p7",
+          "_$type": "GButton",
+          "name": "Root",
+          "width": 120,
+          "height": 32,
+          "controllers": {
+            "_$type": "Record",
+            "button": {
+              "_$type": "Controller",
+              "pages": [
+                "up",
+                "down",
+                "over",
+                "selectedOver"
+              ]
+            }
+          },
+          "titleFontSize": 12,
+          "titleWidget": {
+            "_$ref": "5plqekpe"
+          },
+          "mode": 2,
+          "_$child": [
+            {
+              "_$id": "tr746p9m",
+              "_$type": "GWidget",
+              "name": "node",
+              "width": 120,
+              "height": 32,
+              "background": {
+                "_$type": "DrawRectCmd",
+                "fillColor": "#3399ff"
+              },
+              "gears": [
+                {
+                  "_$type": "GearDisplay",
+                  "controller": {
+                    "_$ref": "xiesk4p7",
+                    "_$ctrl": "button"
+                  },
+                  "pages": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              ],
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "xiesk4p7"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "_$id": "5plqekpe",
+              "_$type": "GTextField",
+              "name": "title",
+              "x": 4,
+              "y": 4,
+              "width": 112,
+              "height": 24,
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "xiesk4p7"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ],
+              "text": "Title",
+              "fontSize": 12,
+              "valign": "middle",
+              "overflow": "hidden"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

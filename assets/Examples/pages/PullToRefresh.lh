@@ -1,0 +1,130 @@
+{
+  "_$ver": 1,
+  "_$id": "kwdnimfk",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "cdc79d6f-619e-4d2b-be0f-9afc8934505f",
+      "scriptPath": "Examples/scripts/PlayPullToRefresh.ts",
+      "list1": {
+        "_$ref": "n9czpkvo"
+      },
+      "list2": {
+        "_$ref": "f3f1veyc"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "n9czpkvo",
+      "_$type": "GList",
+      "name": "list",
+      "x": 84,
+      "y": 78,
+      "width": 474,
+      "height": 457,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#ffffff"
+      },
+      "layout": {
+        "type": 1,
+        "stretchX": 1
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "headerRes": {
+          "_$uuid": "48fcce1f-25c6-4bce-993e-b9ef643ca009",
+          "_$type": "Prefab"
+        }
+      },
+      "_templateNode": {
+        "_$ref": "v48ne1nj",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 10,
+      "_isDemo": true,
+      "_$child": [
+        {
+          "_$id": "v48ne1nj",
+          "_$prefab": "ca1bcf5b-34f0-443c-bea8-5fec5b3bdc09",
+          "name": "btn",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "_$id": "f3f1veyc",
+      "_$type": "GList",
+      "name": "list2",
+      "x": 599,
+      "y": 77,
+      "width": 474,
+      "height": 457,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#ffffff"
+      },
+      "layout": {
+        "type": 1,
+        "stretchX": 1
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "footerRes": {
+          "_$uuid": "a9b866fe-b106-4ec1-b32a-d141329a984b",
+          "_$type": "Prefab"
+        }
+      },
+      "_templateNode": {
+        "_$ref": "elfepmsr",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 10,
+      "_isDemo": true,
+      "_$child": [
+        {
+          "_$id": "elfepmsr",
+          "_$prefab": "ca1bcf5b-34f0-443c-bea8-5fec5b3bdc09",
+          "name": "ListItem",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "_$id": "taw7jv5o",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 129,
+      "y": 27,
+      "width": 371,
+      "height": 28,
+      "text": "Pull Down to Refresh",
+      "fontSize": 22,
+      "color": "#ffffff",
+      "align": "center"
+    },
+    {
+      "_$id": "9v5das5s",
+      "_$type": "GTextField",
+      "name": "txt_1",
+      "x": 672,
+      "y": 27,
+      "width": 371,
+      "height": 28,
+      "text": "Pull Up to Refresh",
+      "fontSize": 22,
+      "color": "#ffffff",
+      "align": "center"
+    }
+  ]
+}

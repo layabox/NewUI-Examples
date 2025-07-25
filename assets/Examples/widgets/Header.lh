@@ -1,0 +1,244 @@
+{
+  "_$ver": 1,
+  "_$id": "pc0d5p2a",
+  "_$runtime": "res://04c6c358-e58f-4b43-a557-9bbbfa3df65d",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 400,
+  "height": 71,
+  "controllers": {
+    "_$type": "Record",
+    "c1": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_editingIndex": 2
+    }
+  },
+  "_$child": [
+    {
+      "_$id": "5jfq698d",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 52,
+      "y": 14,
+      "width": 296,
+      "height": 46,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "pc0d5p2a",
+            "_$ctrl": "c1"
+          },
+          "pages": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "pc0d5p2a"
+          },
+          "data": [
+            6,
+            0
+          ]
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "2zczox95",
+          "_$type": "GImage",
+          "name": "img",
+          "x": 23,
+          "y": 23,
+          "width": 42,
+          "height": 34,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "pc0d5p2a",
+                "_$ctrl": "c1"
+              },
+              "pages": [
+                2
+              ]
+            }
+          ],
+          "src": "res://57ad3a0e-ab93-4ccb-9e6b-940223852816",
+          "_$comp": [
+            {
+              "_$type": "Animator2D",
+              "controller": {
+                "_$uuid": "cdab6710-a85d-4cab-98e7-6402f6dbc9c9",
+                "_$type": "AnimationController2D"
+              },
+              "controllerLayers": [
+                {
+                  "_$type": "AnimatorControllerLayer2D",
+                  "name": "Base Layer",
+                  "states": [
+                    {
+                      "_$type": "AnimatorState2D",
+                      "name": "HeaderAnimation",
+                      "clipStart": 0,
+                      "clip": {
+                        "_$uuid": "9a6b9024-4265-4c84-b83e-baf19fe894cc",
+                        "_$type": "AnimationClip2D"
+                      },
+                      "loop": 0,
+                      "soloTransitions": []
+                    }
+                  ],
+                  "defaultStateName": "HeaderAnimation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_$id": "jffk7sbc",
+          "_$type": "GImage",
+          "name": "img_1",
+          "x": 20,
+          "y": 23,
+          "width": 40,
+          "height": 46,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "pc0d5p2a",
+                "_$ctrl": "c1"
+              },
+              "pages": [
+                0,
+                1
+              ]
+            },
+            {
+              "_$type": "GearNumber",
+              "controller": {
+                "_$ref": "pc0d5p2a",
+                "_$ctrl": "c1"
+              },
+              "propPath": "rotation",
+              "values": {
+                "0": 180,
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "_$type": "Record"
+              }
+            }
+          ],
+          "src": "res://e9eeef55-9643-4f02-ae66-c815366da11a"
+        },
+        {
+          "_$id": "3jh8n5wg",
+          "_$type": "GTextField",
+          "name": "txt",
+          "x": 54,
+          "y": 9,
+          "width": 242,
+          "height": 33,
+          "gears": [
+            {
+              "_$type": "GearString",
+              "controller": {
+                "_$ref": "pc0d5p2a",
+                "_$ctrl": "c1"
+              },
+              "propPath": "text",
+              "values": {
+                "0": "Pull down to refresh",
+                "1": "Release to refresh",
+                "2": "Loading",
+                "_$type": "Record"
+              }
+            }
+          ],
+          "text": "Loading",
+          "fontSize": 22,
+          "color": "#999999",
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "_$id": "i9a0g5qi",
+      "_$type": "GWidget",
+      "name": "node",
+      "width": 400,
+      "height": 35,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#3399ff"
+      },
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "pc0d5p2a",
+            "_$ctrl": "c1"
+          },
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "pc0d5p2a"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "bk6tddsg",
+          "_$type": "GTextField",
+          "name": "txt",
+          "x": 100,
+          "y": 4,
+          "width": 200,
+          "height": 32,
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "pc0d5p2a"
+              },
+              "data": [
+                6,
+                0
+              ]
+            }
+          ],
+          "text": "Refresh completed",
+          "fontSize": 22,
+          "color": "#ffffff"
+        }
+      ]
+    }
+  ]
+}

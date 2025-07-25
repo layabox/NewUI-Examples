@@ -1,0 +1,270 @@
+{
+  "_$ver": 1,
+  "_$id": "kkfz6q6q",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$child": [
+    {
+      "_$id": "zokgjqc9",
+      "_$type": "GTextField",
+      "name": "TextField",
+      "x": 21,
+      "y": 12,
+      "width": 120,
+      "height": 28,
+      "text": "Shapes",
+      "fontSize": 22
+    },
+    {
+      "_$id": "zogxyojo",
+      "_$type": "GWidget",
+      "name": "Widget",
+      "x": 41,
+      "y": 60,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 5,
+        "lineColor": "#ffff66",
+        "fillColor": "#cc9933"
+      }
+    },
+    {
+      "_$id": "7jx5t6t3",
+      "_$type": "GWidget",
+      "name": "Widget(1)",
+      "x": 189,
+      "y": 60,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRoundRectCmd",
+        "lt": 20,
+        "rt": 20,
+        "lb": 20,
+        "rb": 20,
+        "lineWidth": 2,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      }
+    },
+    {
+      "_$id": "b1oupkvl",
+      "_$type": "GWidget",
+      "name": "Widget(2)",
+      "x": 327,
+      "y": 60,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 15,
+        "lineColor": "#ff99ff"
+      }
+    },
+    {
+      "_$id": "nt3rdcor",
+      "_$type": "GWidget",
+      "name": "Widget(3)",
+      "x": 471,
+      "y": 60,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawCircleCmd",
+        "x": 0.5,
+        "y": 0.5,
+        "radius": 0.5,
+        "percent": true,
+        "lineWidth": 2,
+        "lineColor": "#000099",
+        "fillColor": "#00cccc"
+      }
+    },
+    {
+      "_$id": "i3qezcx0",
+      "_$type": "GWidget",
+      "name": "Widget(4)",
+      "x": 613,
+      "y": 60,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawCircleCmd",
+        "x": 0.5,
+        "y": 0.5,
+        "radius": 0.5,
+        "percent": true,
+        "lineWidth": 8,
+        "lineColor": "#000000"
+      }
+    },
+    {
+      "_$id": "i1kzsp2q",
+      "_$type": "GWidget",
+      "name": "Widget(5)",
+      "x": 755,
+      "y": 60,
+      "width": 195,
+      "height": 100,
+      "background": {
+        "_$type": "DrawEllipseCmd",
+        "x": 0.5,
+        "y": 0.5,
+        "width": 0.5,
+        "height": 0.5,
+        "percent": true,
+        "lineWidth": 2,
+        "lineColor": "#000000",
+        "fillColor": "#336699"
+      }
+    },
+    {
+      "_$id": "86ia9zdp",
+      "_$type": "GWidget",
+      "name": "Widget(6)",
+      "x": 204,
+      "y": 275,
+      "width": 241,
+      "height": 100,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "skewX": -30,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 2,
+        "lineColor": "#000000",
+        "fillColor": "#006600"
+      }
+    },
+    {
+      "_$id": "tsoxm5pb",
+      "_$type": "GWidget",
+      "name": "Widget(7)",
+      "x": 386,
+      "y": 219,
+      "width": 118,
+      "height": 100,
+      "background": {
+        "_$type": "DrawPolyCmd",
+        "x": 0,
+        "y": 0,
+        "points": [
+          23,
+          0,
+          92,
+          0,
+          116,
+          100,
+          0,
+          100
+        ],
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      }
+    },
+    {
+      "_$id": "exnxexel",
+      "_$type": "GImage",
+      "name": "radial",
+      "x": 775,
+      "y": 203,
+      "width": 245,
+      "height": 213,
+      "src": "res://c288b8c2-2e9c-4d69-b108-975889ba4e1b",
+      "_$child": [
+        {
+          "_$id": "e7gmmt2o",
+          "_$type": "GImage",
+          "name": "Image",
+          "x": 4,
+          "y": -12,
+          "width": 245,
+          "height": 237,
+          "src": "res://00000000-0000-0000-0001-000000000000",
+          "autoSize": false,
+          "mesh": {
+            "_$type": "RegularPolygonMesh",
+            "distances": [
+              0.57,
+              0.82,
+              0.7,
+              0.78,
+              0.61,
+              0.47
+            ],
+            "lineWidth": 2,
+            "lineColor": {
+              "_$type": "Color",
+              "g": 0.6,
+              "b": 0
+            },
+            "fillColor": {
+              "_$type": "Color",
+              "r": 0.6,
+              "b": 0.2,
+              "a": 0.39215686274509803
+            }
+          }
+        }
+      ]
+    },
+    {
+      "_$id": "lye7ddvs",
+      "_$type": "GWidget",
+      "name": "Widget(8)",
+      "x": 551,
+      "y": 243,
+      "width": 204,
+      "height": 61,
+      "background": {
+        "_$type": "DrawLineCmd",
+        "fromX": 0,
+        "fromY": 0,
+        "toX": 1,
+        "toY": 0,
+        "percent": true,
+        "lineWidth": 4,
+        "lineColor": "#46830a"
+      }
+    },
+    {
+      "_$id": "nqkmnesr",
+      "_$type": "GImage",
+      "name": "Image",
+      "x": 497,
+      "y": 288,
+      "width": 245,
+      "height": 237,
+      "src": "res://d68f2936-4c69-4bd8-9cab-81761aac9c7a",
+      "autoSize": false,
+      "mesh": {
+        "_$type": "RegularPolygonMesh",
+        "distances": [
+          0.57,
+          0.82,
+          0.7,
+          0.78,
+          0.61,
+          0.47
+        ],
+        "lineWidth": 2,
+        "lineColor": {
+          "_$type": "Color",
+          "g": 0.6,
+          "b": 0
+        },
+        "fillColor": {
+          "_$type": "Color",
+          "r": 0.6,
+          "b": 0.2,
+          "a": 0.39215686274509803
+        }
+      }
+    }
+  ]
+}

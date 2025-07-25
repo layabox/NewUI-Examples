@@ -1,0 +1,63 @@
+{
+  "_$ver": 1,
+  "_$id": "n66qeiss",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 400,
+  "height": 300,
+  "_$child": [
+    {
+      "_$id": "jbht0dak",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 400,
+      "height": 300,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "n66qeiss"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://fa8ffc16-e9f9-4933-9b30-55c0ed882bca",
+      "autoSize": false
+    },
+    {
+      "_$id": "k8zssy2e",
+      "_$type": "GImage",
+      "name": "img_1",
+      "x": 71,
+      "y": 118,
+      "width": 32,
+      "height": 32,
+      "src": "res://d1c98d35-30ab-463d-b1f7-022001767ea5"
+    },
+    {
+      "_$id": "784rumfj",
+      "_$type": "GImage",
+      "name": "img_2",
+      "x": 180,
+      "y": 118,
+      "width": 32,
+      "height": 32,
+      "src": "res://d1c98d35-30ab-463d-b1f7-022001767ea5"
+    },
+    {
+      "_$id": "r8m10uon",
+      "_$type": "GImage",
+      "name": "img_3",
+      "x": 289,
+      "y": 118,
+      "width": 32,
+      "height": 32,
+      "src": "res://d1c98d35-30ab-463d-b1f7-022001767ea5"
+    }
+  ]
+}

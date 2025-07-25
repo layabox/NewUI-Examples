@@ -1,0 +1,161 @@
+{
+  "_$ver": 1,
+  "_$id": "ffrlgq1l",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "74389b43-eed3-4eb4-9df7-bfae849becc9",
+      "scriptPath": "Examples/scripts/PlayChat.ts",
+      "list": {
+        "_$ref": "drkt50my"
+      },
+      "btnEmoji": {
+        "_$ref": "kcred2tt"
+      },
+      "input": {
+        "_$ref": "drs1i34b"
+      },
+      "btnSend": {
+        "_$ref": "p66kcwhn"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "x5hi861p",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 89,
+      "y": 37,
+      "width": 936,
+      "height": 405,
+      "src": "res://e1027831-131c-4a60-8a65-6200bf097fa3",
+      "autoSize": false
+    },
+    {
+      "_$id": "drkt50my",
+      "_$type": "GList",
+      "name": "list",
+      "x": 103,
+      "y": 49,
+      "width": 910,
+      "height": 376,
+      "layout": {
+        "type": 1,
+        "stretchX": 1
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "vScrollBarRes": {
+          "_$uuid": "8af6d480-aa53-4ee4-b054-e435d9e239d4",
+          "_$type": "Prefab"
+        }
+      },
+      "_templateNode": {
+        "_$ref": "t1d304jv",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 5,
+      "_isDemo": true,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "title": "Hello",
+          "icon": "res://5e3d7b3a-5b8d-44cc-ba03-49e157672a1c"
+        },
+        {
+          "_$type": "ItemData",
+          "res": {
+            "_$uuid": "229814f8-c962-45fd-ab8e-5630d106ab5b",
+            "_$type": "Prefab"
+          },
+          "title": "Hello",
+          "icon": "res://82978bcb-d1ae-46b2-b755-52d3093abeae"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "t1d304jv",
+          "_$prefab": "1e093337-0955-4ef7-8700-6b2cffba0a98",
+          "name": "ChatLeft",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true,
+          "height": 94
+        }
+      ]
+    },
+    {
+      "_$id": "sllqaf38",
+      "_$type": "GImage",
+      "name": "img_1",
+      "x": 94,
+      "y": 458,
+      "width": 660,
+      "height": 59,
+      "src": "res://168cdbd3-458e-45d2-8d1c-d6bcf715b1bc",
+      "autoSize": false
+    },
+    {
+      "_$id": "drs1i34b",
+      "_$type": "GTextInput",
+      "name": "input",
+      "x": 106,
+      "y": 464,
+      "width": 637,
+      "height": 48,
+      "text": "",
+      "fontSize": 26,
+      "valign": "middle"
+    },
+    {
+      "_$id": "kcred2tt",
+      "_$type": "GButton",
+      "name": "btn",
+      "x": 814,
+      "y": 487,
+      "width": 71,
+      "height": 71,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "controllers": {
+        "_$type": "Record",
+        "button": {
+          "_$type": "Controller",
+          "pages": [
+            "up",
+            "down",
+            "over",
+            "selectedOver"
+          ]
+        }
+      },
+      "downEffect": 2,
+      "_$child": [
+        {
+          "_$id": "8se35jhm",
+          "_$type": "GImage",
+          "name": "img_2",
+          "x": -18,
+          "width": 71,
+          "height": 71,
+          "src": "res://3c1481d3-7b20-499a-9ec9-e0b54e486559"
+        }
+      ]
+    },
+    {
+      "_$id": "p66kcwhn",
+      "_$prefab": "d6b285ae-bb1b-42f4-a907-2886b2df54c2",
+      "name": "Button",
+      "active": true,
+      "x": 854,
+      "y": 455,
+      "visible": true,
+      "title": "Send"
+    }
+  ]
+}

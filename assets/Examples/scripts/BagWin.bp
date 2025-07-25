@@ -1,0 +1,978 @@
+{
+  "extends": "Script",
+  "autoID": 141,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "source": {
+    "_$ver": 1,
+    "_$id": "ocq4gq5p",
+    "_$type": "Sprite3D",
+    "name": "Sprite3D",
+    "_$comp": []
+  },
+  "variable": [
+    {
+      "id": "var_103",
+      "name": "dots",
+      "type": "GList",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_14",
+      "name": "list",
+      "type": "GList",
+      "limitProperties": {}
+    },
+    {
+      "id": "var_104",
+      "name": "label",
+      "type": "GTextField",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_105",
+      "name": "img",
+      "type": "GLoader",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_135",
+      "name": "NewVar",
+      "type": [
+        "number"
+      ],
+      "private": true,
+      "limitProperties": {}
+    }
+  ],
+  "functions": [],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "cid": "fun_onStart_",
+          "id": 13,
+          "uiData": {
+            "x": -292.8510174418604,
+            "y": -183.77434593023253
+          },
+          "target": "Component",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 124,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 15,
+          "uiData": {
+            "x": 180.3807437566064,
+            "y": -213.5666952959829
+          },
+          "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+          "dataId": "var_14",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 16,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 51,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 52,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 110,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 16,
+          "uiData": {
+            "x": 418.6449854651162,
+            "y": -101.2405523255816
+          },
+          "target": "GList",
+          "dataId": "var_itemRenderer",
+          "typeKey": "\"exec\"_\"any\"_\"(index:number,item:any)=>void\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 51,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_setVirtual_",
+          "id": 51,
+          "uiData": {
+            "x": 732.1500726744188,
+            "y": -92.86682412790688
+          },
+          "target": "GList",
+          "typeKey": "\"exec\"_\"GList\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 52,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 52,
+          "uiData": {
+            "x": 991.1320857558154,
+            "y": -90.39571220930225
+          },
+          "target": "GList",
+          "dataId": "var_numItems",
+          "typeKey": "\"exec\"_\"any\"_\"number\"_",
+          "inputValue": {
+            "set": 50
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 107,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_event",
+          "id": 79,
+          "uiData": {
+            "x": -228.43513808139534,
+            "y": 1158.7750726744187
+          },
+          "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+          "dataId": "event_57",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 16,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 92,
+                  "index": 0
+                }
+              ]
+            },
+            "prop_64": {
+              "infoArr": [
+                {
+                  "id": "dividend",
+                  "name": "dividend",
+                  "nodeId": 93,
+                  "index": 0
+                },
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 127,
+                  "index": 2
+                }
+              ]
+            },
+            "prop_85": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 92,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 127,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 92,
+          "uiData": {
+            "x": -108,
+            "y": 1826
+          },
+          "target": "GButton",
+          "dataId": "var_icon",
+          "typeKey": "\"exec\"_\"any\"_\"string\"_",
+          "inputValue": {
+            "set": ""
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 127,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_mod__dividend_divisor_static",
+          "id": 93,
+          "uiData": {
+            "x": -192,
+            "y": 1506
+          },
+          "target": "BPMathLib",
+          "typeKey": "\"number\"_\"number\"_",
+          "inputValue": {
+            "divisor": 10,
+            "dividend": 0
+          },
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "b",
+                  "name": "b",
+                  "nodeId": 102,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_concat__a_b_c_static",
+          "id": 102,
+          "uiData": {
+            "x": 239,
+            "y": 1508
+          },
+          "target": "BPString",
+          "typeKey": "\"string\"_\"string\"_\"string\"_",
+          "inputValue": {
+            "a": "Examples/icons/i",
+            "c": ".png",
+            "b": ""
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 92,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 106,
+          "uiData": {
+            "x": 1262.0345111753877,
+            "y": 181.20075612881467
+          },
+          "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+          "dataId": "var_103",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 107,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 121,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 107,
+          "uiData": {
+            "x": 1533.961639302937,
+            "y": -82.61718950391679
+          },
+          "target": "GList",
+          "dataId": "var_numItems",
+          "typeKey": "\"exec\"_\"any\"_\"number\"_",
+          "inputValue": {
+            "set": 0
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 121,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 110,
+          "uiData": {
+            "x": 708.8063890840675,
+            "y": 103.85060581383146
+          },
+          "target": "GList",
+          "dataId": "var_scroller",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 111,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 111,
+          "uiData": {
+            "x": 980.1782420687834,
+            "y": 126.41177979312194
+          },
+          "target": "IScroller",
+          "dataId": "var_pageCountX",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 107,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_on",
+          "id": 113,
+          "uiData": {
+            "x": 687.4033658545553,
+            "y": 346.5611749067453
+          },
+          "target": "GList",
+          "dataId": "event_scroll",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 114,
+          "uiData": {
+            "x": 303.2139756278495,
+            "y": 489.80111040503215
+          },
+          "target": "GList",
+          "dataId": "event_scroll",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 113,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 117,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 115,
+          "uiData": {
+            "x": 907.7740733531874,
+            "y": 446.39053037270764
+          },
+          "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+          "dataId": "var_103",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 116,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 116,
+          "uiData": {
+            "x": 1169.6733706666676,
+            "y": 455.24855092760504
+          },
+          "target": "GList",
+          "dataId": "var_selection",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 117,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 117,
+          "uiData": {
+            "x": 1351.1792773907887,
+            "y": 480.8190037008361
+          },
+          "target": "ISelection",
+          "dataId": "var_index",
+          "typeKey": "\"exec\"_\"any\"_\"number\"_",
+          "inputValue": {
+            "set": 0
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 118,
+          "uiData": {
+            "x": 501.34135192483916,
+            "y": 600.3321863587697
+          },
+          "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+          "dataId": "var_14",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 119,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 113,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 122,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 119,
+          "uiData": {
+            "x": 886.1613787257893,
+            "y": 582.7738814930583
+          },
+          "target": "GList",
+          "dataId": "var_scroller",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 120,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 120,
+          "uiData": {
+            "x": 1096.3765713237235,
+            "y": 579.7507703760681
+          },
+          "target": "IScroller",
+          "dataId": "var_pageX",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 117,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 121,
+          "uiData": {
+            "x": 1837.7587815507427,
+            "y": -70.65770442778752
+          },
+          "target": "GList",
+          "dataId": "var_selectedIndex",
+          "typeKey": "\"exec\"_\"any\"_\"number\"_",
+          "inputValue": {
+            "set": 0
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_on",
+          "id": 122,
+          "uiData": {
+            "x": 716.3041695468861,
+            "y": 769.9973231407567
+          },
+          "target": "GList",
+          "dataId": "event_click_item",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 123,
+          "uiData": {
+            "x": 325.50161007455733,
+            "y": 911.9495583138622
+          },
+          "target": "GList",
+          "dataId": "event_click_item",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 122,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 126,
+                  "index": 0
+                }
+              ]
+            },
+            "item": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 129,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 132,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "sequence",
+          "id": 124,
+          "uiData": {
+            "x": 36.70543426948355,
+            "y": -127.38813928942643
+          },
+          "target": "system",
+          "typeKey": "\"exec\"_",
+          "inputValue": {},
+          "output": {
+            "then0": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 16,
+                  "index": 0
+                }
+              ]
+            },
+            "then1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 113,
+                  "index": 0
+                }
+              ]
+            },
+            "then2": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 122,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 125,
+          "uiData": {
+            "x": 549.3297356742369,
+            "y": 1048.9168706229464
+          },
+          "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+          "dataId": "var_104",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 126,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 126,
+          "uiData": {
+            "x": 922.7849957152833,
+            "y": 915.0567844474731
+          },
+          "target": "GTextField",
+          "dataId": "var_text",
+          "typeKey": "\"exec\"_\"any\"_\"string\"_",
+          "inputValue": {
+            "set": ""
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 131,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 127,
+          "uiData": {
+            "x": 348,
+            "y": 1820
+          },
+          "target": "GButton",
+          "dataId": "var_text",
+          "typeKey": "\"exec\"_\"any\"_\"string\"_",
+          "inputValue": {
+            "set": ""
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 129,
+          "uiData": {
+            "x": 603.1782808507229,
+            "y": 999.085549060753
+          },
+          "target": "GButton",
+          "dataId": "var_text",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 126,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 130,
+          "uiData": {
+            "x": 1137.745197253476,
+            "y": 1081.0138037101838
+          },
+          "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
+          "dataId": "var_105",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 131,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 131,
+          "uiData": {
+            "x": 1303.0476928495893,
+            "y": 916.9013403019396
+          },
+          "target": "GLoader",
+          "dataId": "var_icon",
+          "typeKey": "\"exec\"_\"any\"_\"string\"_",
+          "inputValue": {
+            "set": ""
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 132,
+          "uiData": {
+            "x": 898.0967690990245,
+            "y": 1090.4342249443275
+          },
+          "target": "GButton",
+          "dataId": "var_icon",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 131,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        }
+      ],
+      "x": -279.3465204326923,
+      "y": 44.54010216346171,
+      "scale": 1.02,
+      "comments": [
+        {
+          "id": 98,
+          "x": -208.76177157988047,
+          "y": 1432.5348184917038,
+          "width": 997.2418154761905,
+          "height": 574.7535342261905,
+          "desc": "Item渲染",
+          "fontSize": 16,
+          "limitProperties": {}
+        }
+      ],
+      "limitProperties": {}
+    }
+  ],
+  "events": [
+    {
+      "id": "event_57",
+      "name": "ItemRenderer",
+      "type": null,
+      "properties": [
+        {
+          "type": "number",
+          "caption": "index",
+          "name": "prop_64",
+          "id": "prop_64"
+        },
+        {
+          "type": "GButton",
+          "caption": "obj",
+          "name": "prop_85",
+          "id": "prop_85"
+        }
+      ],
+      "limitProperties": {},
+      "bpType": "event",
+      "target": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b"
+    }
+  ],
+  "tab": {
+    "showTabs": [
+      8
+    ],
+    "id": 8
+  },
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

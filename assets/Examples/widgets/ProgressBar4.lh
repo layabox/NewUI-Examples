@@ -1,0 +1,25 @@
+{
+  "_$ver": 1,
+  "_$id": "5kc5h000",
+  "_$type": "GProgressBar",
+  "name": "Root",
+  "width": 90,
+  "height": 23,
+  "_hBar": {
+    "_$ref": "xysd925t"
+  },
+  "_$child": [
+    {
+      "_$id": "xysd925t",
+      "_$type": "GImage",
+      "name": "bar",
+      "width": 90,
+      "height": 23,
+      "src": "res://470c7055-c18a-47c9-a441-f740346541ed",
+      "mesh": {
+        "_$type": "TileMesh",
+        "repeatY": false
+      }
+    }
+  ]
+}

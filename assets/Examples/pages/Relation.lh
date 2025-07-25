@@ -1,0 +1,277 @@
+{
+  "_$ver": 1,
+  "_$id": "gan6mrtl",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "controllers": {
+    "_$type": "Record",
+    "c1": {
+      "_$type": "Controller",
+      "pages": [
+        "",
+        ""
+      ]
+    }
+  },
+  "_$child": [
+    {
+      "_$id": "za9zhzb3",
+      "_$prefab": "49f704a7-38ee-4592-b206-f778c0f1d864",
+      "name": "Button3",
+      "active": true,
+      "x": 69,
+      "y": 34,
+      "visible": true,
+      "selectedController": {
+        "_$ref": "gan6mrtl",
+        "_$ctrl": "c1"
+      },
+      "selectedPage": 1
+    },
+    {
+      "_$id": "ww5jd8si",
+      "_$type": "GWidget",
+      "name": "Widget",
+      "x": 45,
+      "y": 112,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      },
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "gan6mrtl",
+            "_$ctrl": "c1"
+          },
+          "propPath": "x",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 45,
+            "1": 336,
+            "_$type": "Record"
+          }
+        }
+      ]
+    },
+    {
+      "_$id": "ysk84pa4",
+      "_$type": "GWidget",
+      "name": "Widget(1)",
+      "x": 180,
+      "y": 112,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#009900"
+      },
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "ww5jd8si"
+          },
+          "data": [
+            3,
+            0,
+            10,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "2z6b3ddi",
+      "_$type": "GWidget",
+      "name": "Widget(2)",
+      "x": 814,
+      "y": 112,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      },
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "gan6mrtl",
+            "_$ctrl": "c1"
+          },
+          "propPath": "x",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 814,
+            "1": 664,
+            "_$type": "Record",
+            "-1": 814
+          }
+        }
+      ]
+    },
+    {
+      "_$id": "3h7yo4x1",
+      "_$type": "GWidget",
+      "name": "Widget(3)",
+      "x": 941,
+      "y": 112,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#009900"
+      },
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "2z6b3ddi"
+          },
+          "data": [
+            18,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "jgx2c8u2",
+      "_$type": "GWidget",
+      "name": "Widget(4)",
+      "x": 52,
+      "y": 328,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#ffffff"
+      },
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "gan6mrtl",
+            "_$ctrl": "c1"
+          },
+          "propPath": "width",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 100,
+            "1": 224,
+            "_$type": "Record"
+          }
+        },
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "gan6mrtl",
+            "_$ctrl": "c1"
+          },
+          "propPath": "height",
+          "tween": {
+            "_$type": "GearTweenConfig"
+          },
+          "values": {
+            "0": 100,
+            "1": 210,
+            "_$type": "Record"
+          }
+        }
+      ]
+    },
+    {
+      "_$id": "chmrqsdh",
+      "_$type": "GWidget",
+      "name": "Widget(5)",
+      "x": 294,
+      "y": 327,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#009900"
+      },
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "jgx2c8u2"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "x4y7dvdo",
+      "_$type": "GWidget",
+      "name": "Widget(7)",
+      "x": 937,
+      "y": 306,
+      "width": 100,
+      "height": 100,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 1,
+        "lineColor": "#000000",
+        "fillColor": "#009900"
+      },
+      "gears": [
+        {
+          "_$type": "GearNumber",
+          "controller": {
+            "_$ref": "gan6mrtl",
+            "_$ctrl": "c1"
+          },
+          "propPath": "width",
+          "values": {
+            "0": 100,
+            "1": 284,
+            "_$type": "Record"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "gan6mrtl"
+          },
+          "data": [
+            9,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

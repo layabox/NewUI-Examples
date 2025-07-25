@@ -1,0 +1,51 @@
+{
+  "_$ver": 1,
+  "_$id": "ni7k8qjz",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 200,
+  "height": 200,
+  "background": {
+    "_$type": "DrawRectCmd",
+    "fillColor": "rgba(0,0,0,0.44)"
+  },
+  "_$child": [
+    {
+      "_$id": "nphv51r4",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 55,
+      "y": 60,
+      "width": 90,
+      "height": 90,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "ni7k8qjz"
+          },
+          "data": [
+            6,
+            0,
+            13,
+            0
+          ]
+        }
+      ],
+      "src": "res://e33aa81a-08ac-4652-a500-c318c8700806",
+      "autoSize": false,
+      "_$child": [
+        {
+          "_$id": "laap407z",
+          "_$type": "GMovieClip",
+          "name": "ani",
+          "x": 22,
+          "y": 26,
+          "width": 49,
+          "height": 31,
+          "src": "res://030f2d6e-68fa-4738-abf7-59329aebb38c"
+        }
+      ]
+    }
+  ]
+}

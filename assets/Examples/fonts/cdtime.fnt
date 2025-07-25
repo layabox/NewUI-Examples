@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font>
+  <info autoScaleSize="false" size="45" lineHeight="0"/>
+  <chars>
+    <char id="48" img="res://6858f804-aa38-42ae-98d2-09c14d8306c2" x="43" y="0" width="40" height="42" xoffset="1" yoffset="1" xadvance="35"/>
+    <char id="49" img="res://abf1a9f4-7e80-4734-913b-02b540a4122c" x="40" y="87" width="22" height="41" xoffset="9" yoffset="2" xadvance="35"/>
+    <char id="50" img="res://f586b4f6-3fbe-4c26-b4a7-b7316fc963d2" x="40" y="44" width="38" height="41" xoffset="2" yoffset="2" xadvance="35"/>
+    <char id="51" img="res://22be511f-da45-4541-8180-bc4b7c2732c1" x="85" y="42" width="38" height="42" xoffset="2" yoffset="2" xadvance="35"/>
+    <char id="52" img="res://346043ce-4f6c-44f3-9d2c-2e7079da11b4" x="0" y="86" width="38" height="42" xoffset="2" yoffset="2" xadvance="35"/>
+    <char id="53" img="res://db35d96f-d7bc-4955-94a3-77d5da0e9de3" x="0" y="0" width="41" height="42" xoffset="0" yoffset="2" xadvance="35"/>
+    <char id="54" img="res://ed4818e1-a3c9-49e2-b8a5-9f7bb63e8269" x="80" y="86" width="37" height="41" xoffset="2" yoffset="2" xadvance="35"/>
+    <char id="55" img="res://1eaf23d1-1127-46e3-b57d-b5ec5814b4a1" x="119" y="86" width="36" height="42" xoffset="3" yoffset="2" xadvance="35"/>
+    <char id="56" img="res://cf1aabf9-611b-4e8d-8c0b-e894889284d2" x="85" y="0" width="40" height="40" xoffset="1" yoffset="3" xadvance="35"/>
+    <char id="57" img="res://dfafc85b-e445-43a1-8fac-254d9db28100" x="125" y="42" width="35" height="42" xoffset="3" yoffset="1" xadvance="35"/>
+  </chars>
+</font>

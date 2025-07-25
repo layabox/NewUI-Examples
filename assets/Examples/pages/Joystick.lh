@@ -1,0 +1,130 @@
+{
+  "_$ver": 1,
+  "_$id": "z7icgtf6",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "7396617f-ca6c-4b0a-b5ca-075d7342fd4b",
+      "scriptPath": "Examples/scripts/JoystickScript.ts",
+      "label": {
+        "_$ref": "uf1datet"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "ixv8hymv",
+      "_$type": "GWidget",
+      "name": "joystick",
+      "x": 38,
+      "y": 294,
+      "width": 374,
+      "height": 254,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "z7icgtf6"
+          },
+          "data": [
+            16,
+            0
+          ]
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "si4luld2",
+          "_$type": "GImage",
+          "name": "center",
+          "x": 188,
+          "y": 132,
+          "width": 76,
+          "height": 77,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "_mouseState": 1,
+          "src": "res://86791954-5b7e-4bf5-a024-471777b895fe"
+        },
+        {
+          "_$id": "9xtqwlll",
+          "_$type": "GButton",
+          "name": "button",
+          "x": 189,
+          "y": 131,
+          "width": 212,
+          "height": 212,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "controllers": {
+            "_$type": "Record",
+            "button": {
+              "_$type": "Controller",
+              "pages": [
+                "up",
+                "down",
+                "over",
+                "selectedOver"
+              ]
+            }
+          },
+          "mode": 2,
+          "_$child": [
+            {
+              "_$id": "3j51j1yk",
+              "_$type": "GImage",
+              "name": "thumb",
+              "x": 106,
+              "y": 106,
+              "width": 178,
+              "height": 160,
+              "anchorX": 0.5,
+              "anchorY": 0.5,
+              "gears": [
+                {
+                  "_$type": "GearDisplay",
+                  "controller": {
+                    "_$ref": "9xtqwlll",
+                    "_$ctrl": "button"
+                  },
+                  "pages": [
+                    1,
+                    3
+                  ]
+                }
+              ],
+              "src": "res://b1b970bc-7273-4189-b5b5-06a701af50f4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "fy7xfh88",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 567,
+      "y": 75,
+      "width": 104,
+      "height": 28,
+      "text": "Degree:",
+      "fontSize": 24,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "uf1datet",
+      "_$type": "GTextField",
+      "name": "txt_1",
+      "x": 672,
+      "y": 75,
+      "width": 221,
+      "height": 28,
+      "text": "",
+      "fontSize": 24,
+      "color": "#ffffff"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "_$ver": 1,
+  "_$id": "bmaq6e1m",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 49,
+  "height": 49,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ],
+      "_editingIndex": 1
+    }
+  },
+  "mode": 1,
+  "_$child": [
+    {
+      "_$id": "wreglmlm",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 49,
+      "height": 49,
+      "src": "res://c30250ef-1a08-4972-b46f-100c94ff5aef"
+    },
+    {
+      "_$id": "sqznxdu0",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 55,
+      "height": 46,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "bmaq6e1m",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "src": "res://777df232-7c96-4571-856d-6f1ef40fe692"
+    }
+  ]
+}

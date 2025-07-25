@@ -1,0 +1,70 @@
+{
+  "_$ver": 1,
+  "_$id": "gan6mrtl",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "c95f0eb3-0892-4935-92cb-5e953ac2808e",
+      "scriptPath": "Examples/scripts/PlayDepth.bp",
+      "_bp_data": {
+        "button1": {
+          "_$ref": "qmykzx4u"
+        },
+        "button2": {
+          "_$ref": "yrg4uh4n"
+        },
+        "container": {
+          "_$ref": "lyjpd8zd"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "4czpcbnj",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 38,
+      "y": 19,
+      "width": 1067,
+      "height": 94,
+      "text": "By default, children in component are arrange according to their index. You can use property 'zOrder' to customize the depth. This mechanism is useful in game, e.g. serveral modules who dont know each other trying to add objects to same container.",
+      "fontSize": 22,
+      "wordWrap": true
+    },
+    {
+      "_$id": "lyjpd8zd",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 51,
+      "y": 132,
+      "width": 400,
+      "height": 400
+    },
+    {
+      "_$id": "qmykzx4u",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1",
+      "active": true,
+      "x": 638,
+      "y": 189,
+      "width": 151,
+      "visible": true,
+      "title": "Add a child"
+    },
+    {
+      "_$id": "yrg4uh4n",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1_1",
+      "active": true,
+      "x": 638,
+      "y": 269,
+      "width": 343,
+      "visible": true,
+      "title": "Add a child with bigger zOrder"
+    }
+  ]
+}

@@ -1,0 +1,1207 @@
+{
+  "extends": "Script",
+  "autoID": 104,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "variable": [
+    {
+      "id": "var_15",
+      "name": "btnStart",
+      "type": "GWidget",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_16",
+      "name": "btnBag",
+      "type": "GWidget",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_17",
+      "name": "guideLayer",
+      "type": "GWidget",
+      "private": true,
+      "limitProperties": {}
+    }
+  ],
+  "functions": [
+    {
+      "id": 65,
+      "name": "moveHitArea",
+      "arr": [
+        {
+          "id": 66,
+          "cid": "custom_fun_start",
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "65",
+          "uiData": {
+            "x": 96.6329576800231,
+            "y": 111.9161040940767
+          },
+          "output": {
+            "prop_67": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 74,
+                  "index": 0
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 104,
+                  "index": 0
+                }
+              ]
+            },
+            "prop_68": {
+              "infoArr": [
+                {
+                  "id": "x",
+                  "name": "x",
+                  "nodeId": 104,
+                  "index": 2
+                }
+              ]
+            },
+            "prop_69": {
+              "infoArr": [
+                {
+                  "id": "y",
+                  "name": "y",
+                  "nodeId": 104,
+                  "index": 3
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "as",
+          "id": 73,
+          "uiData": {
+            "x": 585.6081356871274,
+            "y": 388.8694264308755
+          },
+          "target": "system",
+          "inputValue": {
+            "type": "HitArea"
+          },
+          "isNullValue": {},
+          "typeKey": "\"any\"_\"string\"_",
+          "output": {
+            "then": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 104,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 74,
+          "uiData": {
+            "x": 333.8733833003746,
+            "y": 445.1614701648376
+          },
+          "target": "GWidget",
+          "dataId": "var_hitArea",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 73,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "typeKey": "\"any\"_"
+        },
+        {
+          "cid": "fun_moveTo__x_y_hit_unhit",
+          "id": 104,
+          "uiData": {
+            "x": 1134.0774035665208,
+            "y": 145.16370271815114
+          },
+          "target": "HitArea",
+          "typeKey": "\"exec\"_\"HitArea\"_\"number\"_\"number\"_\"boolean\"_\"boolean\"_",
+          "inputValue": {
+            "unhit": true,
+            "x": 0,
+            "y": 0,
+            "hit": false
+          },
+          "isNullValue": {}
+        }
+      ],
+      "modifiers": {
+        "isStatic": true
+      },
+      "limitProperties": {},
+      "properties": [
+        {
+          "type": "Sprite",
+          "caption": "sp",
+          "name": "prop_67",
+          "id": "prop_67"
+        },
+        {
+          "type": "number",
+          "caption": "x",
+          "name": "prop_68",
+          "id": "prop_68"
+        },
+        {
+          "type": "number",
+          "caption": "y",
+          "name": "prop_69",
+          "id": "prop_69"
+        }
+      ],
+      "inputValue": {
+        "prop_69": 0,
+        "prop_68": 0
+      },
+      "isNullValue": {},
+      "comments": []
+    }
+  ],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "cid": "fun_onStart_",
+          "id": 14,
+          "uiData": {
+            "x": -1256.4957386363624,
+            "y": -374.47265624999983
+          },
+          "target": "Script",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 20,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 18,
+          "uiData": {
+            "x": 163.2436079545453,
+            "y": -530.6711647727277
+          },
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "var_17",
+          "typeKey": "\"exec\"_\"any\"_\"GWidget\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 81,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 81,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_instantiate__url_classType_static",
+          "id": 19,
+          "uiData": {
+            "x": -358.58842329545485,
+            "y": -518.1906960227277
+          },
+          "target": "Prefab",
+          "isNullValue": {
+            "classType": true
+          },
+          "typeKey": "\"exec\"_\"string\"_\"new()=>T\"_",
+          "inputValue": {
+            "url": "Examples/widgets/GuideLayer.lh"
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 18,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 18,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "sequence",
+          "id": 20,
+          "uiData": {
+            "x": -1062.882457386363,
+            "y": -386.57031249999983
+          },
+          "target": "system",
+          "typeKey": "\"exec\"_",
+          "inputValue": {},
+          "output": {
+            "then0": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 19,
+                  "index": 0
+                }
+              ]
+            },
+            "then1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 22,
+                  "index": 0
+                }
+              ]
+            },
+            "then2": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 48,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 21,
+          "uiData": {
+            "x": -548.9595170454548,
+            "y": 227.05220170454538
+          },
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "var_15",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 22,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_on",
+          "id": 22,
+          "uiData": {
+            "x": -305.397017045455,
+            "y": 165.48188920454535
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 23,
+          "uiData": {
+            "x": -543.6704545454548,
+            "y": 311.7865767045455
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 22,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 26,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 24,
+          "uiData": {
+            "x": 969.3114346590892,
+            "y": 757.146398062657
+          },
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "var_17",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "node",
+                  "name": "node",
+                  "nodeId": 26,
+                  "index": 2
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 34,
+                  "index": 1
+                },
+                {
+                  "id": "targetSpace",
+                  "name": "targetSpace",
+                  "nodeId": 77,
+                  "index": 3
+                },
+                {
+                  "id": "prop_67",
+                  "name": "prop_67",
+                  "nodeId": 78,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "static_get",
+          "id": 25,
+          "uiData": {
+            "x": -275.2134232954549,
+            "y": 387.7318892045455
+          },
+          "target": "GRoot",
+          "dataId": "var_inst_static",
+          "typeKey": "\"class\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 26,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_addChild__node",
+          "id": 26,
+          "uiData": {
+            "x": 54.23188920454524,
+            "y": 279.5287642045453
+          },
+          "target": "GRoot",
+          "typeKey": "\"exec\"_\"GRoot\"_\"T\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 33,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 31,
+          "uiData": {
+            "x": 50.0092329545452,
+            "y": 490.4350142045454
+          },
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "var_16",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "sprite",
+                  "name": "sprite",
+                  "nodeId": 33,
+                  "index": 1
+                },
+                {
+                  "id": "sp",
+                  "name": "sp",
+                  "nodeId": 77,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_getRect__sprite_sizeOnly_out_static",
+          "id": 33,
+          "uiData": {
+            "x": 404.32387122426155,
+            "y": 183.37205286033404
+          },
+          "target": "SpriteUtils",
+          "isNullValue": {
+            "out": true,
+            "sizeOnly": true
+          },
+          "typeKey": "\"exec\"_\"Sprite\"_\"boolean\"_\"Rectangle\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 77,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "rect",
+                  "name": "rect",
+                  "nodeId": 77,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_getChild__name_classType",
+          "id": 34,
+          "uiData": {
+            "x": 1282.6430254315994,
+            "y": 149.61580157039134
+          },
+          "target": "GWidget",
+          "isNullValue": {},
+          "typeKey": "\"exec\"_\"GWidget\"_\"string\"_\"new()=>T\"_",
+          "inputValue": {
+            "name": "window",
+            "classType": "GWidget"
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 84,
+                  "index": 1
+                },
+                {
+                  "id": "target",
+                  "name": "target",
+                  "nodeId": 89,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 84,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_on",
+          "id": 48,
+          "uiData": {
+            "x": -774.4502847301385,
+            "y": 827.3612759395211
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "inputValue": {},
+          "isNullValue": {},
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_"
+        },
+        {
+          "cid": "event_event",
+          "id": 49,
+          "uiData": {
+            "x": -1012.7237222301385,
+            "y": 973.6659634395216
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 48,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 52,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 50,
+          "uiData": {
+            "x": -1083.0303371719206,
+            "y": 860.3671284710243
+          },
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "var_16",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 48,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 51,
+          "uiData": {
+            "x": -768.2232371032457,
+            "y": 1187.1290202610608
+          },
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "var_17",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 52,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_removeSelf_",
+          "id": 52,
+          "uiData": {
+            "x": -571.0471337819687,
+            "y": 980.4558504710751
+          },
+          "target": "GWidget",
+          "typeKey": "\"exec\"_\"GWidget\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_transformRect__sp_rect_targetSpace_out_static",
+          "id": 77,
+          "uiData": {
+            "x": 778.037255942042,
+            "y": 176.19851217606433
+          },
+          "target": "SpriteUtils",
+          "isNullValue": {
+            "targetSpace": true,
+            "out": true
+          },
+          "typeKey": "\"exec\"_\"Sprite\"_\"Rectangle\"_\"Sprite\"_\"Rectangle\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 34,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 85,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 86,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 87,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 88,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "custom_static_fun",
+          "id": 78,
+          "uiData": {
+            "x": 2324.9970760018614,
+            "y": 818.0574084295264
+          },
+          "target": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+          "dataId": "65_",
+          "typeKey": "\"exec\"_\"Sprite\"_\"number\"_\"number\"_",
+          "inputValue": {
+            "prop_68": 0,
+            "prop_69": 0
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_makeFullSize__target_constraints",
+          "id": 81,
+          "uiData": {
+            "x": 421.9597888408408,
+            "y": -536.8257029971505
+          },
+          "target": "GWidget",
+          "isNullValue": {
+            "target": true
+          },
+          "typeKey": "\"exec\"_\"GWidget\"_\"GWidget\"_\"boolean\"_",
+          "inputValue": {
+            "constraints": true
+          }
+        },
+        {
+          "cid": "fun_size__width_height",
+          "id": 84,
+          "uiData": {
+            "x": 1765.0577604069188,
+            "y": 134.49281664751365
+          },
+          "target": "GWidget",
+          "typeKey": "\"exec\"_\"GWidget\"_\"number\"_\"number\"_",
+          "inputValue": {
+            "width": 0,
+            "height": 0
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 89,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 85,
+          "uiData": {
+            "x": 1439.7229117641511,
+            "y": 337.51551443408545
+          },
+          "target": "Rectangle",
+          "dataId": "var_width",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "width",
+                  "name": "width",
+                  "nodeId": 84,
+                  "index": 2
+                },
+                {
+                  "id": "a",
+                  "name": "a",
+                  "nodeId": 95,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 86,
+          "uiData": {
+            "x": 1433.8573382213465,
+            "y": 398.58322487405525
+          },
+          "target": "Rectangle",
+          "dataId": "var_height",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "height",
+                  "name": "height",
+                  "nodeId": 84,
+                  "index": 3
+                },
+                {
+                  "id": "a",
+                  "name": "a",
+                  "nodeId": 96,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 87,
+          "uiData": {
+            "x": 1852.1978428302368,
+            "y": 416.72457792603245
+          },
+          "target": "Rectangle",
+          "dataId": "var_x",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "a",
+                  "name": "a",
+                  "nodeId": 93,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 88,
+          "uiData": {
+            "x": 1843.1909570483474,
+            "y": 503.67718637071596
+          },
+          "target": "Rectangle",
+          "dataId": "var_y",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "a",
+                  "name": "a",
+                  "nodeId": 94,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_create__target_lifecycleOwner_static",
+          "id": 89,
+          "uiData": {
+            "x": 2006.6159266622606,
+            "y": 183.68366886395475
+          },
+          "target": "Tween",
+          "isNullValue": {
+            "target": true,
+            "lifecycleOwner": true
+          },
+          "typeKey": "\"exec\"_\"any\"_\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 90,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 90,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_to__propName_value",
+          "id": 90,
+          "uiData": {
+            "x": 2336.229043307699,
+            "y": 180.7632815586062
+          },
+          "target": "Tween",
+          "typeKey": "\"exec\"_\"Tween\"_\"string\"_\"any\"_",
+          "inputValue": {
+            "propName": "x"
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 91,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 91,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_to__propName_value",
+          "id": 91,
+          "uiData": {
+            "x": 2336.963818710694,
+            "y": 394.39795192030823
+          },
+          "target": "Tween",
+          "typeKey": "\"exec\"_\"Tween\"_\"string\"_\"any\"_",
+          "inputValue": {
+            "propName": "y"
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 92,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 92,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_duration__value",
+          "id": 92,
+          "uiData": {
+            "x": 2336.4677879807123,
+            "y": 600.7781677115013
+          },
+          "target": "Tween",
+          "typeKey": "\"exec\"_\"Tween\"_\"number\"_",
+          "inputValue": {
+            "value": 500
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 78,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_add__a_b_static",
+          "id": 93,
+          "uiData": {
+            "x": 2081.5471692797973,
+            "y": 369.20853685778985
+          },
+          "target": "BPMathLib",
+          "typeKey": "\"number\"_\"number\"_",
+          "inputValue": {
+            "a": 0,
+            "b": 0
+          },
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "value",
+                  "name": "value",
+                  "nodeId": 90,
+                  "index": 3
+                },
+                {
+                  "id": "prop_68",
+                  "name": "prop_68",
+                  "nodeId": 78,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_add__a_b_static",
+          "id": 94,
+          "uiData": {
+            "x": 2084.1905101414195,
+            "y": 499.3476253432434
+          },
+          "target": "BPMathLib",
+          "inputValue": {
+            "a": 0,
+            "b": 0
+          },
+          "isNullValue": {},
+          "typeKey": "\"number\"_\"number\"_",
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "value",
+                  "name": "value",
+                  "nodeId": 91,
+                  "index": 3
+                },
+                {
+                  "id": "prop_69",
+                  "name": "prop_69",
+                  "nodeId": 78,
+                  "index": 3
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_divide__a_b_static",
+          "id": 95,
+          "uiData": {
+            "x": 1549.176250950922,
+            "y": 619.4802789458603
+          },
+          "target": "BPMathLib",
+          "typeKey": "\"number\"_\"number\"_",
+          "inputValue": {
+            "b": 2,
+            "a": 0
+          },
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "b",
+                  "name": "b",
+                  "nodeId": 93,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_divide__a_b_static",
+          "id": 96,
+          "uiData": {
+            "x": 1540.0329037217373,
+            "y": 751.4918165299455
+          },
+          "target": "BPMathLib",
+          "inputValue": {
+            "b": 2,
+            "a": 0
+          },
+          "isNullValue": {},
+          "typeKey": "\"number\"_\"number\"_",
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "b",
+                  "name": "b",
+                  "nodeId": 94,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "comments": []
+    }
+  ],
+  "events": [],
+  "tab": {
+    "showTabs": [
+      8,
+      65
+    ],
+    "id": 65
+  },
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

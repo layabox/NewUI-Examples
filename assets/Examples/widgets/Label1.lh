@@ -1,0 +1,43 @@
+{
+  "_$ver": 1,
+  "_$id": "efuplqyg",
+  "_$type": "GLabel",
+  "name": "Root",
+  "width": 348,
+  "height": 62,
+  "background": {
+    "_$type": "DrawRectCmd",
+    "lineWidth": 1,
+    "lineColor": "#000000",
+    "fillColor": "#003333"
+  },
+  "titleWidget": {
+    "_$ref": "szb5ddol"
+  },
+  "iconWidget": {
+    "_$ref": "t5eicm96"
+  },
+  "_$child": [
+    {
+      "_$id": "t5eicm96",
+      "_$type": "GLoader",
+      "name": "loader",
+      "x": 5,
+      "y": 5,
+      "width": 52,
+      "height": 52
+    },
+    {
+      "_$id": "szb5ddol",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 70,
+      "y": 14,
+      "width": 267,
+      "height": 28,
+      "text": "text",
+      "fontSize": 22,
+      "color": "#ffffff"
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+{
+  "extends": "Script",
+  "autoID": 29,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "variable": [
+    {
+      "id": "var_10",
+      "name": "btn",
+      "type": "GWidget",
+      "private": false,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_13",
+      "name": "win",
+      "type": "GWindow",
+      "private": true,
+      "limitProperties": {}
+    }
+  ],
+  "functions": [],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "id": 9,
+          "cid": "fun_onStart_",
+          "uiData": {
+            "x": -614.1286130747883,
+            "y": -154.20094476744185
+          },
+          "target": "Script",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 20,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 11,
+          "uiData": {
+            "x": -150.01491477272717,
+            "y": 262.8307883522727
+          },
+          "target": "03e41cf9-9976-40d1-900b-84f8a1c17030",
+          "dataId": "var_10",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 25,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 16,
+          "uiData": {
+            "x": 179.6171875,
+            "y": -118.9296875
+          },
+          "target": "03e41cf9-9976-40d1-900b-84f8a1c17030",
+          "dataId": "var_13",
+          "typeKey": "\"exec\"_\"any\"_\"GWindow\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 18,
+                  "index": 1
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 19,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "construct_GWindow",
+          "id": 17,
+          "uiData": {
+            "x": 6.35546875,
+            "y": -247.73046875
+          },
+          "target": "GWindow",
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 16,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 18,
+          "uiData": {
+            "x": 912.0078125,
+            "y": -109.7265625
+          },
+          "target": "GWindow",
+          "dataId": "var_contentPane",
+          "typeKey": "\"exec\"_\"any\"_\"GWidget\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_instantiate__url_classType_static",
+          "id": 19,
+          "uiData": {
+            "x": 433.34375,
+            "y": -185.50390625
+          },
+          "target": "Prefab",
+          "isNullValue": {
+            "classType": true
+          },
+          "typeKey": "\"exec\"_\"string\"_\"new()=>T\"_",
+          "inputValue": {
+            "url": "Examples/windows/BagWin.lh"
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 18,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 18,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "sequence",
+          "id": 20,
+          "uiData": {
+            "x": -201.47370108952222,
+            "y": -155.41548426464354
+          },
+          "target": "system",
+          "typeKey": "\"exec\"_",
+          "inputValue": {},
+          "output": {
+            "then0": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 16,
+                  "index": 0
+                }
+              ]
+            },
+            "then1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 25,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 21,
+          "uiData": {
+            "x": 333.3653625181488,
+            "y": 432.6619983840625
+          },
+          "target": "03e41cf9-9976-40d1-900b-84f8a1c17030",
+          "dataId": "var_13",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 22,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 23,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_show_",
+          "id": 22,
+          "uiData": {
+            "x": 423.4148348085147,
+            "y": 234.7805998005011
+          },
+          "target": "GWindow",
+          "typeKey": "\"exec\"_\"GWindow\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 23,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_center__target",
+          "id": 23,
+          "uiData": {
+            "x": 760.6014644367208,
+            "y": 226.48766411083372
+          },
+          "target": "GWindow",
+          "isNullValue": {
+            "target": true
+          },
+          "typeKey": "\"exec\"_\"GWindow\"_\"GWidget\"_",
+          "inputValue": {}
+        },
+        {
+          "cid": "event_on",
+          "id": 25,
+          "uiData": {
+            "x": 115.3161327704399,
+            "y": 128.64735074348283
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 26,
+          "uiData": {
+            "x": -71.29360529635161,
+            "y": 365.27071722988507
+          },
+          "target": "GWidget",
+          "dataId": "event_click",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 25,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 22,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_onDestroy_",
+          "id": 27,
+          "uiData": {
+            "x": -687.1048271677074,
+            "y": 39.91188241963061
+          },
+          "target": "Script",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 28,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_destroy__obj_static",
+          "id": 28,
+          "uiData": {
+            "x": -487.8451381410487,
+            "y": 120.13989761836426
+          },
+          "target": "BlueprintStaticFun",
+          "typeKey": "\"exec\"_\"any\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 29,
+          "uiData": {
+            "x": -718.9997204602477,
+            "y": 238.57648886934038
+          },
+          "target": "03e41cf9-9976-40d1-900b-84f8a1c17030",
+          "dataId": "var_13",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "obj",
+                  "name": "obj",
+                  "nodeId": 28,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        }
+      ],
+      "comments": []
+    }
+  ],
+  "events": [],
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

@@ -1,0 +1,27 @@
+{
+  "resolution": {
+    "scaleMode": "fixedauto",
+    "screenMode": "horizontal"
+  },
+  "2D": {
+    "useRetinalCanvas": true,
+    "defaultFontSize": 22
+  },
+  "UI": {
+    "globalModalWaiting": "res://bef510c1-0e09-4ea3-9c83-5e8deb47dc6a",
+    "windowModalWaiting": "res://78e01803-ed0e-4cd8-8a1a-34038e114f9c",
+    "horizontalScrollBar": "res://ace644fe-51e9-4e44-86b7-2901549dd9f6",
+    "verticalScrollBar": "res://41578366-b33e-481d-8021-d61bd695eb13",
+    "popupMenu": "res://dc69fe83-f6c4-41bc-8f77-0de5fc243721"
+  },
+  "modules": {
+    "laya.ui": true,
+    "laya.blueprint": true
+  },
+  "addons": {
+    "laya.ui": "ui2"
+  },
+  "splash": {
+    "fit": "center"
+  }
+}

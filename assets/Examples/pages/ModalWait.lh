@@ -1,0 +1,32 @@
+{
+  "_$ver": 1,
+  "_$id": "tyq76fq9",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
+      "scriptPath": "Examples/scripts/PlayModalWait.bp",
+      "_bp_data": {
+        "btnOpenWin": {
+          "_$ref": "1s3kv619"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "1s3kv619",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1",
+      "active": true,
+      "x": 225,
+      "y": 301,
+      "width": 241,
+      "visible": true,
+      "title": "Open Window"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "_$ver": 1,
+  "_$id": "h4nmq8op",
+  "_$type": "GScrollBar",
+  "name": "Root",
+  "width": 17,
+  "height": 200,
+  "_bar": {
+    "_$ref": "l2oa8bu0"
+  },
+  "_gripButton": {
+    "_$ref": "agixocpg"
+  },
+  "_arrowButton1": {
+    "_$ref": "xayxa7z4"
+  },
+  "_arrowButton2": {
+    "_$ref": "sx4j35t5"
+  },
+  "_$child": [
+    {
+      "_$id": "botkhfhk",
+      "_$type": "GImage",
+      "name": "s10.png",
+      "width": 17,
+      "height": 200,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "h4nmq8op"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://903ff185-3dfa-42e2-865b-0bf4cea43540",
+      "autoSize": false
+    },
+    {
+      "_$id": "xayxa7z4",
+      "_$prefab": "df4b9fcd-ae37-430c-a675-0a6a078ea8a4",
+      "name": "UpButton",
+      "active": true,
+      "x": 0,
+      "y": 0,
+      "visible": true,
+      "selected": false,
+      "selectedPage": 0
+    },
+    {
+      "_$id": "sx4j35t5",
+      "_$prefab": "603701f1-4044-46ee-a84c-cc52f1bb97ff",
+      "name": "DownButton",
+      "active": true,
+      "x": 0,
+      "y": 180,
+      "visible": true,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "h4nmq8op"
+          },
+          "data": [
+            16,
+            0
+          ]
+        }
+      ],
+      "selected": false,
+      "selectedPage": 0
+    },
+    {
+      "_$id": "l2oa8bu0",
+      "_$type": "GWidget",
+      "name": "bar",
+      "y": 20,
+      "width": 17,
+      "height": 160,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "h4nmq8op"
+          },
+          "data": [
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "agixocpg",
+      "_$prefab": "6048c208-0b49-4ee6-977a-9095d8c6c069",
+      "name": "GripButton_V",
+      "active": true,
+      "x": 0,
+      "y": 33,
+      "visible": true,
+      "selected": false,
+      "selectedPage": 0
+    }
+  ]
+}

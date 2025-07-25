@@ -1,0 +1,47 @@
+{
+  "_$ver": 1,
+  "_$id": "gan6mrtl",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$child": [
+    {
+      "_$id": "rwqdqegd",
+      "_$prefab": "f66c5b31-2438-4324-98a2-bf31b64661d7",
+      "name": "Slider_HZ",
+      "active": true,
+      "x": 45,
+      "y": 72,
+      "visible": true
+    },
+    {
+      "_$id": "3rq55yu7",
+      "_$prefab": "db2f80db-5d9e-411c-ac9d-08d003707a7c",
+      "name": "Slider_VT",
+      "active": true,
+      "x": 221,
+      "y": 41,
+      "visible": true
+    },
+    {
+      "_$id": "x9pj96nw",
+      "_$prefab": "a6318afb-de83-4c4d-84e2-565682643405",
+      "name": "Slider1",
+      "active": true,
+      "x": 57,
+      "y": 187,
+      "visible": true,
+      "value": 53
+    },
+    {
+      "_$id": "ct9wnxcc",
+      "_$prefab": "a2b8915c-b5c3-4c32-96a8-b234ff0525fd",
+      "name": "Slider2",
+      "active": true,
+      "x": 102,
+      "y": 280,
+      "visible": true
+    }
+  ]
+}

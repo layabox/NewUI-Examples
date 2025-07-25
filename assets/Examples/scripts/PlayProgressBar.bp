@@ -1,0 +1,352 @@
+{
+  "extends": "Script",
+  "autoID": 49,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "source": {
+    "_$ver": 1,
+    "_$id": "ocq4gq5p",
+    "_$type": "Sprite3D",
+    "name": "Sprite3D",
+    "_$comp": []
+  },
+  "variable": [
+    {
+      "id": "var_45",
+      "name": "pbs",
+      "type": [
+        "GProgressBar"
+      ],
+      "limitProperties": {}
+    }
+  ],
+  "functions": [],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "cid": "fun_onUpdate_",
+          "id": 15,
+          "uiData": {
+            "x": 77.3203125,
+            "y": 237.2578125
+          },
+          "target": "Component",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 16,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "forEach",
+          "id": 16,
+          "uiData": {
+            "x": 379.3515625,
+            "y": 216.46484375
+          },
+          "target": "system",
+          "typeKey": "\"exec\"_[\"any\"]_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "element": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 27,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 32,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 26,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 35,
+                  "index": 0
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 34,
+                  "index": 1
+                }
+              ]
+            },
+            "loopBody": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 33,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 26,
+          "uiData": {
+            "x": 2082.20513579303,
+            "y": 375.37366604749315
+          },
+          "target": "GProgressBar",
+          "dataId": "var_value",
+          "typeKey": "\"exec\"_\"any\"_\"number\"_",
+          "inputValue": {
+            "set": 0
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 27,
+          "uiData": {
+            "x": 708.3678096553228,
+            "y": 368.52923695676947
+          },
+          "target": "GProgressBar",
+          "dataId": "var_value",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "a",
+                  "name": "a",
+                  "nodeId": 29,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_add__a_b_static",
+          "id": 29,
+          "uiData": {
+            "x": 914.8309660660833,
+            "y": 326.4626561327795
+          },
+          "target": "BPMathLib",
+          "typeKey": "\"number\"_\"number\"_",
+          "inputValue": {
+            "b": 1,
+            "a": 0
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "a",
+                  "name": "a",
+                  "nodeId": 31,
+                  "index": 0
+                },
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 26,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_greater__a_b_static",
+          "id": 31,
+          "uiData": {
+            "x": 1512.9244903978856,
+            "y": 338.59346381530725
+          },
+          "target": "BPMathLib",
+          "typeKey": "\"number\"_\"number\"_",
+          "inputValue": {
+            "a": 0,
+            "b": 0
+          },
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "condition",
+                  "name": "condition",
+                  "nodeId": 33,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 32,
+          "uiData": {
+            "x": 1001.8475965410927,
+            "y": 558.4416105999472
+          },
+          "target": "GProgressBar",
+          "dataId": "var_max",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "b",
+                  "name": "b",
+                  "nodeId": 31,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "branch",
+          "id": 33,
+          "uiData": {
+            "x": 1790.453119781917,
+            "y": 186.07413904342795
+          },
+          "target": "system",
+          "typeKey": "\"exec\"_\"boolean\"_",
+          "inputValue": {
+            "condition": false
+          },
+          "output": {
+            "false": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 26,
+                  "index": 0
+                }
+              ]
+            },
+            "true": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 34,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 34,
+          "uiData": {
+            "x": 2084.8961520250627,
+            "y": 195.40300237956507
+          },
+          "target": "GProgressBar",
+          "dataId": "var_value",
+          "typeKey": "\"exec\"_\"any\"_\"number\"_",
+          "inputValue": {
+            "set": 0
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 35,
+          "uiData": {
+            "x": 1769.0323077530106,
+            "y": 52.92302684294938
+          },
+          "target": "GProgressBar",
+          "dataId": "var_min",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 34,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 46,
+          "uiData": {
+            "x": 38.48526320153032,
+            "y": 372.66929260712857
+          },
+          "target": "e8cd5a64-651d-4b5a-9235-128e9565953b",
+          "dataId": "var_45",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "array",
+                  "name": "array",
+                  "nodeId": 16,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        }
+      ],
+      "x": -1401.8387331450372,
+      "y": -150.0221927714777,
+      "scale": 0.9000000000000004,
+      "comments": []
+    }
+  ],
+  "events": [],
+  "tab": {
+    "showTabs": [
+      8
+    ],
+    "id": 8
+  },
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

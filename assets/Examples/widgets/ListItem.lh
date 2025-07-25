@@ -1,0 +1,129 @@
+{
+  "_$ver": 1,
+  "_$id": "zfuj2485",
+  "_$type": "GButton",
+  "name": "btn",
+  "width": 474,
+  "height": 88,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "mode": 2,
+  "_$child": [
+    {
+      "_$id": "kj7wwzbo",
+      "_$type": "GLoader",
+      "name": "loader",
+      "x": 7,
+      "y": 8,
+      "width": 64,
+      "height": 64,
+      "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078"
+    },
+    {
+      "_$id": "xauuyxw6",
+      "_$type": "GTextField",
+      "name": "title",
+      "x": 80,
+      "y": 7,
+      "width": 269,
+      "height": 34,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zfuj2485"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ],
+      "text": "text",
+      "fontSize": 24
+    },
+    {
+      "_$id": "jyk6ar0v",
+      "_$type": "GTextField",
+      "name": "desc",
+      "x": 81,
+      "y": 44,
+      "width": 374,
+      "height": 34,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zfuj2485"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ],
+      "text": "text",
+      "fontSize": 24,
+      "color": "#babcbf"
+    },
+    {
+      "_$id": "v6j255nq",
+      "_$type": "GTextField",
+      "name": "time",
+      "x": 377,
+      "y": 6,
+      "width": 90,
+      "height": 34,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zfuj2485"
+          },
+          "data": [
+            9,
+            0
+          ]
+        }
+      ],
+      "text": "21:03",
+      "fontSize": 24,
+      "color": "#babcbf",
+      "align": "right"
+    },
+    {
+      "_$id": "5nhj0nwd",
+      "_$type": "GImage",
+      "name": "img",
+      "y": 86,
+      "width": 474,
+      "height": 2,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "zfuj2485"
+          },
+          "data": [
+            1,
+            0,
+            16,
+            0
+          ]
+        }
+      ],
+      "src": "res://2b048ca3-7865-4202-a511-f4b1f6042ada",
+      "autoSize": false
+    }
+  ]
+}

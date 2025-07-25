@@ -1,0 +1,47 @@
+{
+  "_$ver": 1,
+  "_$id": "nciukrwd",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 426,
+  "height": 441,
+  "_$child": [
+    {
+      "_$id": "d0iyslbj",
+      "_$prefab": "11551fde-d07b-4b0f-aec1-0c12ec89f150",
+      "name": "frame",
+      "active": true,
+      "x": 0,
+      "y": 1,
+      "width": 426,
+      "height": 441,
+      "visible": true,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "nciukrwd"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "title": "Window"
+    },
+    {
+      "_$id": "yb1rc3bl",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "btnRefresh",
+      "active": true,
+      "x": 144,
+      "y": 331,
+      "width": 138,
+      "visible": true,
+      "title": "Refresh"
+    }
+  ]
+}

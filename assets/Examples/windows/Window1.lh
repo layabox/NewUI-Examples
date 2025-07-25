@@ -1,0 +1,98 @@
+{
+  "_$ver": 1,
+  "_$id": "aadd3dln",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 400,
+  "height": 400,
+  "_$child": [
+    {
+      "_$id": "k67rnpi1",
+      "_$prefab": "66389740-f1c1-4240-a48c-7de42c33c22a",
+      "name": "frame",
+      "active": true,
+      "x": 0,
+      "y": 0,
+      "visible": true,
+      "width": 400,
+      "height": 400,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "aadd3dln"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "title": "窗口标题"
+    },
+    {
+      "_$id": "u4ugehhc",
+      "_$prefab": "b9df1ee0-ee53-47e9-b4bd-a9ea17ee2523",
+      "name": "ComboBox1",
+      "active": true,
+      "x": 23,
+      "y": 37,
+      "visible": true,
+      "title": "Item1",
+      "items": [
+        "Item1",
+        "Item2",
+        "Item3",
+        "Item4",
+        "Item5",
+        "Item6",
+        "Item7",
+        "Item8"
+      ]
+    },
+    {
+      "_$id": "lmvtqtpx",
+      "_$type": "GList",
+      "name": "list",
+      "x": 20,
+      "y": 89,
+      "width": 356,
+      "height": 221,
+      "layout": {
+        "type": 3
+      },
+      "scroller": {
+        "_$type": "Scroller"
+      },
+      "_templateNode": {
+        "_$ref": "zin85jgt",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 10,
+      "_isDemo": true,
+      "_$child": [
+        {
+          "_$id": "zin85jgt",
+          "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+          "name": "BagGridSub",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "_$id": "a15yh4r8",
+      "_$prefab": "543cee4f-dd1d-4cac-b5bf-9957c11f3347",
+      "name": "Button7",
+      "active": true,
+      "x": 199,
+      "y": 356,
+      "visible": true,
+      "icon": "res://2cac2315-3915-4544-b25d-48c8dde366ad"
+    }
+  ]
+}

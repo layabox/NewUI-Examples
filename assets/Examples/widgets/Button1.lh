@@ -1,0 +1,163 @@
+{
+  "_$ver": 1,
+  "_$id": "rldz4pna",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 100,
+  "height": 36,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "titleWidget": {
+    "_$ref": "p86l1j6p"
+  },
+  "_$child": [
+    {
+      "_$id": "6rzo3qxh",
+      "_$type": "GWidget",
+      "name": "node",
+      "width": 100,
+      "height": 36,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#ffffff"
+      },
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "rldz4pna",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            0
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rldz4pna"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "hl7h7wwm",
+      "_$type": "GWidget",
+      "name": "node",
+      "width": 100,
+      "height": 36,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#eaeaea"
+      },
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "rldz4pna",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rldz4pna"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "4gzhd4z7",
+      "_$type": "GWidget",
+      "name": "node",
+      "width": 100,
+      "height": 36,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "fillColor": "#cccccc"
+      },
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "rldz4pna",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rldz4pna"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "p86l1j6p",
+      "_$type": "GTextField",
+      "name": "text",
+      "width": 100,
+      "height": 36,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rldz4pna"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "text": "text",
+      "fontSize": 22,
+      "align": "center",
+      "valign": "middle",
+      "overflow": "hidden"
+    }
+  ]
+}

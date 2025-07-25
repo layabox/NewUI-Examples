@@ -1,0 +1,384 @@
+{
+  "extends": "Script",
+  "autoID": 33,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "source": {
+    "_$ver": 1,
+    "_$id": "ocq4gq5p",
+    "_$type": "Sprite3D",
+    "name": "Sprite3D",
+    "_$comp": []
+  },
+  "variable": [
+    {
+      "id": "var_14",
+      "name": "RichText",
+      "type": "GTextField",
+      "limitProperties": {}
+    },
+    {
+      "id": "var_21",
+      "name": "InputText",
+      "type": "GTextInput",
+      "limitProperties": {}
+    },
+    {
+      "id": "var_22",
+      "name": "InputResultText",
+      "type": "GTextField",
+      "limitProperties": {}
+    },
+    {
+      "id": "var_24",
+      "name": "GetInputButton",
+      "type": "GWidget",
+      "limitProperties": {}
+    }
+  ],
+  "functions": [],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "cid": "get",
+          "id": 15,
+          "uiData": {
+            "x": 74,
+            "y": 167
+          },
+          "target": "0fcb860f-79b5-450e-95c6-907a95f82040",
+          "dataId": "var_14",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 17,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 19,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_event",
+          "id": 16,
+          "uiData": {
+            "x": 16.1640625,
+            "y": 236.46484375
+          },
+          "target": "GTextField",
+          "dataId": "event_link",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 17,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 19,
+                  "index": 0
+                }
+              ]
+            },
+            "href": {
+              "infoArr": [
+                {
+                  "id": "b",
+                  "name": "b",
+                  "nodeId": 33,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_on",
+          "id": 17,
+          "uiData": {
+            "x": 370.2890625,
+            "y": 29.953125
+          },
+          "target": "GTextField",
+          "dataId": "event_link",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 27,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_onStart_",
+          "id": 18,
+          "uiData": {
+            "x": 71.97265625,
+            "y": 37.9609375
+          },
+          "target": "Component",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 17,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "set",
+          "id": 19,
+          "uiData": {
+            "x": 875.9375,
+            "y": 216.234375
+          },
+          "target": "GTextField",
+          "dataId": "var_text",
+          "typeKey": "\"exec\"_\"any\"_\"string\"_",
+          "inputValue": {
+            "set": "dddddd"
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 23,
+          "uiData": {
+            "x": 138.73828125,
+            "y": 616.59765625
+          },
+          "target": "0fcb860f-79b5-450e-95c6-907a95f82040",
+          "dataId": "var_21",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 28,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 25,
+          "uiData": {
+            "x": 92.12890625,
+            "y": 484.8984375
+          },
+          "target": "0fcb860f-79b5-450e-95c6-907a95f82040",
+          "dataId": "var_24",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 27,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 26,
+          "uiData": {
+            "x": 113.234375,
+            "y": 678.28125
+          },
+          "target": "Sprite",
+          "dataId": "event_click",
+          "output": {
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 27,
+                  "index": 2
+                }
+              ]
+            },
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 31,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_on",
+          "id": 27,
+          "uiData": {
+            "x": 425.453125,
+            "y": 480.234375
+          },
+          "target": "Sprite",
+          "dataId": "event_click",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 28,
+          "uiData": {
+            "x": 414.65234375,
+            "y": 802.62109375
+          },
+          "target": "GTextInput",
+          "dataId": "var_text",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 31,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 30,
+          "uiData": {
+            "x": 94.4140625,
+            "y": 555.984375
+          },
+          "target": "0fcb860f-79b5-450e-95c6-907a95f82040",
+          "dataId": "var_22",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 31,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 31,
+          "uiData": {
+            "x": 634.6953125,
+            "y": 624.1796875
+          },
+          "target": "GTextField",
+          "dataId": "var_text",
+          "typeKey": "\"exec\"_\"any\"_\"string\"_",
+          "inputValue": {
+            "set": ""
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_concat__a_b_static",
+          "id": 33,
+          "uiData": {
+            "x": 431.05078125,
+            "y": 321.515625
+          },
+          "target": "BPString",
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 19,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "inputValue": {
+            "a": "[img]Examples/images/plus_smile_png.png[/img][color=#FF0000]You click the link:[/color] ",
+            "b": ""
+          },
+          "isNullValue": {},
+          "typeKey": "\"string\"_\"string\"_"
+        }
+      ],
+      "x": -88.45703125,
+      "y": -308.3046875,
+      "scale": 1,
+      "comments": []
+    }
+  ],
+  "events": [],
+  "tab": {
+    "showTabs": [
+      8
+    ],
+    "id": 8
+  },
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

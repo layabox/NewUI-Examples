@@ -1,0 +1,743 @@
+{
+  "extends": "Script",
+  "autoID": 111,
+  "_$ver": 1,
+  "_bpname": "Script(2D)",
+  "source": {
+    "_$ver": 1,
+    "_$id": "ocq4gq5p",
+    "_$type": "Sprite3D",
+    "name": "Sprite3D",
+    "_$comp": []
+  },
+  "variable": [
+    {
+      "id": "var_44",
+      "name": "container",
+      "type": "GWidget",
+      "limitProperties": {}
+    },
+    {
+      "id": "var_73",
+      "name": "backButton",
+      "type": "GButton",
+      "limitProperties": {}
+    },
+    {
+      "id": "var_94",
+      "name": "activePage",
+      "type": "GWidget",
+      "private": true,
+      "limitProperties": {}
+    },
+    {
+      "id": "var_106",
+      "name": "NewVar",
+      "type": "Rectangle",
+      "private": true,
+      "limitProperties": {}
+    }
+  ],
+  "functions": [
+    {
+      "id": 35,
+      "name": "openPage",
+      "arr": [
+        {
+          "id": 36,
+          "cid": "custom_fun_start",
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "35",
+          "uiData": {
+            "x": -395,
+            "y": 36
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 40,
+                  "index": 0
+                }
+              ]
+            },
+            "prop_43": {
+              "infoArr": [
+                {
+                  "id": "url",
+                  "name": "url",
+                  "nodeId": 92,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_showModalWait",
+          "id": 40,
+          "uiData": {
+            "x": -34,
+            "y": 22
+          },
+          "target": "GRoot",
+          "typeKey": "\"exec\"_\"GRoot\"_\"string\"_",
+          "inputValue": {
+            "msg": ""
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 92,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 45,
+          "uiData": {
+            "x": 774.3332519531252,
+            "y": -245.75244140625
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_44",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 46,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 47,
+                  "index": 1
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 93,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_removeChildren",
+          "id": 46,
+          "uiData": {
+            "x": 1820.5252972209748,
+            "y": 14.48793210647467
+          },
+          "target": "Node",
+          "typeKey": "\"exec\"_\"Node\"_\"number\"_\"number\"_\"boolean\"_",
+          "inputValue": {
+            "destroy": true,
+            "beginIndex": 0,
+            "endIndex": 0
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 47,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_addChild",
+          "id": 47,
+          "uiData": {
+            "x": 2317.4789759574915,
+            "y": 66.2379721696128
+          },
+          "target": "Node",
+          "typeKey": "\"exec\"_\"Node\"_\"T\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 93,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_closeModalWait_",
+          "id": 60,
+          "uiData": {
+            "x": 3080.0957060229757,
+            "y": 100.68667931522155
+          },
+          "target": "GRoot",
+          "typeKey": "\"exec\"_\"GRoot\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 102,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "static_get",
+          "id": 62,
+          "uiData": {
+            "x": -262,
+            "y": -78
+          },
+          "target": "GRoot",
+          "dataId": "var_inst_static",
+          "typeKey": "\"class\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 40,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "static_get",
+          "id": 63,
+          "uiData": {
+            "x": 2562.114830998902,
+            "y": -33.68020122214374
+          },
+          "target": "GRoot",
+          "dataId": "var_inst_static",
+          "typeKey": "\"class\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 60,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_instantiate__url_classType_static",
+          "id": 92,
+          "uiData": {
+            "x": 514.5758717395308,
+            "y": 105.05485891581225
+          },
+          "target": "Prefab",
+          "isNullValue": {},
+          "typeKey": "\"exec\"_\"string\"_\"new()=>T\"_",
+          "inputValue": {
+            "url": "",
+            "classType": "GWidget"
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 99,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "set",
+                  "name": "set",
+                  "nodeId": 95,
+                  "index": 2
+                },
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 99,
+                  "index": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_setPage__controllerName_pageIndex",
+          "id": 93,
+          "uiData": {
+            "x": 2575.278056940595,
+            "y": 57.6183062319825
+          },
+          "target": "GWidget",
+          "typeKey": "\"exec\"_\"GWidget\"_\"string\"_\"number\"_",
+          "inputValue": {
+            "controllerName": "c1",
+            "pageIndex": 1
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 60,
+                  "index": 0
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 95,
+          "uiData": {
+            "x": 1485.9501255774605,
+            "y": 37.84225805511736
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_94",
+          "typeKey": "\"exec\"_\"any\"_\"GWidget\"_",
+          "inputValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 46,
+                  "index": 0
+                }
+              ]
+            },
+            "return": {
+              "infoArr": [
+                {
+                  "id": "node",
+                  "name": "node",
+                  "nodeId": 47,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_makeFullSize__target_constraints",
+          "id": 99,
+          "uiData": {
+            "x": 1050.3074893169464,
+            "y": 1.8824816906711943
+          },
+          "target": "GWidget",
+          "isNullValue": {
+            "target": true
+          },
+          "typeKey": "\"exec\"_\"GWidget\"_\"GWidget\"_\"boolean\"_",
+          "inputValue": {
+            "constraints": true
+          },
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 95,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 101,
+          "uiData": {
+            "x": 3063.1953125,
+            "y": 295.5703125
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_73",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 102,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 102,
+          "uiData": {
+            "x": 3360.37890625,
+            "y": 75.921875
+          },
+          "target": "GButton",
+          "dataId": "var_visible",
+          "typeKey": "\"exec\"_\"any\"_\"boolean\"_",
+          "inputValue": {
+            "set": true
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 105,
+          "uiData": {
+            "x": 869.0234375,
+            "y": 301.921875
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_44",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "target",
+                  "name": "target",
+                  "nodeId": 99,
+                  "index": 2
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        }
+      ],
+      "x": -119.69673149503328,
+      "y": 216.05571417329438,
+      "scale": 0.6800000000000006,
+      "comments": [],
+      "properties": [
+        {
+          "type": "string",
+          "caption": "pageRes",
+          "name": "prop_43",
+          "id": "prop_43"
+        }
+      ],
+      "inputValue": {
+        "prop_43": ""
+      },
+      "limitProperties": {},
+      "variable": [],
+      "isNullValue": {}
+    }
+  ],
+  "blueprintArr": [
+    {
+      "id": 8,
+      "name": "事件图表",
+      "arr": [
+        {
+          "cid": "get",
+          "id": 84,
+          "uiData": {
+            "x": 1092.132738020042,
+            "y": 1299.7264526220363
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_73",
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 90,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_onStart_",
+          "id": 87,
+          "uiData": {
+            "x": 1062.6418831759865,
+            "y": 1073.5757540713919
+          },
+          "target": "Component",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 90,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 88,
+          "uiData": {
+            "x": 1384.2968958156632,
+            "y": 1617.1945319861945
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_44",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 91,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "event_event",
+          "id": 89,
+          "uiData": {
+            "x": 1154.2578312772848,
+            "y": 1418.0645702770282
+          },
+          "target": "Sprite",
+          "dataId": "event_click",
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 91,
+                  "index": 0
+                }
+              ]
+            },
+            "": {
+              "infoArr": [
+                {
+                  "id": "",
+                  "name": "",
+                  "nodeId": 90,
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "event_on",
+          "id": 90,
+          "uiData": {
+            "x": 1536.6167599921262,
+            "y": 1123.8162087809883
+          },
+          "target": "Sprite",
+          "dataId": "event_click",
+          "typeKey": "\"exec\"_\"any\"_\"bpFun\"_",
+          "inputValue": {},
+          "isNullValue": {}
+        },
+        {
+          "cid": "fun_setPage__controllerName_pageIndex",
+          "id": 91,
+          "uiData": {
+            "x": 1552.5034684943437,
+            "y": 1371.2961980415225
+          },
+          "target": "GWidget",
+          "typeKey": "\"exec\"_\"GWidget\"_\"string\"_\"number\"_",
+          "inputValue": {
+            "controllerName": "c1",
+            "pageIndex": 0
+          },
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 96,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "fun_destroy__obj_static",
+          "id": 96,
+          "uiData": {
+            "x": 2016.5700399651303,
+            "y": 1418.9610319401738
+          },
+          "target": "BlueprintStaticFun",
+          "typeKey": "\"exec\"_\"any\"_",
+          "inputValue": {},
+          "isNullValue": {},
+          "output": {
+            "out_-1": {
+              "infoArr": [
+                {
+                  "id": "-1",
+                  "name": "-1",
+                  "nodeId": 104,
+                  "index": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "cid": "get",
+          "id": 97,
+          "uiData": {
+            "x": 1782.5604657332906,
+            "y": 1624.0234013700485
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_94",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "obj",
+                  "name": "obj",
+                  "nodeId": 96,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "get",
+          "id": 103,
+          "uiData": {
+            "x": 2061.6386766551955,
+            "y": 1684.4051744907858
+          },
+          "target": "432d6819-0928-4035-a7af-fe5629da815e",
+          "dataId": "var_73",
+          "typeKey": "\"any\"_",
+          "inputValue": {},
+          "output": {
+            "return": {
+              "infoArr": [
+                {
+                  "id": "-2",
+                  "name": "-2",
+                  "nodeId": 104,
+                  "index": 1
+                }
+              ]
+            }
+          },
+          "isNullValue": {}
+        },
+        {
+          "cid": "set",
+          "id": 104,
+          "uiData": {
+            "x": 2348.6729402806673,
+            "y": 1414.6235198901904
+          },
+          "target": "GButton",
+          "dataId": "var_visible",
+          "typeKey": "\"exec\"_\"any\"_\"boolean\"_",
+          "inputValue": {
+            "set": false
+          },
+          "isNullValue": {}
+        }
+      ],
+      "x": -1315.1721074782847,
+      "y": -1240.8964232087556,
+      "scale": 1.0999999999999996,
+      "comments": [],
+      "limitProperties": {}
+    }
+  ],
+  "events": [],
+  "tab": {
+    "showTabs": [
+      8,
+      35
+    ],
+    "id": 35
+  },
+  "globalInfo": {
+    "limitProperties": {}
+  },
+  "preload": []
+}

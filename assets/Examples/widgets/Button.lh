@@ -1,0 +1,130 @@
+{
+  "_$ver": 1,
+  "_$id": "rldz4pna",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 163,
+  "height": 69,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "titleWidget": {
+    "_$ref": "p86l1j6p"
+  },
+  "sound": "res://e1c79d37-3f9c-455c-9a37-a9033ee9146f",
+  "_$child": [
+    {
+      "_$id": "p0qzaejn",
+      "_$type": "GImage",
+      "name": "Image",
+      "x": -3,
+      "y": -2,
+      "width": 169,
+      "height": 72,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "rldz4pna",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            0,
+            2
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rldz4pna"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://593ade07-d433-43b2-9b41-73901d988e06",
+      "autoSize": false
+    },
+    {
+      "_$id": "8ult5hmz",
+      "_$type": "GImage",
+      "name": "Image(2)",
+      "x": -5,
+      "y": -3,
+      "width": 173,
+      "height": 74,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "rldz4pna",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rldz4pna"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://68c20dc7-fd45-420c-bdf8-465d469dd71c",
+      "autoSize": false
+    },
+    {
+      "_$id": "p86l1j6p",
+      "_$type": "GTextField",
+      "name": "TextField",
+      "width": 163,
+      "height": 69,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rldz4pna"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "text": "text",
+      "fontSize": 22,
+      "color": "#ffffff",
+      "bold": true,
+      "align": "center",
+      "valign": "middle",
+      "stroke": 2
+    }
+  ]
+}

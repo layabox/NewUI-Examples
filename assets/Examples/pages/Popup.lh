@@ -1,0 +1,46 @@
+{
+  "_$ver": 1,
+  "_$id": "gan6mrtl",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "c737cf04-ce61-41ad-a4d8-1037d9179302",
+      "scriptPath": "Examples/scripts/PlayPopup.bp",
+      "_bp_data": {
+        "button1": {
+          "_$ref": "syywbdm6"
+        },
+        "button2": {
+          "_$ref": "n3ohua1k"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "n3ohua1k",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1",
+      "active": true,
+      "x": 96,
+      "y": 64,
+      "width": 193,
+      "visible": true,
+      "title": "Popup Menu"
+    },
+    {
+      "_$id": "syywbdm6",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1_1",
+      "active": true,
+      "x": 373,
+      "y": 64,
+      "width": 166,
+      "visible": true,
+      "title": "Popup Any"
+    }
+  ]
+}

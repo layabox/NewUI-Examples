@@ -1,0 +1,58 @@
+{
+  "_$ver": 1,
+  "_$id": "cvkq50yx",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "25f16b97-23fa-4825-84c3-59cee22b9dec",
+      "scriptPath": "Examples/scripts/PlayGuide.bp",
+      "_bp_data": {
+        "btnStart": {
+          "_$ref": "ijp4dks8"
+        },
+        "btnBag": {
+          "_$ref": "vculerdf"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "ijp4dks8",
+      "_$prefab": "5d5753f8-b71e-4fd1-aa10-0d82b58f7aa4",
+      "name": "Button1",
+      "active": true,
+      "x": 301,
+      "y": 223,
+      "width": 174,
+      "visible": true,
+      "title": "Start Guide"
+    },
+    {
+      "_$id": "vculerdf",
+      "_$prefab": "1aba63a8-4b12-4fa9-a191-8f447a97e7bb",
+      "name": "BagButton",
+      "active": true,
+      "x": 970,
+      "y": 449,
+      "visible": true,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "cvkq50yx"
+          },
+          "data": [
+            9,
+            0,
+            12,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

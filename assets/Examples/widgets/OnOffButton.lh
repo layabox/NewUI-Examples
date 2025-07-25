@@ -1,0 +1,185 @@
+{
+  "_$ver": 1,
+  "_$id": "zxlalj8f",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 100,
+  "height": 40,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "titleWidget": {
+    "_$ref": "nhi4pf0k"
+  },
+  "mode": 1,
+  "_$child": [
+    {
+      "_$id": "qamcxr0u",
+      "_$type": "GPanel",
+      "name": "panel",
+      "width": 100,
+      "height": 40,
+      "_$child": [
+        {
+          "_$id": "dgjyi6xn",
+          "_$type": "GImage",
+          "name": "img",
+          "width": 100,
+          "height": 40,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "zxlalj8f",
+                "_$ctrl": "button"
+              },
+              "pages": [
+                0,
+                2
+              ]
+            },
+            {
+              "_$type": "GearNumber",
+              "controller": {
+                "_$ref": "zxlalj8f",
+                "_$ctrl": "button"
+              },
+              "propPath": "x",
+              "tween": {
+                "_$type": "GearTweenConfig"
+              },
+              "values": {
+                "0": 0,
+                "1": -100,
+                "3": -100,
+                "_$type": "Record"
+              }
+            }
+          ],
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "zxlalj8f"
+              },
+              "data": [
+                1,
+                0,
+                2,
+                0
+              ]
+            }
+          ],
+          "src": "res://0f2a3cb3-386d-462d-97c7-5914031537d5"
+        },
+        {
+          "_$id": "9c816oh7",
+          "_$type": "GImage",
+          "name": "img",
+          "x": 100,
+          "width": 100,
+          "height": 40,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "zxlalj8f",
+                "_$ctrl": "button"
+              },
+              "pages": [
+                1,
+                3
+              ]
+            },
+            {
+              "_$type": "GearNumber",
+              "controller": {
+                "_$ref": "zxlalj8f",
+                "_$ctrl": "button"
+              },
+              "propPath": "x",
+              "tween": {
+                "_$type": "GearTweenConfig"
+              },
+              "values": {
+                "0": 100,
+                "1": 0,
+                "2": 100,
+                "3": 0,
+                "_$type": "Record"
+              }
+            }
+          ],
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "zxlalj8f"
+              },
+              "data": [
+                1,
+                0,
+                2,
+                0
+              ]
+            }
+          ],
+          "src": "res://1e9bc687-8291-4187-8476-476f484c20be"
+        },
+        {
+          "_$id": "nhi4pf0k",
+          "_$type": "GTextField",
+          "name": "title",
+          "x": 36,
+          "y": 4,
+          "width": 60,
+          "height": 32,
+          "gears": [
+            {
+              "_$type": "GearNumber",
+              "controller": {
+                "_$ref": "zxlalj8f",
+                "_$ctrl": "button"
+              },
+              "propPath": "x",
+              "values": {
+                "0": 36,
+                "1": 4,
+                "3": 4,
+                "_$type": "Record"
+              }
+            }
+          ],
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "zxlalj8f"
+              },
+              "data": [
+                1,
+                0,
+                2,
+                0
+              ]
+            }
+          ],
+          "text": "Title",
+          "fontSize": 22,
+          "align": "center",
+          "valign": "middle",
+          "overflow": "hidden"
+        }
+      ]
+    }
+  ]
+}

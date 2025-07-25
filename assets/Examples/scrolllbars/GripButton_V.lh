@@ -1,0 +1,130 @@
+{
+  "_$ver": 1,
+  "_$id": "bb6wlkur",
+  "_$type": "GButton",
+  "name": "Root",
+  "width": 17,
+  "height": 20,
+  "controllers": {
+    "_$type": "Record",
+    "button": {
+      "_$type": "Controller",
+      "pages": [
+        "up",
+        "down",
+        "over",
+        "selectedOver"
+      ]
+    }
+  },
+  "title": "",
+  "titleColor": "#000000",
+  "_$child": [
+    {
+      "_$id": "xq1ws7qd",
+      "_$type": "GImage",
+      "name": "s1.png",
+      "x": 4,
+      "width": 9,
+      "height": 20,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "bb6wlkur",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            0
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "bb6wlkur"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://1095984c-7264-45f1-8ed8-a6c240a1aeed"
+    },
+    {
+      "_$id": "5yhby2i7",
+      "_$type": "GImage",
+      "name": "s2.png",
+      "x": 4,
+      "width": 9,
+      "height": 20,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "bb6wlkur",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            1,
+            3
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "bb6wlkur"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://a77b0ebc-1164-4699-a7b9-7118d0d1fbb5"
+    },
+    {
+      "_$id": "cmc6jhpr",
+      "_$type": "GImage",
+      "name": "s3.png",
+      "x": 4,
+      "width": 9,
+      "height": 20,
+      "gears": [
+        {
+          "_$type": "GearDisplay",
+          "controller": {
+            "_$ref": "bb6wlkur",
+            "_$ctrl": "button"
+          },
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "bb6wlkur"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://ea309590-15c7-409c-add0-56da149551b7"
+    }
+  ]
+}

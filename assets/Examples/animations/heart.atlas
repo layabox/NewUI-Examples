@@ -1,0 +1,177 @@
+{
+  "animation": {
+    "interval": 50
+  },
+  "frames": {
+    "heart_0000.png": {
+      "frame": {
+        "idx": 0,
+        "x": 139,
+        "y": 184,
+        "w": 54,
+        "h": 47
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 15
+      }
+    },
+    "heart_0001.png": {
+      "frame": {
+        "idx": 0,
+        "x": 139,
+        "y": 131,
+        "w": 57,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 12
+      }
+    },
+    "heart_0002.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 134,
+        "w": 60,
+        "h": 54
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    "heart_0003.png": {
+      "frame": {
+        "idx": 0,
+        "x": 74,
+        "y": 131,
+        "w": 63,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 8
+      }
+    },
+    "heart_0004.png": {
+      "frame": {
+        "idx": 0,
+        "x": 77,
+        "y": 0,
+        "w": 66,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 6
+      }
+    },
+    "heart_0005.png": {
+      "frame": {
+        "idx": 0,
+        "x": 74,
+        "y": 68,
+        "w": 69,
+        "h": 61
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 4
+      }
+    },
+    "heart_0006.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 68,
+        "w": 72,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "heart_0007.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 0,
+        "w": 75,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "heart_0008.png": {
+      "frame": {
+        "idx": 0,
+        "x": 145,
+        "y": 0,
+        "w": 56,
+        "h": 50
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 13
+      }
+    },
+    "heart_0009.png": {
+      "frame": {
+        "idx": 0,
+        "x": 145,
+        "y": 52,
+        "w": 56,
+        "h": 49
+      },
+      "sourceSize": {
+        "w": 75,
+        "h": 66
+      },
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 14
+      }
+    }
+  }
+}

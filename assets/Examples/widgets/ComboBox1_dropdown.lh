@@ -1,0 +1,285 @@
+{
+  "_$ver": 1,
+  "_$id": "rlsvayu3",
+  "_$type": "GWidget",
+  "width": 400,
+  "height": 400,
+  "_$child": [
+    {
+      "_$id": "0ibj0ik2",
+      "_$type": "GImage",
+      "name": "bg",
+      "width": 400,
+      "height": 400,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rlsvayu3"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://a6269f21-75b0-4805-9da5-2ce3fbb2cbdf",
+      "autoSize": false
+    },
+    {
+      "_$id": "71jjiyeu",
+      "_$type": "GList",
+      "name": "list",
+      "x": 4,
+      "y": 4,
+      "width": 392,
+      "height": 392,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "rlsvayu3"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "layout": {
+        "type": 1,
+        "stretchX": 1
+      },
+      "scroller": {
+        "_$type": "Scroller",
+        "barDisplay": 2
+      },
+      "_templateNode": {
+        "_$ref": "cujdhin9",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 4,
+      "_isDemo": true,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "title": "Title1"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "Title2"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "Title3"
+        },
+        {
+          "_$type": "ItemData",
+          "title": "Title4"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "cujdhin9",
+          "_$type": "GButton",
+          "name": "Root",
+          "width": 102,
+          "height": 40,
+          "controllers": {
+            "_$type": "Record",
+            "button": {
+              "_$type": "Controller",
+              "pages": [
+                "up",
+                "down",
+                "over",
+                "selectedOver"
+              ]
+            }
+          },
+          "titleColor": "#ffcc00",
+          "titleFontSize": 15,
+          "titleWidget": {
+            "_$ref": "tcr40it9"
+          },
+          "mode": 2,
+          "_$child": [
+            {
+              "_$id": "8jib7oid",
+              "_$type": "GImage",
+              "name": "img",
+              "width": 102,
+              "height": 40,
+              "gears": [
+                {
+                  "_$type": "GearDisplay",
+                  "controller": {
+                    "_$ref": "cujdhin9",
+                    "_$ctrl": "button"
+                  },
+                  "pages": [
+                    0
+                  ]
+                }
+              ],
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "cujdhin9"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ],
+              "src": "res://46dbfaf9-40ec-4b52-8186-6d4d2f474234",
+              "autoSize": false
+            },
+            {
+              "_$id": "vwdxag2q",
+              "_$type": "GImage",
+              "name": "img",
+              "width": 102,
+              "height": 40,
+              "gears": [
+                {
+                  "_$type": "GearDisplay",
+                  "controller": {
+                    "_$ref": "cujdhin9",
+                    "_$ctrl": "button"
+                  },
+                  "pages": [
+                    1
+                  ]
+                }
+              ],
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "cujdhin9"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ],
+              "src": "res://7b92c2c2-b6dd-4eb5-88b8-fa11b55cf0ca",
+              "autoSize": false
+            },
+            {
+              "_$id": "rv77hqg0",
+              "_$type": "GImage",
+              "name": "img",
+              "width": 102,
+              "height": 40,
+              "gears": [
+                {
+                  "_$type": "GearDisplay",
+                  "controller": {
+                    "_$ref": "cujdhin9",
+                    "_$ctrl": "button"
+                  },
+                  "pages": [
+                    2
+                  ]
+                }
+              ],
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "cujdhin9"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ],
+              "src": "res://e87c1538-eab1-401d-98ff-5ede9938954b",
+              "autoSize": false
+            },
+            {
+              "_$id": "c19pa78f",
+              "_$type": "GImage",
+              "name": "img",
+              "width": 102,
+              "height": 40,
+              "gears": [
+                {
+                  "_$type": "GearDisplay",
+                  "controller": {
+                    "_$ref": "cujdhin9",
+                    "_$ctrl": "button"
+                  },
+                  "pages": [
+                    3
+                  ]
+                }
+              ],
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "cujdhin9"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ],
+              "src": "res://58bb8665-de29-43fc-a867-f9b5b64a2730",
+              "autoSize": false
+            },
+            {
+              "_$id": "tcr40it9",
+              "_$type": "GTextField",
+              "name": "title",
+              "x": 4,
+              "y": 4,
+              "width": 94,
+              "height": 32,
+              "relations": [
+                {
+                  "_$type": "Relation",
+                  "target": {
+                    "_$ref": "cujdhin9"
+                  },
+                  "data": [
+                    1,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              ],
+              "text": "Title",
+              "fontSize": 15,
+              "color": "#ffcc00",
+              "align": "center",
+              "valign": "middle",
+              "overflow": "hidden"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

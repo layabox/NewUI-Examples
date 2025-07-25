@@ -1,0 +1,166 @@
+{
+  "_$ver": 1,
+  "_$id": "cg5nq4e1",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 538,
+  "height": 168,
+  "_$child": [
+    {
+      "_$id": "1wne7i7z",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 538,
+      "height": 168,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "cg5nq4e1"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://e1027831-131c-4a60-8a65-6200bf097fa3",
+      "autoSize": false
+    },
+    {
+      "_$id": "b80swrh3",
+      "_$type": "GList",
+      "name": "list",
+      "x": 10,
+      "y": 13,
+      "width": 520,
+      "height": 146,
+      "layout": {
+        "type": 3,
+        "rowGap": 15,
+        "columnGap": 15
+      },
+      "_templateNode": {
+        "_$ref": "ahi02j7c",
+        "_$tmpl": "itemTemplate"
+      },
+      "_initItemNum": 14,
+      "_itemData": [
+        {
+          "_$type": "ItemData",
+          "name": "88",
+          "icon": "res://ba330fee-f9f2-4247-8556-9c5edb4fbe78"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "am",
+          "icon": "res://a838c3d8-c287-4d1c-b19b-00967d63a35e"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "bs",
+          "icon": "res://00cf813d-d0ca-4d92-a914-ac90c21f12dd"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "bz",
+          "icon": "res://ca52e392-0579-40a3-9e03-494380baf936"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "ch",
+          "icon": "res://b1470e8c-e91d-4cd8-8dca-d4a7b12a96ec"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "cool",
+          "icon": "res://d2d14342-7d7a-493a-ae7a-68bfb4a63cdb"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "dhq",
+          "icon": "res://26104c99-cdb6-4603-90dd-1010f0a1f183"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "dn",
+          "icon": "res://e7f00192-48ca-457c-82f6-185bd9d05436"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "fd",
+          "icon": "res://3a97c4f9-0cfc-4d10-837a-1c5724ff24a9"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "gz",
+          "icon": "res://e1c004d2-6d8c-45b3-b604-a50caa7bd76e"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "han",
+          "icon": "res://a3d53591-3420-4511-8904-f9a741a14ce5"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "hx",
+          "icon": "res://0115b92c-23d2-4cc5-a653-c1bca20a5b6f"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "hxiao",
+          "icon": "res://b42af4c8-351c-4312-95db-b7c450e4d609"
+        },
+        {
+          "_$type": "ItemData",
+          "name": "hxu",
+          "icon": "res://aec00e4b-6f70-4eab-9f2b-06c29c069c50"
+        }
+      ],
+      "_$child": [
+        {
+          "_$id": "ahi02j7c",
+          "_$type": "GButton",
+          "name": "btn",
+          "width": 60,
+          "height": 60,
+          "background": {
+            "_$type": "DrawRectCmd",
+            "lineWidth": 1,
+            "lineColor": "#999999",
+            "fillColor": "rgba(255,255,255,0.37)"
+          },
+          "controllers": {
+            "_$type": "Record",
+            "button": {
+              "_$type": "Controller",
+              "pages": [
+                "up",
+                "down",
+                "over",
+                "selectedOver"
+              ]
+            }
+          },
+          "iconWidget": {
+            "_$ref": "l203d3bz"
+          },
+          "mode": 2,
+          "_$child": [
+            {
+              "_$id": "l203d3bz",
+              "_$type": "GLoader",
+              "name": "loader",
+              "x": 4,
+              "y": 4,
+              "width": 52,
+              "height": 52
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

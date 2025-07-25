@@ -1,0 +1,123 @@
+{
+  "_$ver": 1,
+  "_$id": "gan6mrtl",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$comp": [
+    {
+      "_$type": "714ba844-96ab-4ca2-b252-7434a36effab",
+      "scriptPath": "Examples/scripts/PlayDragDrop.bp",
+      "_bp_data": {
+        "grid0": {
+          "_$ref": "qtpws8ft"
+        },
+        "grid1": {
+          "_$ref": "nmt0uvme"
+        },
+        "grid2": {
+          "_$ref": "ejzu0huy"
+        },
+        "grid3": {
+          "_$ref": "bpnrs7p8"
+        },
+        "dragArea": {
+          "_$ref": "tjiripkp"
+        }
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "988xg6bm",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 32,
+      "y": 18,
+      "width": 287,
+      "height": 28,
+      "text": "'A' can be dragged freely.",
+      "fontSize": 22
+    },
+    {
+      "_$id": "qtpws8ft",
+      "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+      "name": "BagGridSub",
+      "active": true,
+      "x": 53,
+      "y": 55,
+      "visible": true,
+      "title": "A",
+      "icon": "res://b039888f-f1fb-4947-b30f-251a992e3424"
+    },
+    {
+      "_$id": "g2rbzdld",
+      "_$type": "GTextField",
+      "name": "txt_1",
+      "x": 37,
+      "y": 181,
+      "width": 460,
+      "height": 73,
+      "text": "Try drag B to C. B's icon will assign to C.\n拖动B到C的位置可以将B的图标赋予C",
+      "fontSize": 22
+    },
+    {
+      "_$id": "nmt0uvme",
+      "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+      "name": "BagGridSub_1",
+      "active": true,
+      "x": 59,
+      "y": 269,
+      "visible": true,
+      "title": "B",
+      "icon": "res://b039888f-f1fb-4947-b30f-251a992e3424"
+    },
+    {
+      "_$id": "ejzu0huy",
+      "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+      "name": "BagGridSub_2",
+      "active": true,
+      "x": 460,
+      "y": 269,
+      "visible": true,
+      "title": "C"
+    },
+    {
+      "_$id": "tjiripkp",
+      "_$type": "GWidget",
+      "name": "node",
+      "x": 625,
+      "y": 77,
+      "width": 440,
+      "height": 413,
+      "background": {
+        "_$type": "DrawRectCmd",
+        "lineWidth": 2,
+        "lineColor": "#000000"
+      }
+    },
+    {
+      "_$id": "7gt9tszm",
+      "_$type": "GTextField",
+      "name": "txt_2",
+      "x": 624,
+      "y": 25,
+      "width": 287,
+      "height": 28,
+      "text": "'D' can be dragged inside bounds.",
+      "fontSize": 22
+    },
+    {
+      "_$id": "bpnrs7p8",
+      "_$prefab": "1c05d89f-a9fb-45ca-b225-35ccba1d9ad1",
+      "name": "BagGridSub_3",
+      "active": true,
+      "x": 768,
+      "y": 187,
+      "visible": true,
+      "title": "D",
+      "icon": "res://b039888f-f1fb-4947-b30f-251a992e3424"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "_$ver": 1,
+  "_$id": "cmentpij",
+  "_$type": "GWidget",
+  "name": "Root",
+  "width": 1136,
+  "height": 570,
+  "_$child": [
+    {
+      "_$id": "lv6i8ekh",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 17,
+      "y": 8,
+      "width": 209,
+      "height": 256,
+      "src": "res://4258fd62-da5f-41a9-bf76-9ff4d1d0beac"
+    },
+    {
+      "_$id": "isoolx58",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 225,
+      "y": 8,
+      "width": 209,
+      "height": 256,
+      "src": "res://4258fd62-da5f-41a9-bf76-9ff4d1d0beac",
+      "color": "#66ff00",
+      "mesh": {
+        "_$type": "FlipMesh"
+      }
+    },
+    {
+      "_$id": "un7jv8dw",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 455,
+      "y": 8,
+      "width": 209,
+      "height": 256,
+      "alpha": 0.549,
+      "src": "res://4258fd62-da5f-41a9-bf76-9ff4d1d0beac",
+      "autoSize": false,
+      "mesh": {
+        "_$type": "FlipMesh",
+        "flipX": false,
+        "flipY": true
+      }
+    },
+    {
+      "_$id": "f2hs159d",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 25,
+      "y": 346,
+      "width": 340,
+      "height": 171,
+      "src": "res://5db947e0-26c2-4e20-9a7f-40bc2af0925c",
+      "autoSize": false
+    },
+    {
+      "_$id": "ggvy27tq",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 539,
+      "y": 433,
+      "width": 340,
+      "height": 171,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "grayed": true,
+      "src": "res://5db947e0-26c2-4e20-9a7f-40bc2af0925c",
+      "autoSize": false,
+      "mesh": {
+        "_$type": "FlipMesh",
+        "flipX": false,
+        "flipY": true
+      }
+    },
+    {
+      "_$id": "ncp42gfm",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 734,
+      "y": 347,
+      "width": 171,
+      "height": 167,
+      "src": "res://19e18b62-ee27-46e2-a0e3-811315462027",
+      "autoSize": false,
+      "mesh": {
+        "_$type": "TileMesh"
+      }
+    },
+    {
+      "_$id": "qv3hfz4o",
+      "_$type": "GImage",
+      "name": "img",
+      "x": 1010,
+      "y": 433,
+      "width": 171,
+      "height": 167,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "grayed": true,
+      "src": "res://19e18b62-ee27-46e2-a0e3-811315462027",
+      "autoSize": false,
+      "mesh": {
+        "_$type": "TileMesh"
+      }
+    },
+    {
+      "_$id": "oatyizt5",
+      "_$type": "GImage",
+      "name": "img_1",
+      "x": 728,
+      "y": 20,
+      "width": 200,
+      "height": 200,
+      "src": "res://86480a0b-53e1-4431-bfad-2f8c53737a74",
+      "mesh": {
+        "_$type": "ProgressMesh",
+        "amount": 0.674
+      }
+    },
+    {
+      "_$id": "ahvbc1eg",
+      "_$type": "GImage",
+      "name": "img_2",
+      "x": 977,
+      "y": 45,
+      "width": 90,
+      "height": 90,
+      "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078",
+      "mesh": {
+        "_$type": "CircleMesh"
+      }
+    },
+    {
+      "_$id": "rzqwpuov",
+      "_$type": "GImage",
+      "name": "img_2_1",
+      "x": 979,
+      "y": 164,
+      "width": 90,
+      "height": 90,
+      "src": "res://11fa2a50-7d86-4e5b-998d-926e4b742078",
+      "mesh": {
+        "_$type": "RoundedRectMesh",
+        "lt": 10,
+        "rt": 10,
+        "lb": 10,
+        "rb": 10
+      }
+    }
+  ]
+}

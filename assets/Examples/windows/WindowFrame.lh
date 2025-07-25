@@ -1,0 +1,210 @@
+{
+  "_$ver": 1,
+  "_$id": "eeu0podj",
+  "_$type": "GLabel",
+  "name": "Root",
+  "width": 400,
+  "height": 400,
+  "blendMode": 0,
+  "titleWidget": {
+    "_$ref": "7v403cej"
+  },
+  "_$child": [
+    {
+      "_$id": "nz99ixph",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 400,
+      "height": 400,
+      "blendMode": 0,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "eeu0podj"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "src": "res://5db947e0-26c2-4e20-9a7f-40bc2af0925c",
+      "autoSize": false
+    },
+    {
+      "_$id": "7v403cej",
+      "_$type": "GTextField",
+      "name": "txt",
+      "x": 39,
+      "y": 7,
+      "width": 322,
+      "height": 16,
+      "blendMode": 0,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "eeu0podj"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ],
+      "text": "窗口标题",
+      "fontSize": 12,
+      "color": "#ffffff",
+      "align": "center"
+    },
+    {
+      "_$id": "r8mfs2k0",
+      "_$type": "GWidget",
+      "name": "dragArea",
+      "x": 4,
+      "y": 4,
+      "width": 358,
+      "height": 21,
+      "blendMode": 0,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "eeu0podj"
+          },
+          "data": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "79o70rmn",
+      "_$type": "GWidget",
+      "name": "contentArea",
+      "x": 6,
+      "y": 28,
+      "width": 387,
+      "height": 366,
+      "blendMode": 0,
+      "relations": [
+        {
+          "_$type": "Relation",
+          "target": {
+            "_$ref": "eeu0podj"
+          },
+          "data": [
+            1,
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "_$id": "4ou9lxi7",
+      "_$type": "GButton",
+      "name": "closeButton",
+      "x": 374,
+      "y": 5,
+      "width": 19,
+      "height": 19,
+      "blendMode": 0,
+      "controllers": {
+        "_$type": "Record",
+        "button": {
+          "_$type": "Controller",
+          "pages": [
+            "up",
+            "down",
+            "over",
+            "selectedOver"
+          ]
+        }
+      },
+      "_$child": [
+        {
+          "_$id": "6y6inf5b",
+          "_$type": "GImage",
+          "name": "img_1",
+          "width": 19,
+          "height": 19,
+          "blendMode": 0,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "4ou9lxi7",
+                "_$ctrl": "button"
+              },
+              "pages": [
+                0
+              ]
+            }
+          ],
+          "relations": [
+            {
+              "_$type": "Relation",
+              "target": {
+                "_$ref": "eeu0podj"
+              },
+              "data": [
+                9,
+                0
+              ]
+            }
+          ],
+          "src": "res://fa639961-1f3c-4e8d-aa85-33d1ee3ed167"
+        },
+        {
+          "_$id": "mdkmc39n",
+          "_$type": "GImage",
+          "name": "img_3",
+          "width": 19,
+          "height": 19,
+          "blendMode": 0,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "4ou9lxi7",
+                "_$ctrl": "button"
+              },
+              "pages": [
+                1,
+                3
+              ]
+            }
+          ],
+          "src": "res://1be86c5e-f547-49f9-8b22-bead74285ea9"
+        },
+        {
+          "_$id": "1uce3wio",
+          "_$type": "GImage",
+          "name": "img_2",
+          "width": 19,
+          "height": 19,
+          "blendMode": 0,
+          "gears": [
+            {
+              "_$type": "GearDisplay",
+              "controller": {
+                "_$ref": "4ou9lxi7",
+                "_$ctrl": "button"
+              },
+              "pages": [
+                2
+              ]
+            }
+          ],
+          "src": "res://1c3c3953-aa52-48d0-b35f-eab1bddba905"
+        }
+      ]
+    }
+  ]
+}

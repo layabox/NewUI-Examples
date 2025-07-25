@@ -1,0 +1,26 @@
+{
+  "_$ver": 1,
+  "_$id": "yzzypjqi",
+  "_$type": "GProgressBar",
+  "name": "Root",
+  "width": 99,
+  "height": 99,
+  "_hBar": {
+    "_$ref": "47k30uyw"
+  },
+  "_$child": [
+    {
+      "_$id": "47k30uyw",
+      "_$type": "GImage",
+      "name": "img",
+      "width": 99,
+      "height": 99,
+      "src": "res://9d6f4917-311a-450f-be02-3c1b5bc35d95",
+      "mesh": {
+        "_$type": "ProgressMesh",
+        "clockwise": true,
+        "amount": 1
+      }
+    }
+  ]
+}
