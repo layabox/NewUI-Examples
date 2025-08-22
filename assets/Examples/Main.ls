@@ -9,6 +9,7 @@
   "name": "Scene2D",
   "width": 1136,
   "height": 640,
+  "drawCallOptimize": true,
   "_$comp": [
     {
       "_$type": "432d6819-0928-4035-a7af-fe5629da815e",
@@ -30,7 +31,6 @@
       "name": "top",
       "width": 1136,
       "height": 70,
-      "blendMode": 0,
       "background": {
         "_$type": "DrawRectCmd",
         "lineWidth": 1,
@@ -58,7 +58,6 @@
       "y": 15,
       "width": 315,
       "height": 40,
-      "blendMode": 0,
       "text": "UI Examples",
       "fontSize": 35,
       "color": "#ff9900",
@@ -94,7 +93,6 @@
       "y": 87,
       "width": 1091,
       "height": 524,
-      "blendMode": 0,
       "gears": [
         {
           "_$type": "GearDisplay",
@@ -741,7 +739,6 @@
       "y": 70,
       "width": 1136,
       "height": 570,
-      "blendMode": 0,
       "controllers": {
         "_$type": "Record",
         "c1": {

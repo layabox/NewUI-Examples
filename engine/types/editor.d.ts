@@ -701,6 +701,13 @@ declare global {
              * @returns Whether the new UI system is being used.
              */
             isUsingNewUI(): boolean;
+
+            /**
+             * Filter top-level items from a list of items.
+             * @param items The list of items to filter.
+             * @returns The filtered list of top-level items. 
+             */
+            filterTopLevels<T extends { parent: any }>(items: ReadonlyArray<T>): ReadonlyArray<T>;
         }
         export interface IUUIDUtils {
             /**
@@ -1423,8 +1430,9 @@ declare global {
              * @param allowInternalAssets Whether to allow internal assets. Default is false.
              * @param customFilter The custom filter. Developers can register custom filters by calling the `IEditorEnv.assetMgr.customAssetFilters` method in scene process.
              * @param allowInternalGUIAssets Whether to allow internal GUI assets. Default is false.
+             * @param needConfirm Whether to need confirm button. Default is false.
              */
-            show(popupOwner?: gui.Widget, initialValue?: string, assetTypeFilter?: AssetType[], allowInternalAssets?: boolean, customFilter?: string, allowInternalGUIAssets?: boolean): Promise<void>;
+            show(popupOwner?: gui.Widget, initialValue?: string, assetTypeFilter?: AssetType[], allowInternalAssets?: boolean, customFilter?: string, allowInternalGUIAssets?: boolean, needConfirm?: boolean): Promise<void>;
         }
         export interface ISelectNodeDialog extends IDialog {
             /**
@@ -1908,6 +1916,27 @@ declare global {
              * Update the UI according to the data. This method is called when the data is changed.
              */
             refresh(): void;
+
+            /**
+             * Copy the data of the field to the clipboard.
+             */
+            copyData(): void;
+
+            /**
+             * Paste the data to the field. If the data is not compatible with the field, it will do nothing.
+             * @param data The data to paste. If not provided, it will try to get the data from the clipboard.
+             */
+            pasteData(data?: any): void;
+
+            /**
+             * Reset the data of the field to the default value.
+             */
+            resetData(): void;
+
+            /**
+             * Check if any clipboard data that can be pasted.
+             */
+            hasClipboardData(): boolean;
         }
 
         export interface IProjectPanel extends IEditorPanel {
@@ -2857,7 +2886,14 @@ declare global {
              * @param nodes a node or an array of nodes.
              * @param nodeType The new type of the node. 
              */
-            changeNodesType(nodes: IMyNode | ReadonlyArray<IMyNode>, nodeType: string): Promise<void>;
+            changeNodesType(nodes: IMyNode | ReadonlyArray<IMyNode>, nodeType: string): Promise<IMyNode[]>;
+
+            /**
+             * Replace a prefab node with another prefab asset.
+             * @param nodes A node to be replaced. 
+             * @param assetId The id of the prefab asset to replace with.
+             */
+            replaceNodesWithPrefab(nodes: IMyNode | ReadonlyArray<IMyNode>, assetId: string): Promise<IMyNode[]>;
 
             /**
              * Get the children of a node.
@@ -2899,9 +2935,10 @@ declare global {
 
             /**
              * Paste the copied nodes.
+             * @param inPlace If true, the nodes will be pasted in place, which means the position of the nodes will not change. Default is false.
              * @return The new nodes.
              */
-            pasteNodes(): Promise<Array<IMyNode>>;
+            pasteNodes(inPlace?: boolean): Promise<Array<IMyNode>>;
 
             /**
              * Duplicate the selected nodes.
@@ -8898,12 +8935,6 @@ declare global {
             target: IInspectingTarget;
             watchProps: Array<string>;
             memberProps: Array<FPropertyDescriptor>;
-            _inheritedFlag: number;
-            _flag: number;
-            _readonlyFlag: boolean;
-            _hotUpdateTime: number;
-            _statusKey: string;
-            _stayInvisible: boolean;
             get parent(): IPropertyField;
             create(): IPropertyFieldCreateResult;
             makeReadonly(value: boolean): void;
@@ -8919,6 +8950,13 @@ declare global {
             findChildField(name: string): IPropertyField;
             getChildFields(result?: Array<IPropertyField>): Array<IPropertyField>;
             displayError(msg: string): void;
+            private doCopyData;
+            private doPasteData;
+            private doResetData;
+            copyData(): void;
+            pasteData(data?: any): void;
+            resetData(): void;
+            hasClipboardData(): boolean;
         }
 
         export class ButtonsField extends PropertyField {
@@ -9015,7 +9053,6 @@ declare global {
             protected _buttons: gui.Box;
             protected _actionButton: gui.Widget;
             private _typeName;
-            private _isCatalog;
             private _prefabNewAddedSign;
             create(): IPropertyFieldCreateResult;
             refresh(): void;
@@ -9024,16 +9061,10 @@ declare global {
             onClickSetNull(): void;
             setupCatalogBar(isComponent: boolean, removable?: boolean): void;
             setCatalogBarStyle(style: CatalogBarStyle): void;
-            private getData;
-            private setData;
-            private resetData;
-            copyData(): void;
-            pasteData(): void;
             resetComponentDefault(): Promise<void>;
             removeComponent(): void;
             moveUp(): void;
             moveDown(): void;
-            resetDefault(): void;
             copyComponent(): void;
             pasteComponent(): Promise<void>;
         }

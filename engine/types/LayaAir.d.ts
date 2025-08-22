@@ -3713,6 +3713,8 @@ declare namespace Laya {
         _controller: AnimatorController2D;
         /**@internal */
         _checkEnterIndex: number[];
+        /**@internal */
+        _isPlayBack: boolean;
         /**
          * @en Constructor method of Animator2D Component.
          * @zh 2D动画组件构造方法。
@@ -3747,6 +3749,12 @@ declare namespace Laya {
          * @param playState
          */
         private _updateStateFinish;
+        /**
+         * @internal
+         * @param parentState
+         * @param currentState
+         */
+        private _switchState;
         /**
          * @en Assigns data to a Node.
          * @param stateInfo The animation state information.
@@ -4400,6 +4408,12 @@ declare namespace Laya {
          */
         static EVENT_OnStateExit: string;
         /**
+         * @en Event triggered when switching to a new state
+         * @zh 切换到新状态时触发的事件
+         * @blueprintIgnore
+         */
+        static EVENT_OnStateSwitch: string;
+        /**
          * @en Event triggered when the state loops
          * @zh 状态循环时触发的事件
          * @blueprintIgnore
@@ -4480,6 +4494,7 @@ declare namespace Laya {
          * @internal
          */
         _eventExit(): void;
+        _eventSwitch(currentState: AnimatorState2D): void;
         /**
          * @internal
          */
@@ -4605,6 +4620,11 @@ declare namespace Laya {
          * @zh 动画状态退出时执行。
          */
         onStateExit(): void;
+        /**
+         * @en Executed when switching to a new state
+         * @zh 切换到新状态时执行
+         */
+        onStateSwitch(currentState: AnimatorState2D): void;
         /**
          * @en Executed at the end of each loop cycle if the animation is set to loop.
          * @zh 如果动画设置为循环，在每次循环结束时执行。
@@ -5238,6 +5258,8 @@ declare namespace Laya {
         private _drawCmds;
         private _loadId;
         private _changingSize;
+        /** @internal */
+        _labels: string[];
         readonly owner: Sprite;
         /**
          * @en Constructor method of Animation.
@@ -5835,7 +5857,6 @@ declare namespace Laya {
         static DISPLAY: number;
         static HAS_ZORDER: number;
         static DISPLAYED_INSTAGE: number;
-        static DRAWCALL_OPTIMIZE: number;
         static CHECK_INPUT: number;
         static DEMAND_TRANS_EVENT: number;
         static HAS_SCRIPT: number;
@@ -6147,6 +6168,11 @@ declare namespace Laya {
           */
         onStateExit(): void;
         /**
+         * @en Executed when switching to a new state
+         * @zh 切换到新状态时执行
+         */
+        onStateSwitch(currentState: AnimatorState): void;
+        /**
          * @en Executed at the end of each loop if the animation is set to loop.
          * @zh 如果动画设置了循环，则在每次循环结束时执行。
          */
@@ -6415,6 +6441,12 @@ declare namespace Laya {
          * @param playState
          */
         private _updateStateFinish;
+        /**
+         * @internal
+         * @param parentState
+         * @param currentState
+         */
+        private _switchState;
         private _updateEventScript;
         private _eventScript;
         /**
@@ -6897,6 +6929,12 @@ declare namespace Laya {
          * @blueprintIgnore
          */
         static readonly EVENT_OnStateExit = "OnStateExit";
+        /**
+         * @en Event triggered when switching to a new state
+         * @zh 切换到新状态时触发的事件
+         * @blueprintIgnore
+         */
+        static readonly EVENT_OnStateSwitch = "OnStateSwitch";
         /** @internal */
         private _referenceCount;
         /** @internal */
@@ -6999,6 +7037,11 @@ declare namespace Laya {
          * @internal
          */
         _eventExit(): void;
+        /**
+         * @internal
+         * @param currentState
+         */
+        _eventSwitch(currentState: AnimatorState): void;
         /**
          * @internal
          */
@@ -15267,6 +15310,8 @@ declare namespace Laya {
         get componentElementDatasMap(): any;
         /** @internal */
         set componentElementDatasMap(value: any);
+        /** @internal */
+        _setStructParent(value: Sprite): void;
         /**
          * @internal
          */
@@ -15682,7 +15727,6 @@ declare namespace Laya {
         protected _statAdd(): void;
         protected _statRemove(): void;
         /**
-         * @perfTag PerformanceDefine.T_SkinBoneUpdate
          * @en Updates the render state of the skinned mesh renderer.
          * @param context The 3D render context.
          * @zh 更新蒙皮网格渲染器的渲染状态。
@@ -16328,6 +16372,13 @@ declare namespace Laya {
         private _camera;
         protected _worldParams: Vector4;
         private _cameraPlaneDistance;
+        private _genMipMap;
+        /**
+         * @en Whether to generate mipmap when rendering UI content, which will increase the memory usage
+         * @zh 绘制UI内容时是否生成mipmap，会增加显存占用
+         */
+        get genMipMap(): boolean;
+        set genMipMap(value: boolean);
         /**
          * @en UI nodes for 3D rendering
          * @zh 3D渲染的UI节点
@@ -24849,6 +24900,7 @@ declare namespace Laya {
           * @zh 从所属场景中移除节点。
           */
         _setUnBelongScene(): void;
+        localToView(x: number, y: number, out?: Point): Point;
         /**
          * @en Convert screen coordinates to Area2D internal UI coordinates.
          * @param x The x axis of screen coordinates.
@@ -27404,6 +27456,12 @@ declare namespace Laya {
         _data: GraphicsRenderData;
         /** @internal 是否优先使用精灵状态 */
         _useSpriteState: boolean;
+        /**
+         * @internal
+         * @en Whether to return graphics bounds as the sprite rect, instead of the bounds calculated from the commands.
+         * @zh 是否返回graphics边界为精灵矩形，而不是从命令计算的边界。对于像文本这种情况，可以优化效率。
+         */
+        _useSpriteRect: boolean;
         private _cmds;
         private _graphicBounds;
         private _material;
@@ -29961,7 +30019,19 @@ declare namespace Laya {
          */
         destroy(): void;
         clear(): void;
+        /**
+         * @zh 获取当前的 X 方向缩放
+         * @returns 当前的 X 方向缩放
+         * @en Get the current X-axis scaling
+         * @returns The current X-axis scaling
+         */
         getCurrentScaleX(): number;
+        /**
+         * @zh 获取当前的 Y 方向缩放
+         * @returns 当前的 Y 方向缩放
+         * @en Get the current Y-axis scaling
+         * @returns The current Y-axis scaling
+         */
         getCurrentScaleY(): number;
         /**
          * 获得当前矩阵的缩放值
@@ -30111,6 +30181,8 @@ declare namespace Laya {
         /**@internal */
         _submits: FastSinglelist<SubmitBase>;
         private _bufferBlocks;
+        owner: Sprite;
+        constructor(owner: Sprite);
         clear(): void;
         destroy(): void;
         /**
@@ -30162,7 +30234,7 @@ declare namespace Laya {
         static __init__(): void;
         private _sharedMesh;
         _renderHandle: IMesh2DRenderDataHandle;
-        protected _getRenderHandle(): IMesh2DRenderDataHandle;
+        protected _createRenderHandle(): IMesh2DRenderDataHandle;
         protected _initDefaultRenderData(): void;
         renderUpdate(context: IRenderContext2D): void;
         /**
@@ -30590,6 +30662,7 @@ declare namespace Laya {
         recover(): void;
     }
     class Scene2DSpecialManager {
+        static SPRITE2DGLOBAL: ShaderDefine;
         /**@internal */
         _shaderData: ShaderData;
         /** @internal */
@@ -30710,7 +30783,7 @@ declare namespace Laya {
         _blendMode: BlendMode;
         /**
          * @internal
-        */
+         */
         _visible: boolean;
         /**
          * @internal
@@ -30771,18 +30844,18 @@ declare namespace Laya {
          */
         hitTestPrior: boolean;
         /**
-        * @en If the node needs to load related skins but placed in different domains, you can set it here.
-        * @zh 如果节点需要加载相关的皮肤，但放在不同域，这里可以设置。
-        **/
+         * @en If the node needs to load related skins but placed in different domains, you can set it here.
+         * @zh 如果节点需要加载相关的皮肤，但放在不同域，这里可以设置。
+         */
         _skinBaseUrl: string;
         private _autosize;
         private _tfChanged;
         private _repaint;
+        private _repaintCount;
         private _sizeFlag;
         private _filterArr;
         private _userBounds;
         private _ownGraphics;
-        private _tmpBounds;
         private _mask;
         /** @internal */
         _maskParent: Sprite;
@@ -30798,15 +30871,15 @@ declare namespace Laya {
         _scene: Scene;
         /** @internal */
         _texture: Texture;
-        /**@internal */
+        /** @internal */
         _ownerArea: Sprite;
         /** @internal */
         _subStructRender: SubStructRender;
-        /** @internal  渲染真实spritet的pass，在启用后处理，cacheAsBitmap和mask的时候生效*/
+        /** @internal 渲染真实spritet的pass，在启用后处理，cacheAsBitmap和mask的时候生效 */
         _oriRenderPass: IRender2DPass;
-        /**@internal 渲染真实sprite所需的rt大小 */
+        /** @internal 渲染真实sprite所需的rt大小 */
         _drawOriRT: RenderTexture2D;
-        /** @internal 片，代替的结构 ，真正的结构划到了rt上*/
+        /** @internal 片，代替的结构 ，真正的结构划到了rt上 */
         _subStruct: IRenderStruct2D;
         /** @internal */
         _shaderData: ShaderData;
@@ -31032,6 +31105,8 @@ declare namespace Laya {
          */
         get mask(): Sprite;
         set mask(value: Sprite);
+        /** @ignore @blueprintIgnore */
+        clearSubpassFlag(flag: SubPassFlag): void;
         /**
          * @ignore
          * @blueprintIgnore
@@ -31065,10 +31140,12 @@ declare namespace Laya {
         get viewport(): Rectangle;
         set viewport(value: Rectangle);
         /**
-         * @en Draw call optimization: when set to true, draw call optimization is enabled. During engine rendering, all text is automatically brought to the top layer to avoid interruptions by text when drawing images from the same atlas, thus reducing the number of draw calls.
-         * Enabling this will cause text to be non-obstructable. Use this feature cautiously if your project requires text to be obstructed.
-         * @zh 绘制调用优化，为true时，开启drawcall优化。引擎绘制时自动将所有文本提到显示最上层，避免同一个图集内的图像绘制时被文本打断，可以减少drawcall数量。
-         * 开启后，会导致文本无法被遮挡，存在文本遮挡需求的项目，请谨慎使用该功能。
+         * @en Automatically optimize DrawCall. When enabled, all rendering elements contained in the children and grandchildren of this node will be merged into as few DrawCalls as possible without affecting the actual display effect, such as images from the same texture atlas or text. They will be adjusted to a continuous rendering order so that they can be merged into the same DrawCall.
+         *
+         * Note that if the number of elements is large (e.g., greater than 500), it may significantly consume CPU performance. Developers need to balance the number of DrawCalls and CPU performance consumption.
+         * @zh 自动优化DrawCall。开启后，本节点的所有孩子节点和孙子节点包含的渲染元素，在不影响实际显示效果的前提下，会通过调整渲染顺序的手段尽可能进行DrawCall合并，例如同图集的图片，又或者文本，调整到连续渲染的渲染顺序后它们可以合并为同一个DrawCall。
+         *
+         * 注意，如果元素数量巨大（例如大于500)，可能会显著消耗CPU性能。开发者需要均衡考虑DrawCall数量和CPU性能消耗。
          */
         set drawCallOptimize(value: boolean);
         get drawCallOptimize(): boolean;
@@ -31413,59 +31490,8 @@ declare namespace Laya {
          * 注意：计算量较大，尽量少用。
          * @returns 矩形区域。
          */
-        getSelfBounds(out?: Rectangle): Rectangle;
-        /**
-         * @zh 获取孩子的包围盒
-         * @param recursive 是否递归获取所有子对象的包围盒
-         * @param ignoreInvisibles 是否忽略不可见对象
-         * @param ignoreScale 是否忽略缩放
-         * @param out （可选）计算结果输出对象
-         * @returns 包围盒
-         * @en Get the bounding box of the child
-         * @param recursive Whether to get the bounding box of the child object recursively
-         * @param ignoreInvisibles Whether to ignore invisible objects
-         * @param ignoreScale Whether to ignore scaling
-         * @param out (Optional) Output object for calculation results
-         * @returns Bounding box
-         */
-        getChildrenBounds(recursive?: boolean, ignoreInvisibles?: boolean, ignoreScale?: boolean, out?: Rectangle): Rectangle;
-        /**
-         * @internal
-         * @en Get the polygon vertex list of the display area of the object in the parent container's coordinate system.
-         * @param ifRotate Whether to consider the rotation of the object itself.
-         * If true, and the object has rotation, the vertices will be calculated based on the object's rotated position.
-         * If false, the vertices will be calculated based on the object's unrotated position, even if the object has rotation.
-         * @returns  The vertex list in the format: [x1, y1, x2, y2, x3, y3, ...].
-         * @zh 获取本对象在父容器坐标系的显示区域多边形顶点列表。
-         * @param  ifRotate （可选）是否考虑对象自身的旋转。
-         * 如果为 true，且对象有旋转，则顶点会根据对象旋转后的位置进行计算。
-         * 如果为 false，则顶点会根据对象未旋转的位置进行计算，即使对象有旋转。
-         * @returns 顶点列表。结构：[x1,y1,x2,y2,x3,y3,...]。
-         */
-        private _boundPointsToParent;
-        /**
-         * @en Get the vertex list of the display area polygon in its own coordinate system.
-         * @param ifRotate (Optional) Whether to consider the rotation of the child objects when calculating their vertices.
-         * If true, and a child object has rotation, the child's vertices will be calculated based on its rotated position.
-         * If false, the child's vertices will be calculated based on its unrotated position, even if it has rotation.
-         * @returns A list of vertices. Structure: [x1, y1, x2, y2, x3, y3, ...].
-         * @zh 获取自己坐标系的显示区域多边形顶点列表。
-         * @param ifRotate （可选）在计算子对象的顶点时是否考虑子对象的旋转。
-         * 如果为 true,且子对象有旋转,则子对象的顶点将根据其旋转后的位置来计算。
-         * 如果为 false,则子对象的顶点将根据其未旋转的位置来计算,即使子对象有旋转。
-         * @returns 顶点列表。结构：[x1,y1,x2,y2,x3,y3,...]。
-         */
-        protected _getBoundPointsM(ifRotate?: boolean, out?: number[]): number[];
-        /**
-         * @en Returns the display area of the drawing object (`Graphics`) in this instance, excluding child objects.
-         * @param realSize (Optional) This parameters is not used.
-         * @param out (Optional) Rectangle object for output.
-         * @returns A Rectangle object representing the obtained display area.
-         * @zh 返回此实例中绘图对象（`Graphics`）的显示区域，不包括子对象。
-         * @param realSize （可选）此参数未使用。
-         * @param out （可选）矩形区域输出对象。
-         * @returns 一个 Rectangle 对象，表示获取到的显示区域。
-         */
+        getSelfBounds(out?: Rectangle, recursive?: boolean): Rectangle;
+        /** @deprecated */
         getGraphicBounds(realSize?: boolean, out?: Rectangle): Rectangle;
         /**
          * @en Converts the local coordinates to the global coordinates relative to the stage.
@@ -32107,7 +32133,6 @@ declare namespace Laya {
          * @zh 同步最终canvas大小
          */
         needUpdateCanvasSize(): void;
-        static cc: number;
         /**
          * @en Set the screen size. The scene will adapt to the screen size. This method can be called dynamically to change the game display size.
          * @param screenWidth The width of the screen.
@@ -32475,14 +32500,6 @@ declare namespace Laya {
          * @param destroyChild 是否销毁子节点。默认为 true。
          */
         destroy(destroyChild?: boolean): void;
-        /**
-         * @ignore
-         */
-        protected _getBoundPointsM(ifRotate?: boolean, out?: number[]): number[];
-        /**
-         * @ignore
-         */
-        getGraphicBounds(realSize?: boolean, out?: Rectangle): Rectangle;
         /**
          * @ignore
          */
@@ -36760,6 +36777,240 @@ declare namespace Laya {
         static render2DRenderPassFactory: I2DRenderPassFactory;
         static renderDeviceFactory: IRenderDeviceFactory;
         static unitRenderModuleDataFactory: IUnitRenderModuleDataFactory;
+        static statAgent: IStaticsContext;
+    }
+    enum StatisticsElement {
+        /**
+         * fps
+         */
+        T_FPS_Frame = 0,
+        /**
+         * frame time
+         */
+        T_FPS_Time = 1,
+        /**
+         * render 3D time
+         */
+        T_AllRender3D = 2,
+        /**
+         * render 3D Depth Normal/Depth time
+         */
+        T_DepthPass = 3,
+        /**
+         * render shadow pass time
+         */
+        T_ShadowPass = 4,
+        /**
+         * main render pass time
+         */
+        T_3DMainPass = 5,
+        /**
+         * main render opaque time
+         */
+        T_3DMainPass_Opaque = 6,
+        /**
+         * main render trans time
+         */
+        T_3DMainPass_Trans = 7,
+        /**
+         * Batch 3D module Time
+         */
+        T_3DBatchTime = 8,
+        /**
+         * 3D main cull time
+         */
+        T_CullMain = 9,
+        /**
+         * 3D shadow cull time
+         */
+        T_CullShadow = 10,
+        /**
+         * render postprocess time
+         */
+        T_Render_PostProcess = 11,
+        /**
+         * render 2D time
+         */
+        T_AllRender2D = 12,
+        /**
+         * render 2D Pass Time
+         */
+        T_2DPass = 13,
+        /**
+         * component update time
+         */
+        T_ScriptUpdateTime = 14,
+        /**
+         * component Late update time
+         */
+        T_ScriptLateUpdateTime = 15,
+        /**
+         * 非透明物体DrawCall
+         */
+        CT_OpaqueDrawCall = 16,
+        /**
+         * 透明物体的DrawCall
+         */
+        CT_TransDrawCall = 17,
+        /**
+         * 深度图/法线深度图的DrawCall
+         */
+        CT_DepthCastDrawCall = 18,
+        /**
+         * 阴影DrawCall
+         */
+        CT_ShadowDrawCall = 19,
+        /**
+         * 2DDrawCall
+         */
+        CT_2DDrawCall = 20,
+        /**
+         * 3DDrawCall
+         */
+        CT_3DDrawCall = 21,
+        /**
+         * drawCall
+         */
+        CT_DrawCall = 22,
+        CT_IndirectDrawCall = 23,
+        /**
+         * instance Draw Call
+         */
+        CT_Instancing_DrawCallCount = 24,
+        M_GPUBuffer = 25,
+        C_GPUBuffer = 26,
+        M_VertexBuffer = 27,
+        C_VertexBuffer = 28,
+        M_IndexBuffer = 29,
+        C_IndexBuffer = 30,
+        M_UBOBuffer = 31,
+        C_UBOBuffer = 32,
+        M_DeviceBuffer = 33,
+        C_DeviceBuffer = 34,
+        M_ALLTexture = 35,
+        C_ALLTexture = 36,
+        M_Texture2D = 37,
+        C_Texture2D = 38,
+        M_TextureCube = 39,
+        C_TextureCube = 40,
+        M_Texture3D = 41,
+        C_Texture3D = 42,
+        M_Texture2DArray = 43,
+        C_Texture2DArray = 44,
+        M_RenderTexture = 45,
+        C_RenderTexture = 46,
+        M_GPUMemory = 47,
+        CT_ShaderChange = 48,
+        CT_Triangle = 49,
+        CT_BufferUploadCount = 50,
+        CT_GeometryBufferUploadCount = 51,
+        CT_UBOBufferUploadCount = 52,
+        CT_UBOBufferUploadMemory = 53,
+        C_Sprite2DCount = 54,
+        C_Sprite3DCount = 55,
+        C_BaseRenderCount = 56,
+        C_MeshRenderCount = 57,
+        C_SkinnedMeshRenderCount = 58,
+        C_ShurikenParticleRenderCount = 59,
+        T_AnimatorUpdate = 60,
+        T_SkinBoneUpdate = 61,
+        T_ShurikenUpdate = 62,
+        T_Physics_Simulation = 63,
+        T_Physics_UpdateNode = 64,
+        T_PhysicsEvent = 65,
+        C_PhysicsEventCount = 66,
+        T_PhysicsCollider = 67,
+        T_PhysicsTrigger = 68,
+        T_PhysicsColliderEnter = 69,
+        T_PhysicsColliderExit = 70,
+        T_PhysicsColliderStay = 71,
+        T_PhysicsTriggerEnter = 72,
+        T_PhysicsTriggerExit = 73,
+        T_PhysicsTriggerStay = 74,
+        C_PhysicaDynamicRigidBody = 75,
+        C_PhysicaStaticRigidBody = 76,
+        C_PhysicaKinematicRigidBody = 77,
+        C_PhysicaCharacterController = 78,
+        C_PhysicsJoint = 79,
+        /**
+         * 资源下载 + 解析时间。
+         */
+        T_LoadResourceTime = 80,
+        /**
+         * 加载次数
+         */
+        C_LoadResourceCount = 81,
+        /**
+         * 请求次数
+         */
+        C_LoadRequestCount = 82,
+        /**
+         *  网络下载时间
+         */
+        T_LoadRequestTime = 83,
+        StatEnd = 84
+    }
+    interface IStaticsContext {
+        /**
+         * 记录数据统计数据
+         * @param element
+         * @param data
+         */
+        recordCountData(element: StatisticsElement, data: number): void;
+        /**
+         * 帧数据 会累计输出平均值（比如drawCall）
+         * @param element
+         * @param data
+         */
+        recordCTData(element: StatisticsElement, data: number): void;
+        /**
+         * 记录时间统计数据
+         * @param element
+         * @param data
+         */
+        recordTimeData(element: StatisticsElement, data: number): void;
+        /**
+         * 记录内存统计数据
+         */
+        recordMemoryData(element: StatisticsElement, data: number): void;
+        /**
+         * 获取统计数据
+         * @param element
+         * @returns
+         */
+        getElementData(element: StatisticsElement): number;
+        /**
+         * 开始帧逻辑
+         */
+        startFrameLogic(): void;
+        /**
+         * 结束帧逻辑
+         */
+        endFrameLogic(): void;
+        /**
+         * 中途切换统计信息 将当前统计信息复制到另一个统计信息中
+         * @param context
+         */
+        cloneTo(context: IStaticsContext): void;
+    }
+    class DefaultStaticsContext implements IStaticsContext {
+        protected _tQueue: Set<StatisticsElement>;
+        protected _ctQueue: Set<StatisticsElement>;
+        protected statArray: Float32Array;
+        protected _timeArray: Float32Array;
+        protected _cacheCount: number;
+        protected _cacheTime: number;
+        protected _init(): void;
+        protected _createStatBuffer(): void;
+        constructor();
+        cloneTo(context: IStaticsContext): void;
+        recordCountData(element: StatisticsElement, data: number): void;
+        recordTimeData(element: StatisticsElement, data: number): void;
+        recordCTData(element: StatisticsElement, data: number): void;
+        recordMemoryData(element: StatisticsElement, data: number): void;
+        getElementData(element: StatisticsElement): number;
+        startFrameLogic(): void;
+        endFrameLogic(): void;
     }
     /**
      * @internal
@@ -40643,69 +40894,26 @@ declare namespace Laya {
      * @zh 凸包算法。
      */
     class GrahamScan {
-        private static _getPoints;
-        /**
-         * @en Take cout items from the src array at index 0 and add them to the tail of the tst array.
-         * @param rst The original array is used to add new child elements.
-         * @param src An array used to retrieve child elements.
-         * @param count The number of child elements to add.
-         * @returns Add the RST object of the child elements.
-         * @zh 将数组src从索引0位置，依次取cout个项添加至tst数组的尾部。
-         * @param rst 原始数组，用于添加新的子元素。
-         * @param src 用于取子元素的数组。
-         * @param count 需要取得子元素个数。
-         * @returns 添加完子元素的 rst 对象。
-         */
-        static getFrom(rst: any[], src: any[], count: number): any[];
-        /**
-         * @en Take cout items from the end index position to the head index position of the src array and add them to the tail of the tst array.
-         * @param rst The original array is used to add new child elements.
-         * @param src An array used to retrieve child elements.
-         * @param count The number of child elements to add.
-         * @returns Add the RST object of the child elements.
-         * @zh 将数组src从末尾索引位置往头部索引位置方向，依次取cout个项添加至tst数组的尾部。
-         * @param rst 原始数组，用于添加新的子元素。
-         * @param src 用于取子元素的数组。
-         * @param count 需要取得子元素个数。
-         * @returns 添加完子元素的 rst 对象。
-         */
-        static getFromR(rst: any[], src: any[], count: number): any[];
-        /**
-         * @en Convert a list of [x,y...] to a list of Points.
-         * @param pList The Point list.
-         * @param tempUse Whether to use temporary storage.
-         * @returns A list of [x,y...].
-         * @zh 将 [x,y...] 列表转换为 Point 列表。
-         * @param pList Point列表。
-         * @param tempUse 是否使用临时存储。
-         * @returns [x,y...]列表
-         */
-        static pListToPointList(pList: any[], tempUse?: boolean): any[];
-        /**
-         * @en Convert a list of Points to a [x,y...] list.
-         * @param pointList The list of Points.
-         * @returns The [x,y...] list.
-         * @zh 将 Point 列表转换为 [x,y...] 列表。
-         * @param pointList Point列表
-         * @returns [x,y...]列表
-         */
-        static pointListToPlist(pointList: any[]): any[];
         /**
          * @en Find the minimum polygon vertex set that includes all points.
          * @param pList The [x,y...] list.
-         * @zh 寻找包括所有点的最小多边形顶点集合。
-         * @param pList 形如[x0,y0,x1,y1...]的点列表。
-         */
-        static scanPList(pList: number[]): void;
-        /**
-         * @en Find the minimum polygon vertex set that includes all points.
-         * @param PointSet The Point list.
+         * @param out The output array to store the result. If not provided, a new array will be created.
          * @returns The minimum polygon vertex set.
          * @zh 寻找包括所有点的最小多边形顶点集合。
-         * @param PointSet Point列表
-         * @return 最小多边形顶点集合
+         * @param pList 形如[x0,y0,x1,y1...]的点列表。
+         * @param out 输出数组，用于存储结果。如果未提供，将创建一个新数组。
+         * @returns 最小多边形顶点集合。
          */
-        static scan(PointSet: any[]): any[];
+        static scanPList(pList: ReadonlyArray<number>, out?: number[]): number[];
+        /**
+         * @en Find the minimum polygon vertex set that includes all points.
+         * @param points The Point list.
+         * @returns The minimum polygon vertex set.
+         * @zh 寻找包括所有点的最小多边形顶点集合。
+         * @param points Point列表。
+         * @return 最小多边形顶点集合。
+         */
+        static scan(points: ReadonlyArray<Point>, out?: Point[]): Point[];
     }
     /**
      * @en Animation weight mode
@@ -41258,6 +41466,13 @@ declare namespace Laya {
          * @returns 与原始实例具有完全相同的属性的新 Matrix 实例。
          */
         clone(): Matrix;
+        /**
+         * @en Returns a copy of this Matrix object.
+         * @returns A new Matrix instance with exactly the same properties as the original instance.
+         * @zh 返回此 Matrix 对象的副本。
+         * @returns 与原始实例具有完全相同的属性的新 Matrix 实例。
+         */
+        cloneTo(dec: Matrix): Matrix;
         /**
          * @en Copy all matrix data from the current Matrix object to the specified Matrix object.
          * @param dec The Matrix object to copy the current matrix data to.
@@ -42539,6 +42754,15 @@ declare namespace Laya {
          * @returns This object.
          */
         scale(scaleX: number, scaleY: number): this;
+        /**
+         * @en Transforms a rectangle with a transformation matrix.
+         * @param mat The transform matrix to be applied.
+         * @returns This object.
+         * @zh 使用变换矩阵转换矩形。
+         * @param mat 变换矩阵。
+         * @returns 本对象。
+         */
+        transform(mat: Matrix, out?: Rectangle): Rectangle;
         /**
          * @en Returns a string representation of this Rectangle object, with the x, y, width, and height values joined by commas.
          * @zh 返回当前 Rectangle 对象的字符串表示，其中水平位置 x、垂直位置 y、宽度 width 和高度 height 以逗号连接。
@@ -44408,6 +44632,7 @@ declare namespace Laya {
          */
         canPlayType(type: string): CanPlayTypeResult;
         private _load;
+        private _vtReady;
         private _unload;
         private onDisplay;
         private onUndisplay;
@@ -47662,29 +47887,11 @@ declare namespace Laya {
          */
         static readonly SPINE = "SPINE";
         /**
-         * @en Resource download + parse time.
-         * @zh 资源下载 + 解析时间。
-         * @readonly
-         */
-        static LoaderStat_LoadResourceTime: number;
-        /**
-         * @en Number of resource downloads.
-         * @zh 资源下载次数。
-         * @readonly
-         */
-        static LoaderStat_LoaderResourceCount: number;
-        /**
          * @en Number of network file requests.
          * @zh 网络文件请求次数。
          * @readonly
          */
         static LoaderStat_LoadRequestCount: number;
-        /**
-         * @en Network download time.
-         * @zh 网络下载时间。
-         * @readonly
-         */
-        static LoaderStat_LoadRequestTime: number;
         /**
          * @en Number of retry attempts after loading fails, default is 1.
          * @zh 加载出错后的重试次数，默认重试一次。
@@ -48154,8 +48361,6 @@ declare namespace Laya {
         protected _socket: IWebSocket;
         protected _connected: boolean;
         protected _inputPos: number;
-        /** @deprecated */
-        constructor(host?: string, port?: number, byteClass?: new () => any, protocols?: string[], isSecure?: boolean);
         /**
          * @en Create a new Socket object. The default byte order is Socket.BIG_ENDIAN. If no parameters are specified, a socket initially in a disconnected state will be created. If valid parameters are specified, it attempts to connect to the specified host and port.
          * @param host The server address.
@@ -48598,7 +48803,8 @@ declare namespace Laya {
         /**
          * 渲染范围，用于裁剪规则二
          */
-        private _rect;
+        protected _rect: Vector4;
+        protected _boundsChange: boolean;
         protected _renderHandle: I2DBaseRenderDataHandle;
         /**
          * 获取渲染层掩码
@@ -48612,7 +48818,6 @@ declare namespace Laya {
          * 获取渲染范围
          */
         get rect(): Vector4;
-        private _boundsChange;
         get boundsChange(): boolean;
         set boundsChange(value: boolean);
         /**
@@ -48637,7 +48842,9 @@ declare namespace Laya {
          * override it
          */
         protected _onDestroy(): void;
-        protected _getRenderHandle(): I2DBaseRenderDataHandle;
+        /** @ignore */
+        _getRenderHandle(): I2DBaseRenderDataHandle;
+        protected _createRenderHandle(): I2DBaseRenderDataHandle;
         /**
          * @en render layer
          * @zh 渲染层。
@@ -49145,6 +49352,7 @@ declare namespace Laya {
         static TextureSheetFrameMax: number;
         static CurrentTime: number;
         static UnitPixels: number;
+        static SpriteRotAndScale: number;
         static init(): void;
     }
     enum Particle2DVertex {
@@ -55305,10 +55513,6 @@ declare namespace Laya {
         protected _physics2DWorld: Physics2DWorldManager;
         /**@internal */
         protected _mG: Graphics;
-        /**@internal */
-        private _textSp;
-        /**@internal */
-        protected _textG: Graphics;
         protected _lineWidth: number;
         private _matrix;
         /**绘制需要使用的材质 */
@@ -55338,11 +55542,6 @@ declare namespace Laya {
          * @zh 用于绘制形状的 Graphics 对象。
          */
         get mG(): Graphics;
-        /**
-         * @en The Graphics object used for drawing text.
-         * @zh 用于绘制文本的 Graphics 对象。
-         */
-        get textG(): Graphics;
         /**
          * @en The current line width used for drawing.
          * @zh 用于绘制的当前线宽。
@@ -55456,6 +55655,7 @@ declare namespace Laya {
      * @zh 场景对应的2D物理管理类
      */
     class Physics2DWorldManager implements IElementComponentManager {
+        static _debugSprite: Sprite;
         /**
          * @en 2Dphysics manager class name
          * @zh 2D物理管理类类名
@@ -55478,6 +55678,7 @@ declare namespace Laya {
         private _JSQuerycallback;
         private _JSRayCastcallback;
         private _allowWorldSleep;
+        get enableDraw(): boolean;
         /**
          * @en Get the box2D world corresponding to the current scene
          * @zh 获取当前场景对应的box2D世界
@@ -55683,6 +55884,110 @@ declare namespace Laya {
         private _debugDrawPoint;
         private _debugDrawAABB;
         private _dispatchEvent;
+    }
+    class PhysicsDrawLine2DCMD extends Command2D {
+        private static readonly _pool;
+        private _renderElements;
+        private _physicsGeometry;
+        private _material;
+        get physicsGeometry(): PhysicsLineGemetry;
+        static create(pointArray: number[], mat: Matrix, color?: Color, lineWidth?: number): PhysicsDrawLine2DCMD;
+        private _drawElementData;
+        private _needUpdateElement;
+        private _matrix;
+        private _shaderData;
+        private _struct;
+        private _renderGeometry;
+        constructor();
+        set lineWidth(value: number);
+        set color(value: Color);
+        _setMatrix(value: Matrix): void;
+        /**
+       * @override
+       * @internal
+       * @returns
+       */
+        getRenderCMD(): Draw2DElementCMD;
+        /**
+         * @en Runs the  command.
+         * @zh 运行命令。
+         */
+        run(): void;
+        /**
+         * @inheritDoc
+         * @override
+         * @en Recovers the render command for reuse.
+         * @zh 回收渲染命令以供重用。
+         */
+        recover(): void;
+    }
+    /**
+     * @en Physics line geometry class
+     * @zh 物理线段几何体类
+     */
+    class PhysicsLineGemetry {
+        private _positions;
+        private _needUpdate;
+        private _maxLineNumer;
+        private _enLarge;
+        private _renderGeometry;
+        private _positionInstansBufferData;
+        private _positionVertexBuffer;
+        private _lineLengthBufferData;
+        private _lineLengthVertexBuffer;
+        /**
+         * @en Set the line segment data in the format [beginX, beginY, endX, endY, beginX, beginY, endX, endY, ...]. Data must be in multiples of 4
+         * @zh 设置线段数据，格式为[beginX,beginY,endX,endY,beginX,beginY,endX,endY,...]，数据必须是4的倍数
+         */
+        get positions(): number[];
+        set positions(value: number[]);
+        /**
+         * @en Get the render geometry
+         * @zh 获取渲染几何体
+         */
+        get renderGeometry(): IRenderGeometryElement;
+        /**
+         * @en Clear all line segments
+         * @zh 清空所有线段
+         */
+        clear(): void;
+        /**
+         * @en Update geometry data
+         * @zh 更新几何体数据
+         */
+        updateGeometry(): void;
+        /**
+         * @en Initialize render geometry
+         * @zh 初始化渲染几何体
+         */
+        initRender(): void;
+        /**
+         * @en Change geometry data
+         * @zh 改变几何体数据
+         */
+        private _changeGeometry;
+        /**
+         * @en Constructor
+         * @zh 构造函数
+         */
+        constructor();
+    }
+    class PhysicsLineShader {
+        static LINEWIDTH: number;
+        static DASHED: number;
+        static TILINGOFFSET: number;
+        static linePoisitionDesc: VertexDeclaration;
+        static lineLengthDesc: VertexDeclaration;
+        /**
+         * @internal
+         */
+        static _vbs: IVertexBuffer;
+        /**
+         * @internal
+         */
+        static _ibs: IIndexBuffer;
+        private static _isInit;
+        static __init__(): void;
     }
     /**
      * @en 2D rigidbody, display objects are bound to the physics world through RigidBody to keep the positions of physics and display objects synchronized.
@@ -64286,8 +64591,6 @@ declare namespace Laya {
          * @param context
          */
         renderQueue(context: IRenderContext3D): void;
-        private sort_trans;
-        private sort_opaque;
         /**
          * 清空队列
          */
@@ -64355,6 +64658,8 @@ declare namespace Laya {
         createRender2DPass(): IRender2DPass;
         createRenderStruct2D(): IRenderStruct2D;
         createRender2DPassManager(): IRender2DPassManager;
+        createGraphic2DBufferBlock(): IGraphics2DBufferBlock;
+        createGraphic2DVertexBlock(): IGraphics2DVertexBlock;
         create2D2DPrimitiveDataHandle(): I2DPrimitiveDataHandle;
         create2DBaseRenderDataHandle(): I2DBaseRenderDataHandle;
         createMesh2DRenderDataHandle(): IMesh2DRenderDataHandle;
@@ -64476,6 +64781,8 @@ declare namespace Laya {
         nodeCommonMap: Array<string>;
         owner: IRenderStruct2D;
         destroy(): void;
+        /** 在合批过程中需要收集 */
+        _index?: number;
     }
     /**
      * @blueprintIgnore @blueprintIgnoreSubclasses
@@ -65134,7 +65441,6 @@ declare namespace Laya {
         _context: any;
         /**@internal */
         _isShaderDebugMode: boolean;
-        _enableStatistics: boolean;
         _framePassCount: number;
         _remapZ: boolean;
         _screenInvertY: boolean;
@@ -65151,10 +65457,6 @@ declare namespace Laya {
         getParams(params: RenderParams): number;
         getCapable(capatableType: RenderCapable): boolean;
         getTextureContext(): ITextureContext;
-        /**@internal */
-        clearStatisticsInfo(): void;
-        /**@internal */
-        getStatisticsInfo(info: GPUEngineStatisticsInfo): number;
         startFrame(): void;
         endFrame(): void;
     }
@@ -65656,17 +65958,6 @@ declare namespace Laya {
      */
     function roundDown(n: number, align: number): number;
     /**
-     * UBO统计信息
-     */
-    class UBOStat {
-        moveNum: number;
-        uploadNum: number;
-        uploadByte: number;
-        timeCostAvg: number;
-        timeCostSum: number;
-        timeCostCount: number;
-    }
-    /**
      * Uniform内存块管理
      */
     class UniformBufferManager {
@@ -65681,8 +65972,6 @@ declare namespace Laya {
         clusterMaxBlock: number;
         uploadThreshold: number;
         removeHoleThreshold: number;
-        _stat: UBOStat;
-        _enableStat: boolean;
         aloneBuffers: UniformBufferAlone[];
         constructor(useBigBuffer: boolean);
         /**
@@ -65763,17 +66052,6 @@ declare namespace Laya {
          * @param bytes 字节
          */
         statisGPUMemory(bytes: number): void;
-        /**
-         * 统计时间花费（平均值）
-         * @param time 耗费时间（毫秒）
-         */
-        statisTimeCostAvg(time: number): void;
-        /**
-         * 统计上传次数
-         * @param count 上传次数
-         * @param bytes 上传字节
-         */
-        statisUpload(count: number, bytes: number): void;
     }
     type ItemType = {
         name: string;
@@ -65990,6 +66268,8 @@ declare namespace Laya {
         protected static _typeArray(type: string): Float32ArrayConstructor | Int32ArrayConstructor;
     }
     class NoRender2DProcess implements I2DRenderPassFactory {
+        createGraphic2DBufferBlock(): IGraphics2DBufferBlock;
+        createGraphic2DVertexBlock(): IGraphics2DVertexBlock;
         create2DGraphicVertexDataView(wholeBuffer: I2DGraphicWholeBuffer, elementOffset: number, elementSize: number, stride: number): I2DGraphicVertexDataView;
         create2DGraphicIndexDataView(wholeBuffer: I2DGraphicWholeBuffer, elementSize: number): I2DGraphicIndexDataView;
         create2DGraphicIndexBuffer(): I2DGraphicWholeBuffer;
@@ -66527,8 +66807,6 @@ declare namespace Laya {
         getParams(params: RenderParams): number;
         getCapable(capatableType: RenderCapable): boolean;
         getTextureContext(): ITextureContext;
-        clearStatisticsInfo(): void;
-        getStatisticsInfo(info: GPUEngineStatisticsInfo): number;
     }
     class NoInternalTexture implements InternalTexture {
         resource: any;
@@ -66667,6 +66945,8 @@ declare namespace Laya {
         set primitiveShaderData(data: GLESShaderData);
     }
     class GLESRender2DProcess implements I2DRenderPassFactory {
+        createGraphic2DBufferBlock(): IGraphics2DBufferBlock;
+        createGraphic2DVertexBlock(): IGraphics2DVertexBlock;
         create2DGraphicVertexDataView(wholeBuffer: I2DGraphicWholeBuffer, elementOffset: number, elementSize: number, stride: number): I2DGraphicVertexDataView;
         create2DGraphicIndexDataView(wholeBuffer: I2DGraphicWholeBuffer, elementSize: number): I2DGraphicIndexDataView;
         create2DGraphicIndexBuffer(): I2DGraphicWholeBuffer;
@@ -67414,15 +67694,14 @@ declare namespace Laya {
         _nativeObj: any;
         private _GLTextureContext;
         constructor(config: WebGLConfig, webglMode?: GLESMode);
-        _framePassCount: number;
+        get _framePassCount(): number;
+        set _framePassCount(value: number);
         endFrame(): void;
         startFrame(): void;
         _remapZ: boolean;
         _screenInvertY: boolean;
         _lodTextureSample: boolean;
         _breakTextureSample: boolean;
-        get _enableStatistics(): boolean;
-        set _enableStatistics(value: boolean);
         resizeOffScreen(width: number, height: number): void;
         getDefineByName(name: string): RTShaderDefine;
         getNamesByDefineData(defineData: IDefineDatas, out: Array<string>): void;
@@ -67434,8 +67713,6 @@ declare namespace Laya {
         getParams(params: RenderParams): number;
         getCapable(capatableType: RenderCapable): boolean;
         getTextureContext(): ITextureContext;
-        clearStatisticsInfo(): void;
-        getStatisticsInfo(info: GPUEngineStatisticsInfo): number;
         viewport(x: number, y: number, width: number, height: number): void;
         scissor(x: number, y: number, width: number, height: number): void;
     }
@@ -67894,23 +68171,23 @@ declare namespace Laya {
         destroy(): void;
     }
     /** @blueprintIgnore */
-    type Graphics2DVertexBlock = {
+    interface IGraphics2DVertexBlock {
         positions: number[];
         vertexViews: I2DGraphicVertexDataView[];
-    };
+    }
     /** @blueprintIgnore */
-    type Graphics2DBufferBlock = {
-        vertexs: Graphics2DVertexBlock[];
+    interface IGraphics2DBufferBlock {
+        vertexs: IGraphics2DVertexBlock[];
         indexView: I2DGraphicIndexDataView;
         vertexBuffer: IVertexBuffer;
-    };
+    }
     /**
      * primitive渲染数据处理
      * @blueprintIgnore
      */
     interface I2DPrimitiveDataHandle extends IRender2DDataHandle {
         mask: IRenderStruct2D | null;
-        applyVertexBufferBlock(views: Graphics2DBufferBlock[]): void;
+        applyVertexBufferBlock(views: IGraphics2DBufferBlock[]): void;
     }
     /**
      * 基础组件数据处理
@@ -67934,6 +68211,7 @@ declare namespace Laya {
      * @blueprintIgnore
      */
     interface ISpineRenderDataHandle extends I2DBaseRenderDataHandle {
+        baseColor: Color;
         skeleton: spine.Skeleton;
         offset: Vector2;
     }
@@ -67956,7 +68234,6 @@ declare namespace Laya {
         addStruct(object: IRenderStruct2D): void;
         removeStruct(object: IRenderStruct2D): void;
         fowardRender(context: IRenderContext2D): void;
-        render(context: IRenderContext2D): void;
         destroy(): void;
     }
     /** @ignore @blueprintIgnore */
@@ -67975,6 +68252,7 @@ declare namespace Laya {
     }
     /** @ignore @blueprintIgnore */
     interface IRenderStruct2D {
+        owner: Sprite;
         zIndex: number;
         rect: Rectangle;
         renderLayer: number;
@@ -67990,6 +68268,9 @@ declare namespace Laya {
         blendMode: BlendMode;
         /** 是否启动 */
         enabled: boolean;
+        dcOptimize: boolean;
+        dcBounds: Rectangle;
+        dcBoundsTarget: IRenderStruct2D;
         isRenderStruct: boolean;
         renderElements: IRenderElement2D[];
         spriteShaderData: ShaderData;
@@ -68001,8 +68282,7 @@ declare namespace Laya {
         updateChildIndex(child: IRenderStruct2D, oldIndex: number, index: number): void;
         removeChild(child: IRenderStruct2D): void;
         setClipRect(rect: Rectangle): void;
-        renderUpdate(context: IRenderContext2D): void;
-        set_renderNodeUpdateCall(call: any, renderUpdateFun: any): void;
+        setRenderUpdateCallback(func: Function): void;
         destroy(): void;
     }
     enum BaseRenderType {
@@ -68564,26 +68844,32 @@ declare namespace Laya {
     }
     class RTRender2DPass implements IRender2DPass {
         _nativeObj: any;
+        private _enable;
         get enable(): boolean;
         set enable(value: boolean);
+        private _enableBatch;
         get enableBatch(): boolean;
         set enableBatch(value: boolean);
+        private _isSupport;
         get isSupport(): boolean;
         set isSupport(value: boolean);
         private _root;
         get root(): RTRenderStruct2D;
         set root(value: RTRenderStruct2D);
+        private _doClearColor;
         set doClearColor(value: boolean);
         get doClearColor(): boolean;
         postProcess: PostProcess2D;
         private _mask;
         set mask(value: RTRenderStruct2D);
         get mask(): RTRenderStruct2D;
+        private _repaint;
         get repaint(): boolean;
         set repaint(value: boolean);
         private _renderTexture;
         get renderTexture(): RenderTexture2D;
         set renderTexture(value: RenderTexture2D);
+        private _priority;
         get priority(): number;
         set priority(value: number);
         private _shaderData;
@@ -68610,11 +68896,6 @@ declare namespace Laya {
          * @param context
          */
         fowardRender(context: GLESRenderContext2D): void;
-        /**
-         * 渲染
-         * @param context
-         */
-        render(context: GLESRenderContext2D): void;
         private renderCallBack;
         destroy(): void;
     }
@@ -68632,10 +68913,34 @@ declare namespace Laya {
         protected _owner: RTRenderStruct2D;
         get owner(): RTRenderStruct2D;
         set owner(value: RTRenderStruct2D);
+        private _needUseMatrix;
         get needUseMatrix(): boolean;
         set needUseMatrix(value: boolean);
         destroy(): void;
         inheriteRenderData(context: GLESRenderContext2D): void;
+    }
+    class RTGraphics2DBufferBlock implements IGraphics2DBufferBlock {
+        private _vertexs;
+        get vertexs(): RTGraphics2DVertexBlock[];
+        set vertexs(value: RTGraphics2DVertexBlock[]);
+        private _indexView;
+        get indexView(): RT2DGraphic2DIndexDataView;
+        set indexView(value: RT2DGraphic2DIndexDataView);
+        private _vertexBuffer;
+        get vertexBuffer(): IVertexBuffer;
+        set vertexBuffer(value: IVertexBuffer);
+        _nativeObj: any;
+        constructor();
+    }
+    class RTGraphics2DVertexBlock implements IGraphics2DVertexBlock {
+        private _positions;
+        get positions(): number[];
+        set positions(value: number[]);
+        private _vertexViews;
+        get vertexViews(): RT2DGraphic2DVertexDataView[];
+        set vertexViews(value: RT2DGraphic2DVertexDataView[]);
+        _nativeObj: any;
+        constructor();
     }
     class RTPrimitiveDataHandle extends RTRender2DDataHandle implements I2DPrimitiveDataHandle {
         constructor();
@@ -68643,7 +68948,7 @@ declare namespace Laya {
         get mask(): RTRenderStruct2D | null;
         set mask(value: RTRenderStruct2D | null);
         private _blocks;
-        applyVertexBufferBlock(blocks: Graphics2DBufferBlock[]): void;
+        applyVertexBufferBlock(blocks: RTGraphics2DBufferBlock[]): void;
         inheriteRenderData(context: GLESRenderContext2D): void;
     }
     class RTBaseRenderDataHandle extends RTRender2DDataHandle implements I2DBaseRenderDataHandle {
@@ -68672,6 +68977,9 @@ declare namespace Laya {
     class RTSpineRenderDataHandle extends RTBaseRenderDataHandle implements ISpineRenderDataHandle {
         private _offset;
         skeleton: spine.Skeleton;
+        private _baseColor;
+        get baseColor(): Color;
+        set baseColor(value: Color);
         constructor();
         get owner(): RTRenderStruct2D;
         set owner(value: RTRenderStruct2D);
@@ -68684,6 +68992,7 @@ declare namespace Laya {
         private _cullRect;
         get cullRect(): Vector4;
         set cullRect(value: Vector4);
+        private _renderLayerMask;
         get renderLayerMask(): number;
         set renderLayerMask(value: number);
         private _globalShaderData;
@@ -68692,11 +69001,17 @@ declare namespace Laya {
     }
     class RTRenderStruct2D implements IRenderStruct2D {
         _nativeObj: any;
+        owner: Sprite;
+        dcOptimize: boolean;
+        dcBounds: Rectangle;
+        dcBoundsTarget: RTRenderStruct2D;
+        private _zIndex;
         set zIndex(value: number);
         get zIndex(): number;
         private _rect;
         set rect(value: Rectangle);
         get rect(): Rectangle;
+        private _renderLayer;
         set renderLayer(value: number);
         get renderLayer(): number;
         private _parent;
@@ -68705,21 +69020,28 @@ declare namespace Laya {
         private _children;
         get children(): IRenderStruct2D[];
         set children(value: IRenderStruct2D[]);
+        private _renderType;
         set renderType(value: number);
         get renderType(): number;
+        private _renderUpdateMask;
         set renderUpdateMask(value: number);
         get renderUpdateMask(): number;
         private _renderMatrix;
         set renderMatrix(value: Matrix);
         get renderMatrix(): Matrix;
+        private _globalAlpha;
         set globalAlpha(value: number);
         get globalAlpha(): number;
+        private _alpha;
         get alpha(): number;
         set alpha(value: number);
+        private _blendMode;
         get blendMode(): BlendMode;
         set blendMode(value: BlendMode);
+        private _enabled;
         get enabled(): boolean;
         set enabled(value: boolean);
+        private _isRenderStruct;
         get isRenderStruct(): boolean;
         set isRenderStruct(value: boolean);
         private _renderElements;
@@ -68739,14 +69061,12 @@ declare namespace Laya {
         get pass(): RTRender2DPass;
         set pass(value: RTRender2DPass);
         constructor();
-        private _rnUpdateFun;
-        set_renderNodeUpdateCall(call: any, renderUpdateFun: any): void;
+        setRenderUpdateCallback(func: Function): void;
         setClipRect(rect: Rectangle): void;
         setRepaint(): void;
         addChild(child: IRenderStruct2D, index: number): void;
         updateChildIndex(child: IRenderStruct2D, oldIndex: number, index: number): void;
         removeChild(child: IRenderStruct2D): void;
-        renderUpdate(context: GLESRenderContext2D): void;
         destroy(): void;
     }
     class NativeBounds implements IClone {
@@ -68756,8 +69076,6 @@ declare namespace Laya {
         nativeMemory: NativeMemory;
         /**@internal	*/
         float32Array: Float32Array;
-        /**@internal	*/
-        float64Array: Float64Array;
         /**@internal	*/
         _nativeObj: any;
         /**@internal	*/
@@ -69545,6 +69863,13 @@ declare namespace Laya {
         setCacheShader(defines: IDefineDatas, shaderInstance: IShaderInstance): void;
         getCacheShader(defines: IDefineDatas): IShaderInstance;
     }
+    class RTStatisContext extends DefaultStaticsContext {
+        private _nativeObj;
+        protected _stateArrayMemory: NativeMemory;
+        protected _timeArrayMemory: NativeMemory;
+        constructor();
+        protected _createStatBuffer(): void;
+    }
     class RTSubShader implements ISubshaderData {
         _nativeObj: any;
         constructor();
@@ -69562,6 +69887,32 @@ declare namespace Laya {
         createShaderPass(pass: ShaderPass): RTShaderPass;
         createRenderState(): RTRenderState;
         createDefineDatas(): RTDefineDatas;
+    }
+    /**
+     * @ignore
+     */
+    interface IBatch2DProvider {
+        /**合批范围，合批的RenderElement2D直接add进list中 */
+        batch(list: FastSinglelist<IRenderElement2D>, start: number, end: number, allowReorder?: boolean): void;
+        reset(): void;
+        destroy(): void;
+    }
+    /**
+     * @ignore
+     * 合批管理
+     */
+    class BatchManager {
+        /**
+         *
+         */
+        static readonly registry: Record<number, new () => IBatch2DProvider>;
+        /**
+         * 注册渲染节点之间的合批。根据不同的RenderNode注册合批方式，来优化性能
+         * @param renderElementType
+         * @param batch
+         */
+        static registerProvider(renderType: number, cls: new () => IBatch2DProvider): void;
+        static createProvider(renderType: number): IBatch2DProvider;
     }
     abstract class Web2DGraphicWholeBuffer implements I2DGraphicWholeBuffer {
         buffer: IIndexBuffer | IVertexBuffer;
@@ -69666,18 +70017,14 @@ declare namespace Laya {
         _cloneView(view: Web2DGraphic2DIndexDataView): void;
         destroy(): void;
     }
-    /**
-     * 简单的管理indexBuffer
-     */
     class BatchBuffer {
-        static _STEP_: number;
         indexBuffer: IIndexBuffer;
         wholeBuffer: Web2DGraphicsIndexBatchBuffer;
         indexCount: number;
         maxIndexCount: number;
         bufferStates: Map<IVertexBuffer, IBufferState>;
-        geometryList: IRenderGeometryElement[];
         constructor();
+        add(element: IPrimitiveRenderElement2D): import("../../../DriverDesign/RenderDevice/IRenderGeometryElement").IRenderGeometryElement;
         updateBufLength(): void;
         bindBuffer(buffer: IVertexBuffer): IBufferState;
         clear(): void;
@@ -69694,100 +70041,41 @@ declare namespace Laya {
         subShader: any;
         /** 批次的bufferState */
         bufferState: any;
-        shaderData: any;
+        primitiveShaderData: any;
+        materialShaderData: any;
         type: number;
         lowType: number;
         globalRenderData: any;
         /**
-         * 重置批次上下文
-         */
-        reset(): void;
-        /**
          * 从渲染元素初始化批次上下文
          */
-        initFromElement(element: IPrimitiveRenderElement2D): void;
+        setHead(element: IPrimitiveRenderElement2D): void;
         /**
          * 检查元素是否与批次兼容
          */
         isCompatible(element: IPrimitiveRenderElement2D): boolean;
     }
-    class WebGraphicsBatchContext implements IBatch2DContext {
-        /** @internal */
-        _batchBuffer: BatchBuffer;
-        /** @internal */
-        private _list;
+    /**
+     * @ignore
+     */
+    class WebGraphicsBatch implements IBatch2DProvider {
+        _buffer: BatchBuffer;
+        _merged: Array<IPrimitiveRenderElement2D>;
+        _context: BatchContext;
+        static readonly _pool: IPool<IPrimitiveRenderElement2D>;
         constructor();
         reset(): void;
-        getRenderElement(): IPrimitiveRenderElement2D;
         destroy(): void;
-    }
-    class WebGraphicsBatch implements IBatch2DRender {
-        static instance: WebGraphicsBatch;
-        static batchCtx: BatchContext;
-        static readonly _pool: IPool<IPrimitiveRenderElement2D>;
-        createBatchContext(): IBatch2DContext;
-        batchRenderElement(list: FastSinglelist<IPrimitiveRenderElement2D>, start: number, length: number, context: WebGraphicsBatchContext): void;
-        /**
-         * @en Check if an element can be added to the current batch.
-         * @param element The render element to check.
-         * @param batchContext The batch context for current batch.
-         * @returns True if the element can be added to the batch, false otherwise.
-         * @zh 检测元素是否可以加入当前批次。
-         * @param element 要检测的渲染元素。
-         * @param batchContext 当前批次的上下文。
-         * @returns 如果元素可以加入批次则返回 true，否则返回 false。
-         */
-        canAddToBatch(element: IPrimitiveRenderElement2D, batchContext: BatchContext): boolean;
-        batch(list: FastSinglelist<IPrimitiveRenderElement2D>, start: number, length: number, context: WebGraphicsBatchContext, batchContext: BatchContext): void;
-        prepare(strcut: WebRenderStruct2D, context: WebGraphicsBatchContext, offset: number): void;
-        /**
-         *
-         */
-        recover(list: FastSinglelist<IPrimitiveRenderElement2D>): void;
-    }
-    interface IBatch2DContext {
-        reset(): void;
-        destroy(): void;
-    }
-    interface IBatch2DRender {
-        createBatchContext(): IBatch2DContext;
-        /**合批范围，合批的RenderElement2D直接add进list中 */
-        batchRenderElement(list: FastSinglelist<IRenderElement2D>, start: number, length: number, context: IBatch2DContext): void;
-        prepare(strcut: WebRenderStruct2D, context: IBatch2DContext, offset: number): void;
-    }
-    class Batch2DInfo {
-        batchFun: IBatch2DRender;
-        batchContext: IBatch2DContext;
-        batch: boolean;
-        indexStart: number;
-        elementLength: number;
-        elementCount: number;
-        static readonly _pool: IPool<Batch2DInfo>;
-    }
-    /**
-     * 合批管理
-     * TODO 需要挪出去
-     */
-    class BatchManager {
-        /**
-         * @internal
-         * 根据不同的RenderNode注册合批方式，来优化性能
-         */
-        static _batchMapManager: {
-            [key: number]: IBatch2DRender;
-        };
-        /**
-         * 注册渲染节点之间的合批
-         * @param renderElementType
-         * @param batch
-         */
-        static registerBatch(renderElementType: number, batch: IBatch2DRender): void;
+        batch(list: FastSinglelist<IPrimitiveRenderElement2D>, start: number, end: number, allowReorder?: boolean): void;
+        private addSingle;
+        private merge;
     }
     class WebRender2DPass implements IRender2DPass {
         static buffers: Set<Web2DGraphicWholeBuffer>;
-        /** @internal */
-        _list: PassRenderList;
-        /** @internal */
+        private _renderElements;
+        private _elementGroups;
+        private _structs;
+        private _batchProviders;
         _priority: number;
         get priority(): number;
         set priority(value: number);
@@ -69825,72 +70113,29 @@ declare namespace Laya {
         needRender(): boolean;
         /**
          * add Render Node
-         * @param object
+         * @param struct
          */
-        addStruct(object: WebRenderStruct2D): void;
+        addStruct(struct: WebRenderStruct2D): void;
         /**
          * remove Render Node
-         * @param object
+         * @param struct
          */
-        removeStruct(object: WebRenderStruct2D): void;
+        removeStruct(struct: WebRenderStruct2D): void;
         cullAndSort(context2D: IRenderContext2D, struct: WebRenderStruct2D): void;
-        /**
-          * 帧更新
-          */
-        updateRenderQueue(context: IRenderContext2D): void;
         /**
          * pass 2D 渲染
          * @param context
          */
         fowardRender(context: IRenderContext2D): void;
-        /**
-         * 渲染
-         * @param context
-         */
-        render(context: IRenderContext2D): void;
+        private fillRenderElements;
+        private batch;
+        private getBatchProvider;
         private _initRenderProcess;
         static setBuffer(buffer: Web2DGraphicWholeBuffer): void;
         static uploadBuffer(): void;
         private _updateInvertMatrix;
         private _setInvertMatrix;
-        /**
-          * @internal
-          */
-        private _setRenderSize;
         destroy(): void;
-    }
-    class PassRenderList {
-        _batchInfoList: FastSinglelist<Batch2DInfo>;
-        private _currentType;
-        private _currentBatch;
-        structs: FastSinglelist<WebRenderStruct2D>[];
-        renderElements: FastSinglelist<IRenderElement2D>;
-        renderListType: number;
-        zOrder: number;
-        _dirtyFlag: number;
-        private _batchContexts;
-        constructor();
-        add(struct: WebRenderStruct2D, isBatch?: boolean): void;
-        updateRenderElements(enableBatch: boolean): void;
-        /**
-         * @internal
-         * 更新渲染元素
-         * @param struct
-         * @param enableBatch
-         */
-        _updateRenderElements(struct: WebRenderStruct2D, enableBatch: boolean): void;
-        /**
-         * 开启一个Batch
-         */
-        private _batchStart;
-        /**
-         * 合批总循环
-         */
-        batch(): void;
-        remove(struct: WebRenderStruct2D): void;
-        destroy(): void;
-        clearRenderElements(): void;
-        reset(): void;
     }
     class WebRender2DPassManager implements IRender2DPassManager {
         private _modify;
@@ -69899,10 +70144,6 @@ declare namespace Laya {
         apply(context: IRenderContext2D): void;
         clear(): void;
         addPass(pass: WebRender2DPass): void;
-        /**
-         * 按照 priority 对 Pass 进行排序
-         */
-        private _sortPassesByPriority;
     }
     abstract class WebRender2DDataHandle implements IRender2DDataHandle {
         protected _owner: WebRenderStruct2D;
@@ -69917,15 +70158,24 @@ declare namespace Laya {
         destroy(): void;
         inheriteRenderData(context: IRenderContext2D): void;
     }
+    class WebGraphics2DBufferBlock implements IGraphics2DBufferBlock {
+        vertexs: IGraphics2DVertexBlock[];
+        indexView: I2DGraphicIndexDataView;
+        vertexBuffer: IVertexBuffer;
+    }
+    class WebGraphics2DVertexBlock implements IGraphics2DVertexBlock {
+        positions: number[];
+        vertexViews: I2DGraphicVertexDataView[];
+    }
     class WebPrimitiveDataHandle extends WebRender2DDataHandle implements I2DPrimitiveDataHandle {
         mask: WebRenderStruct2D | null;
         private _bufferBlocks;
         private _needUpdateBuffer;
         private _modifiedFrame;
         private _clonesViews;
-        applyVertexBufferBlock(blocks: Graphics2DBufferBlock[]): void;
+        applyVertexBufferBlock(blocks: IGraphics2DBufferBlock[]): void;
         /** @internal */
-        _getBlocks(): Graphics2DBufferBlock[];
+        _getBlocks(): IGraphics2DBufferBlock[];
         inheriteRenderData(context: IRenderContext2D): void;
         getCloneViews(): Web2DGraphic2DIndexDataView[];
         updateCloneView(): void;
@@ -69940,7 +70190,6 @@ declare namespace Laya {
         set owner(value: WebRenderStruct2D);
     }
     class WebMesh2DRenderDataHandle extends Web2DBaseRenderDataHandle implements IMesh2DRenderDataHandle {
-        private static _setRenderColor;
         private _baseColor;
         private _baseTexture;
         private _normal2DTexture;
@@ -69957,6 +70206,10 @@ declare namespace Laya {
         inheriteRenderData(context: IRenderContext2D): void;
     }
     class WebSpineRenderDataHandle extends Web2DBaseRenderDataHandle implements ISpineRenderDataHandle {
+        private _renderAlpha;
+        private _baseColor;
+        get baseColor(): Color;
+        set baseColor(value: Color);
         skeleton: spine.Skeleton;
         private _offset;
         get owner(): WebRenderStruct2D;
@@ -69975,6 +70228,7 @@ declare namespace Laya {
         modifiedFrame: number;
     }
     class WebRenderStruct2D implements IRenderStruct2D {
+        owner: Sprite;
         zIndex: number;
         rect: Rectangle;
         renderLayer: number;
@@ -69983,6 +70237,10 @@ declare namespace Laya {
         /** 按标记来 */
         renderType: number;
         renderUpdateMask: number;
+        dcOptimize: boolean;
+        dcOptimizeEnd: WebRenderStruct2D;
+        dcBounds: Rectangle;
+        dcBoundsTarget: WebRenderStruct2D;
         get renderMatrix(): Matrix;
         set renderMatrix(value: Matrix);
         trans: StructTransform;
@@ -69994,7 +70252,6 @@ declare namespace Laya {
         private _parentBlendMode;
         get blendMode(): BlendMode;
         set blendMode(value: BlendMode);
-        private _destroyed;
         /** @internal */
         needUploadClip: number;
         /** @internal */
@@ -70026,9 +70283,8 @@ declare namespace Laya {
         _parentClipInfo: IClipInfo;
         /** @internal */
         _clipInfo: IClipInfo;
-        private _rnUpdateCall;
         private _rnUpdateFun;
-        set_renderNodeUpdateCall(call: any, renderUpdateFun: any): void;
+        setRenderUpdateCallback(func: Function): void;
         _handleInterData(): void;
         private _updateBlendMode;
         setClipRect(rect: Rectangle): void;
@@ -70102,11 +70358,6 @@ declare namespace Laya {
         protected _shaderData: ShaderData;
         get shaderData(): ShaderData;
         set shaderData(value: ShaderData);
-        /**
-        * context3D:GLESRenderContext3D
-        * @internal
-        */
-        _renderUpdatePre_StatUse(context3D: IRenderContext3D): void;
         /**
          * context3D:GLESRenderContext3D
          * @internal
@@ -70749,6 +71000,8 @@ declare namespace Laya {
     }
     class WebGLRender2DProcess implements I2DRenderPassFactory {
         constructor();
+        createGraphic2DBufferBlock(): IGraphics2DBufferBlock;
+        createGraphic2DVertexBlock(): IGraphics2DVertexBlock;
         create2DGraphicVertexDataView(wholeBuffer: I2DGraphicWholeBuffer, elementOffset: number, elementSize: number, stride: number): I2DGraphicVertexDataView;
         create2DGraphicIndexDataView(wholeBuffer: I2DGraphicWholeBuffer, elementSize: number): I2DGraphicIndexDataView;
         create2DGraphicIndexBuffer(): I2DGraphicWholeBuffer;
@@ -70815,33 +71068,6 @@ declare namespace Laya {
         protected _uploadGlobalAndPass(shader: WebGLShaderInstance, context: WebglRenderContext2D): void;
         renderByShaderInstance(shader: WebGLShaderInstance, context: WebglRenderContext2D): void;
         destroy(): void;
-    }
-    class InstanceRenderElementOBJ extends WebGLRenderElement3D {
-        /**@internal 当instance数量特别大时可能需要一段一段数据来画,所以需要更新顶点数据*/
-        private _vertexBuffer3D;
-        private _updateData;
-        private _updateDataNum;
-        drawCount: number;
-        updateNums: number;
-        /**
-         * 增加UpdateBuffer
-         * @param vb
-         * @param length 每个instance属性的数据长度
-         */
-        addUpdateBuffer(vb: VertexBuffer3D, length: number): void;
-        /**
-         *
-         * @param index index of Buffer3D
-         * @param length length of array
-         */
-        getUpdateData(index: number, length: number): Float32Array;
-        constructor();
-        /**
-         * draw geometry
-         * @param shaderIns
-         */
-        drawGeometry(shaderIns: IShaderInstance): void;
-        clear(): void;
     }
     class WebGL3DRenderPassFactory implements I3DRenderPassFactory {
         createInstanceBatch(): IInstanceRenderBatch;
@@ -71312,8 +71538,6 @@ declare namespace Laya {
         setClearData(clearFlag: number, color: Color, depth: number, stencil: number): number;
         drawRenderElementList(list: FastSinglelist<WebGLRenderElement3D>): number;
         drawRenderElementOne(node: WebGLRenderElement3D): number;
-        drawRenderElementList_StatUse(list: FastSinglelist<WebGLRenderElement3D>): number;
-        drawRenderElementOne_StatUse(node: WebGLRenderElement3D): number;
         private _bindRenderTarget;
         private _start;
     }
@@ -71631,7 +71855,6 @@ declare namespace Laya {
         _IDCounter: number;
         /**@internal ShaderDebugMode*/
         _isShaderDebugMode: boolean;
-        _enableStatistics: boolean;
         /**@internal gl.TextureID*/
         _glTextureIDParams: Array<number>;
         /**@internal bind active Texture*/
@@ -71682,7 +71905,6 @@ declare namespace Laya {
             offset: number;
             size: number;
         }[];
-        private _GLStatisticsInfo;
         static instance: WebGLEngine;
         /** @ignore */
         constructor(config: WebGLConfig, webglMode?: WebGLMode);
@@ -71699,25 +71921,6 @@ declare namespace Laya {
         get gl(): WebGLRenderingContext | WebGL2RenderingContext;
         get isWebGL2(): boolean;
         get webglConfig(): WebGLConfig;
-        private _initStatisticsInfo;
-        /**
-         * @internal
-         * @param info
-         * @param value
-         */
-        _addStatisticsInfo(info: GPUEngineStatisticsInfo, value: number): void;
-        /**
-         * 清除
-         * @internal
-         * @param info
-         */
-        clearStatisticsInfo(): void;
-        /**
-         * @internal
-         * @param info
-         * @returns
-         */
-        getStatisticsInfo(info: GPUEngineStatisticsInfo): number;
         /**
          * create GL
          * @param canvas
@@ -71781,6 +71984,8 @@ declare namespace Laya {
         _glUsage: number;
         _glTargetType: BufferTargetType;
         _glBufferUsageType: BufferUsage;
+        private _statistics_M_Buffer;
+        private _statistics_RC_Buffer;
         _byteLength: number;
         constructor(engine: WebGLEngine, targetType: BufferTargetType, bufferUsageType: BufferUsage);
         private _getGLUsage;
@@ -71908,14 +72113,6 @@ declare namespace Laya {
          * @param offset
          */
         drawElements(mode: number, count: number, type: IndexFormat, offset: number): void;
-        /**
-         * @internal
-         * @param mode
-         * @param count
-         * @param type
-         * @param offset
-         */
-        drawElements2DTemp(mode: MeshTopology, count: number, type: IndexFormat, offset: number): void;
         /**
          * @internal
          * @param geometryElement
@@ -72307,7 +72504,6 @@ declare namespace Laya {
         indexType: IndexFormat;
         indexCount: number;
         constructor(targetType: BufferTargetType, bufferUsageType: BufferUsage);
-        private _changeMemory;
         _setIndexDataLength(data: number): void;
         setData(buffer: ArrayBuffer, bufferOffset: number, dataStartIndex: number, dataCount: number): void;
         _setIndexData(data: Uint32Array | Uint16Array | Uint8Array, bufferOffset: number): void;
@@ -72688,8 +72884,6 @@ declare namespace Laya {
         constructor(engine: WebGLEngine, offsetAlignment: number);
         createGPUBuffer(size: number, name?: string, data?: ArrayBuffer): GLBuffer;
         writeBuffer(buffer: GLBuffer, data: ArrayBuffer, offset: number, size: number): void;
-        statisGPUMemory(bytes: number): void;
-        statisUpload(count: number, bytes: number): void;
     }
     class WebGLVertexBuffer implements IVertexBuffer {
         _glBuffer: GLBuffer;
@@ -72702,7 +72896,6 @@ declare namespace Laya {
         set vertexDeclaration(value: VertexDeclaration);
         instanceBuffer: boolean;
         constructor(targetType: BufferTargetType, bufferUsageType: BufferUsage);
-        private _changeMemory;
         setDataLength(byteLength: number): void;
         setData(buffer: ArrayBuffer, bufferOffset: number, dataStartIndex: number, dataCount: number): void;
         /**
@@ -73052,62 +73245,6 @@ declare namespace Laya {
         CullFace = 12,
         FrontFace = 13
     }
-    /**
-     * 渲染统计数据
-     */
-    enum GPUEngineStatisticsInfo {
-        C_UniformBufferUploadCount = 0,
-        C_GeometryBufferUploadCount = 1,
-        C_TriangleCount = 2,
-        C_SetRenderPassCount = 3,
-        C_DrawCallCount = 4,
-        C_Instancing_DrawCallCount = 5,
-        C_ShaderCompile = 6,
-        T_ShaderCompile = 7,
-        FrameClearCount = 8,
-        M_GPUMemory = 9,
-        M_GPUBuffer = 10,
-        M_VertexBuffer = 11,
-        M_IndexBuffer = 12,
-        M_UniformBlockBuffer = 13,
-        RC_GPUBuffer = 14,
-        RC_VertexBuffer = 15,
-        RC_IndexBuffer = 16,
-        RC_UniformBlockBuffer = 17,
-        M_ALLTexture = 18,
-        M_Texture2D = 19,
-        M_TextureCube = 20,
-        M_Texture3D = 21,
-        M_Texture2DArray = 22,
-        RC_ALLTexture = 23,
-        RC_Texture2D = 24,
-        RC_TextureCube = 25,
-        RC_Texture3D = 26,
-        RC_Texture2DArray = 27,
-        M_ALLRenderTexture = 28,
-        RC_ALLRenderTexture = 29,
-        Count = 30
-    }
-    /**
-     * 渲染流程统计数据
-     */
-    enum RenderPassStatisticsInfo {
-        T_CameraRender = 0,
-        T_Render_OpaqueRender = 1,
-        T_Render_TransparentRender = 2,
-        T_Render_PostProcess = 3,
-        T_Render_CameraEventCMD = 4,
-        T_Render_ShadowPassMode = 5,
-        T_Render_CameraOtherDest = 6,
-        T_RenderPreUpdate = 7,
-        T_OtherRender = 8,
-        T_OnlyMeshRender = 9,
-        T_OnlySkinnedMeshRender = 10,
-        T_OnlyShurikenParticleRender = 11,
-        T_CameraMainCull = 12,
-        T_ShadowMapCull = 13,
-        RenderPassStatisticCount = 14
-    }
     enum RenderTargetFormat {
         None = -1,
         /**使用RGB的纹理，不可设置SRGB参数 */
@@ -73242,6 +73379,8 @@ declare namespace Laya {
         /**pvr图片 */
         PVRTEXTURE = -2
     }
+    /** 通过纹理格式获取压缩纹理类型 */
+    function getCompressTextureRenderCapable(format: TextureFormat): RenderCapable | null;
     /**
      * 纹理寻址模式。
      */
@@ -78457,10 +78596,14 @@ declare namespace Laya {
         /**
          * @en Check and initialize the main attachment.
          * @param skeletonData The skeleton data to check.
+         * @param offsetX The x offset of the spine.
+         * @param offsetY The y offset of the spine.
          * @zh 检查并初始化主附件。
          * @param skeletonData 要检查的骨骼数据。
+         * @param offsetX spine的x偏移。
+         * @param offsetY spine的y偏移。
          */
-        checkMainAttach(skeletonData: spine.SkeletonData): void;
+        checkMainAttach(skeletonData: spine.SkeletonData, offsetX: number, offsetY: number): void;
         /**
          * @en Parse attachments from skeleton data.
          * @param skeletonData The skeleton data to parse.
@@ -79443,16 +79586,28 @@ declare namespace Laya {
      * - Event.LABEL:Custom event.
      */
     class Spine2DRenderNode extends BaseRenderNode2D {
+        /** @ignore @blueprintIgnore */
         static _pool: IRenderElement2D[];
+        /** @ignore @blueprintIgnore */
         static createRenderElement2D(): IRenderElement2D;
+        /** @ignore @blueprintIgnore */
         static recoverRenderElement2D(value: IRenderElement2D): void;
-        protected _renderHandle: ISpineRenderDataHandle;
+        /** @ignore */
+        spineItem: ISpineOptimizeRender;
+        /** @internal */
+        _mesh: Mesh2D;
+        /**
+         * @zh 物理更新模式。
+         * @en The physics update mode.
+         **/
+        physicsUpdate: number;
         /**状态-停止 */
         static readonly STOPPED: number;
         /**状态-暂停 */
         static readonly PAUSED: number;
         /**状态-播放中 */
         static readonly PLAYING: number;
+        protected _renderHandle: ISpineRenderDataHandle;
         protected _source: string;
         protected _templet: SpineTemplet;
         protected _timeKeeper: TimeKeeper;
@@ -79461,6 +79616,7 @@ declare namespace Laya {
         protected _stateData: spine.AnimationStateData;
         protected _currentPlayTime: number;
         private _pause;
+        private _needUpdate;
         /** 动画播放的起始时间位置*/
         private _playStart;
         /** 动画播放的结束时间位置*/
@@ -79478,28 +79634,17 @@ declare namespace Laya {
         private _externalSkins;
         private _skin;
         private _offset;
-        /** @internal */
-        _renderAlpha: number;
-        _nMatrix_0: Vector3;
-        _nMatrix_1: Vector3;
-        _mesh: Mesh2D;
-        /**
-         * @default spine.Physics.update
-         * @see spine.Physics
-         * @zh 物理更新模式。
-         * @en The physics update mode.
-         **/
-        physicsUpdate: number;
         /** @ignore */
         constructor();
         protected _getcommonUniformMap(): Array<string>;
-        protected _getRenderHandle(): ISpineRenderDataHandle;
+        protected _createRenderHandle(): ISpineRenderDataHandle;
         /**
          * @zh 外部皮肤，用于根据不同皮肤，替换对应插槽的附件。
          * @en External skins, used to replace the attachments of corresponding slots according to different skins.
          */
         get externalSkins(): ExternalSkin[];
         set externalSkins(value: ExternalSkin[]);
+        /** @ignore @blueprintIgnore */
         renderUpdate(context: IRenderContext2D): void;
         /**
          * @zh 重置外部加载的皮肤数据。更换附件或皮肤数据后，需要调用此方法，否则不会生效。
@@ -79571,10 +79716,9 @@ declare namespace Laya {
          */
         get useFastRender(): boolean;
         set useFastRender(value: boolean);
-        /** @ignore */
-        spineItem: ISpineOptimizeRender;
+        /** @ignore @blueprintIgnore */
         onEnable(): void;
-        /** @ignore */
+        /** @ignore @blueprintIgnore */
         onDisable(): void;
         /**
          * @zh 初始化渲染器。
@@ -79645,20 +79789,12 @@ declare namespace Laya {
          * @param skinIndex The index of the skin.
          */
         showSkinByIndex(skinIndex: number): void;
-        event(type: string, data?: any): void;
-        /**
-         * @zh 发送complete事件
-         * @en Send complete event.
-         */
-        complete(): void;
         /**
          * @zh 停止动画
          * @en Stop the animation.
          */
         stop(): void;
-        private _clearUpdate;
-        private _beginUpdate;
-        private _needUpdate;
+        /** @ignore @blueprintIgnore */
         onUpdate(): void;
         /**
          * @zh 暂停动画的播放
@@ -79728,7 +79864,7 @@ declare namespace Laya {
          * @zh 当transform改变时，更新骨骼的位置
          * @en Transform changed, update the skeleton position.
          */
-        onTransformChanged(): void;
+        private onTransformChanged;
         /**
          * @zh 替换插槽皮肤
          * @param slotName 插槽名称
@@ -79754,7 +79890,7 @@ declare namespace Laya {
          */
         changeNormal(): void;
         /**
-         * @ignore
+         * @ignore @blueprintIgnore
          * @zh 销毁当前对象
          * @en Destroy the current object.
          */
@@ -79775,9 +79911,7 @@ declare namespace Laya {
         frameCount: number;
         frameTime: number;
         timer: Timer;
-        /**@ignore */
         constructor(timer: Timer);
-        /**@ignore */
         update(): void;
     }
     /**
@@ -79851,18 +79985,6 @@ declare namespace Laya {
          */
         static drawSkeleton(fun: Function, skeleton: any, twoColorTint: boolean, slotRangeStart: number, slotRangeEnd: number): void;
     }
-    /**动画开始播放调度
-     * @eventType Event.PLAYED
-     * */
-    /**动画停止播放调度
-     * @eventType Event.STOPPED
-     * */
-    /**动画暂停播放调度
-     * @eventType Event.PAUSED
-     * */
-    /**自定义事件。
-     * @eventType Event.LABEL
-     */
     /**
      * @deprecated 请使用Sprite+Spine2DRenderNode组件
      * spine动画由<code>SpineTemplet</code>，<code>SpineSkeletonRender</code>，<code>SpineSkeleton</code>三部分组成。
@@ -80298,6 +80420,9 @@ declare namespace Laya {
         _getBaseIndexBuffer(): IIndexBuffer;
         _getBaseIndexCount(): number;
     }
+    /**
+     * 半错位四边形
+     */
     class HalfOffSquareSheet extends BaseSheet {
         private _offset;
         constructor(_offset?: number);
@@ -80307,6 +80432,9 @@ declare namespace Laya {
         _getChunkSize(rowCount: number, colCount: number, out: Vector2): void;
         _getChunkLeftTop(row: number, col: number, rowCount: number, colCount: number, out: Vector2): void;
     }
+    /**
+     * 六边形
+     */
     class HeixSheet extends BaseSheet {
         private _offset;
         constructor(_offset?: number);
@@ -80317,6 +80445,9 @@ declare namespace Laya {
         _getChunkSize(rowCount: number, colCount: number, out: Vector2): void;
         _getChunkLeftTop(row: number, col: number, rowCount: number, colCount: number, out: Vector2): void;
     }
+    /**
+     * 菱形
+     */
     class IsometricSheet extends BaseSheet {
         private _offset;
         constructor(_offset?: number);
@@ -80326,6 +80457,9 @@ declare namespace Laya {
         _getChunkSize(rowCount: number, colCount: number, out: Vector2): void;
         _getChunkLeftTop(row: number, col: number, rowCount: number, colCount: number, out: Vector2): void;
     }
+    /**
+     * 四边形
+     */
     class RectSheet extends BaseSheet {
         constructor();
         protected _initData(): void;
@@ -80802,6 +80936,10 @@ declare namespace Laya {
          */
         _getChunkLeftTop(chunkx: number, chunky: number, out: Vector2): void;
     }
+    interface IMergeCellInfo {
+        cell: TileSetCellData;
+        transFlag: number;
+    }
     class ChunkCellInfo {
         cell: TileSetCellData;
         chuckLocalindex: number;
@@ -80812,7 +80950,10 @@ declare namespace Laya {
         _occluderDatas: TileMapOccluder[];
         _renderElementIndex: number;
         _cellPosInRenderData: number;
-        constructor(cellx: number, celly: number, chuckLocalindex: number, zOrider: number, cell: TileSetCellData);
+        /** 位操作 2 旋转 3 翻转h  4翻转v 5 斜角 transpose */
+        _transFlag: number;
+        updateTransFlag: boolean;
+        constructor();
     }
     /**
      * 用来处理各项数据
@@ -80837,6 +80978,10 @@ declare namespace Laya {
          */
         private _dirtyFlags;
         /**
+         * @internal
+         */
+        private _transFlags;
+        /**
          * 缓存chuckCellInfo数据
          * Key1 chuckLocalIndex
          * value ChunkCellInfo
@@ -80847,6 +80992,7 @@ declare namespace Laya {
         private _renderElementArray;
         private _animatorAlterArray;
         _tileLayer: TileMapLayer;
+        /** 左上角格子chunk xy 坐标 */
         private _oriCellIndex;
         private _gridShape;
         private _tileSize;
@@ -80862,6 +81008,11 @@ declare namespace Laya {
          */
         chunkY: number;
         private _rigidBody;
+        /**
+         * @internal
+         */
+        _needUpdateRange: boolean;
+        private _range;
         constructor();
         /** @internal */
         get cellDataRefMap(): number[][];
@@ -80880,14 +81031,16 @@ declare namespace Laya {
          * @internal
          */
         set compressData(value: Record<number, number[]>);
+        get transFlags(): Record<number, number>;
+        set transFlags(value: Record<number, number>);
         /** @internal */
         _parseCellDataRefMap(): void;
         /**
          * @internal
          * 将数据合并到二维map中
          */
-        _mergeBuffer(datas: Map<number, Map<number, TileSetCellData>>, minRange: Vector2, maxRange: Vector2): void;
-        _setBuffer(datas: Map<number, Map<number, TileSetCellData>>, minRange: Vector2, maxRange: Vector2, tileSize: number): number;
+        _mergeBuffer(datas: Map<number, Map<number, IMergeCellInfo>>, minRange: Vector2, maxRange: Vector2): void;
+        _setBuffer(datas: Map<number, Map<number, IMergeCellInfo>>, minRange: Vector2, maxRange: Vector2, tileSize: number): number;
         _updateChunkData(chunkX: number, chunkY: number): void;
         private _upeateGridData;
         private _updateRenderData;
@@ -80931,13 +81084,20 @@ declare namespace Laya {
          * 更新一个格子
          * @param index local chunck index
          * @param gid cellData
+         * @param transFlag 位操作
          */
-        _setCell(index: number, cellData: TileSetCellData): void;
+        _setCell(index: number, cellData: TileSetCellData, transFlag: number): void;
         private _clearChunkCellInfo;
         /**
          * @internal
          */
         _removeCell(index: number): void;
+        _modifyData(): void;
+        getRange(): Rectangle;
+        /**
+         * 根据四种形状计算包围盒
+         */
+        private _calculateRange;
         /**
          * 根据localIndex 获取CellData数据
          * @param index
@@ -80953,7 +81113,6 @@ declare namespace Laya {
          * @internal
          */
         _setDirtyFlag(gid: number, flag: TileMapDirtyFlag, type?: DirtyFlagType): void;
-        modifyRenderData(): void;
         /**
          * @internal
          */
@@ -81097,6 +81256,12 @@ declare namespace Laya {
         get tileSet(): TileSet;
         set tileSet(value: TileSet);
         get renderTileSize(): number;
+        /**
+         * @en The size of the chunk, when set, it will recalculate the range of all tiles.
+         * @param value how many tiles in a chunk.
+         * @zh 设置chunk 的尺寸,当设置后会重新计算所有格子的范围
+         * @param value 一个chunk 多少格子
+         */
         set renderTileSize(value: number);
         get tileMapDatas(): Uint8Array;
         set tileMapDatas(value: Uint8Array);
@@ -81144,6 +81309,12 @@ declare namespace Laya {
          * @param py
          */
         addCMDCall(px: number, py: number): void;
+        get rect(): Vector4;
+        /**
+         * 计算所有chunkdata的包围盒合并到layer
+         * @private
+         */
+        private _calculateLayerRect;
         /**
          * 根据相机和设置做裁剪;更新所有格子的渲染数据
          * @param context
@@ -81154,9 +81325,10 @@ declare namespace Laya {
          * @param x 横向坐标
          * @param y 纵向坐标
          * @param cellData 格子数据
+         * @param transFlag 位操作
          * @param isPixel 是否是像素坐标 true: 像素坐标 false: 格子坐标
          */
-        setCellData(x: number, y: number, cellData: TileSetCellData, isPixel?: boolean): void;
+        setCellData(x: number, y: number, cellData: TileSetCellData, transFlag?: number, isPixel?: boolean): void;
         /**
          * 获取一个CellData数据
          * @param x
@@ -81286,8 +81458,14 @@ declare namespace Laya {
          * 移除物理形状
          */
         destroyFixture(rigidBody: any, fixture: any): void;
+        destroy(): void;
     }
     class TileMapUtils {
+        private static CACHE_UVs;
+        static getRotateCount(transFlag: number): number;
+        static getFlipH(transFlag: number): boolean;
+        static getFlipV(transFlag: number): boolean;
+        static getTranspose(transFlag: number): boolean;
         static parseCellIndex(gid: number): number;
         static parseGroupId(gid: number): number;
         static parseNativeIndex(gid: number): number;
@@ -81296,6 +81474,16 @@ declare namespace Laya {
         static quickFoundIndex(array: number[], value: number): number;
         static getRotateAngle(rotateCount: number, tileShape: TileShape): number;
         /**
+         * 获得transFlag
+         * @param rotateCount 旋转次数
+         * @param flip_h 水平翻转
+         * @param flip_v 垂直翻转
+         * @param transpose 斜角翻转
+         * @returns
+         */
+        static getTransFlag(rotateCount: number, flip_h: boolean, flip_v: boolean, transpose: boolean): number;
+        static parseTransFlag(tileshape: TileShape, transFlag: number): Vector4;
+        /**
         * 对格子进行uv翻转
         * 先做45度斜角翻转，然后再做水平或者垂直翻转,最后再旋转 (六边形旋转每次旋转60度，四边形旋转每次旋转90度)
         * @param flip_h 水平翻转
@@ -81303,11 +81491,10 @@ declare namespace Laya {
         * @param transpose 斜角翻转
         * @param rountCount 旋转次数
         */
-        static getUvRotate(tileshape: TileShape, flip_h?: boolean, flip_v?: boolean, transpose?: boolean, rountCount?: number): Vector4;
+        static getUvRotate(tileshape: TileShape, flip_h?: boolean, flip_v?: boolean, transpose?: boolean, rountCount?: number, out?: Vector4): Vector4;
         static transfromPointByValue(matrix: Matrix, x: number, y: number, point: Vector2): void;
         static transfromPointNByValue(matrix: Matrix, x: number, y: number, point: Vector2): void;
         static getCellDataIndex(nativeData: TileAlternativesData): number;
-        static findCellData(nativeData: TileAlternativesData, rotateCount: number, flipV: boolean, flipH: boolean): TileSetCellData;
     }
     class TileSet extends Resource {
         private _tileShape;
@@ -81421,10 +81608,6 @@ declare namespace Laya {
         static _EMPTY: TileSetCellData;
         private _index;
         private _cellowner;
-        private _flip_h;
-        private _flip_v;
-        private _transpose;
-        private _rotateCount;
         private _texture_origin;
         private _material;
         private _colorModulate;
@@ -81440,37 +81623,13 @@ declare namespace Laya {
         private _notiveRenderTile;
         private _probability;
         private _destroyed;
-        private _updateTrans;
-        /**@internal */
-        private _transData;
         gid: number;
-        get transData(): Vector4;
         get index(): number;
         /**
          * 原始顶点图块的引用
          */
         get cellowner(): TileAlternativesData;
         set cellowner(value: TileAlternativesData);
-        /**
-         *  是否水平翻转
-         */
-        get flip_h(): boolean;
-        set flip_h(value: boolean);
-        /**
-         * 是否垂直翻转
-         */
-        get flip_v(): boolean;
-        set flip_v(value: boolean);
-        get transpose(): boolean;
-        /**
-         * 是否转置
-         */
-        set transpose(value: boolean);
-        /**
-         * 旋转次数
-         */
-        get rotateCount(): number;
-        set rotateCount(value: number);
         /**
          * 贴图原点
          */
@@ -81519,7 +81678,6 @@ declare namespace Laya {
         __init(owner: TileAlternativesData, index: number): void;
         _notifyDataChange(data: TileMapDirtyFlag, type: DirtyFlagType): void;
         _noticeRenderChange(): void;
-        private _updateTransData;
         _removeNoticeRenderTile(layerRenderTile: TileMapChunkData): void;
         _addNoticeRenderTile(layerRenderTile: TileMapChunkData): void;
         set_lightOccluder(layerIndex: number, data: TileSetCellOcclusionInfo): void;
@@ -81590,104 +81748,6 @@ declare namespace Laya {
         removeCellData(localPos: Vector2, index: number): void;
         release(): void;
     }
-    class PerfTools {
-        static begin(block: string): void;
-        static end(block: string): void;
-    }
-    class PerformanceDefine {
-        static T_FPS: string;
-        static C_UniformBufferUploadCount: string;
-        static C_GeometryBufferUploadCount: string;
-        static C_overdraw: string;
-        static C_trangleCount: string;
-        static C_SetRenderPassCount: string;
-        static C_DrawCallCount: string;
-        static C_Instancing_DrawCallCount: string;
-        static C_TransDrawCall: string;
-        static C_OpaqueDrawCall: string;
-        static C_DepthCastDrawCall: string;
-        static C_ShadowDrawCall: string;
-        static C_ShaderCompile: string;
-        static T_ShaderCompile: string;
-        static M_GPUBuffer: string;
-        static M_VertexBuffer: string;
-        static M_IndexBuffer: string;
-        static M_UniformBlockBuffer: string;
-        static RC_GPUBuffer: string;
-        static RC_VertexBuffer: string;
-        static RC_IndexBuffer: string;
-        static RC_UniformBlockBuffer: string;
-        static M_ALLTexture: string;
-        static M_Texture2D: string;
-        static M_TextureCube: string;
-        static M_Texture3D: string;
-        static M_Texture2DArray: string;
-        static RC_ALLTexture: string;
-        static RC_Texture2D: string;
-        static RC_TextureCube: string;
-        static RC_Texture3D: string;
-        static RC_Texture2DArray: string;
-        static M_ALLRenderTexture: string;
-        static RC_ALLRenderTexture: string;
-        static T_CameraRender: string;
-        static T_Render_OpaqueRender: string;
-        static T_Render_TransparentRender: string;
-        static T_Render_PostProcess: string;
-        static T_Render_CameraEventCMD: string;
-        static T_Render_ShadowPassMode: string;
-        static T_Render_CameraOtherDest: string;
-        static T_RenderPreUpdate: string;
-        static T_CameraMainCull: string;
-        static T_ShadowMapCull: string;
-        static T_OnlyMeshRender: string;
-        static T_OnlySkinnedMeshRender: string;
-        static T_OnlyShurikenParticleRender: string;
-        static T_OtherRender: string;
-        static C_Sprite3DCount: string;
-        static C_BaseRenderCount: string;
-        static C_MeshRenderCount: string;
-        static C_SkinnedMeshRenderCount: string;
-        static C_ShurikenParticleRenderCount: string;
-        static T_AnimatorUpdate: string;
-        static T_SkinBoneUpdate: string;
-        static T_ShurikenUpdate: string;
-        static T_Physics_Simulation: string;
-        static T_Physics_UpdateNode: string;
-        static T_PhysicsEvent: string;
-        static C_PhysicsEventCount: string;
-        static T_PhysicsCollider: string;
-        static T_PhysicsTrigger: string;
-        static T_PhysicsColliderEnter: string;
-        static T_PhysicsColliderExit: string;
-        static T_PhysicsColliderStay: string;
-        static T_PhysicsTriggerEnter: string;
-        static T_PhysicsTriggerExit: string;
-        static T_PhysicsTriggerStay: string;
-        static C_PhysicaDynamicRigidBody: string;
-        static C_PhysicaStaticRigidBody: string;
-        static C_PhysicaKinematicRigidBody: string;
-        static C_PhysicaCharacterController: string;
-        static C_PhysicsJoint: string;
-        static T_LoadResourceTime: string;
-        static C_LoadResourceCount: string;
-        static C_LoadRequestCount: string;
-        static T_LoadRequestTime: string;
-        static T_UITime: string;
-        static C_UICount: string;
-        static C_DrawCount: string;
-        static T_UIRender: string;
-    }
-    /**
-     * @zh 性能统计开始
-     * @param block 统计标识（例如：PerformanceDefine.SCENE3D_RENDER）
-     */
-    function PERF_BEGIN(block: string): void;
-    /**
-     * @zh 性能统计结束
-     * @param block 统计标识（例如：PerformanceDefine.SCENE3D_RENDER）
-     */
-    function PERF_END(block: string): void;
-    function PERF_FRAMECLEAR(): void;
     class Trail2DShaderInit {
         static init(): void;
     }
@@ -84120,6 +84180,7 @@ declare namespace Laya {
         protected _clipChanged: boolean;
         protected _group: string;
         protected _toIndex: number;
+        protected _clipBySize: boolean;
         /**@internal */
         _graphics: AutoBitmap;
         /**
@@ -84152,6 +84213,12 @@ declare namespace Laya {
         */
         get clipHeight(): number;
         set clipHeight(value: number);
+        /**
+         * @zh 切片是否按宽高切割。默认为false，采用数量切割。
+         * @en Indicates whether the slice is clipped by width and height. Default is false, which means clipping by count.
+         */
+        get clipBySize(): boolean;
+        set clipBySize(value: boolean);
         /**
          * @en Source data.
          * @zh 源数据。
@@ -85238,36 +85305,59 @@ declare namespace Laya {
         destroy(destroyChild?: boolean): void;
     }
     /**
-     * @en The `HBox` class is a horizontal layout container.
      * @zh `HBox` 是一个水平布局容器类。
+     * @en The `HBox` class is a horizontal layout container.
      * @blueprintInheritable
      */
     class HBox extends LayoutBox {
         /**
-         * @en No alignment.
          * @zh 无对齐。
+         * @en No alignment.
          */
         static readonly NONE: string;
         /**
-         * @en Align to the top.
          * @zh 居顶部对齐。
+         * @en Align to the top.
          */
         static readonly TOP: string;
         /**
-         * @en Align to the center.
          * @zh 居中对齐。
+         * @en Align to the center.
          */
         static readonly MIDDLE: string;
         /**
-         * @en Align to the bottom.
          * @zh 居底部对齐。
+         * @en Align to the bottom.
          */
         static readonly BOTTOM: string;
+        /**
+         * @zh 自适应模式 - 宽适配
+         * @en AUTO_SIZE_WIDTH - Width adaptive.
+         */
+        static readonly AUTO_SIZE_WIDTH: string;
+        /**
+         * @zh 自适应模式。
+         * - none：无自适应模式。
+         * - both：宽高自适应模式。
+         * - width：宽度自适应模式。
+         * @en Adaptive mode.
+         * - none: No adaptive mode.
+         * - both: Both width and height are adaptive.
+         * - width: Width adaptive.
+         */
+        get autoSizeMode(): string;
+        set autoSizeMode(value: string);
         /**
          * @ignore
          */
         protected _transChanged(kind: TransformKind): void;
-        protected sortItem(items: any[]): void;
+        /**
+         * @zh 排序项目列表。可通过重写改变默认排序规则。
+         * @param items  项目列表。
+         * @en Sort the item list. Default sorting rules can be changed by overriding.
+         * @param items The item list.
+         */
+        private sortItem;
         protected changeItems(): void;
     }
     /**
@@ -85642,46 +85732,70 @@ declare namespace Laya {
         set_dataSource(value: any): void;
     }
     /**
-     * @en LayoutBox is a layout container class.
      * @zh LayoutBox 是一个布局容器类。
+     * @en LayoutBox is a layout container class.
      */
     class LayoutBox extends Box {
         protected _space: number;
         protected _align: string;
         protected _itemChanged: boolean;
         /**
-         * @en The space between child objects.
+         * @zh 自适应模式 - 无
+         * @en AUTO_SIZE_NONE - No adaptive mode.
+         */
+        static readonly AUTO_SIZE_NONE: string;
+        /**
+         * @zh 自适应模式 - 宽高适配
+         * @en AUTO_SIZE_BOTH - Both width and height are adaptive.
+         */
+        static readonly AUTO_SIZE_BOTH: string;
+        /** 排序和布局时是否跳过隐藏（不可见）的子节点。 */
+        protected _skipHidden: boolean;
+        /** 自适应模式, 默认值为 AUTO_SIZE_NONE。*/
+        protected _autoSizeMode: string;
+        /**
          * @zh 子对象的间隔。
+         * @en The space between child objects.
          */
         get space(): number;
         set space(value: number);
         /**
-         * @en The alignment of child objects.
          * @zh 子对象对齐方式。
+         * @en The alignment of child objects.
          */
         get align(): string;
         set align(value: string);
+        /**
+         * @zh 排序和布局时是否跳过隐藏（不可见）的子节点。
+         * @en Whether to skip hidden (invisible) items during sorting and layout.
+         */
+        get skipHidden(): boolean;
+        set skipHidden(value: boolean);
         protected _setItemChanged(): void;
         /**
-         * @en Change the layout of child objects.
          * @zh 改变子对象的布局。
+         * @en Change the layout of child objects.
          */
         protected changeItems(): void;
         /**
-         * @en Sort the item list. Default sorting rules can be changed by overriding.
-         * @param items The item list.
-         * @zh 排序项目列表。可通过重写改变默认排序规则。
-         * @param items  项目列表。
+         * @zh 计算包含间距的总大小（宽或高）
+         * @param totalChildSize 子项总大小（宽或高）
+         * @param count 子项数量
+         * @returns 包含间距的总大小（宽或高）
+         * @en Calculate the total size with spacing.
+         * @param totalChildSize The total size of child items.
+         * @param count The number of child items.
+         * @returns The total size with spacing.
          */
-        protected sortItem(items: any[]): void;
+        protected _calcSizeWithSpace(totalChildSize: number, count: number): number;
         private onResize;
         /**
          * @ignore
          */
         protected _childChanged(child?: Sprite): void;
         /**
+         * @zh 刷新布局
          * @en Refresh
-         * @zh 刷新
          */
         refresh(): void;
     }
@@ -86398,88 +86512,89 @@ declare namespace Laya {
         protected _transChanged(kind: TransformKind): void;
     }
     /**
-     * @en The `ScrollBar` component is a scrollbar component.
-     * When there is too much data to fit in the display area, the end user can use the `ScrollBar` component to control the portion of data being displayed.
-     * A scrollbar consists of four parts: two arrow buttons, a track, and a thumb (slider).
-     * - `start` event dispatched when the scrollbar starts to slide.
-     * - `end` event dispatched when the scrollbar stops sliding.
-     * - `change` event dispatched when the scrollbar thumb position changes.
      * @zh ScrollBar 组件是一个滚动条组件。
      * 当数据太多以至于显示区域无法容纳时，最终用户可以使用 ScrollBar 组件控制所显示的数据部分。
      * 滚动条由四部分组成：两个箭头按钮、一个轨道和一个滑块。
      * - `start` 事件在滚动条开始滑动时调度。
      * - `end` 事件在滚动条滑动结束时调度。
      * - `change` 事件在滚动条滑块位置发生变化时调度。
+     * @en The `ScrollBar` component is a scrollbar component.
+     * When there is too much data to fit in the display area, the end user can use the `ScrollBar` component to control the portion of data being displayed.
+     * A scrollbar consists of four parts: two arrow buttons, a track, and a thumb (slider).
+     * - `start` event dispatched when the scrollbar starts to slide.
+     * - `end` event dispatched when the scrollbar stops sliding.
+     * - `change` event dispatched when the scrollbar thumb position changes.
      */
     class ScrollBar extends UIComponent {
         /**
+         * @zh 设置全局的滚动速度变化曲线函数，默认为 sineOut
          * @en Sets the global easing function for scrolling speed changes.
-         * @zh 设置全局的滚动速度变化曲线函数
          * @blueprintIgnore
          */
         static easeFunction: (t: number, b: number, c: number, d: number) => number;
         /**
+         * @zh 滚动衰减系数，用于当用户手指/鼠标松开后，滚动条内容滚动的惯性衰减速度。
+         * 例如，当用户快速向上滑动背包列表时，松手后列表继续滑动一段距离再慢慢停下来。
          * @en The ratio of scroll decay.
-         * @zh 滚动衰减系数
          */
         rollRatio: number;
         /**
-         * @en Callback when scrolling changes, return value parameter.
          * @zh 滚动变化时回调，回传value参数。
+         * @en Callback when scrolling changes, return value parameter.
          */
         changeHandler: Handler;
         /**
-         * @en Indicates whether to scale the size of the scrollbar, default is true.
          * @zh 是否缩放滑动条的大小，默认值为true。
+         * @en Indicates whether to scale the size of the scrollbar, default is true.
          */
         scaleBar: boolean;
         /**
-         * @en A boolean value that specifies whether to automatically hide the scrollbar when it is not in use, default is false.
          * @zh 一个布尔值，指定是否在无需滚动时自动隐藏滚动条，默认值为false。
+         * @en A boolean value that specifies whether to automatically hide the scrollbar when it is not in use, default is false.
          */
         autoHide: boolean;
         /**
-         * @en The limit distance for the rubber band effect, 0 means no rubber band effect.
          * @zh 橡皮筋效果极限距离，0表示没有橡皮筋效果。
+         * @en The limit distance for the rubber band effect, 0 means no rubber band effect.
          */
         elasticDistance: number;
         /**
-         * @en The time in milliseconds for the rubber band effect to rebound.
          * @zh 橡皮筋回弹时间，单位为毫秒。
+         * @en The time in milliseconds for the rubber band effect to rebound.
          */
         elasticBackTime: number;
         /**
-         * @en The up button.
          * @zh 上按钮。
+         * @en The up button.
          */
         upButton: Button;
         /**
-         * @en The down button.
          * @zh 下按钮。
+         * @en The down button.
          */
         downButton: Button;
         /**
-         * @en slider.
          * @zh 滑动条。
+         * @en slider.
          */
         slider: Slider;
         /**
-         * @en The top movement limit for the scrollbar. When this limit is reached, the 'dragTopLimit' event is dispatched.
-         * This can be used in conjunction with the `stopMoveLimit()` method to allow developers to perform dynamic data updates and other operations.
          * @zh 顶部移动限制。当达到此限制时，会触发 'dragTopLimit' 事件。
          * 它可以与 `stopMoveLimit()` 方法结合使用，以便开发者执行动态数据更新和其他操作。
+         * @en The top movement limit for the scrollbar. When this limit is reached, the 'dragTopLimit' event is dispatched.
+         * This can be used in conjunction with the `stopMoveLimit()` method to allow developers to perform dynamic data updates and other operations.
          */
         topMoveLimit: number;
         /**
-         * @en The bottom movement limit for the scrollbar. When this limit is reached, the 'dragBottomLimit' event is dispatched.
-         * This can be used in conjunction with the `stopMoveLimit()` method to allow developers to perform dynamic data updates and other operations.
          * @zh 底部移动限制。当达到此限制时，会触发 'dragBottomLimit' 事件。
          * 它可以与 `stopMoveLimit()` 方法结合使用，以便开发者执行动态数据更新和其他操作。
+         * @en The bottom movement limit for the scrollbar. When this limit is reached, the 'dragBottomLimit' event is dispatched.
+         * This can be used in conjunction with the `stopMoveLimit()` method to allow developers to perform dynamic data updates and other operations.
          */
         bottomMoveLimit: number;
         /**
-         * @en Determines whether dragging of the content is disabled when the 'stopMoveLimit' method is called.
          * @zh 确定在调用 'stopMoveLimit' 方法时是否禁止内容的拖拽。
+         * @en Determines whether dragging of the content is disabled when the 'stopMoveLimit' method is called.
          */
         disableDrag: boolean;
         protected _showButtons: boolean;
@@ -86506,55 +86621,55 @@ declare namespace Laya {
         constructor(skin?: string);
         destroy(destroyChild?: boolean): void;
         /**
-         * @en Creates the child elements of the ScrollBar, such as the slider and buttons.
          * @zh 创建 ScrollBar 的子元素，例如滑块和按钮。
+         * @en Creates the child elements of the ScrollBar, such as the slider and buttons.
          */
         protected createChildren(): void;
         /**
-         * @en Initializes the ScrollBar, setting up the slider and buttons with appropriate event listeners.
          * @zh 初始化 ScrollBar，为滑块和按钮设置适当的事件监听器。
+         * @en Initializes the ScrollBar, setting up the slider and buttons with appropriate event listeners.
          */
         protected initialize(): void;
         /**
-         * @en The change event handler for the slider when its value changes.
          * @zh 滑块值改变时的事件处理函数。
+         * @en The change event handler for the slider when its value changes.
          */
         protected onSliderChange(): void;
         /**
-         * @en The mouse down event handler for the up and down buttons.
          * @zh 向上和向下按钮的 Event.MOUSE_DOWN 事件侦听处理函数。
+         * @en The mouse down event handler for the up and down buttons.
          */
         protected onButtonMouseDown(e: Event): void;
         protected startLoop(isUp: boolean): void;
         protected slide(isUp: boolean): void;
         /**
-         * @en The mouse up event handler for the stage.
-         * @param e The event object.
          * @zh 舞台的 Event.MOUSE_DOWN 事件侦听处理函数。
          * @param e 事件对象。
+         * @en The mouse up event handler for the stage.
+         * @param e The event object.
          */
         protected onStageMouseUp(e: Event): void;
         /**
-         * @en the skin of the scrollbar.
          * @zh 滚动条的皮肤纹理路径。
+         * @en the skin of the scrollbar.
          */
         get skin(): string;
         set skin(value: string);
         /**
-         * @en Asynchronously sets the skin for the scrollbar and its components.
-         * @param url The URL of the skin to be set.
          * @zh 异步设置滚动条及其组件的皮肤。
          * @param url 要设置的皮肤的 URL。
+         * @en Asynchronously sets the skin for the scrollbar and its components.
+         * @param url The URL of the skin to be set.
          */
         _setSkin(url: string): Promise<void>;
         /**
-         * @en Called when the skin is loaded.
          * @zh 皮肤加载完成时调用。
+         * @en Called when the skin is loaded.
          */
         protected _skinLoaded(): void;
         /**
-         * @en Adjust the scroll bar's display state, including the visibility of the buttons and the position of the slider
          * @zh 更改滚动条的显示状态，包括按钮的可见性和滑动条的位置
+         * @en Adjust the scroll bar's display state, including the visibility of the buttons and the position of the slider
          */
         protected changeScrollBar(): void;
         protected _sizeChanged(): void;
@@ -86563,94 +86678,92 @@ declare namespace Laya {
         protected measureWidth(): number;
         protected measureHeight(): number;
         /**
-         * @en Sets the information for the scrollbar.
-         * @param min The minimum position value of the scrollbar.
-         * @param max The maximum position value of the scrollbar.
-         * @param value The current position value of the scrollbar.
          * @zh 设置滚动条信息。
          * @param min 滚动条最小位置值。
          * @param max 滚动条最大位置值。
          * @param value 滚动条当前位置值。
+         * @en Sets the information for the scrollbar.
+         * @param min The minimum position value of the scrollbar.
+         * @param max The maximum position value of the scrollbar.
+         * @param value The current position value of the scrollbar.
          */
         setScroll(min: number, max: number, value?: number): void;
         /**
+         * @zh 最大滚动位置的数字。
          * @en the numeric value representing the maximum scroll position.
-         * @zh 最高滚动位置的数字。
          */
         get max(): number;
         set max(value: number);
         /**
+         * @zh 最小滚动位置的数字。
          * @en the numeric value representing the minimum scroll position.
-         * @zh 最低滚动位置的数字。
          */
         get min(): number;
         set min(value: number);
         /**
-         * @en the numeric value representing the current scroll position.
          * @zh 当前滚动位置的数字。
+         * @en the numeric value representing the current scroll position.
          */
         get value(): number;
         set value(v: number);
         /**
-         * @en Indicates whether the scrollbar is vertical. If true, the scrollbar is vertical; otherwise, it is horizontal.
-         * Default value: true.
          * @zh 滚动条是否为垂直滚动。如果值为true，则为垂直滚动，否则为水平滚动。
-         * 默认值为：true。
+         * @en Indicates whether the scrollbar is vertical. If true, the scrollbar is vertical; otherwise, it is horizontal.
          */
         get isVertical(): boolean;
         set isVertical(value: boolean);
         /**
-         * @en The size grid of the texture.
-         * The size grid is a 3x3 division of the texture, allowing it to be scaled without distorting the corners and edges.
-         * The array contains five values representing the top, right, bottom, and left margins, and whether to repeat the fill (0: no repeat, 1: repeat).
-         * The values are separated by commas. For example: "6,6,6,6,1".
          * @zh 纹理的九宫格数据。
          * 九宫格是一种将纹理分成3x3格的方式，使得纹理缩放时保持角和边缘不失真。
          * 数组包含五个值，分别代表上边距、右边距、下边距、左边距以及是否重复填充（0：不重复填充，1：重复填充）。
          * 值以逗号分隔。例如："6,6,6,6,1"。
+         * @en The size grid of the texture.
+         * The size grid is a 3x3 division of the texture, allowing it to be scaled without distorting the corners and edges.
+         * The array contains five values representing the top, right, bottom, and left margins, and whether to repeat the fill (0: no repeat, 1: repeat).
+         * The values are separated by commas. For example: "6,6,6,6,1".
          */
         get sizeGrid(): string;
         set sizeGrid(value: string);
         /**
-         * @en The minimum unit for page scrolling when the scrollbar track is pressed.
          * @zh 按下滚动条轨道时页面滚动的最小单位
+         * @en The minimum unit for page scrolling when the scrollbar track is pressed.
          */
         get scrollSize(): number;
         set scrollSize(value: number);
         set_dataSource(value: any): void;
         /**
-         * @en Slider length ratio, with a value between 0 and 1.
          * @zh 滑条长度比例，值为：（0-1）。
+         * @en Slider length ratio, with a value between 0 and 1.
          */
         get thumbPercent(): number;
         set thumbPercent(value: number);
         /**
-         * @en the target object of the scrollbar.
          * @zh 滚动的对象。
+         * @en the target object of the scrollbar.
          */
         get target(): Sprite;
         set target(value: Sprite);
         /**
-         * @en Determines whether the scrollbar is hidden. If true, the scrollbar is not displayed, but scrolling functions remain active. Default is false.
          * @zh 是否隐藏滚动条，设置为 true 时，不显示滚动条，但可以正常滚动，默认为 false。
+         * @en Determines whether the scrollbar is hidden. If true, the scrollbar is not displayed, but scrolling functions remain active. Default is false.
          */
         get hide(): boolean;
         set hide(value: boolean);
         /**
-         * @en Specifies whether the up and down buttons are displayed. Default is true.
          * @zh 是否显示向上和向下的按钮，默认值为 true，表示显示。
+         * @en Specifies whether the up and down buttons are displayed. Default is true.
          */
         get showButtons(): boolean;
         set showButtons(value: boolean);
         /**
-         * @en Specifies whether touch scrolling is enabled. Default is true.
          * @zh 是否启用触摸滚动，默认值为 true，表示启用。
+         * @en Specifies whether touch scrolling is enabled. Default is true.
          */
         get touchScrollEnable(): boolean;
         set touchScrollEnable(value: boolean);
         /**
-         * @en Specifies whether mouse wheel scrolling is enabled. Default is true.
          * @zh 是否启用鼠标滚轮滚动，默认值为 true，表示启用。
+         * @en Specifies whether mouse wheel scrolling is enabled. Default is true.
          */
         get mouseWheelEnable(): boolean;
         set mouseWheelEnable(value: boolean);
@@ -86658,41 +86771,41 @@ declare namespace Laya {
         isLockedFun: Function;
         protected onTargetMouseDown(e: Event): void;
         /**
-         * @en Forces a drag action on the scrollbar.
-         * Normally, dragging can only be done by holding the scrollbar itself. If you need to force drag outside the scrollbar object, you can achieve this by calling this method.
-         * For example, if the mouse is continuously held on a button object outside the scrollbar and this method is called, then sliding the mouse will have the same effect as dragging the scrollbar.
          * @zh 强制拖拽滚动条；
          * 常规情况下只能是按住滚动条本身才可以拖拽，如果需要在滚动条对象之外进行强制拖拽，则可以通过调用此方法来实现。
          * 例如，当鼠标持续按住滚动条之外的某个按钮对象时，调用了该方法，然后进行滑动，也可以实现按住滚动条对象滑动的效果。
+         * @en Forces a drag action on the scrollbar.
+         * Normally, dragging can only be done by holding the scrollbar itself. If you need to force drag outside the scrollbar object, you can achieve this by calling this method.
+         * For example, if the mouse is continuously held on a button object outside the scrollbar and this method is called, then sliding the mouse will have the same effect as dragging the scrollbar.
          */
         startDragForce(): void;
         private cancelDragOp;
         /**
-         * @en Function to be called when the scrollbar is dragged down past its limit.
          * @zh 当滚动条向下拖拽超过其限制时调用的函数。
+         * @en Function to be called when the scrollbar is dragged down past its limit.
          */
         triggerDownDragLimit: Function;
         /**
-         * @en Function to be called when the scrollbar is dragged up past its limit.
          * @zh 当滚动条向上拖拽超过其限制时调用的函数。
+         * @en Function to be called when the scrollbar is dragged up past its limit.
          */
         triggerUpDragLimit: Function;
         /**
-         * @en Overloading method for pausing scrolling
          * @zh 暂停滚动的重载方法
+         * @en Overloading method for pausing scrolling
          */
         stopMoveLimit: Function;
         private checkTriggers;
         /**
-         * @en Gets the last offset value used during the scrollbar's movement.
          * @zh 获取滚动条在移动过程中使用的最后偏移量。
+         * @en Gets the last offset value used during the scrollbar's movement.
          */
         get lastOffset(): number;
         /**
-         * @en Starts a forced tweening (animated) movement for the scrollbar.
-         * @param lastOffset The offset to start the tweening movement from.
          * @zh 滚动条的强制缓动移动。
          * @param lastOffset 从该偏移量位置开始缓动移动。
+         * @en Starts a forced tweening (animated) movement for the scrollbar.
+         * @param lastOffset The offset to start the tweening movement from.
          */
         startTweenMoveForce(lastOffset: number): void;
         protected loop(): void;
@@ -86700,19 +86813,19 @@ declare namespace Laya {
         private elasticOver;
         protected tweenMove(maxDistance: number): void;
         /**
-         * @en Stops the scrolling action.
          * @zh 停止滑动。
+         * @en Stops the scrolling action.
          */
         stopScroll(): void;
         /**
-         * @en The minimum increment unit for the slider tick value, with a default value of 1.
          * @zh 滑动条刻度值的最小变动单位，默认值为1。
+         * @en The minimum increment unit for the slider tick value, with a default value of 1.
          */
         get tick(): number;
         set tick(value: number);
         /**
-         * @en Restores the scrollbar to its normal elastic bounce-back motion.
          * @zh 恢复到正常的弹性缓动效果。
+         * @en Restores the scrollbar to its normal elastic bounce-back motion.
          */
         backToNormal(): void;
         private _backToNormal;
@@ -87813,6 +87926,12 @@ declare namespace Laya {
         get labelColors(): string;
         set labelColors(value: string);
         /**
+         * @en The text alignment mode.
+         * @zh 标签水平对齐模式。
+         */
+        get labelAlign(): string;
+        set labelAlign(value: string);
+        /**
          * @en The stroke width (in pixels) for the label.
          * The default value is 0, indicating no stroke.
          * @zh 描边宽度（以像素为单位）。
@@ -88027,40 +88146,64 @@ declare namespace Laya {
         static getBindFun(value: string): Function;
     }
     /**
-     * @en VBox is a vertical layout container class.
      * @zh VBox 是一个垂直布局容器类。
+     * @en VBox is a vertical layout container class.
      * @blueprintInheritable
      */
     class VBox extends LayoutBox {
         /**
-         * @en No alignment.
          * @zh 无对齐。
+         * @en No alignment.
          */
         static readonly NONE: string;
         /**
-         * @en Left aligned.
          * @zh 左对齐。
+         * @en Left aligned.
          */
         static readonly LEFT: string;
         /**
-         * @en Center alignment.
          * @zh 居中对齐。
+         * @en Center alignment.
          */
         static readonly CENTER: string;
         /**
-         * @en Right aligned.
          * @zh 右对齐。
+         * @en Right aligned.
          */
         static readonly RIGHT: string;
         /**
-         * @en Compatible with previous changeItems logic, whether to use sortItem to sort all items when changes occur.
+         * @zh 自适应模式 - 仅高适配
+         * @en AUTO_SIZE_HEIGHT - Height adaptive only.
+         */
+        static readonly AUTO_SIZE_HEIGHT: string;
+        /**
          * @zh 兼容以前的changeItems逻辑，是否在发生变动时，使用 sortItem 排序所有item。
+         * @en Compatible with previous changeItems logic, whether to use sortItem to sort all items when changes occur.
         */
         isSortItem: boolean;
+        /**
+         * @zh 自适应模式。
+         * - none：无自适应模式。
+         * - both：宽高自适应模式。
+         * - height：高度自适应模式。
+         * @en Adaptive mode.
+         * - none: No adaptive mode.
+         * - both: Both width and height are adaptive.
+         * - height: Height adaptive.
+         */
+        get autoSizeMode(): string;
+        set autoSizeMode(value: string);
         /**
          * @ignore
          */
         protected _transChanged(kind: TransformKind): void;
+        /**
+         * @zh 排序项目列表。可通过重写改变默认排序规则。
+         * @param items  项目列表。
+         * @en Sort the item list. Default sorting rules can be changed by overriding.
+         * @param items The item list.
+         */
+        private sortItem;
         protected changeItems(): void;
     }
     /**
@@ -90906,94 +91049,427 @@ declare namespace Laya {
         private onTextureReload;
         private createCmd;
     }
+    /**
+     * @en Interface for Scroller component.
+     * @zh Scroller 组件接口。
+     */
     interface IScroller {
+        /**
+         * @en The owner panel of the scroller.
+         * @zh Scroller 的拥有者面板。
+         */
         get owner(): GPanel;
         set owner(value: GPanel);
+        /**
+         * @en The horizontal scroll bar of the scroller.
+         * @zh Scroller 的水平滚动条。
+         */
         get hScrollBar(): GScrollBar;
         get vScrollBar(): GScrollBar;
+        /**
+         * @en The header widget of the scroller.
+         * @zh Scroller 的页头部件。
+         */
         get header(): GWidget;
+        /**
+         * @en The footer widget of the scroller.
+         * @zh Scroller 的页尾部件。
+         */
         get footer(): GWidget;
+        /**
+         * @en The horizontal scroll bar resource.
+         * @zh 水平滚动条资源。
+         */
         get hScrollBarRes(): Prefab;
         set hScrollBarRes(value: Prefab);
+        /**
+         * @en The vertical scroll bar resource.
+         * @zh 垂直滚动条资源。
+         */
         get vScrollBarRes(): Prefab;
         set vScrollBarRes(value: Prefab);
+        /**
+         * @en The header resource.
+         * @zh 页头资源。
+         */
         get headerRes(): Prefab;
         set headerRes(value: Prefab);
+        /**
+         * @en The footer resource.
+         * @zh 页尾资源。
+         */
         get footerRes(): Prefab;
         set footerRes(value: Prefab);
+        /**
+         * @en The direction of the scroller.
+         * @zh Scroller 的方向。
+         */
         get direction(): ScrollDirection;
         set direction(value: ScrollDirection);
+        /**
+         * @en The display mode of the scroll bar. The global default value can be set through `UIConfig2.defaultScrollBarDisplay`.
+         * @zh 滚动条的显示模式。全局的默认值可以通过`UIConfig2.defaultScrollBarDisplay`设置。
+         */
         get barDisplay(): ScrollBarDisplay;
         set barDisplay(value: ScrollBarDisplay);
+        /**
+         * @en Whether the scroll bar is on the left side.
+         * @zh 滚动条是否在左侧。
+         */
         get barOnLeft(): boolean;
         set barOnLeft(value: boolean);
+        /**
+         * @en Whether the scroll bar is floating. Floating scroll bars do not occupy viewport space.
+         * @zh 滚动条是否浮动。浮动的滚动条不占用视口空间。
+         */
         get barFloating(): boolean;
         set barFloating(value: boolean);
+        /**
+         * @en The margin around the scroll bar.
+         * @zh 滚动条周围的边距。
+         */
         get barMargin(): Array<number>;
         set barMargin(value: Array<number>);
+        /**
+         * @en The bounce back effect of the scroller. Default value can be set globally through `UIConfig2.defaultScrollBounceEffect`.
+         * @zh Scroller 的回弹效果。全局的默认值可以通过`UIConfig2.defaultScrollBounceEffect`设置。
+         */
         get bouncebackEffect(): ScrollBounceBackEffect;
         set bouncebackEffect(value: ScrollBounceBackEffect);
+        /**
+         * @en The touch effect of the scroller. Default value can be set globally through `UIConfig2.defaultScrollTouchEffect`.
+         * @zh Scroller 的触摸效果。全局的默认值可以通过`UIConfig2.defaultScrollTouchEffect`设置。
+         */
         get touchEffect(): ScrollTouchEffect;
         set touchEffect(value: ScrollTouchEffect);
+        /**
+         * @en The touch effect for buttons in the scroller. Default value can be set globally through `UIConfig2.touchEffectButton`.
+         * @zh 用于触摸拖动的鼠标按键，开启了touchEffect后有效。 0-左键，1-中键，2-右键。
+         */
         get touchEffectButton(): number;
         set touchEffectButton(value: number);
+        /**
+         * @en Whether the scroller is in page mode.
+         * @zh Scroller 是否处于分页模式。
+         */
         get pageMode(): boolean;
         set pageMode(value: boolean);
+        /**
+         * @en The step size for scrolling when using the mouse wheel. The global default value can be set through `UIConfig2.defaultScrollStep`.
+         * @zh 当使用鼠标滚轮滚动时，每次滚动的距离。全局的默认值可以通过`UIConfig2.defaultScrollStep`设置。
+         */
         set step(value: number);
         get step(): number;
+        /**
+         * @en Whether to snap to the nearest item when scrolling.
+         * @zh 滚动时是否对齐到最近的项。
+         */
         get snapToItem(): boolean;
         set snapToItem(value: boolean);
+        /**
+         * @en Whether to disable inertia scrolling.
+         * @zh 是否禁用惯性滚动。
+         */
         get inertiaDisabled(): boolean;
         set inertiaDisabled(value: boolean);
+        /**
+         * @en Whether to disable padding mask. Generally, the viewport does not include the padding area set around it, meaning that the empty space around the container will also be clipped. If needed, this option can be checked to prevent clipping of the empty space around the container.
+         * @zh 禁用裁剪边缘。一般情况下，视口不包括边缘设置的部分，也即是容器设置四周的留空部分也会被裁剪。如果需要，可以勾选这个选项，使容器四周的留空部分不被裁剪。
+         */
         get paddingMaskDisabled(): boolean;
         set paddingMaskDisabled(value: boolean);
+        /**
+         * @en Whether to disable mouse wheel scrolling.
+         * @zh 禁用鼠标滚轮滚动。
+         */
         get mouseWheelDisabled(): boolean;
         set mouseWheelDisabled(value: boolean);
+        /**
+         * @en The deceleration rate of the scroller. The global default value can be set through `UIConfig2.defaultScrollDecelerationRate`.
+         * @zh Scroller 的减速率。全局的默认值可以通过`UIConfig2.defaultScrollDecelerationRate`设置。
+         */
         get decelerationRate(): number;
         set decelerationRate(value: number);
+        /**
+         * @en The percentage of the scroller's position in the x-direction. The value ranges from 0 to 1.
+         * @zh Scroller 在 x 方向上的位置百分比。值范围是0到1。
+         */
         get percX(): number;
         set percX(value: number);
+        /**
+         * @en Sets the percentage of the scroller's position in the x-direction.
+         * @param value The percentage value, ranging from 0 to 1.
+         * @param ani Whether to animate the change.
+         * @zh 设置 Scroller 在 x 方向上的位置百分比。
+         * @param value 百分比值，范围是0到1。
+         * @param ani 是否使用动画过渡。
+         */
         setPercX(value: number, ani?: boolean): void;
+        /**
+         * @en The percentage of the scroller's position in the y-direction. The value ranges from 0 to 1.
+         * @zh Scroller 在 y 方向上的位置百分比。值范围是0到1。
+         */
         get percY(): number;
         set percY(value: number);
+        /**
+         * @en Sets the percentage of the scroller's position in the y-direction.
+         * @param value The percentage value, ranging from 0 to 1.
+         * @param ani Whether to animate the change.
+         * @zh 设置 Scroller 在 y 方向上的位置百分比。
+         * @param value 百分比值，范围是0到1。
+         * @param ani 是否使用动画过渡。
+         */
         setPercY(value: number, ani?: boolean): void;
+        /**
+         * @en The x-coordinate of the top-left corner of the scroller's content.
+         * @zh Scroller 内容的左上角 x 坐标。
+         */
         get posX(): number;
         set posX(value: number);
+        /**
+         * @en Sets the x-coordinate of the top-left corner of the scroller's content.
+         * @param value The x-coordinate value.
+         * @param ani Whether to animate the change.
+         * @zh 设置 Scroller 内容的左上角 x 坐标。
+         * @param value x 坐标值。
+         * @param ani 是否使用动画过渡。
+         */
         setPosX(value: number, ani?: boolean): void;
+        /**
+         * @en The y-coordinate of the top-left corner of the scroller's content.
+         * @zh Scroller 内容的左上角 y 坐标。
+         */
         get posY(): number;
         set posY(value: number);
+        /**
+         * @en Sets the y-coordinate of the top-left corner of the scroller's content.
+         * @param value The y-coordinate value.
+         * @param ani Whether to animate the change.
+         * @zh 设置 Scroller 内容的左上角 y 坐标。
+         * @param value y 坐标值。
+         * @param ani 是否使用动画过渡。
+         */
         setPosY(value: number, ani?: boolean): void;
+        /**
+         * @en If the scroller is in page mode, returns the index of the current page in the x-direction.
+         * @zh 如果 Scroller 处于分页模式，则返回水平方向上当前页的索引。
+         */
         get pageX(): number;
         set pageX(value: number);
+        /**
+         * @en If the scroller is in page mode, sets the index of the current page in the y-direction.
+         * @zh 如果 Scroller 处于分页模式，则设置垂直方向上当前页的索引。
+         */
         get pageY(): number;
         set pageY(value: number);
+        /**
+         * @en Sets the index of the current page in the x-direction.
+         * @param value The page index value.
+         * @param ani Whether to animate the change.
+         */
         setPageX(value: number, ani?: boolean): void;
+        /**
+         * @en Sets the index of the current page in the y-direction.
+         * @param value The page index value.
+         * @param ani Whether to animate the change.
+         */
         setPageY(value: number, ani?: boolean): void;
+        /**
+         * @en The number of pages in the x-direction.
+         * @zh Scroller 在水平方向上的页数。
+         */
+        get pageCountX(): number;
+        /**
+         * @en The number of pages in the y-direction.
+         * @zh Scroller 在垂直方向上的页数。
+         */
+        get pageCountY(): number;
+        /**
+         * @en The width of the content area.
+         * @zh Scroller 内容区域的宽度。
+         */
         get contentWidth(): number;
+        /**
+         * @en The height of the content area.
+         * @zh Scroller 内容区域的高度。
+         */
         get contentHeight(): number;
+        /**
+         * @en The width of the viewport.
+         * @zh Scroller 视口的宽度。
+         */
         get viewWidth(): number;
+        /**
+         * @en The height of the viewport.
+         * @zh Scroller 视口的高度。
+         */
         get viewHeight(): number;
+        /**
+         * @en Sets the size of the viewport.
+         * @param width The width of the viewport.
+         * @param height The height of the viewport.
+         * @zh 设置 Scroller 视口的大小。
+         * @param width 视口的宽度。
+         * @param height 视口的高度。
+         */
         setViewSize(width: number, height: number): void;
+        /**
+         * @en Whether the scrolling has reached the bottom-most position.
+         * @zh 是否已滚动到最底。
+         */
         get isBottomMost(): boolean;
+        /**
+         * @en Whether the scrolling has reached the right-most position.
+         * @zh 是否已滚动到最右侧。
+         */
         get isRightMost(): boolean;
+        /**
+         * @en When no bounce occurs, the value is the same as posX; when a bounce occurs, posX is constrained between 0 and overlapSize.x, while scrollingPosX returns the actual position value.
+         * @zh 当没有发生回弹时，返回值和posX一致；当发生回弹时，posX会被限制在0和overlapSize.x之间，而scrollingPosX会返回真实的位置值。
+         */
         get scrollingPosX(): number;
+        /**
+         * @en When no bounce occurs, the value is the same as posY; when a bounce occurs, posY is constrained between 0 and overlapSize.y, while scrollingPosY returns the actual position value.
+         * @zh 当没有发生回弹时，返回值和posY一致；当发生回弹时，posY会被限制在0和overlapSize.y之间，而scrollingPosY会返回真实的位置值。
+         */
         get scrollingPosY(): number;
+        /**
+         * @en Scrolls to the top of the content area.
+         * @param ani Whether to animate the scroll action.
+         * @zh 滚动到内容区域的顶部。
+         * @param ani 是否使用动画过渡。
+         */
         scrollTop(ani?: boolean): void;
+        /**
+         * @en Scrolls to the bottom of the content area.
+         * @param ani Whether to animate the scroll action.
+         * @zh 滚动到内容区域的底部。
+         * @param ani 是否使用动画过渡。
+         */
         scrollBottom(ani?: boolean): void;
+        /**
+         * @en Scrolls up once, with the step size controlled by the ratio parameter.
+         * @param ratio The ratio of the step size, ranging from 0 to 1, with a default value of 1. The base is the value of the `step` property, and if in page mode, the base is the height of the page.
+         * @param ani Whether to use an animated transition, default is false.
+         * @zh 向上滚动一次，步长由ratio参数控制。
+         * @param ratio 步长的比例，范围是0到1，默认值为1。基数是`step`属性的值，如果在分页模式，则基数为页面的高度。
+         * @param ani 是否使用动画过渡，默认值为false。
+         */
         scrollUp(ratio?: number, ani?: boolean): void;
+        /**
+         * @en Scrolls down once, with the step size controlled by the ratio parameter.
+         * @param ratio The ratio of the step size, ranging from 0 to 1, with a default value of 1. The base is the value of the `step` property    , and if in page mode, the base is the height of the page.
+         * @param ani Whether to use an animated transition, default is false.
+         * @zh 向下滚动一次，步长由ratio参数控制。
+         * @param ratio 步长的比例，范围是0到1，默认值为1。基数是`step`属性的值，如果在分页模式，则基数为页面的高度。
+         * @param ani 是否使用动画过渡，默认值为false。
+         */
         scrollDown(ratio?: number, ani?: boolean): void;
+        /**
+         * @en Scrolls to the left once, with the step size controlled by the ratio parameter.
+         * @param ratio The ratio of the step size, ranging from 0 to 1, with a default value of 1. The base is the value of the `step` property, and if in page mode, the base is the width of the page.
+         * @param ani Whether to use an animated transition, default is false.
+         * @zh 向左滚动一次，步长由ratio参数控制。
+         * @param ratio 步长的比例，范围是0到1，默认值为1。基数是`step`属性的值，如果在分页模式，则基数为页面的宽度。
+         * @param ani 是否使用动画过渡，默认值为false.
+         */
         scrollLeft(ratio?: number, ani?: boolean): void;
+        /**
+         * @en Scrolls to the right once, with the step size controlled by the ratio parameter.
+         * @param ratio The ratio of the step size, ranging from 0 to 1, with a default value of 1. The base is the value of the `step` property, and if in page mode, the base is the width of the page.
+         * @param ani Whether to use an animated transition, default is false.
+         * @zh 向右滚动一次，步长由ratio参数控制。
+         * @param ratio 步长的比例，范围是0到1，默认值为1。基数是`step`属性的值，如果在分页模式，则基数为页面的宽度。
+         * @param ani 是否使用动画过渡，默认值为false。
+         */
         scrollRight(ratio?: number, ani?: boolean): void;
+        /**
+         * @en Scrolls to a specific target widget, with an option to animate the scroll action.
+         * @param target The target widget to scroll to.
+         * @param ani Whether to animate the scroll action, default is false.
+         * @param setFirst If true, sets the target as the first child in view.
+         * @zh 滚动到指定的目标部件，可以选择是否使用动画过渡。
+         * @param target 要滚动到的目标部件。
+         * @param ani 是否使用动画过渡，默认值为false。
+         * @param setFirst 如果为true，则将目标设置为视图中的第一个子项。
+         */
         scrollTo(target: GWidget, ani?: boolean, setFirst?: boolean): void;
+        /**
+         * @en Scrolls to a specific target rectangle, with an option to animate the scroll action.
+         * @param target The target rectangle to scroll to.
+         * @param ani Whether to animate the scroll action, default is false.
+         * @param secondTarget If not null, sets it as the first child in view.
+         * @zh 滚动到指定的目标矩形，可以选择是否使用动画过渡。
+         * @param target 要滚动到的目标矩形。
+         * @param ani 是否使用动画过渡，默认值为false。
+         * @param secondTarget 如果不为空，则将它设置为视图中的第一个子项。
+         */
         scrollTo(target: GWidget, ani?: boolean, secondTarget?: GWidget): void;
+        /**
+         * @en Scrolls to a specific target rectangle, with an option to animate the scroll action.
+         * @param target The target rectangle to scroll to.
+         * @param ani Whether to animate the scroll action, default is false.
+         * @param setFirst If true, sets the target as the first child in view.
+         * @zh 滚动到指定的目标矩形，可以选择是否使用动画过渡。
+         * @param target 要滚动到的目标矩形。
+         * @param ani 是否使用动画过渡，默认值为false。
+         * @param setFirst 如果为true，则将目标设置为视图中的第一个子项。
+         */
         scrollTo(target: Rectangle, ani?: boolean, setFirst?: boolean): void;
+        /**
+         * @en Scrolls to a child with specific index, with an option to animate the scroll action.
+         * @param target The index of the child to scroll to.
+         * @param ani Whether to animate the scroll action, default is false.
+         * @param setFirst If true, sets the target as the first child in view.
+         * @zh 滚动到指定索引的子项，可以选择是否使用动画过渡。
+         * @param target 要滚动到的子项索引。
+         * @param ani 是否使用动画过渡，默认值为false。
+         * @param setFirst 如果为true，则将目标设置为视图中的第一个子项。
+         */
         scrollTo(target: number, ani?: boolean, setFirst?: boolean): void;
+        /**
+         * @en Checks if a specific child widget is currently in view.
+         * @param obj The child widget to check.
+         * @returns Returns true if the child widget is in view, otherwise false.
+         * @zh 检查指定的子部件是否在视图中。
+         * @param obj 要检查的子部件。
+         * @returns 如果子部件在视图中，则返回true，否则返回false。
+         */
         isChildInView(obj: GWidget): boolean;
+        /**
+         * @en Gets the index of the first child widget that is currently in view.
+         * @returns Returns the index of the first child widget in view, or -1 if no child is in view.
+         * @zh 获取当前在视图中的第一个子部件的索引。
+         * @returns 返回视图中第一个子部件的索引，如果没有子部件在视图中，则返回 -1。
+         */
         getFirstChildInView(): number;
+        /**
+         * @en Whether the scroller is currently being dragged.
+         * @returns Returns true if the scroller is being dragged, otherwise false.
+         * @zh Scroller 是否正在被拖动。
+         * @returns 如果 Scroller 正在被拖动，则返回 true，否则返回 false。
+         */
         get isDragged(): boolean;
+        /**
+         * @en Cancels the current dragging operation.
+         * @zh 取消当前的拖动操作。
+         */
         cancelDragging(): void;
+        /**
+         * @en Locks the header widget, keeping it visible and fixed at the top during scrolling.
+         * @param size The size of the header.
+         * @zh 锁定页头部件，即使其显示，并在滚动时保持在顶部。
+         * @param size 页头的大小。
+         */
         lockHeader(size: number): void;
+        /**
+         * @en Locks the footer widget, keeping it visible and fixed at the bottom during scrolling.
+         * @param size The size of the footer.
+         * @zh 锁定页尾部件，即使其显示，并在滚动时保持在底部。
+         * @param size 页尾的大小。
+         */
         lockFooter(size: number): void;
+        /** @internal */
         destroy(): void;
         /** @internal */
         _loop: number;
@@ -91017,51 +91493,157 @@ declare namespace Laya {
         createVtScrollBar(force?: boolean): void;
     }
     interface ILayout {
+        /**
+         * @en The type of the layout.
+         * @zh 布局的类型。
+         */
         get type(): LayoutType;
         set type(value: LayoutType);
+        /**
+         * @en This option is only effective for FlowY layout type. If set to a value greater than 0, a new column will only be started when the number of items in each column reaches the specified value.
+         * @zh 这个选项只对FlowY布局类型布局有效。如果设置了大于0的值，则每列的数量到达设定的值才会开启新的一列。
+         */
         get rows(): number;
         set rows(value: number);
+        /**
+         * @en This option is only effective for FlowX layout type. If set to a value greater than 0, a new row will only be started when the number of items in each row reaches the specified value.
+         * @zh 这个选项只对FlowX布局类型布局有效。如果设置了大于0的值，则每行的数量到达设定的值才会开启新的一行。
+         */
         get columns(): number;
         set columns(value: number);
+        /**
+         * @en The gap between rows.
+         * @zh 行间距。
+         */
         get rowGap(): number;
         set rowGap(value: number);
+        /**
+         * @en The gap between columns.
+         * @zh 列间距。
+         */
         get columnGap(): number;
         set columnGap(value: number);
         /**
-         * [UP，RIGHT，DOWN，LEFT]
+         * @zh 设定容器内部四个方向的留空。四个元素依次为[上，右，下，左]。
+         * @en Set the padding for the four directions inside the container. The four elements are in the order of [UP, RIGHT, DOWN, LEFT].
          */
         get padding(): Array<number>;
         set padding(value: Array<number>);
+        /**
+         * @en The alignment of the layout.
+         * @zh 布局的对齐方式。
+         */
         get align(): AlignType;
         set align(value: AlignType);
+        /**
+         * @en The vertical alignment of the layout.
+         * @zh 布局的垂直对齐方式。
+         */
         get valign(): VAlignType;
         set valign(value: VAlignType);
+        /**
+         * @en The horizontal stretch mode of the layout.
+         * @zh 在水平方向上的缩放操作。
+         */
         get stretchX(): StretchMode;
         set stretchX(value: StretchMode);
+        /**
+         * @en The vertical stretch mode of the layout.
+         * @zh 在垂直方向上的缩放操作。
+         */
         get stretchY(): StretchMode;
         set stretchY(value: StretchMode);
+        /**
+         * @en The stretch parameters for the horizontal direction.
+         * @zh 水平方向上的拉伸参数。
+         */
         get stretchParamsX(): Array<StretchParam>;
+        /**
+         * @en The stretch parameters for the vertical direction.
+         * @zh 垂直方向上的拉伸参数。
+         */
         get stretchParamsY(): Array<StretchParam>;
+        /**
+         * @en If set to true, when an item is not visible (visible=false), it will not reserve space for it during layout, meaning the layout will ignore this item; if unchecked, it will reserve space for this item, resulting in a blank placeholder.
+         * @zh 如果设置为true，当某个item不可见时（visible=false），布局时不会为他留位置，也就是排版时会忽略这个item；如果不勾选，则会为这个item保留位置，显示效果就是一个空白的占位。
+         */
         get foldInvisibles(): boolean;
         set foldInvisibles(value: boolean);
+        /**
+         * @en The minimum size for child nodes. When automatically adjusting the size of child nodes based on layout parameters, it will not be smaller than this value. For example, if set to 30 and a node requires a width of 10 during layout, the final width of the node will be set to 30.
+         * @zh 当根据布局参数自动改变子节点的大小时，不会小于这里设置的值。例如，如果这里设置了30，并且一个节点在排列时要求宽度为10，则节点最后的宽度会被设置为30。
+         */
         get minChildSize(): number;
         set minChildSize(value: number);
+        /**
+         * @en Page mode.
+         * @zh 分页模式。
+         */
         get pageMode(): boolean;
         set pageMode(value: boolean);
+        /**
+         * @en The width of the view area.
+         * @zh 视口区域的宽度。
+         */
         get viewWidth(): number;
         set viewWidth(value: number);
+        /**
+         * @en The height of the view area.
+         * @zh 视口区域的高度。
+         */
         get viewHeight(): number;
         set viewHeight(value: number);
+        /**
+         * @en The width of the content area.
+         * @zh 内容区域的宽度。
+         */
         get contentWidth(): number;
         set contentWidth(value: number);
+        /**
+         * @en The height of the content area.
+         * @zh 内容区域的高度。
+         */
         get contentHeight(): number;
         set contentHeight(value: number);
         /**
-         * dir正数表示右移或者下移，负数表示左移或者上移
+         * @en Get the snapping position of the layout.
+         * @param xValue The horizontal coordinate of the snapping position.
+         * @param yValue The vertical coordinate of the snapping position.
+         * @param xDir The horizontal direction of the snapping position, positive for right and negative for left.
+         * @param yDir The vertical direction of the snapping position, positive for down and negative for up.
+         * @param resultPoint The point object to store the result, if not provided, a new Point object will be created.
+         * @returns The snapping position as a Point object.
+         * @zh 获取对齐位置。
+         * @param xValue 对齐位置的水平坐标。
+         * @param yValue 对齐位置的垂直坐标。
+         * @param xDir 对齐位置的水平方向，正数表示右移或者下移，负数表示左移或者上移。
+         * @param yDir 对齐位置的垂直方向，正数表示下移或者右移，负数表示上移或者左移。
+         * @param resultPoint 用于存储结果的点对象，如果未提供，将创建一个新的 Point 对象。
+         * @returns 返回对齐位置的 Point 对象。
          */
         getSnappingPosition(xValue: number, yValue: number, xDir: number, yDir: number, resultPoint?: Point): Point;
+        /**
+         * @en Resize the container to fit specified child count and minimum size.
+         * @param childCount The number of children to fit in the container.
+         * @param minSize The minimum size for the container.
+         * @zh 调整容器大小以适应指定的子节点数量和最小尺寸。
+         * @param childCount 要适应容器的子节点数量。
+         * @param minSize 容器的最小尺寸。
+         */
         resizeToFit(childCount?: number, minSize?: number): void;
+        /**
+         * @en Notify the layout that any changes have occurred that require a layout update.
+         * @param reason The reason for the layout change.
+         * @zh 通知布局发生了任何需要更新布局的更改。
+         * @param reason 布局更改的原因。
+         */
         setChangedFlag(reason?: LayoutChangedReason): void;
+        /**
+         * @en Refresh the layout if necessary.
+         * @param force Whether to force a refresh even if no changes have occurred.
+         * @zh 如果需要，刷新布局。
+         * @param force 是否强制刷新，即使没有发生更改。
+         */
         refresh(force?: boolean): void;
         /** @internal */
         setContentSize(aw: number, ah: number): void;
@@ -91069,13 +91651,41 @@ declare namespace Laya {
         _disabled: boolean;
     }
     interface IListLayout extends ILayout {
+        /**
+         * @en Set the list item count.
+         * If the list is not virtual, specified number of items will be created.
+         * If the list is virtual, only items in view will be created.
+         * @zh 设置列表项数量。
+         * 如果列表不是虚拟的，将创建指定数量的项。
+         * 如果列表是虚拟的，则只会创建视图中的项。
+        */
         get numItems(): number;
         set numItems(value: number);
+        /**
+         * @en The virtual list automatically measures the size of child items for layout, but you can also manually set the size of child items.
+         * @zh 虚拟列表会自动测量子项的大小用于排版。但也可以手动设置子项的大小。
+         */
         get itemSize(): Point;
         set itemSize(value: Point);
+        /**
+         * @en Maps the index of the display object in the virtual list to the index of the data item.
+         * @zh 虚拟列表中将显示对象的索引映射到数据项的索引。
+         */
         childIndexToItemIndex(index: number): number;
+        /**
+         * @en Maps the index of the data item to the index of the display object.
+         * @zh 数据项的索引映射到显示对象的索引。
+         */
         itemIndexToChildIndex(index: number): number;
+        /**
+         * @en Gets the rectangle area of the data item at the specified index.
+         * @zh 获取指定索引的数据项的矩形区域。
+         */
         getRectByItemIndex(index: number): Rectangle;
+        /**
+         * @en Refresh the virtual list. Generally, there is no need to call this manually.
+         * @zh 刷新虚拟列表。一般不需要手动调用。
+         */
         refreshVirtualList(): void;
         /** @internal */
         _setVirtual(loop: boolean): void;
@@ -91448,6 +92058,8 @@ declare namespace Laya {
         set pageY(value: number);
         setPageX(value: number, ani?: boolean): void;
         setPageY(value: number, ani?: boolean): void;
+        get pageCountX(): number;
+        get pageCountY(): number;
         get isBottomMost(): boolean;
         get isRightMost(): boolean;
         get scrollingPosX(): number;
@@ -91509,29 +92121,123 @@ declare namespace Laya {
         private runTween;
     }
     interface ISelection {
+        /**
+         * @en The selection mode of the selection.
+         * @zh 选择的模式。
+         */
         mode: SelectionMode;
+        /**
+         * @en Scroll the item into view when it is selected.
+         * @zh 选择时滚动到视图中。
+         */
         scrollItemToViewOnClick: boolean;
-        index: number;
+        /**
+         * @en The currently selected item.
+         * @zh 当前选中的项。
+         */
+        get index(): number;
+        set index(value: number);
+        /**
+         * @en The currently selected items.
+         * @param out An optional array to store the selected items.
+         * @returns The currently selected items.
+         * @zh 当前选中的项。
+         * @param out 可选的数组，用于存储选中的项。
+         * @returns 返回当前选中的项。
+         */
         get(out?: number[]): number[];
+        /**
+         * @en Add an item to the selection.
+         * @param index The index of the item to add.
+         * @param scrollItToView Whether to scroll the item into view.
+         * @zh 添加一个项到选择中。
+         * @param index 要添加的项的索引。
+         * @param scrollItToView 是否将该项滚动到视图中。
+         */
         add(index: number, scrollItToView?: boolean): void;
+        /**
+         * @en Remove an item from the selection.
+         * @param index The index of the item to remove.
+         * @zh 从选择中移除一个项。
+         * @param index 要移除的项的索引。
+         */
         remove(index: number): void;
+        /**
+         * @en Clear the selection.
+         * @zh 清除选择。
+         */
         clear(): void;
+        /**
+         * @en Select all items.
+         * @zh 选择所有项。
+         */
         selectAll(): void;
+        /**
+         * @en Invert the selection.
+         * @zh 反选。
+         */
         selectReverse(): void;
+        /**
+         * @en Enable or disable focus events.
+         * @param enabled Whether to enable focus events.
+         * @zh 启用或禁用焦点事件。
+         * @param enabled 是否启用焦点事件。
+         */
         enableFocusEvents(enabled: boolean): void;
-        handleClick(item: GWidget, evt: Event): void;
+        /**
+         * @en Enable or disable arrow key navigation.
+         * @param enabled Whether to enable arrow key navigation.
+         * @param keySelectEvent The event name to trigger when an item is selected using arrow keys.
+         * @zh 启用或禁用箭头键导航。
+         * @param enabled 是否启用箭头键导航。
+         * @param keySelectEvent 使用箭头键选择项时触发的事件名称。
+         */
         enableArrowKeyNavigation(enabled: boolean, keySelectEvent?: string): void;
+        /** @ignore @blueprintIgnore */
+        handleClick(item: GWidget, evt: Event): void;
+        /** @ignore @blueprintIgnore */
         handleArrowKey(dir: number): number;
+        /** @internal */
         destroy(): void;
         /** @internal */
         _refresh(): void;
     }
     interface ITreeSelection extends ISelection {
+        /**
+         * @en Whether to automatically expand or collapse the folder node when clicking on it.
+         * @zh 点击文件夹节点时是否自动展开或者折叠这个这个节点。
+         */
         get clickToExpand(): TreeClickToExpandType;
         set clickToExpand(value: TreeClickToExpandType);
+        /**
+         * @en Get the currently selected node.
+         * @zh 获取当前选中的节点。
+         */
         getSelectedNode(): GTreeNode;
+        /**
+         * @en Get the currently selected nodes.
+         * @param out An optional array to store the selected nodes.
+         * @returns The currently selected nodes.
+         * @zh 获取当前选中的节点列表。
+         * @param out 可选的数组，用于存储选中的节点。
+         * @returns 返回当前选中的节点列表。
+         */
         getSelectedNodes(out?: Array<GTreeNode>): Array<GTreeNode>;
+        /**
+         * @en Select a node in the tree.
+         * @param node The node to select.
+         * @param scrollItToView Whether to scroll the selected node into view.
+         * @zh 选择树中的节点。
+         * @param node 要选择的节点。
+         * @param scrollItToView 是否将选中的节点滚动到视图中
+         */
         selectNode(node: GTreeNode, scrollItToView?: boolean): void;
+        /**
+         * @en Unselect a node in the tree.
+         * @param node The node to unselect.
+         * @zh 取消选择树中的节点。
+         * @param node 要取消选择的节点。
+         */
         unselectNode(node: GTreeNode): void;
     }
     class ListSelection extends Selection {
@@ -93275,8 +93981,8 @@ declare namespace Laya {
          * @param unhit 是否移动未命中区域。
          */
         moveTo(x: number, y: number, hit: boolean, unhit: boolean): void;
-        private _isHitGraphic;
-        private _isHitCmd;
+        private static _isHitGraphic;
+        private static _isHitCmd;
         /**
          * @en The Graphics object that defines the clickable area.(currently only supports circles, rectangles, and polygons).
          * @zh 定义可点击区域的 Graphics 对象。（目前只支持圆形，矩形，多边形）
@@ -93617,24 +94323,16 @@ declare namespace Laya {
      */
     class SingletonList<T> {
         /**
-         * @internal
          * @en [Read-only] The array storing the elements of the queue.
          * @zh [只读] 存储队列元素的数组。
          */
         elements: Array<T>;
         /**
-         * @internal
          * @en [Read-only] The current length of the queue.
          * @zh [只读] 队列的当前长度。
          */
         length: number;
-        constructor();
         /**
-         * @internal
-         */
-        protected _add(element: T): void;
-        /**
-         * @internal
          * @en Adds an element to the list if it is not already present.
          * @param element The element to add.
          * @zh 如果元素尚未存在于列表中，则添加该元素。
@@ -93649,7 +94347,6 @@ declare namespace Laya {
          */
         indexof(element: T): number;
         /**
-         * @internal
          * @en Removes an element from the list.
          * @param element The element to remove.
          * @zh 从列表中移除一个元素。
@@ -93657,20 +94354,15 @@ declare namespace Laya {
          */
         remove(element: T): void;
         /**
-         * @internal
          * @en Clears the list, removing all elements.
          * @zh 清除列表，移除所有元素。
          */
         clear(): void;
         /**
-         * @internal
          * @en Trims the elements array to match the current length of the list.
          * @zh 将元素数组的长度调整为与列表的当前长度相匹配。
          */
         clean(): void;
-        /**
-         * @internal
-         */
         cloneTo(out: SingletonList<T>): void;
         /**
          * @en Destroys the list by nullifying the elements array.
@@ -93679,9 +94371,6 @@ declare namespace Laya {
         destroy(): void;
     }
     class FastSinglelist<T> extends SingletonList<T> {
-        /**
-         * @internal
-         */
         add(element: T): void;
     }
     /**
@@ -93824,16 +94513,29 @@ declare namespace Laya {
          * @param rect 包含要设置的位置和大小的矩形对象。
          */
         static setRect(sprite: Sprite, rect: Readonly<Rectangle>): void;
+        /**
+         * @en Get the bounding box of the child
+         * @param recursive Whether to get the bounding box of the child object recursively
+         * @param ignoreInvisibles Whether to ignore invisible objects
+         * @param ignoreScale Whether to ignore scaling
+         * @param out (Optional) Output object for calculation results
+         * @returns Bounding box
+         * @zh 获取孩子的包围盒
+         * @param recursive 是否递归获取所有子对象的包围盒
+         * @param ignoreInvisibles 是否忽略不可见对象
+         * @param ignoreScale 是否忽略缩放
+         * @param out （可选）计算结果输出对象
+         * @returns 包围盒
+         */
+        static getChildrenBounds(sprite: Sprite, recursive?: boolean, ignoreInvisibles?: boolean, ignoreScale?: boolean, out?: Rectangle): Rectangle;
     }
-    type StatUnit = "M" | "K" | "int";
+    type StatUnit = "M" | "ms" | "K" | "int";
     type StatColor = "yellow" | "white" | "red";
-    type StatMode = "summit" | "average";
     interface StatUIParams {
         title: string;
-        value: string;
+        value: StatisticsElement;
         color: StatColor;
         units: StatUnit;
-        mode: StatMode;
     }
     interface StatToggleUIParams {
         title: string;
@@ -93859,135 +94561,11 @@ declare namespace Laya {
      */
     class Stat {
         /**
-         * @en The current frame rate.
-         * @zh 当前帧率
-         */
-        static FPSStatUIParams: StatUIParams;
-        /**
-         * @en Node nums
-         * @zh 节点数量
-         */
-        static NodeStatUIParams: StatUIParams;
-        /**
-         * @en Sprite3D nums
-         * @zh 3D精灵数量
-         */
-        static Sprite3DStatUIParams: StatUIParams;
-        /**
-         * @en DrawCall
-         * @zh 渲染提交批次
-         */
-        static DrawCall: StatUIParams;
-        /**
-         * @en triangleFace
-         * @zh 三角形面数量
-         */
-        static TriangleFace: StatUIParams;
-        /**
-         * @en RenderNoe
-         * @zh 渲染节点数量
-         */
-        static RenderNode: StatUIParams;
-        /**
-         * @en SkinRenderNode
-         * @zh 蒙皮（骨骼动画）渲染节点数量
-         */
-        static SkinRenderNode: StatUIParams;
-        /**
-         * @en ParticleRenderNode
-         * @zh 粒子渲染节点数量
-         */
-        static ParticleRenderNode: StatUIParams;
-        /**
-         * @en FrustumCulling
-         * @zh 视锥体剔除
-         */
-        static FrustumCulling: StatUIParams;
-        /**
-         * @en uniformUpload
-         * @zh uniform上传
-         */
-        static UniformUpload: StatUIParams;
-        /**
-         * @en OpaqueDrawCall
-         * @zh 不透明物体渲染提交批次
-         */
-        static OpaqueDrawCall: StatUIParams;
-        /**
-         * @en TransformDrawCall
-         * @zh 透明物体渲染提交批次
-         */
-        static TransDrawCall: StatUIParams;
-        /**
-         * @en DepthCastDrawCall
-         * @zh 深度投射渲染提交批次
-         */
-        static DepthCastDrawCall: StatUIParams;
-        /**
-        * @en TransformDrawCall
-        * @zh 透明物体渲染提交批次
-        */
-        static ShadowDrawCall: StatUIParams;
-        /**
-         * @en InstanceDrawCall
-         * @zh 实例绘制渲染提交批次
-         */
-        static InstanceDrawCall: StatUIParams;
-        /**
-         * @en CMDDrawCall
-         * @zh CMD渲染提交批次
-         */
-        static CMDDrawCall: StatUIParams;
-        /**
-         * @en BlitDrawCall
-         * @zh 位块渲染提交批次
-         */
-        static BlitDrawCall: StatUIParams;
-        /**
-         * @en GPU memory
-         * @zh GPU 显存
-         */
-        static GPUMemory: StatUIParams;
-        /**
-         * @en Texture2D memory
-         * @zh 2D纹理内存
-         */
-        static TextureMemeory: StatUIParams;
-        /**
-         * @en RenderTexture memory
-         * @zh 渲染纹理内存
-         */
-        static RenderTextureMemory: StatUIParams;
-        /**
-         * @en BufferMemory
-         * @zh Buffer内存
-         */
-        static BufferMemory: StatUIParams;
-        /**
-         * @en upload Uniform
-         * @zh Uniform上传数量
-         */
-        static uploadUniformNum: StatUIParams;
         /**
          * @en All Show
          * @zh 所有显示
          */
-        static AllShow: Array<StatUIParams>;
-        /**
-         * @en Memory Show
-         * @zh 内存显示
-         */
-        static memoryShow: Array<StatUIParams>;
-        /**
-         * @en Rendering Show
-         * @zh 渲染显示
-         */
-        static renderShow: Array<StatUIParams>;
-        /**
-         * @internal
-         * @en Enable/disable shadows
-         * @zh 开启关闭阴影
-         */
+        static ShowStatArray: Array<StatisticsElement>;
         static toogle_Shadow: StatToggleUIParams;
         /**
          * @internal
@@ -94081,10 +94659,10 @@ declare namespace Laya {
          */
         static loopCount: number;
         /**
-         * @en Number of Sprites that use cache for rendering.
-         * @zh 精灵渲染使用缓存 Sprite 的数量。
+         * @en Count of rendering loops of the main stage Stage.
+         * @zh 主舞台 Stage 的渲染次数计数。
          */
-        static spriteRenderUseCacheCount: number;
+        static render2DCount: number;
         /**
          * @en Number of times the canvas has used standard rendering.
          * @zh 画布 canvas 使用标准渲染的次数。
@@ -94110,95 +94688,6 @@ declare namespace Laya {
          * @zh 资源管理器所管理资源的累计内存，以字节为单位。
          */
         static cpuMemory: number;
-        /**@internal */
-        static _timer: number;
-        /**@internal */
-        static _count: number;
-        /**@internal */
-        static _fpsStr: string;
-        /**@internal */
-        static spriteCount: number;
-        /**@internal */
-        static sprite3DCount: number;
-        /**@internal */
-        private static _drawCall;
-        static get drawCall(): number;
-        static set drawCall(value: number);
-        static draw2D: number;
-        /**@internal */
-        static trianglesFaces: number;
-        /**@internal */
-        static renderNode: number;
-        /**@internal */
-        static meshRenderNode: number;
-        /**@internal */
-        static skinRenderNode: number;
-        /**@internal */
-        static particleRenderNode: number;
-        /**@internal 视锥剔除次数。*/
-        static frustumCulling: number;
-        /**@internal */
-        static uniformUpload: number;
-        /**@internal */
-        static opaqueDrawCall: number;
-        /**@internal */
-        static transDrawCall: number;
-        /**@internal */
-        static depthCastDrawCall: number;
-        /**@internal */
-        static shadowMapDrawCall: number;
-        /**@internal */
-        static instanceDrawCall: number;
-        /**@internal */
-        static cmdDrawCall: number;
-        static blitDrawCall: number;
-        static renderPassStatArray: number[];
-        static enableRenderPassStatArray: boolean;
-        /**
-         * @en The cumulative memory of the resources managed by the resource manager, in bytes.
-         * @zh 资源管理器所管理资源的累计内存，以字节为单位。
-         */
-        static gpuMemory: number;
-        /**@internal */
-        static textureMemory: number;
-        /**@internal */
-        static renderTextureMemory: number;
-        /**@internal */
-        static bufferMemory: number;
-        /**@internal */
-        private static _uploadUniform;
-        static get uploadUniform(): number;
-        static set uploadUniform(value: number);
-        /**
-         * @en The count of dynamic rigid bodies in the physics system.
-         * @zh 物理系统中动态刚体的数量。
-         */
-        static physics_dynamicRigidBodyCount: number;
-        /**
-         * @en The count of static rigid bodies in the physics system.
-         * @zh 物理系统中静态刚体的数量。
-         */
-        static physics_staticRigidBodyCount: number;
-        /**
-         * @en The count of kinematic rigid bodies in the physics system.
-         * @zh 物理系统中运动学刚体的数量。
-         */
-        static phyiscs_KinematicRigidBodyCount: number;
-        /**
-         * @en The count of character controllers in the physics system.
-         * @zh 物理系统中角色控制器的数量。
-         */
-        static physics_CharacterControllerCount: number;
-        /**
-         * @en The count of joints in the physics system.
-         * @zh 物理系统中关节的数量。
-         */
-        static physics_jointCount: number;
-        /**
-         * @en The count of physics events.
-         * @zh 物理事件的数量。
-         */
-        static phyiscs_EventCount: number;
         /**
          * @en Enables or disables shadows.
          * @zh 开启或关闭阴影效果。
@@ -94277,7 +94766,7 @@ declare namespace Laya {
          * @param y 统计信息显示的 Y 轴坐标位置。
          * @param views 可选的 StatUIParams 数组，定义要显示哪些统计信息。
          */
-        static show(x?: number, y?: number, views?: Array<StatUIParams>): void;
+        static show(x?: number, y?: number, views?: Array<StatisticsElement>): void;
         /**
          * @en Hides the performance statistics information from the screen.
          * @zh 从屏幕上隐藏性能统计信息。
@@ -94289,11 +94778,6 @@ declare namespace Laya {
          * @zh 性能统计参数计算循环处理函数。
          */
         static loop(): void;
-        /**
-         * @en Updates the engine data for statistics such as triangle count, draw call count, and memory usage.
-         * @zh 更新引擎数据，包括三角形数量、绘制调用计数和内存使用情况等统计信息。
-         */
-        static updateEngineData(): void;
         /**
          * @private
          * @en Resets the performance statistics calculation related data to zero.
@@ -94319,7 +94803,7 @@ declare namespace Laya {
          * @param y Y轴显示位置。
          * @param views 用于显示统计信息的UI参数数组。
          */
-        show(x?: number, y?: number, views?: Array<StatUIParams>): void;
+        show(x?: number, y?: number, views?: Array<StatisticsElement>): void;
         /**
          * @en Hides performance statistics.
          * @zh 隐藏性能统计信息。
@@ -95128,8 +95612,7 @@ declare namespace Laya {
         destinationOut = 9,
         addOld = 10,
         lighterOld = 11,
-        sourceAlpha = 12,
-        "destination-out" = 13
+        sourceAlpha = 12
     }
     /**
      * @ignore
@@ -95455,7 +95938,7 @@ declare namespace Laya {
         _key: SubmitKey;
         mesh: GraphicsMesh;
         material: Material;
-        vertexs: Graphics2DVertexBlock[];
+        vertexs: IGraphics2DVertexBlock[];
         blockIndexs: number[];
         indexCount: number;
         indices: number[];
@@ -96249,6 +96732,7 @@ declare namespace Laya {
         constructor();
         setText(value: string): void;
         protected onBegin(): Promise<void>;
+        private _onResize;
         protected onCanShowKeyboard(): Promise<void>;
         protected onEnd(target: Input, complete: boolean, switching: boolean): Promise<void>;
         protected syncTransform(): void;

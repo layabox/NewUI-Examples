@@ -5,6 +5,7 @@
   "name": "Root",
   "width": 640,
   "height": 582,
+  "drawCallOptimize": true,
   "_$comp": [
     {
       "_$type": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",

@@ -7543,6 +7543,13 @@ declare global {
              * @returns Whether the new UI system is being used.
              */
             isUsingNewUI(): boolean;
+
+            /**
+             * Filter top-level items from a list of items.
+             * @param items The list of items to filter.
+             * @returns The filtered list of top-level items. 
+             */
+            filterTopLevels<T extends { parent: any }>(items: ReadonlyArray<T>): ReadonlyArray<T>;
         }
         export interface IUUIDUtils {
             /**
