@@ -1,5 +1,5 @@
 {
-  "perFolder": true,
+  "perFolder": false,
   "includeSubFolders": true,
   "maxWidth": 2048,
   "maxHeight": 2048,
