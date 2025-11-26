@@ -7,8 +7,8 @@
   "top": 0,
   "bottom": 0,
   "name": "Scene2D",
-  "width": 1136,
-  "height": 640,
+  "width": 1334,
+  "height": 750,
   "drawCallOptimize": true,
   "_$comp": [
     {
@@ -29,7 +29,7 @@
       "_$id": "ta9dezti",
       "_$type": "GWidget",
       "name": "top",
-      "width": 1136,
+      "width": 1334,
       "height": 70,
       "background": {
         "_$type": "DrawRectCmd",
@@ -68,7 +68,7 @@
       "_$prefab": "d6b285ae-bb1b-42f4-a907-2886b2df54c2",
       "name": "Button",
       "active": true,
-      "x": 969,
+      "x": 1167,
       "y": 1,
       "visible": false,
       "relations": [
@@ -91,7 +91,7 @@
       "name": "box",
       "x": 28,
       "y": 87,
-      "width": 1091,
+      "width": 1289,
       "height": 524,
       "gears": [
         {
@@ -737,8 +737,8 @@
       "name": "container",
       "x": -1143,
       "y": 70,
-      "width": 1136,
-      "height": 570,
+      "width": 1334,
+      "height": 680,
       "controllers": {
         "_$type": "Record",
         "c1": {

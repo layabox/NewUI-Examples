@@ -121,7 +121,6 @@
       "text": "text",
       "fontSize": 22,
       "color": "#ffffff",
-      "bold": true,
       "align": "center",
       "valign": "middle",
       "stroke": 2
