@@ -1,4 +1,3 @@
-@BP.bpClass({ name: "Window2", extends: "GWindow" })
 export class Window2 extends Laya.GWindow {
     private _ani: Laya.Animator2D;
 
