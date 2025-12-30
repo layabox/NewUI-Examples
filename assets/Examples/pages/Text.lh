@@ -7,21 +7,19 @@
   "height": 570,
   "_$comp": [
     {
-      "_$type": "0fcb860f-79b5-450e-95c6-907a95f82040",
-      "scriptPath": "Examples/scripts/PlayText.bp",
-      "_bp_data": {
-        "RichText": {
-          "_$ref": "x8emhhgy"
-        },
-        "InputText": {
-          "_$ref": "1cz2uagl"
-        },
-        "InputResultText": {
-          "_$ref": "rmach27e"
-        },
-        "GetInputButton": {
-          "_$ref": "rsnd5hof"
-        }
+      "_$type": "1ff98419-e0e9-4aa6-86ae-8e7097ff724d",
+      "scriptPath": "Examples/scripts/PlayText.ts",
+      "RichText": {
+        "_$ref": "x8emhhgy"
+      },
+      "InputText": {
+        "_$ref": "1cz2uagl"
+      },
+      "InputResultText": {
+        "_$ref": "rmach27e"
+      },
+      "GetInputButton": {
+        "_$ref": "rsnd5hof"
       }
     }
   ],

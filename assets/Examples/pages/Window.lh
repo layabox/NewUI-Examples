@@ -7,15 +7,13 @@
   "height": 570,
   "_$comp": [
     {
-      "_$type": "6572c565-e8ac-4659-9a23-6cacc9ce9207",
-      "scriptPath": "Examples/scripts/PlayWindow.bp",
-      "_bp_data": {
-        "button1": {
-          "_$ref": "n3ohua1k"
-        },
-        "button2": {
-          "_$ref": "syywbdm6"
-        }
+      "_$type": "88b2390d-eef5-4a22-8160-4d406d43cdd5",
+      "scriptPath": "Examples/scripts/PlayWindow.ts",
+      "button1": {
+        "_$ref": "n3ohua1k"
+      },
+      "button2": {
+        "_$ref": "syywbdm6"
       }
     }
   ],

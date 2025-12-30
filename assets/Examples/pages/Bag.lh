@@ -7,12 +7,10 @@
   "height": 640,
   "_$comp": [
     {
-      "_$type": "03e41cf9-9976-40d1-900b-84f8a1c17030",
-      "scriptPath": "Examples/scripts/PlayBag.bp",
-      "_bp_data": {
-        "btn": {
-          "_$ref": "umv2sg85"
-        }
+      "_$type": "c4413b67-8fb7-43c5-83ca-3407c4cf916c",
+      "scriptPath": "Examples/scripts/PlayBag.ts",
+      "btn": {
+        "_$ref": "umv2sg85"
       }
     }
   ],

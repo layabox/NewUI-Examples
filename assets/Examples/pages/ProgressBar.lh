@@ -7,45 +7,43 @@
   "height": 570,
   "_$comp": [
     {
-      "_$type": "e8cd5a64-651d-4b5a-9235-128e9565953b",
-      "scriptPath": "Examples/scripts/PlayProgressBar.bp",
-      "_bp_data": {
-        "pbs": [
-          {
-            "_$ref": "8agy2ddl"
-          },
-          {
-            "_$ref": "gmqoglro"
-          },
-          {
-            "_$ref": "sy9r09s2"
-          },
-          {
-            "_$ref": "9sbhtg7u"
-          },
-          {
-            "_$ref": "zvh89mo0"
-          },
-          {
-            "_$ref": "77f5tgku"
-          },
-          {
-            "_$ref": "tm5drqjk"
-          },
-          {
-            "_$ref": [
-              "ka6lhqru",
-              "7vr9cgdu"
-            ]
-          },
-          {
-            "_$ref": [
-              "bv7ukwt8",
-              "keh52cyl"
-            ]
-          }
-        ]
-      }
+      "_$type": "dedaed32-d889-45eb-9ece-7b5b9eeca98c",
+      "scriptPath": "Examples/scripts/PlayProgressBar.ts",
+      "pbs": [
+        {
+          "_$ref": "8agy2ddl"
+        },
+        {
+          "_$ref": "gmqoglro"
+        },
+        {
+          "_$ref": "sy9r09s2"
+        },
+        {
+          "_$ref": "9sbhtg7u"
+        },
+        {
+          "_$ref": "zvh89mo0"
+        },
+        {
+          "_$ref": "77f5tgku"
+        },
+        {
+          "_$ref": "tm5drqjk"
+        },
+        {
+          "_$ref": [
+            "ka6lhqru",
+            "7vr9cgdu"
+          ]
+        },
+        {
+          "_$ref": [
+            "bv7ukwt8",
+            "keh52cyl"
+          ]
+        }
+      ]
     }
   ],
   "_$child": [

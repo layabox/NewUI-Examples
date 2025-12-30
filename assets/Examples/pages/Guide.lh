@@ -7,15 +7,13 @@
   "height": 570,
   "_$comp": [
     {
-      "_$type": "25f16b97-23fa-4825-84c3-59cee22b9dec",
-      "scriptPath": "Examples/scripts/PlayGuide.bp",
-      "_bp_data": {
-        "btnStart": {
-          "_$ref": "ijp4dks8"
-        },
-        "btnBag": {
-          "_$ref": "vculerdf"
-        }
+      "_$type": "38304c2e-cf85-4e29-8586-b7cb252b0ac6",
+      "scriptPath": "Examples/scripts/PlayGuide.ts",
+      "btnStart": {
+        "_$ref": "ijp4dks8"
+      },
+      "btnBag": {
+        "_$ref": "vculerdf"
       }
     }
   ],

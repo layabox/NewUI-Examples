@@ -8,15 +8,13 @@
   "blendMode": 0,
   "_$comp": [
     {
-      "_$type": "fb9a6f16-ddb7-4e30-a44a-c311ab4313e1",
-      "scriptPath": "Examples/bp/PlayGrid.bp",
-      "_bp_data": {
-        "list1": {
-          "_$ref": "m37iujhp"
-        },
-        "list2": {
-          "_$ref": "9fsgaj5b"
-        }
+      "_$type": "5d599266-a1b3-474f-9cc6-9c9dc9cf51b4",
+      "scriptPath": "Examples/bp/PlayGrid.ts",
+      "list1": {
+        "_$ref": "m37iujhp"
+      },
+      "list2": {
+        "_$ref": "9fsgaj5b"
       }
     }
   ],

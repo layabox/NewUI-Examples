@@ -7,18 +7,16 @@
   "height": 570,
   "_$comp": [
     {
-      "_$type": "c95f0eb3-0892-4935-92cb-5e953ac2808e",
-      "scriptPath": "Examples/scripts/PlayDepth.bp",
-      "_bp_data": {
-        "button1": {
-          "_$ref": "qmykzx4u"
-        },
-        "button2": {
-          "_$ref": "yrg4uh4n"
-        },
-        "container": {
-          "_$ref": "lyjpd8zd"
-        }
+      "_$type": "9893fbc3-99f2-4810-b746-b1985e3580f1",
+      "scriptPath": "Examples/scripts/PlayDepth.ts",
+      "button1": {
+        "_$ref": "qmykzx4u"
+      },
+      "button2": {
+        "_$ref": "yrg4uh4n"
+      },
+      "container": {
+        "_$ref": "lyjpd8zd"
       }
     }
   ],

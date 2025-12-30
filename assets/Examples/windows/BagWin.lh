@@ -8,21 +8,19 @@
   "drawCallOptimize": true,
   "_$comp": [
     {
-      "_$type": "f1f0400e-3b4f-4933-b44b-e7c2e4812b0b",
-      "scriptPath": "Examples/scripts/BagWin.bp",
-      "_bp_data": {
-        "dots": {
-          "_$ref": "q73mds7p"
-        },
-        "list": {
-          "_$ref": "2czv72h8"
-        },
-        "label": {
-          "_$ref": "usgdixdb"
-        },
-        "img": {
-          "_$ref": "3mj6mh0f"
-        }
+      "_$type": "1c405af8-451d-4526-a4dc-eb1c536e318c",
+      "scriptPath": "Examples/scripts/BagWin.ts",
+      "dots": {
+        "_$ref": "q73mds7p"
+      },
+      "list": {
+        "_$ref": "2czv72h8"
+      },
+      "label": {
+        "_$ref": "usgdixdb"
+      },
+      "img": {
+        "_$ref": "3mj6mh0f"
       }
     }
   ],

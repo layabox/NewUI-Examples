@@ -15,8 +15,7 @@
     "popupMenu": "res://dc69fe83-f6c4-41bc-8f77-0de5fc243721"
   },
   "modules": {
-    "laya.ui": true,
-    "laya.blueprint": true
+    "laya.ui": true
   },
   "addons": {
     "laya.ui": "ui2"

@@ -12,15 +12,13 @@
   "drawCallOptimize": true,
   "_$comp": [
     {
-      "_$type": "432d6819-0928-4035-a7af-fe5629da815e",
-      "scriptPath": "Examples/scripts/Main.bp",
-      "_bp_data": {
-        "container": {
-          "_$ref": "15sjtobw"
-        },
-        "backButton": {
-          "_$ref": "5pra4k4u"
-        }
+      "_$type": "4827134a-b336-4029-9c41-9dc258ce15c5",
+      "scriptPath": "Examples/scripts/Main.ts",
+      "container": {
+        "_$ref": "15sjtobw"
+      },
+      "backButton": {
+        "_$ref": "5pra4k4u"
       }
     }
   ],
@@ -151,11 +149,9 @@
           "title": "Graphics",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://e129455a-0418-44f8-923f-cffcd913e404"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://e129455a-0418-44f8-923f-cffcd913e404"
             }
           ]
         },
@@ -170,11 +166,9 @@
           "title": "Image",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://a7e75bb8-6c51-4fa2-94c5-83e35d8c608d"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://a7e75bb8-6c51-4fa2-94c5-83e35d8c608d"
             }
           ]
         },
@@ -189,11 +183,9 @@
           "title": "MovieClip",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://becf3b7e-e62e-4d1f-a391-68c59c7e8a6b"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://becf3b7e-e62e-4d1f-a391-68c59c7e8a6b"
             }
           ]
         },
@@ -208,11 +200,9 @@
           "title": "Text",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://f19c5694-14f7-46a7-9437-4241492073d4"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://f19c5694-14f7-46a7-9437-4241492073d4"
             }
           ]
         },
@@ -227,11 +217,9 @@
           "title": "Loader",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://9da57b8c-7771-44d6-ab4e-0b69d2fac6a7"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://9da57b8c-7771-44d6-ab4e-0b69d2fac6a7"
             }
           ]
         },
@@ -246,11 +234,9 @@
           "title": "List",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://710ec448-48c4-4c57-aa68-fc068a2921ed"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://710ec448-48c4-4c57-aa68-fc068a2921ed"
             }
           ]
         },
@@ -265,11 +251,9 @@
           "title": "Grid",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://c068db7a-84a5-40b9-ba7a-e03d82d74627"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://c068db7a-84a5-40b9-ba7a-e03d82d74627"
             }
           ]
         },
@@ -284,11 +268,9 @@
           "title": "Controller",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://47d13bae-814e-41e6-b436-f687745afc90"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://47d13bae-814e-41e6-b436-f687745afc90"
             }
           ]
         },
@@ -303,11 +285,9 @@
           "title": "Relation",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://92338918-2298-4bbe-8e97-bf9f5000b710"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://92338918-2298-4bbe-8e97-bf9f5000b710"
             }
           ]
         },
@@ -322,11 +302,9 @@
           "title": "Clip&Scroll",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://071e9645-387d-4fa8-a21e-2a6f180d8de9"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://071e9645-387d-4fa8-a21e-2a6f180d8de9"
             }
           ]
         },
@@ -341,11 +319,9 @@
           "title": "Box",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://6e8f453a-c1c4-4d4b-a263-8f421d7540a2"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://6e8f453a-c1c4-4d4b-a263-8f421d7540a2"
             }
           ]
         },
@@ -360,11 +336,9 @@
           "title": "Label",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://6335a1f3-f6fc-46a6-bb4e-496fcb529108"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://6335a1f3-f6fc-46a6-bb4e-496fcb529108"
             }
           ]
         },
@@ -379,11 +353,9 @@
           "title": "Button",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://e1f23637-5963-4d3a-9efc-3ad230a69536"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://e1f23637-5963-4d3a-9efc-3ad230a69536"
             }
           ]
         },
@@ -398,11 +370,9 @@
           "title": "ComboBox",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://53f2b9c8-3f23-487a-bcb2-c25658178e27"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://53f2b9c8-3f23-487a-bcb2-c25658178e27"
             }
           ]
         },
@@ -417,11 +387,9 @@
           "title": "Slider",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://c10be42e-4e33-4bbe-832e-8a8f7f8b8173"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://c10be42e-4e33-4bbe-832e-8a8f7f8b8173"
             }
           ]
         },
@@ -436,11 +404,9 @@
           "title": "ProgressBar",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://dfae0ef3-cb7d-48a1-8b46-c64cdad779c9"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://dfae0ef3-cb7d-48a1-8b46-c64cdad779c9"
             }
           ]
         },
@@ -455,11 +421,9 @@
           "title": "Popup",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://b3e391db-9ac9-433e-a4e9-ed561f450720"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://b3e391db-9ac9-433e-a4e9-ed561f450720"
             }
           ]
         },
@@ -474,11 +438,9 @@
           "title": "Window",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://ed047dca-7013-47d7-b640-5c0dbc19eb15"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://ed047dca-7013-47d7-b640-5c0dbc19eb15"
             }
           ]
         },
@@ -493,11 +455,9 @@
           "title": "Depth",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://feb1573c-b7e6-4d1c-9799-ab0a59537eae"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://feb1573c-b7e6-4d1c-9799-ab0a59537eae"
             }
           ]
         },
@@ -512,11 +472,9 @@
           "title": "DragDrop",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://673959af-f0bf-4adb-bcff-edbe433337fb"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://673959af-f0bf-4adb-bcff-edbe433337fb"
             }
           ]
         },
@@ -531,11 +489,9 @@
           "title": "Chat",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://0d97a3a9-8429-40c7-9f61-2908a0e26b77"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://0d97a3a9-8429-40c7-9f61-2908a0e26b77"
             }
           ]
         },
@@ -550,11 +506,9 @@
           "title": "Guide",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://7921b9e1-b7a4-4732-a70d-7f0b5bde9fdb"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://7921b9e1-b7a4-4732-a70d-7f0b5bde9fdb"
             }
           ]
         },
@@ -569,11 +523,9 @@
           "title": "HitTest",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://ffb0d5fc-277a-47db-9e56-f31eff7754c1"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://ffb0d5fc-277a-47db-9e56-f31eff7754c1"
             }
           ]
         },
@@ -588,11 +540,9 @@
           "title": "Joystick",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://9474fc52-c684-422c-b3d5-e98c9b6b089e"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://9474fc52-c684-422c-b3d5-e98c9b6b089e"
             }
           ]
         },
@@ -607,11 +557,9 @@
           "title": "ModalWait",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://d8d7b5a6-357e-437c-b11a-95a54c5bc55d"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://d8d7b5a6-357e-437c-b11a-95a54c5bc55d"
             }
           ]
         },
@@ -626,11 +574,9 @@
           "title": "VirtualList",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://c8ad97f1-4f60-45ff-9a05-a5f574ebb910"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://c8ad97f1-4f60-45ff-9a05-a5f574ebb910"
             }
           ]
         },
@@ -645,11 +591,9 @@
           "title": "LoopList",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://822a30a3-28e0-4063-82ac-d54bd60afff7"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://822a30a3-28e0-4063-82ac-d54bd60afff7"
             }
           ]
         },
@@ -664,11 +608,9 @@
           "title": "Tree",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://142c8074-57f8-49a8-8449-59a906922461"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://142c8074-57f8-49a8-8449-59a906922461"
             }
           ]
         },
@@ -683,11 +625,9 @@
           "title": "PullToRefresh",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://9259fa55-0162-45b7-a602-e40c329f3994"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://9259fa55-0162-45b7-a602-e40c329f3994"
             }
           ]
         },
@@ -702,11 +642,9 @@
           "title": "DualScroll",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://10251f6c-fc9f-40a7-b275-e08cbf466388"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://10251f6c-fc9f-40a7-b275-e08cbf466388"
             }
           ]
         },
@@ -721,11 +659,9 @@
           "title": "Bag",
           "_$comp": [
             {
-              "_$type": "4b4a4106-ea7d-4a2f-b57b-56bd91f74d2e",
-              "scriptPath": "Examples/scripts/MainStartButton.bp",
-              "_bp_data": {
-                "PageRes": "res://02886658-776d-4107-a457-4a1bb3c8c5a4"
-              }
+              "_$type": "a25bb2cc-dd49-46f9-a078-e7592d2a13d5",
+              "scriptPath": "Examples/scripts/MainStartButton.ts",
+              "PageRes": "res://02886658-776d-4107-a457-4a1bb3c8c5a4"
             }
           ]
         }

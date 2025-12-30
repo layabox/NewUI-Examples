@@ -7,12 +7,10 @@
   "height": 570,
   "_$comp": [
     {
-      "_$type": "d3500eed-94a8-4e36-b17b-f11eaf8319b1",
-      "scriptPath": "Examples/scripts/PlayModalWait.bp",
-      "_bp_data": {
-        "btnOpenWin": {
-          "_$ref": "1s3kv619"
-        }
+      "_$type": "7ae53cd1-2859-4a07-90a4-930372bd11d8",
+      "scriptPath": "Examples/scripts/PlayModalWait.ts",
+      "btnOpenWin": {
+        "_$ref": "1s3kv619"
       }
     }
   ],

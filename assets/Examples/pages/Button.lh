@@ -26,12 +26,10 @@
   },
   "_$comp": [
     {
-      "_$type": "0c5598bf-90f5-45f1-916f-41fc636d26f9",
-      "scriptPath": "Examples/scripts/PlayButton.bp",
-      "_bp_data": {
-        "button": {
-          "_$ref": "s94rq2tz"
-        }
+      "_$type": "e30c64fe-bc7b-477a-95c2-32c6c361240f",
+      "scriptPath": "Examples/scripts/PlayButton.ts",
+      "button": {
+        "_$ref": "s94rq2tz"
       }
     }
   ],

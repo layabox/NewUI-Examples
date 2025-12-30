@@ -7,24 +7,22 @@
   "height": 570,
   "_$comp": [
     {
-      "_$type": "714ba844-96ab-4ca2-b252-7434a36effab",
-      "scriptPath": "Examples/scripts/PlayDragDrop.bp",
-      "_bp_data": {
-        "grid0": {
-          "_$ref": "qtpws8ft"
-        },
-        "grid1": {
-          "_$ref": "nmt0uvme"
-        },
-        "grid2": {
-          "_$ref": "ejzu0huy"
-        },
-        "grid3": {
-          "_$ref": "bpnrs7p8"
-        },
-        "dragArea": {
-          "_$ref": "tjiripkp"
-        }
+      "_$type": "11e266ae-0df7-4719-9876-85ba5ccf5cff",
+      "scriptPath": "Examples/scripts/PlayDragDrop.ts",
+      "grid0": {
+        "_$ref": "qtpws8ft"
+      },
+      "grid1": {
+        "_$ref": "nmt0uvme"
+      },
+      "grid2": {
+        "_$ref": "ejzu0huy"
+      },
+      "grid3": {
+        "_$ref": "bpnrs7p8"
+      },
+      "dragArea": {
+        "_$ref": "tjiripkp"
       }
     }
   ],
