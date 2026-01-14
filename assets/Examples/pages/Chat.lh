@@ -1,6 +1,10 @@
 {
   "_$ver": 1,
   "_$id": "ffrlgq1l",
+  "_$preloads": [
+    "res://229814f8-c962-45fd-ab8e-5630d106ab5b",
+    "res://1e093337-0955-4ef7-8700-6b2cffba0a98"
+  ],
   "_$type": "GWidget",
   "name": "Root",
   "width": 1136,
@@ -85,7 +89,7 @@
           "x": 0,
           "y": 0,
           "visible": true,
-          "height": 94
+          "height": 97
         }
       ]
     },
